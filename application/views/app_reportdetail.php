@@ -70,6 +70,9 @@
 								<div class="form-group">
 									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-search"></i> Show</button>
 								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-external-link"></i> Generate Report</button>
+								</div>
 							</div>
 						</div>
 					</div>
