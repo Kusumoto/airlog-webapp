@@ -55,10 +55,24 @@
 		// get data from model
  		$app_list = $this->application_model->get();
  		// load application overview list view
- 		$this->load->view('template/header_common',array('setTitle' => 'Function Overview'));
- 		$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
- 		$this->load->view('template/menu',array("setActiveMenu" => 3,"Firstname" => $this->session->userdata('Firstname')));
- 		$this->load->view('func_preoverview',array("app_list" => $app_list));
+ 		$this->load->view('template/header_common',array(
+ 			'setTitle' 		=> 		'Function Overview'
+ 			)
+ 		);
+ 		$this->load->view('template/header',array(
+ 			'Firstname'		=> 		$this->session->userdata('Firstname'), 
+ 			'Lastname' 		=> 		$this->session->userdata('Lastname')
+ 			)
+ 		);
+ 		$this->load->view('template/menu',array(
+ 			'setActiveMenu' => 		3,
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname')
+ 			)
+ 		);
+ 		$this->load->view('func_preoverview',array(
+ 			'app_list' 		=> 		$app_list
+ 			)
+ 		);
  		$this->load->view('template/footer');
  	}
 
@@ -74,10 +88,24 @@
 		// get data from model
  		$app_list = $this->application_model->get();
  		// load application manage list view
- 		$this->load->view('template/header_common',array('setTitle' => 'Function Management'));
- 		$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
- 		$this->load->view('template/menu',array("setActiveMenu" => 3,"Firstname" => $this->session->userdata('Firstname')));
- 		$this->load->view('func_premanage',array("app_list" => $app_list));
+ 		$this->load->view('template/header_common',array(
+ 			'setTitle' 		=> 		'Function Management'
+ 			)
+ 		);
+ 		$this->load->view('template/header',array(
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname'), 
+ 			'Lastname' 		=> 		$this->session->userdata('Lastname')
+ 			)
+ 		);
+ 		$this->load->view('template/menu',array(
+ 			'setActiveMenu' => 		3,
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname')
+ 			)
+ 		);
+ 		$this->load->view('func_premanage',array(
+ 			'app_list' 		=> 		$app_list
+ 			)
+ 		);
  		$this->load->view('template/footer');
  	}
 
@@ -89,10 +117,25 @@
  		// Load functions model
  		$this->load->model('function_model');
  		// load functions reort view
- 		$this->load->view('template/header_common',array('setTitle' => 'Function Report'));
- 		$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
- 		$this->load->view('template/menu',array("setActiveMenu" => 3, "Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata("Lastname")));
- 		$this->load->view('func_reportdetail',array("function" => $this->function_model->get()));
+ 		$this->load->view('template/header_common',array(
+ 			'setTitle' 		=> 		'Function Report'
+ 			)
+ 		);
+ 		$this->load->view('template/header',array(
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname'), 
+ 			'Lastname' 		=> 		$this->session->userdata('Lastname')
+ 			)
+ 		);
+ 		$this->load->view('template/menu',array(
+ 			'setActiveMenu' => 		3, 
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname'), 
+ 			'Lastname' 		=> 		$this->session->userdata("Lastname")
+ 			)
+ 		);
+ 		$this->load->view('func_reportdetail',array(
+ 			'function' 		=> 		$this->function_model->get()
+ 			)
+ 		);
  		$this->load->view('template/footer');
  	}
 
@@ -108,7 +151,10 @@
 		// get data from model
  		$JSON = $this->function_model->get();
 		// return REST
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
  	/**
@@ -126,14 +172,18 @@
  		$this->form_validation->set_rules('func_appid', 'Application', 'required');
  		$this->form_validation->set_rules('func_primary', 'Function Primary', 'required');
 		// Start Validation
- 		if ($this->form_validation->run() == FALSE) {
+ 		if ($this->form_validation->run() == FALSE) 
+ 		{
  			$JSON = array('status' => 403, 'message' => 'Data input not corrent!');
- 		} else {
+ 		} 
+ 		else 
+ 		{
 			// Load application model
  			$this->load->model('application_model');
 			// Set variable in application model
  			$this->application_model->setID($this->input->post('func_appid',true));
- 			if ($this->application_model->getdetail()) {
+ 			if ($this->application_model->getdetail()) 
+ 			{
 				// Load function model
  				$this->load->model('function_model');
 				// Set value to variable
@@ -142,16 +192,33 @@
  				$this->function_model->setFunctionName($this->input->post('func_name',true));
  				$this->function_model->setFunctionToken($this->input->post('func_token',true));
  				$this->function_model->setFunctionPrimary($this->input->post('func_primary',true));
- 				if ($this->function_model->add()) {
- 					$JSON = array('status' => 200, 'message' => 'Add function data successful!');
- 				} else {
- 					$JSON = array('status' => 500, 'message' => 'Database Error!');
+ 				if ($this->function_model->add()) 
+ 				{
+ 					$JSON = array(
+ 						'status' 		=> 		200, 
+ 						'message' 		=> 		'Add function data successful!'
+ 						);
+ 				} 
+ 				else 
+ 				{
+ 					$JSON = array(
+ 						'status' 		=> 		500, 
+ 						'message' 		=> 		'Database Error!'
+ 						);
  				}
- 			} else {
- 				$JSON = array('status' => 404, 'message' => 'App ID Not found!');
+ 			} 
+ 			else 
+ 			{
+ 				$JSON = array(
+ 					'status' 		=> 		404, 
+ 					'message' 		=> 		'App ID Not found!'
+ 					);
  			}
  		}
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
 	/**
@@ -170,13 +237,26 @@
 			$this->function_model->setID($_id);
 			// Get functions data detail from database
 			if ($this->function_model->getdetail())
-				$JSON = array('status' => 200, 'function_id' => $_id, 'function_name' => $this->function_model->getFunctionName(), 'function_token' => $this->function_model->getFunctionToken(), 'application_id' => $this->function_model->getApplicationID(), 'function_primary' => $this->function_model->getFunctionPrimary());
+				$JSON = array(
+					'status' 			=> 		200, 
+					'function_id' 		=> 		$_id, 
+					'function_name' 	=> 		$this->function_model->getFunctionName(), 
+					'function_token' 	=> 		$this->function_model->getFunctionToken(), 
+					'application_id' 	=> 		$this->function_model->getApplicationID(), 
+					'function_primary' 	=> 		$this->function_model->getFunctionPrimary());
 			else
-				$JSON = array('status' => 403, 'message' => 'Error Database!');
-		} else {
+				$JSON = array(
+					'status' 		=> 		403, 
+					'message' 		=> 		'Error Database!');
+		} 
+		else 
+		{
 			show_error('Method not allowed', 403);
 		}
-		$this->load->view('json',array("JSON" => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -188,13 +268,15 @@
 		$JSON = array();
 		// get _id from post method
 		$_id = $this->input->post('_id', true);
-		if (!empty($_id)) {
+		if (!empty($_id)) 
+		{
 			// Load function model
 			$this->load->model('function_model');
 			// Set variable in function model
 			$this->function_model->setID($_id);
 			// Delete function in database
-			if ($this->function_model->delete()) {
+			if ($this->function_model->delete()) 
+			{
 				// Load logger and used model
 				$this->load->model('logger_model');
 				$this->load->model('used_model');
@@ -202,18 +284,37 @@
 				$this->logger_model->setFuncID($_id);
 				$this->used_model->setUseFuncID($_id);
 				// Delete logger and used data
-				if ($this->logger_model->dellogbyfunc() && $this->used_model->dellogbyfunc()) {
-					$JSON = array("status" => 200, "message" => "Delete function data successful!");		
-				} else {
-					$JSON = array('status' => 403, 'message' => 'Database Error!');
+				if ($this->logger_model->dellogbyfunc() && $this->used_model->dellogbyfunc()) 
+				{
+					$JSON = array(
+						'status' 	=> 		200,
+						'message' 	=> 		'Delete function data successful!'
+						);		
+				} 
+				else 
+				{
+					$JSON = array(
+						'status' 	=> 		403, 
+						'message' 	=> 		'Database Error!'
+						);
 				}
-			} else {
-				$JSON = array('status' => 403, 'message' => 'Database Error!');
+			} 
+			else 
+			{
+				$JSON = array(
+					'status' 		=> 		403, 
+					'message' 		=> 		'Database Error!'
+					);
 			}		
-		} else {
+		} 
+		else 
+		{
 			show_error('Method not allowed',403);
 		}
-		$this->load->view('json',array("JSON" => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -232,14 +333,21 @@
 		$this->form_validation->set_rules('func_appid', 'Application', 'required');
 		$this->form_validation->set_rules('func_primary', 'Function Primary', 'required');
 		// Start Validation
-		if ($this->form_validation->run() == FALSE) {
-			$JSON = array('status' => 403, 'message' => 'Data input not corrent!');
-		} else {
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$JSON = array(
+				'status' 		=> 		403, 
+				'message' 		=> 		'Data input not corrent!'
+				);
+		} 
+		else 
+		{
 			// Load application model
 			$this->load->model('application_model');
 			// Set variable in application model
 			$this->application_model->setID($this->input->post('func_appid',true));
-			if ($this->application_model->getdetail()) {
+			if ($this->application_model->getdetail()) 
+			{
 				// Load function model
 				$this->load->model('function_model');
  				// Set variable in functions model
@@ -250,7 +358,8 @@
 				$this->function_model->setFunctionToken($this->input->post('func_token',true));
 				$this->function_model->setFunctionPrimary($this->input->post('func_primary',true));
 				// Add function detail to database
-				if ($this->function_model->update()) {
+				if ($this->function_model->update()) 
+				{
 					// load logger model
 					$this->load->model('logger_model');
 					// load used model
@@ -260,20 +369,42 @@
 					$this->logger_model->setFuncID($this->input->post('func_idedit',true));
 					$this->used_model->setUseFuncID($this->input->post('func_idedit',true));
 					$this->used_model->setUseFuncName($this->input->post('func_name',true));
-					if ($this->logger_model->updatefuncname() && $this->used_model->updatefuncname()) {
-						$JSON = array('status' => 200, 'message' => 'Update function data successful!');
-					} else {
-						$JSON = array('status' => 500, 'message' => 'Database error!');
+					if ($this->logger_model->updatefuncname() && $this->used_model->updatefuncname()) 
+					{
+						$JSON = array(
+							'status' 		=> 		200, 
+							'message' 		=> 		'Update function data successful!'
+							);
+					} 
+					else 
+					{
+						$JSON = array(
+							'status' 		=> 		500, 
+							'message' 		=> 		'Database error!'
+							);
 					}
 					
-				} else {
-					$JSON = array('status' => 500, 'message' => 'Database error!');
+				} 
+				else 
+				{
+					$JSON = array(
+						'status' 		=> 		500, 
+						'message' 		=> 		'Database error!'
+						);
 				}
-			} else {
-				$JSON = array('status' => 404, 'message' => 'App ID Not found!');
+			} 
+			else 
+			{
+				$JSON = array(
+					'status' 		=> 		404, 
+					'message' 		=> 		'App ID Not found!'
+					);
 			}
 		}
-		$this->load->view('json',array("JSON" => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -290,12 +421,18 @@
 		// Load logger model
 		$this->load->model('logger_model');
 		// check data variable to get a model function
-		if (empty($daterange) && empty($typeselect) && empty($function_id)) {
+		if (empty($daterange) && empty($typeselect) && empty($function_id)) 
+		{
 			$JSON = $this->logger_model->get();
-		} else {
+		} 
+		else 
+		{
 			$JSON = $this->logger_model->getif_func($daterange,$typeselect,$function_id);
 		}
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -316,14 +453,33 @@
 		// Get application data detail from database
 		$this->application_model->getdetail();
  		// check _id in database
-		if (!empty($this->function_model->getFunctionName())) {
+		if (!empty($this->function_model->getFunctionName())) 
+		{
  			// load application reort view
-			$this->load->view('template/header_common',array('setTitle' => $this->function_model->getFunctionName() . " : Overview"));
-			$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
-			$this->load->view('template/menu',array("setActiveMenu" => 3, "Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata("Lastname")));
-			$this->load->view('func_overview',array("function_detail" => $this->function_model, "application_detail" => $this->application_model));
+			$this->load->view('template/header_common',array(
+				'setTitle' 				=> 		$this->function_model->getFunctionName() . ' : Overview'
+				)
+			);
+			$this->load->view('template/header',array(
+				'Firstname' 			=> 		$this->session->userdata('Firstname'), 
+				'Lastname' 				=> 		$this->session->userdata('Lastname')
+				)
+			);
+			$this->load->view('template/menu',array(
+				'setActiveMenu' 		=> 		3, 
+				'Firstname' 			=> 		$this->session->userdata('Firstname'), 
+				'Lastname' 				=> 		$this->session->userdata("Lastname")
+				)
+			);
+			$this->load->view('func_overview',array(
+				'function_detail' 		=> 		$this->function_model, 
+				'application_detail' 	=> 		$this->application_model
+				)
+			);
 			$this->load->view('template/footer');
-		} else {
+		} 
+		else 
+		{
 			show_error('ID not found!',404);
 		}
 	}
@@ -364,7 +520,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
@@ -373,8 +530,13 @@
 			// get data from model
 			$JSON = $this->logger_model->graphmonthsummaryfunc();
 
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -389,7 +551,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
@@ -398,8 +561,13 @@
 			// get data from model
 			$JSON = $this->logger_model->graphyearsummaryfunc();
 
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -415,7 +583,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load Used model
 			$this->load->model('used_model');
 			// set variable in used model
@@ -423,8 +592,13 @@
 			$this->used_model->setUseDate($day);
 			// get data from model
 			$JSON = $this->used_model->graphdayusedfunc();
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -449,8 +623,13 @@
 			// get data from model
 			$JSON = $this->used_model->graphmonthusedfunc();
 
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -466,7 +645,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load Used model
 			$this->load->model('used_model');
 			// set variable in used model
@@ -475,8 +655,13 @@
 			// get data from model
 			$JSON = $this->used_model->graphyearusedfunc();
 
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -492,7 +677,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
@@ -500,8 +686,13 @@
 			$this->logger_model->setLogDate($day);
 			// get data from model
 			$JSON = $this->logger_model->graphdaysummaryratiofunc();
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -517,7 +708,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
@@ -525,8 +717,13 @@
 			$this->logger_model->setLogDate($day);
 			// get data from model
 			$JSON = $this->logger_model->graphmonthsummaryratiofunc();
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -542,7 +739,8 @@
 		$func_id = $this->input->post('_id',true);
 		$day = $this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
@@ -550,8 +748,13 @@
 			$this->logger_model->setLogDate($day);
 			// get data from model
 			$JSON = $this->logger_model->graphyearsummaryratiofunc();
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$this->load->view('json', array(
+				'JSON' 		=> 		$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}

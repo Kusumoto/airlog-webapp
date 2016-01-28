@@ -58,10 +58,26 @@
  		// load user model
  		$this->load->model('users_model');
  		// load dashboard view
- 		$this->load->view('template/header_common',array("setTitle" => "Dashboard"));
- 		$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
- 		$this->load->view('template/menu',array("setActiveMenu" => 1,"Firstname" => $this->session->userdata('Firstname')));
- 		$this->load->view('dashboard',array("countApp" => $this->application_model->countapp(), "countFunc" => $this->function_model->countfunction(), "countUser" => $this->users_model->countuser()));
+ 		$this->load->view('template/header_common',array(
+ 			'setTitle' 		=> 		'Dashboard'
+ 			)
+ 		);
+ 		$this->load->view('template/header',array(
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname'),
+ 			'Lastname' 		=> 		$this->session->userdata('Lastname')
+ 			)
+ 		);
+ 		$this->load->view('template/menu',array(
+ 			'setActiveMenu' => 		1,
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname')
+ 			)
+ 		);
+ 		$this->load->view('dashboard',array(
+ 			'countApp' 		=> 		$this->application_model->countapp(),
+ 			'countFunc' 	=> 		$this->function_model->countfunction(),
+ 			'countUser' 	=> 		$this->users_model->countuser()
+ 			)
+ 		);
  		$this->load->view('template/footer');
  	}
 
@@ -78,7 +94,10 @@
  		$this->logger_model->setLogDate(date('Y-m-d'));
 		// get data from model
  		$JSON = $this->logger_model->graphdaysummary_dashboard();
- 		$this->load->view('json', array("JSON" => $JSON));
+ 		$this->load->view('json', array(
+ 			'JSON' 		=>		 $JSON
+ 			)
+ 		);
  	}
 
 	/**
@@ -95,7 +114,10 @@
 		// get data from model
 		$JSON = $this->logger_model->graphmonthsummary_dashboard();
 
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -111,7 +133,10 @@
 		$this->logger_model->setLogDate(date('Y-m-d'));
 		// get data from model
 		$JSON = $this->logger_model->graphyearsummary_dashboard();
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -127,7 +152,10 @@
 		$this->used_model->setUseDate(date('Y-m-d'));
 		// get data from model
 		$JSON = $this->used_model->graphdayused_dashboard();
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -143,7 +171,10 @@
 		$this->used_model->setUseDate(date('Y-m-d'));
 		// get data from model
 		$JSON = $this->used_model->graphmonthused_dashboard();
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -160,7 +191,10 @@
 		// get data from model
 		$JSON = $this->used_model->graphyearused_dashboard();
 
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -174,7 +208,10 @@
 		$this->load->model('function_model');
 		// get data from model
 		$JSON = $this->function_model->countfuncinapp();
-		$this->load->view('json', array("JSON" => $JSON));
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -201,8 +238,14 @@
 		$cpu = array();
 		foreach($dif as $x=>$y) $cpu[$x] = round($y / $total * 100, 1);
 		// set data cpu
-		$JSON = array('status' => 200, 'cpu' => $cpu['user']+$cpu['sys']);
-		$this->load->view('json', array("JSON" => $JSON));
+		$JSON = array(
+			'status' 	=> 		200, 
+			'cpu' 		=> 		$cpu['user']+$cpu['sys']
+			);
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -221,8 +264,14 @@
 		$mem = array_merge($mem);
 		$memory_usage = $mem[2]/$mem[1]*100;
 		// set data memory
-		$JSON = array('status' => 200, 'memory' => (int)$memory_usage);
-		$this->load->view('json', array("JSON" => $JSON));
+		$JSON = array(
+			'status' 	=> 		200, 
+			'memory' 	=> 		(int)$memory_usage
+			);
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -240,8 +289,14 @@
 		$du = $dt - $df;
 		// percentage of disk used
 		$dp = sprintf('%d',($du / $dt) * 100);
-		$JSON = array('status' => 200, 'disk' => $dp);
-		$this->load->view('json', array("JSON" => $JSON));
+		$JSON = array(
+			'status' 	=> 		200, 
+			'disk' 		=> 		$dp
+			);
+		$this->load->view('json', array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -254,29 +309,49 @@
 		// Load setting_model model
 		$this->load->model('setting_model');
 		$this->setting_model->setVariable('apiurl');
-		if ($this->setting_model->getData()) {
+		if ($this->setting_model->getData()) 
+		{
 			$urlapi = $this->setting_model->getValue();
-			try {
+			try 
+			{
 				$headercontent = get_headers($urlapi,1);
-				if ($headercontent[0] == "HTTP/1.1 200 OK") {
+				if ($headercontent[0] == "HTTP/1.1 200 OK") 
+				{
 					// Check Content Webservice response
-					try {
+					try 
+					{
 						$service_content = file_get_contents($urlapi);
 						$json_parse = json_decode($service_content);
-						if ($json_parse->Status && $json_parse->API_Version) {
-							$JSON = array('status' => 200);
+						if ($json_parse->Status && $json_parse->API_Version) 
+						{
+							$JSON = array(
+								'status' 	=> 		200
+								);
 						}
-					} catch (Exception $e) {
-						$JSON = array('Status' => 503);
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 		503
+							);
 					}
 				} else {
-					$JSON = array('status' => 503);
+					$JSON = array(
+						'status' 		=> 		503
+						);
 				}			
-			} catch(Exception $e) {
-				$JSON = array('status' => 503);
+			} 
+			catch(Exception $e) 
+			{
+				$JSON = array(
+					'status' 		=> 		503
+					);
 			}
 			
-			$this->load->view('json',array('JSON' => $JSON));
+			$this->load->view('json',array(
+				'JSON' 		=> 		$JSON
+				)
+			);
 		}
 	}
 
@@ -300,11 +375,18 @@
 		$headercontent = get_headers(site_url(),1);
 				// Check HTTP Request Header
 		if ($headercontent[0] == "HTTP/1.1 200 OK") {
-			$JSON = array('status' => 200);
+			$JSON = array(
+				'status' 	=> 	200
+				);
 		} else {
-			$JSON = array('status' => 503);
+			$JSON = array(
+				'status' 	=> 	503
+				);
 		}
-		$this->load->view('json',array('JSON' => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -317,11 +399,18 @@
 		// sell for restart tomcat
 		shell_exec('sudo /opt/tomcat/bin/shutdown.sh');
 		if (shell_exec('sudo /opt/tomcat/bin/startup.sh')) {
-			$JSON = array('status' => 200);
+			$JSON = array(
+				'status' 	=> 		200
+				);
 		} else {
-			$JSON = array('status' => 500);
+			$JSON = array(
+				'status' 	=> 		500
+				);
 		}
-		$this->load->view('json',array('JSON' => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -333,11 +422,18 @@
 		$JSON = array();
 		// sell for restart mongodb
 		if (shell_exec('sudo /etc/init.d/mongod restart')) {
-			$JSON = array('status' => 200);
+			$JSON = array(
+				'status' 	=> 	200
+				);
 		} else {
-			$JSON = array('status' => 500);
+			$JSON = array(
+				'status' 	=> 	500
+				);
 		}
-		$this->load->view('json',array('JSON' => $JSON));
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -349,8 +445,13 @@
 		$JSON = array();
 		// sell for reboot
 		shell_exec('sudo reboot');
-		$JSON = array('status' => 200);
-		$this->load->view('json',array('JSON' => $JSON));
+		$JSON = array(
+			'status' 	=> 		200
+			);
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 
 	/**
@@ -362,7 +463,12 @@
 		$JSON = array();
 		// sell for shutdown
 		shell_exec('sudo poweroff');
-		$JSON = array('status' => 200);
-		$this->load->view('json',array('JSON' => $JSON));
+		$JSON = array(
+			'status' 	=> 		200
+			);
+		$this->load->view('json',array(
+			'JSON' 		=> 		$JSON
+			)
+		);
 	}
 }

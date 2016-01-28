@@ -64,18 +64,22 @@
  		if (!$this->session->userdata('isLogin')) // if not login
  		{
  			// Check POST Method
- 			if ($this->input->post()) {
+ 			if ($this->input->post()) 
+ 			{
  				// Load form validation library
  				$this->load->library('form_validation');
  				// Set Rules form validation
  				$this->form_validation->set_rules('username', 'Username', 'trim|required');
  				$this->form_validation->set_rules('password', 'Password', 'trim|required');
  				// Start validation
- 				if ($this->form_validation->run() == FALSE) {
+ 				if ($this->form_validation->run() == FALSE) 
+ 				{
  					$this->load->view('authenticate/header');
  					$this->load->view('authenticate/body');
  					$this->load->view('authenticate/footer');
- 				} else {
+ 				} 
+ 				else 
+ 				{
  					// Load users database model
  					$this->load->model('users_model');
  					// assign variable
@@ -85,7 +89,8 @@
  					$this->users_model->setUsername($username);
  					$this->users_model->setPassword($password);
  					// check data in database
- 					if ($this->users_model->checkLogin()) {
+ 					if ($this->users_model->checkLogin()) 
+ 					{
  						// save session
  						$sessiondata = array(
  							'isLogin' => true,
@@ -96,20 +101,29 @@
  						$this->session->set_userdata($sessiondata);
  						// redirect to dashboard
  						redirect('/dashboard','refresh');
- 					} else {
+ 					} 
+ 					else 
+ 					{
  						// load login view
  						$this->load->view('authenticate/header');
- 						$this->load->view('authenticate/body',array('ErrorMessage' => 'Invalid username or password'));
+ 						$this->load->view('authenticate/body',array(
+ 							'ErrorMessage' 		=> 		'Invalid username or password'
+ 							)
+ 						);
  						$this->load->view('authenticate/footer');
  					}
  				}
- 			} else {	
+ 			} 
+ 			else 
+ 			{	
  				// load login view
  				$this->load->view('authenticate/header');
  				$this->load->view('authenticate/body');
  				$this->load->view('authenticate/footer');
  			} 
- 		} else { // if logged in 
+ 		} 
+ 		else 
+ 		{ 	// if logged in 
  			// redirect to dashboard
  			redirect('/dashboard','refresh');
  		}
@@ -171,9 +185,20 @@
  			redirect('/authenticate/login','refresh');
 
  		// load application overview list view
- 		$this->load->view('template/header_common',array('setTitle' => 'User Management'));
- 		$this->load->view('template/header',array("Firstname" => $this->session->userdata('Firstname'), "Lastname" => $this->session->userdata('Lastname')));
- 		$this->load->view('template/menu',array("setActiveMenu" => 5,"Firstname" => $this->session->userdata('Firstname')));
+ 		$this->load->view('template/header_common',array(
+ 			'setTitle' 		=> 		'User Management'
+ 			)
+ 		);
+ 		$this->load->view('template/header',array(
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname'),
+ 			'Lastname' 		=> 		$this->session->userdata('Lastname')
+ 			)
+ 		);
+ 		$this->load->view('template/menu',array(
+ 			'setActiveMenu' => 		5,
+ 			'Firstname' 	=> 		$this->session->userdata('Firstname')
+ 			)
+ 		);
  		$this->load->view('userlist');
  		$this->load->view('template/footer');
  	}
@@ -195,9 +220,15 @@
  		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
  		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
 		// Start Validation
- 		if ($this->form_validation->run() == FALSE) {
- 			$JSON = array('status' => 400, 'message' => validation_errors());
- 		} else {
+ 		if ($this->form_validation->run() == FALSE) 
+ 		{
+ 			$JSON = array(
+ 				'status' 	=> 		400, 
+ 				'message' 	=> 		validation_errors()
+ 			);
+ 		} 
+ 		else 
+ 		{
  			// Get input form to variable
  			$username = $this->input->post('username', true);
  			$password = md5($this->input->post('password1', true));
@@ -210,22 +241,40 @@
  			$this->users_model->setUsername($username);
  			$this->users_model->setPassword($password);
  			// check dulplicate
- 			if (!$this->users_model->checkdup()) {
+ 			if (!$this->users_model->checkdup()) 
+ 			{
  				// set aditional data
  				$this->users_model->setEmail($email);
  				$this->users_model->setFirstname($firstname);
  				$this->users_model->setLastname($lastname);
  				// save user to database
- 				if ($this->users_model->add()) {
- 					$JSON = array('status' => 200, 'message' => 'Add new user successful!');
- 				} else {
- 					$JSON = array('status' => 500, 'message' => 'Database Error!!');
+ 				if ($this->users_model->add()) 
+ 				{
+ 					$JSON = array(
+ 						'status' 		=> 		200,
+ 						'message' 		=> 		'Add new user successful!'
+ 					);
+ 				} 
+ 				else 
+ 				{
+ 					$JSON = array(
+ 						'status' 		=> 		500, 
+ 						'message' 		=> 		'Database Error!!'
+ 					);
  				}	
- 			} else {
- 				$JSON = array('status' => 403, 'message' => 'Duplicate username in system.');
+ 			} 
+ 			else 
+ 			{
+ 				$JSON = array(
+ 					'status' 		=> 		403, 
+ 					'message' 		=> 		'Duplicate username in system.'
+ 				);
  			}
  		}
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
  	/**
@@ -240,7 +289,10 @@
 		// get data from model
  		$JSON = $this->users_model->get();
 		// return REST
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
  	/**
@@ -259,13 +311,24 @@
  			$this->users_model->setID($_id);
 			// Delete users in database
  			if ($this->users_model->delete())
- 				$JSON = array("status" => 200, "message" => "Delete user data successful!");
+ 				$JSON = array(
+ 					'status' 		=> 		200,
+ 					'message' 		=>		'Delete user data successful!'
+ 				);
  			else
- 				$JSON = array('status' => 403, 'message' => 'You mush to delete all this user in system, don\'t try it.');
- 		} else {
+ 				$JSON = array(
+ 					'status' 		=> 		403,
+ 					'message' 		=> 		'You mush to delete all this user in system, don\'t try it.'
+ 				);
+ 		} 
+ 		else 
+ 		{
  			show_error('Method not allowed',403);
  		}
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
  	/**
@@ -284,13 +347,27 @@
  			$this->users_model->setID($_id);
 			// Get application data detail from database
  			if ($this->users_model->getdetail())
- 				$JSON = array('status' => 200, 'username' => $this->users_model->getUsername(), 'firstname' => $this->users_model->getFirstname(), 'lastname' => $this->users_model->getLastname(), 'email' => $this->users_model->getEmail());
+ 				$JSON = array(
+ 					'status' 		=> 		200, 
+ 					'username' 		=> 		$this->users_model->getUsername(), 
+ 					'firstname' 	=> 		$this->users_model->getFirstname(), 
+ 					'lastname' 		=> 		$this->users_model->getLastname(), 
+ 					'email' 		=> 		$this->users_model->getEmail()
+ 				);
  			else
- 				$JSON = array('status' => 403, 'message' => 'Error Database!');
- 		} else {
+ 				$JSON = array(
+ 					'status' 		=> 		403,
+ 					'message' 		=> 		'Error Database!'
+ 				);
+ 		} 
+ 		else 
+ 		{
  			show_error('Method not allowed', 403);
  		}
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
 
  	public function updatedata()
@@ -308,9 +385,12 @@
  		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
  		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
 		// Start Validation
- 		if ($this->form_validation->run() == FALSE) {
+ 		if ($this->form_validation->run() == FALSE) 
+ 		{
  			$JSON = array('status' => 400, 'message' => validation_errors());
- 		} else {
+ 		} 
+ 		else 
+ 		{
  			// Get input form to variable
  			$id = $this->input->post('user_editid', true);
  			$username = $this->input->post('username', true);
@@ -324,17 +404,29 @@
  			$this->users_model->setID($id);
  			$this->users_model->setUsername($username);
  			$this->users_model->setPassword($password);
- 				// set aditional data
+ 			// set aditional data
  			$this->users_model->setEmail($email);
  			$this->users_model->setFirstname($firstname);
  			$this->users_model->setLastname($lastname);
- 				// save user to database
- 			if ($this->users_model->update()) {
- 				$JSON = array('status' => 200, 'message' => 'Update user successful!');
- 			} else {
- 				$JSON = array('status' => 500, 'message' => 'Database Error!!');
+ 			// save user to database
+ 			if ($this->users_model->update()) 
+ 			{
+ 				$JSON = array(
+ 					'status' 		=> 		200, 
+ 					'message' 		=> 		'Update user successful!'
+ 				);
+ 			} 
+ 			else 
+ 			{
+ 				$JSON = array(
+ 					'status' 		=> 		500, 
+ 					'message' 		=> 		'Database Error!!'
+ 				);
  			}	
  		}
- 		$this->load->view('json',array("JSON" => $JSON));
+ 		$this->load->view('json',array(
+ 			'JSON' 		=> 		$JSON
+ 			)
+ 		);
  	}
  }

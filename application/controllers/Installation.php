@@ -48,60 +48,85 @@
 		$serversoftware_main = trim($_SERVER['SERVER_SOFTWARE']);
 		$serversoftware_strip1 = explode('/', $serversoftware_main);
 		$serversoftware_final = explode('(', $serversoftware_strip1[1]);
-			if ((double)$serversoftware_final[0] >= 2.2) {
+			if ((double)$serversoftware_final[0] >= 2.2) 
+			{
 				$webserverresult = "<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".$serversoftware_main;
-			} else {
+			} 
+			else 
+			{
 				$webserverresult = "<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".$serversoftware_main;
 				$pass = false;
 			}
-		// Grap Version of PHP
-			if (phpversion() >= 5.3) {
+			// Grap Version of PHP
+			if (phpversion() >= 5.3) 
+			{
 				$phpresult = "<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".phpversion();
-			} else {
+			} 
+			else 
+			{
 				$phpresult = "<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".phpversion();
 				$pass = false;
 			}
-		// Check Root Path Can Writable
-			if (is_writable(FCPATH)) {
+			// Check Root Path Can Writable
+			if (is_writable(FCPATH)) 
+			{
 				$filewriter1result = "<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} else {
+			} 
+			else 
+			{
 				$filewriter1result = "<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
 				$pass = false;
 			}
-		// Check Configure Path Can Writable
-			if (is_writable(APPPATH.'config/')) {
+			// Check Configure Path Can Writable
+			if (is_writable(APPPATH.'config/')) 
+			{
 				$filewriter2result = "<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} else {
+			} 
+			else 
+			{
 				$filewriter2result = "<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
 				$pass = false;
 			}
-		// Check PHP JSON Module
-			if (extension_loaded('json')) {
+			// Check PHP JSON Module
+			if (extension_loaded('json')) 
+			{
 				$jsonmodule = "<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} else {
+			} 
+			else 
+			{
 				$jsonmodule = "<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
 				$pass = false;
 			}
-		// Check PHP MongoDB Module
-			if (extension_loaded('mongo')) {
+			// Check PHP MongoDB Module
+			if (extension_loaded('mongo')) 
+			{
 				$mongomodule = "<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} else {
+			} 
+			else 
+			{
 				$mongomodule = "<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
 				$pass = false;
 			}
-		// Check PHP Mcrypt Module
-			if (extension_loaded('mcrypt')) {
+			// Check PHP Mcrypt Module
+			if (extension_loaded('mcrypt')) 
+			{
 				$mcryptmodule = "<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} else {
+			} 
+			else 
+			{
 				$mcryptmodule = "<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
 				$pass = false;
 			}
-		// If Do_POST Submition
-			if ($pass && $this->input->post()) {
+			// If Do_POST Submition
+			if ($pass && $this->input->post()) 
+			{
 				// Check Access Token
-				if ($this->input->post('token',true) != $this->session->userdata('token_install')) {
+				if ($this->input->post('token',true) != $this->session->userdata('token_install')) 
+				{
 					show_error('Access Token Invalid.',500);					
-				} else {
+				} 
+				else 
+				{
 					// Do Antihack bypass installation
 					$this->session->unset_userdata('token_install');
 					$prepare_encrypt = $this->session->userdata('session_id').'|step1';
@@ -113,26 +138,30 @@
 					// redirect to step1
 					redirect('/installation/step1','refresh');
 				}
-			} else {
-			// Generate token key and save to session
+			} 
+			else 
+			{
+				// Generate token key and save to session
 				$key = time();
 				$ciphertext = $this->encryption->encrypt($key);
 				$session_data = array(
 					'token_install' => $ciphertext,
 					);
 				$this->session->set_userdata($session_data);
-			// Load View
+				// Load View
 				$this->load->view('installation/header');
-				$this->load->view('installation/body_step0',array('webserverresult' => $webserverresult, 
-					'phpresult' => $phpresult, 
-					'filewriter1result' => $filewriter1result,
-					'filewriter2result' => $filewriter2result,
-					'jsonmodule' => $jsonmodule,
-					'mongomodule' => $mongomodule,
-					'mcryptmodule' => $mcryptmodule,
-					'pass' => $pass,
-					'token' => $ciphertext,
-					));
+				$this->load->view('installation/body_step0',array(
+					'webserverresult' 	=> 		$webserverresult, 
+					'phpresult' 		=> 		$phpresult, 
+					'filewriter1result' => 		$filewriter1result,
+					'filewriter2result' => 		$filewriter2result,
+					'jsonmodule' 		=> 		$jsonmodule,
+					'mongomodule' 		=> 		$mongomodule,
+					'mcryptmodule' 		=> 		$mcryptmodule,
+					'pass' 				=> 		$pass,
+					'token' 			=> 		$ciphertext,
+					)
+				);
 				$this->load->view('installation/footer');
 			}
 		}
@@ -145,14 +174,20 @@
 			// AutiHack Checker
 	 		if (!$this->session->userdata('token_install'))
 	 			redirect('/installation','refresh');
+
 	 		$token_install = $this->session->userdata('token_install');
 	 		$decrypt_token = $this->encryption->decrypt($token_install);
 	 		$extract_token = explode('|', $decrypt_token);
-	 		if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') {
+	 		if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') 
+	 		{
 	 			show_error('Access Token Invalid',500);
-	 		} else {
+	 		} 
+	 		else 
+	 		{
 				// Check POST Method Form
-	 			if ($this->input->post() && $this->input->post('token',true) && $this->input->post('token_dbchk',true) && $this->input->post('token_webservicechk',true)) {
+	 			if ($this->input->post() && $this->input->post('token',true) &&
+	 			 	$this->input->post('token_dbchk',true) && $this->input->post('token_webservicechk',true)) 
+	 			{
 					// Load Form Validation Library
 	 				$this->load->library('form_validation');
 					// Form Validation Rules
@@ -163,15 +198,20 @@
 	 				$this->form_validation->set_rules('sys_firstname', 'First Name', 'trim|required');
 	 				$this->form_validation->set_rules('sys_lastname', 'Last Name', 'trim|required');
 					// Start Validation
-	 				if ($this->form_validation->run() == FALSE) {
+	 				if ($this->form_validation->run() == FALSE) 
+	 				{
 						// Load View
 	 					$this->load->view('installation/header');
-	 					$this->load->view('installation/body_step1',array('token' => $token_install, 
-	 						'token_dbchk' => $this->input->post('token_dbchk',true), 
-	 						'token_webservicechk' => $this->input->post('token_webservicechk',true)
-	 						));
+	 					$this->load->view('installation/body_step1',array(
+	 						'token' 				=> 		$token_install, 
+	 						'token_dbchk' 			=> 		$this->input->post('token_dbchk',true), 
+	 						'token_webservicechk' 	=> 		$this->input->post('token_webservicechk',true)
+	 						)
+	 					);
 	 					$this->load->view('installation/footer');
-	 				} else {
+	 				} 
+	 				else 
+	 				{
 						// Input data to variable
 	 					$username = $this->input->post('sys_user',true);
 	 					$password1 = $this->input->post('sys_pass1',true);
@@ -185,17 +225,22 @@
 	 					$ciphertext2 = $this->encryption->encrypt($key2);
 	 					$ciphertext1 = $this->encryption->encrypt($key1);
 	 					$session_data = array(
-	 						'token_install' => $ciphertext2,
-	 						'token_sysuser' => $ciphertext1
+	 						'token_install' 		=> 		$ciphertext2,
+	 						'token_sysuser' 		=> 		$ciphertext1
 	 						);
 	 					$this->session->set_userdata($session_data);
 						// redirect to step2
 	 					redirect('/installation/step2','refresh');						
 	 				}
-	 			} else {
+	 			} 
+	 			else 
+	 			{
 					// Load View
 	 				$this->load->view('installation/header');
-	 				$this->load->view('installation/body_step1',array('token' => $token_install));
+	 				$this->load->view('installation/body_step1',array(
+	 					'token' 	=> 		$token_install
+	 					)
+	 				);
 	 				$this->load->view('installation/footer');
 	 			}
 
@@ -210,15 +255,20 @@
 			// Load Helper for Check MongoDB Connection
 			$this->load->helper('mongotestdb');
 			$JSON = array();
+
 			// AutiHack Checker
 			if (!$this->session->userdata('token_install'))
 				redirect('/installation','refresh');
+
 			$token_install = $this->session->userdata('token_install');
 			$decrypt_token = $this->encryption->decrypt($token_install);
 			$extract_token = explode('|', $decrypt_token);
-			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') {
+			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') 
+			{
 				show_error('Access Token Invalid',500);
-			} else {
+			} 
+			else 
+			{
 				// Construct this module
 				$mongo_host = $this->input->post('mongo_host',true);
 				$mongo_port = $this->input->post('mongo_port',true);
@@ -226,19 +276,30 @@
 				$mongo_pass = $this->input->post('mongo_pass',true);
 				$mongo_db = $this->input->post('mongo_db',true);
 				// Check MongoDB Connection
-				if (mongotestdb($mongo_host,$mongo_user,$mongo_pass,$mongo_port,$mongo_db)) {
+				if (mongotestdb($mongo_host,$mongo_user,$mongo_pass,$mongo_port,$mongo_db)) 
+				{
 					// Generate token key and save to session
 					$key = $mongo_host.'|'.$mongo_user.'|'.$mongo_pass.'|'.$mongo_port.'|'.$mongo_db;
 					$ciphertext = $this->encryption->encrypt($key);
 					$session_data = array(
-						'token_dbcheck' => $ciphertext,
+						'token_dbcheck' 	=> 		$ciphertext,
 						);
 					$this->session->set_userdata($session_data);
-					$JSON = array('Status' => 200, 'Token' => $ciphertext);
-				} else {
-					$JSON = array('Status' => 503);
+					$JSON = array(
+						'Status'	 => 	200,
+						'Token' 	 => 	$ciphertext
+						);
+				} 
+				else 
+				{
+					$JSON = array(
+						'Status' 	 => 	503
+						);
 				}
-				$this->load->view('installation/json',array('JSON' => $JSON));
+				$this->load->view('installation/json',array(
+					'JSON' 		=> 		$JSON
+					)
+				);
 			}
 		}
 
@@ -248,15 +309,20 @@
 		public function chkwebservice()
 		{
 			$JSON = array();
+
 			// AutiHack Checker
 			if (!$this->session->userdata('token_install'))
 				redirect('/installation','refresh');
+
 			$token_install = $this->session->userdata('token_install');
 			$decrypt_token = $this->encryption->decrypt($token_install);
 			$extract_token = explode('|', $decrypt_token);
-			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') {
+			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step1') 
+			{
 				show_error('Access Token Invalid',500);
-			} else {
+			} 
+			else
+			 {
 				// Construct this module
 				$webservice = $this->input->post('webservice',true).'/getVersionService';
 
@@ -264,7 +330,8 @@
 
 				$headercontent = get_headers($webservice,1);
 				// Check HTTP Request Header
-				if ($headercontent[0] == "HTTP/1.1 200 OK") {
+				if ($headercontent[0] == "HTTP/1.1 200 OK") 
+				{
 
 					/* FOR TEST ONLY */
 					/*
@@ -279,10 +346,12 @@
 					/* END FOR TEST ONLY */
 
 					// Check Content Webservice response
-					try {
+					try 
+					{
 						$service_content = file_get_contents($webservice);
 						$json_parse = json_decode($service_content);
-						if ($json_parse->Status && $json_parse->API_Version) {
+						if ($json_parse->Status && $json_parse->API_Version) 
+						{
 							// Generate token key and save to session
 							$key = $webservice;
 							$ciphertext = $this->encryption->encrypt($key);
@@ -290,15 +359,29 @@
 								'token_webservicechk' => $ciphertext,
 								);
 							$this->session->set_userdata($session_data);
-							$JSON = array('Status' => 200, 'Token' => $ciphertext);
+							$JSON = array(
+								'Status' 	=> 	200, 
+								'Token' 	=> 	$ciphertext
+								);
 						}
-					} catch (Exception $e) {
-						$JSON = array('Status' => 503);
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 	503
+							);
 					}
-				} else {
-					$JSON = array('Status' => 503);
+				} 
+				else 
+				{
+					$JSON = array(
+						'Status' 	=> 	503
+						);
 				}
-				$this->load->view('installation/json',array('JSON' => $JSON));
+				$this->load->view('installation/json',array(
+					'JSON' 		=> 		$JSON
+					)
+				);
 			}
 		}
 
@@ -310,12 +393,16 @@
 			// AutiHack Checker
 			if (!$this->session->userdata('token_install'))
 				redirect('/installation','refresh');
+
 			$token_install = $this->session->userdata('token_install');
 			$decrypt_token = $this->encryption->decrypt($token_install);
 			$extract_token = explode('|', $decrypt_token);
-			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') {
+			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') 
+			{
 				show_error('Access Token Invalid',500);
-			} else {	
+			} 
+			else 
+			{	
 				// Load View	
 				$this->load->view('installation/header');
 				$this->load->view('installation/body_step2');
@@ -331,34 +418,61 @@
 			// AutiHack Checker
 			if (!$this->session->userdata('token_install'))
 				redirect('/installation','refresh');
+
 			$token_install = $this->session->userdata('token_install');
 			$decrypt_token = $this->encryption->decrypt($token_install);
 			$extract_token = explode('|', $decrypt_token);
-			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') {
+			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') 
+			{
 				show_error('Access Token Invalid',500);
-			} else {
+			} 
+			else 
+			{
 				// Load REST Data
 				$JSON = array();
 				// Check POST Method
-				if ($this->input->post()) {
-					try {
+				if ($this->input->post()) 
+				{
+					try 
+					{
 						// Check all variable
 						$ses_token = $this->session->userdata('token_install');
 						$ses_mongo = $this->session->userdata('token_dbcheck');
 						$ses_serviceurl = $this->session->userdata('token_webservicechk');
 						$ses_sysuser = $this->session->userdata('token_sysuser');
-						if ($ses_token && $ses_mongo && $ses_serviceurl && $ses_sysuser) {
-							$JSON = array('Status' => '200', 'Message' => 'OK');
-						} else {
-							$JSON = array('Status' => '500', 'Message' => 'Essential data not found');
+						if ($ses_token && $ses_mongo && $ses_serviceurl && $ses_sysuser) 
+						{
+							$JSON = array(
+								'Status' 	=> 	'200', 
+								'Message' 	=> 	'OK'
+								);
+						} 
+						else 
+						{
+							$JSON = array(
+								'Status' 	=> 	'500', 
+								'Message' 	=> 	'Essential data not found'
+								);
 						}
-					} catch (Exception $e) {
-						$JSON = array('Status' => '500', 'Message' => 'Exception : '.$e->getMessage());
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 	'500', 
+							'Message' 	=> 	'Exception : '.$e->getMessage()
+							);
 					}
-				} else {
-					$JSON = array('Status' => '500', 'Message' => 'Method not allowed');
+				} 
+				else 
+				{
+					$JSON = array(
+						'Status' 	=> 		'500', 
+						'Message' 	=> 		'Method not allowed');
 				}
-				$this->load->view('installation/json',array('JSON' => $JSON));
+				$this->load->view('installation/json',array(
+					'JSON' 		=> 		$JSON
+					)
+				);
 			}
 		}
 
@@ -370,20 +484,26 @@
 			// AutiHack Checker
 			if (!$this->session->userdata('token_install'))
 				redirect('/installation','refresh');
+
 			$token_install = $this->session->userdata('token_install');
 			$decrypt_token = $this->encryption->decrypt($token_install);
 			$extract_token = explode('|', $decrypt_token);
-			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') {
+			if ($extract_token[0] != $this->session->userdata('session_id') || $extract_token[1] != 'step2') 
+			{
 				show_error('Access Token Invalid',500);
-			} else {	
-			// Load Helper for Check MongoDB Connection
+			} 
+			else 
+			{	
+				// Load Helper for Check MongoDB Connection
 				$this->load->helper('mongotestdb');
-			// Load REST Data
+				// Load REST Data
 				$JSON = array();
-			// Check POST Method
-				if ($this->input->post()) {
-					try {
-					// Test MongoDB Connection
+				// Check POST Method
+				if ($this->input->post()) 
+				{
+					try 
+					{
+						// Test MongoDB Connection
 						$ses_mongo = $this->session->userdata('token_dbcheck');
 						$decrypt_mongo = $this->encryption->decrypt($ses_mongo);
 						$mongodata = explode('|', $decrypt_mongo);
@@ -392,18 +512,39 @@
 						$mongo_user = $mongodata[1];
 						$mongo_pass = $mongodata[2];
 						$mongo_db = $mongodata[4];
-						if (mongotestdb($mongo_host,$mongo_user,$mongo_pass,$mongo_port,$mongo_db)) {
-							$JSON = array('Status' => '200', 'Message' => 'OK');
-						} else {
-							$JSON = array('Status' => '500', 'Message' => 'MongoDB Connection Failed.');
+						if (mongotestdb($mongo_host,$mongo_user,$mongo_pass,$mongo_port,$mongo_db)) 
+						{
+							$JSON = array(
+								'Status' 	=> 		'200',
+								'Message' 	=> 		'OK'
+								);
+						} 
+						else 
+						{
+							$JSON = array(
+								'Status' 	=> 		'500', 
+								'Message' 	=> 		'MongoDB Connection Failed.'
+								);
 						}
-					} catch (Exception $e) {
-						$JSON = array('Status' => '500', 'Message' => 'Exception : '.$e->getMessage());
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 		'500', 
+							'Message' 	=> 		'Exception : '.$e->getMessage());
 					}
-				} else {
-					$JSON = array('Status' => '500', 'Message' => 'Method not allowed');
+				} 
+				else 
+				{
+					$JSON = array(
+						'Status' 		=> 		'500', 
+						'Message' 		=> 		'Method not allowed'
+						);
 				}
-				$this->load->view('installation/json',array('JSON' => $JSON));	
+				$this->load->view('installation/json',array(
+					'JSON' 		=> 		$JSON
+					)
+				);	
 			}
 		}
 
