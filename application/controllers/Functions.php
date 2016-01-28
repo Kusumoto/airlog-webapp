@@ -82,11 +82,11 @@
  	public function manage()
  	{
  		// annouce application list variable
- 		$app_list = array();
+ 		$app_list 	= 	array();
  		// Load application model
  		$this->load->model('application_model');
 		// get data from model
- 		$app_list = $this->application_model->get();
+ 		$app_list 	= 	$this->application_model->get();
  		// load application manage list view
  		$this->load->view('template/header_common',array(
  			'setTitle' 		=> 		'Function Management'
@@ -145,7 +145,7 @@
  	public function list_func()
  	{
  		// announce return variable
- 		$JSON = array();
+ 		$JSON 	= 	array();
 		// Load functions model
  		$this->load->model('function_model');
 		// get data from model
@@ -163,7 +163,7 @@
  	public function savefunc()
  	{
 		// announce return variable
- 		$JSON = array();
+ 		$JSON 	= 	array();
 		// Load Form Validation Library
  		$this->load->library('form_validation');
 		// Form Validation Rules
@@ -174,7 +174,10 @@
 		// Start Validation
  		if ($this->form_validation->run() == FALSE) 
  		{
- 			$JSON = array('status' => 403, 'message' => 'Data input not corrent!');
+ 			$JSON 	=	 array(
+ 				'status' 	=> 	403, 
+ 				'message' 	=> 	'Data input not corrent!'
+ 				);
  		} 
  		else 
  		{
@@ -227,9 +230,9 @@
 	public function getfunc()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 	= 	array();
 		// get _id from post method
-		$_id = $this->input->post('_id', true);
+		$_id 	= 	$this->input->post('_id', true);
 		if (!empty($_id)) {
 			// Load function model
 			$this->load->model('function_model');
@@ -265,9 +268,9 @@
 	public function delfunc()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 	= 	array();
 		// get _id from post method
-		$_id = $this->input->post('_id', true);
+		$_id 	= 	$this->input->post('_id', true);
 		if (!empty($_id)) 
 		{
 			// Load function model
@@ -413,21 +416,21 @@
 	public function getlog()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 			= 	array();
 		// get data from form
-		$daterange = $this->input->post('daterange',true);
-		$typeselect = $this->input->post('typeselect',true);
-		$function_id = $this->input->post('function_id',true);
+		$daterange 		= 	$this->input->post('daterange',true);
+		$typeselect 	= 	$this->input->post('typeselect',true);
+		$function_id 	= 	$this->input->post('function_id',true);
 		// Load logger model
 		$this->load->model('logger_model');
 		// check data variable to get a model function
 		if (empty($daterange) && empty($typeselect) && empty($function_id)) 
 		{
-			$JSON = $this->logger_model->get();
+			$JSON 		= 	$this->logger_model->get();
 		} 
 		else 
 		{
-			$JSON = $this->logger_model->getif_func($daterange,$typeselect,$function_id);
+			$JSON 		= 	$this->logger_model->getif_func($daterange,$typeselect,$function_id);
 		}
 		$this->load->view('json', array(
 			'JSON' 		=> 		$JSON
@@ -490,21 +493,27 @@
 	public function summarydaygraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
-		if (!empty($func_id) && !empty($day)) {
+		if (!empty($func_id) && !empty($day)) 
+		{
 			// Load logger model
 			$this->load->model('logger_model');
 			// set variable in logger model
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphdaysummaryfunc();
-			$this->load->view('json', array("JSON" => $JSON));
-		} else {
+			$JSON 	= 	$this->logger_model->graphdaysummaryfunc();
+			$this->load->view('json', array(
+				'JSON' 	=> 	$JSON
+				)
+			);
+		} 
+		else 
+		{
 			show_error('Method not allowed!',500);
 		}
 	}
@@ -515,10 +524,10 @@
 	public function summarymonthgraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -528,7 +537,7 @@
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphmonthsummaryfunc();
+			$JSON 	=	$this->logger_model->graphmonthsummaryfunc();
 
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
@@ -546,10 +555,10 @@
 	public function summaryyeargraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -559,7 +568,7 @@
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphyearsummaryfunc();
+			$JSON 	= 	$this->logger_model->graphyearsummaryfunc();
 
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
@@ -578,10 +587,10 @@
 	public function useddaygraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -591,7 +600,7 @@
 			$this->used_model->setUseFuncID($func_id);
 			$this->used_model->setUseDate($day);
 			// get data from model
-			$JSON = $this->used_model->graphdayusedfunc();
+			$JSON 	= 	$this->used_model->graphdayusedfunc();
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
 				)
@@ -609,10 +618,10 @@
 	public function usedmonthgraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) {
 			// Load Used model
@@ -621,7 +630,7 @@
 			$this->used_model->setUseFuncID($func_id);
 			$this->used_model->setUseDate($day);
 			// get data from model
-			$JSON = $this->used_model->graphmonthusedfunc();
+			$JSON 	= 	$this->used_model->graphmonthusedfunc();
 
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
@@ -640,10 +649,10 @@
 	public function usedyeargraph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -653,7 +662,7 @@
 			$this->used_model->setUseFuncID($func_id);
 			$this->used_model->setUseDate($day);
 			// get data from model
-			$JSON = $this->used_model->graphyearusedfunc();
+			$JSON 	= 	$this->used_model->graphyearusedfunc();
 
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
@@ -672,10 +681,10 @@
 	public function summarydayratiograph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -685,7 +694,7 @@
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphdaysummaryratiofunc();
+			$JSON 	= 	$this->logger_model->graphdaysummaryratiofunc();
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
 				)
@@ -703,10 +712,10 @@
 	public function summarymonthratiograph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -716,7 +725,7 @@
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphmonthsummaryratiofunc();
+			$JSON 	= 	$this->logger_model->graphmonthsummaryratiofunc();
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
 				)
@@ -734,10 +743,10 @@
 	public function summaryyearratiograph()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 		= 	array();
 		// get data from form
-		$func_id = $this->input->post('_id',true);
-		$day = $this->input->post('day',true);
+		$func_id 	= 	$this->input->post('_id',true);
+		$day 		= 	$this->input->post('day',true);
 		// check value in form
 		if (!empty($func_id) && !empty($day)) 
 		{
@@ -747,7 +756,7 @@
 			$this->logger_model->setFuncID($func_id);
 			$this->logger_model->setLogDate($day);
 			// get data from model
-			$JSON = $this->logger_model->graphyearsummaryratiofunc();
+			$JSON 	= 	$this->logger_model->graphyearsummaryratiofunc();
 			$this->load->view('json', array(
 				'JSON' 		=> 		$JSON
 				)

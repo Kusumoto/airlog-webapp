@@ -92,11 +92,11 @@
  					if ($this->users_model->checkLogin()) 
  					{
  						// save session
- 						$sessiondata = array(
- 							'isLogin' => true,
- 							'Username' => $this->users_model->getUsername(),
- 							'Firstname' => $this->users_model->getFirstname(),
- 							'Lastname' => $this->users_model->getLastname(),
+ 						$sessiondata 	= 	array(
+ 							'isLogin' 	=> 	true,
+ 							'Username' 	=> 	$this->users_model->getUsername(),
+ 							'Firstname' => 	$this->users_model->getFirstname(),
+ 							'Lastname' 	=> 	$this->users_model->getLastname(),
  							);
  						$this->session->set_userdata($sessiondata);
  						// redirect to dashboard
@@ -230,11 +230,11 @@
  		else 
  		{
  			// Get input form to variable
- 			$username = $this->input->post('username', true);
- 			$password = md5($this->input->post('password1', true));
- 			$email = $this->input->post('email', true);
- 			$firstname = $this->input->post('firstname',true);
- 			$lastname = $this->input->post('lastname', true);
+ 			$username 	= 	$this->input->post('username', true);
+ 			$password 	= 	md5($this->input->post('password1', true));
+ 			$email 		= 	$this->input->post('email', true);
+ 			$firstname 	= 	$this->input->post('firstname',true);
+ 			$lastname 	= 	$this->input->post('lastname', true);
  			// Load users database model
  			$this->load->model('users_model');
  			// Set user and password
@@ -283,11 +283,11 @@
  	public function getuserlist() 
  	{
  		// announce return variable
- 		$JSON = array();
+ 		$JSON 	= 	array();
 		// Load users model
  		$this->load->model('users_model');
 		// get data from model
- 		$JSON = $this->users_model->get();
+ 		$JSON 	= 	$this->users_model->get();
 		// return REST
  		$this->load->view('json',array(
  			'JSON' 		=> 		$JSON
@@ -301,10 +301,11 @@
  	public function deluser()
  	{
  		// announce return variable
- 		$JSON = array();
+ 		$JSON 	= 	array();
 		// get _id from post method
- 		$_id = $this->input->post('_id', true);
- 		if (!empty($_id)) {
+ 		$_id 	= 	$this->input->post('_id', true);
+ 		if (!empty($_id)) 
+ 		{
 			// Load users model
  			$this->load->model('users_model');
 			// Set variable in users model
@@ -337,10 +338,11 @@
  	public function getuser()
  	{
  		// announce return variable
- 		$JSON = array();
+ 		$JSON 	= 	array();
 		// get _id from post method
- 		$_id = $this->input->post('_id', true);
- 		if (!empty($_id)) {
+ 		$_id 	= 	$this->input->post('_id', true);
+ 		if (!empty($_id)) 
+ 		{
 			// Load user model
  			$this->load->model('users_model');
 			// Set variable in user model
@@ -392,12 +394,12 @@
  		else 
  		{
  			// Get input form to variable
- 			$id = $this->input->post('user_editid', true);
- 			$username = $this->input->post('username', true);
- 			$password = md5($this->input->post('password1', true));
- 			$email = $this->input->post('email', true);
- 			$firstname = $this->input->post('firstname',true);
- 			$lastname = $this->input->post('lastname', true);
+ 			$id 		= 	$this->input->post('user_editid', true);
+ 			$username 	= 	$this->input->post('username', true);
+ 			$password 	= 	md5($this->input->post('password1', true));
+ 			$email 		= 	$this->input->post('email', true);
+ 			$firstname 	= 	$this->input->post('firstname',true);
+ 			$lastname 	= 	$this->input->post('lastname', true);
  			// Load users database model
  			$this->load->model('users_model');
  			// Set user and password

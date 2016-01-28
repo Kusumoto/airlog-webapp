@@ -63,7 +63,8 @@ class Setting_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setID($_id) {
+	public function setID($_id) 
+	{
 		$this->_id = $_id;
 	}
 
@@ -73,7 +74,8 @@ class Setting_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setVariable($variable) {
+	public function setVariable($variable) 
+	{
 		$this->variable = $variable;
 	}
 
@@ -83,7 +85,8 @@ class Setting_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setValue($value) {
+	public function setValue($value) 
+	{
 		$this->value = $value;
 	}
 
@@ -92,7 +95,8 @@ class Setting_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getID() {
+	public function getID() 
+	{
 		return $this->_id;
 	}
 
@@ -101,7 +105,8 @@ class Setting_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getVariable() {
+	public function getVariable() 
+	{
 		return $this->variable;
 	}
 
@@ -110,7 +115,8 @@ class Setting_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getValue() {
+	public function getValue() 
+	{
 		return $this->value;
 	}
 
@@ -119,18 +125,26 @@ class Setting_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function getData() {
-		try {
-			$setting_collection = $this->mongo_db->db->setting;
-			$getdata = $setting_collection->find(array("variable" => $this->variable));
-			while($getdata->hasNext()) {
+	public function getData() 
+	{
+		try 
+		{
+			$setting_collection 	= 	$this->mongo_db->db->setting;
+			$getdata 				= 	$setting_collection->find(array(
+				'variable' 	=> 	$this->variable
+				)
+			);
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2	 = $getdata->getNext();
 				// set data from collection to variable
 				$this->value = $getdata2['value'];
 			}
 			return true;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
