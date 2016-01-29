@@ -42,8 +42,8 @@
 	 */
 	public function index()
 	{
-		$mongoresult = $phpresult = $filewriter1result = $filewriter2result = $jsonmodule = $mongomodule = $mcryptmodule ="";
-		$pass = true;
+		$mongoresult = $phpresult = $filewriter1result = $filewriter2result = $jsonmodule = $mongomodule = $mcryptmodule = "";
+		$pass 		 = true;
 		// Grap Web server Version
 		$serversoftware_main 	= 	trim($_SERVER['SERVER_SOFTWARE']);
 		$serversoftware_strip1 	= 	explode('/', $serversoftware_main);
@@ -142,9 +142,9 @@
 			else 
 			{
 				// Generate token key and save to session
-				$key = time();
-				$ciphertext = $this->encryption->encrypt($key);
-				$session_data = array(
+				$key 			= 	time();
+				$ciphertext 	= 	$this->encryption->encrypt($key);
+				$session_data 	= 	array(
 					'token_install' => $ciphertext,
 					);
 				$this->session->set_userdata($session_data);
@@ -274,14 +274,14 @@
 				$mongo_port = $this->input->post('mongo_port',true);
 				$mongo_user = $this->input->post('mongo_user',true);
 				$mongo_pass = $this->input->post('mongo_pass',true);
-				$mongo_db = $this->input->post('mongo_db',true);
+				$mongo_db 	= $this->input->post('mongo_db',true);
 				// Check MongoDB Connection
 				if (mongotestdb($mongo_host,$mongo_user,$mongo_pass,$mongo_port,$mongo_db)) 
 				{
 					// Generate token key and save to session
-					$key = $mongo_host.'|'.$mongo_user.'|'.$mongo_pass.'|'.$mongo_port.'|'.$mongo_db;
-					$ciphertext = $this->encryption->encrypt($key);
-					$session_data = array(
+					$key 			= $mongo_host.'|'.$mongo_user.'|'.$mongo_pass.'|'.$mongo_port.'|'.$mongo_db;
+					$ciphertext 	= $this->encryption->encrypt($key);
+					$session_data 	= array(
 						'token_dbcheck' 	=> 		$ciphertext,
 						);
 					$this->session->set_userdata($session_data);

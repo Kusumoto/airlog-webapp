@@ -162,19 +162,28 @@ class API_model extends CI_Model {
 	{
 		// announce return variable
 		$return = array();
-		try {
+		try 
+		{
 			// select mongoDB collection
 			$api_collection = $this->mongo_db->db->api;
 			// find data from collection
 			$getdata = $api_collection->find();
-			while($getdata->hasNext()) {
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
 				$getdata2 = $getdata->getNext();
 				// Set data from collection to globol variable
-				$return[] = array("_id" => (string)$getdata2['_id'], "api_key" => $getdata2['api_key'], "api_name" => $getdata2['api_name'], "api_isenable" => $getdata2['api_isenable']);
+				$return[] = array(
+					'_id' 			=> (string)$getdata2['_id'], 
+					'api_key' 		=> $getdata2['api_key'], 
+					'api_name'	 	=> $getdata2['api_name'], 
+					'api_isenable' 	=> $getdata2['api_isenable']
+					);
 			}	
 			return $return;	
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return $return;
 		}
 	}
@@ -188,17 +197,23 @@ class API_model extends CI_Model {
 	{
 		// Set Agrument send to MongoDB
 		$apidata = array('api_key' => $this->api_key);
-		try {
+		try 
+		{
 			// Select MongoDB collection
 			$user = $this->mongo_db->db->api;
 			
 			// Find data in collection
-			if ($user->count($apidata) >= 1) {
+			if ($user->count($apidata) >= 1) 
+			{
 				return true;
-			} else {
+			} 
+			else 
+			{
 				return false;
 			}
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -210,15 +225,18 @@ class API_model extends CI_Model {
 	 */
 	public function add()
 	{
-		try {
+		try 
+		{
 			$api = $this->mongo_db->db->selectCollection('api');
 			$api->insert(array(
-				'api_key' => $this->api_key,
-				'api_name' => $this->api_name,
-				'api_isenable' => $this->api_isenable
+				'api_key' 		=> $this->api_key,
+				'api_name' 		=> $this->api_name,
+				'api_isenable' 	=> $this->api_isenable
 				));
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -230,17 +248,25 @@ class API_model extends CI_Model {
 	 */
 	public function update()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
 			$api_collection = $this->mongo_db->db->api;
 			// preparing data
-			$prepare_data = array('api_key' => $this->api_key,
-				'api_name' => $this->api_name,
-				'api_isenable' => $this->api_isenable);
+			$prepare_data 	= array(
+				'api_key' 		=> $this->api_key,
+				'api_name' 		=> $this->api_name,
+				'api_isenable' 	=> $this->api_isenable
+				);
 			// update to database
-			$api_collection->update(array('_id' => new MongoId($this->_id)),$prepare_data);
+			$api_collection->update(array(
+				'_id' => new MongoId($this->_id)
+				),$prepare_data
+			);
 			return true;			
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -252,21 +278,28 @@ class API_model extends CI_Model {
 	 */
 	public function getdetail()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
 			$api_collection = $this->mongo_db->db->api;
 			// find data from collection
-			$getdata = $api_collection->find(array('_id' => new MongoId($this->_id)));
-			while($getdata->hasNext()) {
+			$getdata 		= $api_collection->find(array(
+				'_id' => new MongoId($this->_id)
+				)
+			);
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 			= $getdata->getNext();
 				// set data from collection to variable
-				$this->api_key = $getdata2['api_key'];
-				$this->api_name = $getdata2['api_name'];
+				$this->api_key 		= $getdata2['api_key'];
+				$this->api_name		= $getdata2['api_name'];
 				$this->api_isenable = $getdata2['api_isenable'];
 			}
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -278,19 +311,27 @@ class API_model extends CI_Model {
 	 */
 	public function delete()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
 			$api_collection = $this->mongo_db->db->api;
 			// preparing data
-			$prepare_data = array("_id" => new MongoId($this->_id));
-			if ($api_collection->count() >= 1) {
+			$prepare_data = array(
+				'_id' => new MongoId($this->_id)
+				);
+			if ($api_collection->count() >= 1) 
+			{
 				// remove to database
 				$api_collection->remove($prepare_data);
 				return true;
-			} else {
+			} 
+			else 
+			{
 				return false;
 			}		
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -302,18 +343,27 @@ class API_model extends CI_Model {
 	public function checkEnable()
 	{
 		// Set Agrument send to MongoDB
-		$apidata = array('api_key' => $this->api_key, 'api_isenable' => true);
-		try {
+		$apidata = array(
+			'api_key' 		=> $this->api_key, 
+			'api_isenable' 	=> true
+			);
+		try 
+		{
 			// Select MongoDB collection
 			$user = $this->mongo_db->db->api;
 			
 			// Find data in collection
-			if ($user->count($apidata) >= 1) {
+			if ($user->count($apidata) >= 1) 
+			{
 				return true;
-			} else {
+			} 
+			else 
+			{
 				return false;
 			}
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}

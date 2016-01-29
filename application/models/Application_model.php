@@ -76,7 +76,8 @@ class Application_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setID($_id) {
+	public function setID($_id) 
+	{
 		$this->_id = $_id;
 	}
 
@@ -86,7 +87,8 @@ class Application_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationName($app_name) {
+	public function setApplicationName($app_name) 
+	{
 		$this->application_name = $app_name;
 	}
 
@@ -96,7 +98,8 @@ class Application_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationToken($app_token) {
+	public function setApplicationToken($app_token) 
+	{
 		$this->application_token = $app_token;
 	}
 
@@ -106,7 +109,8 @@ class Application_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationLang($app_lang) {
+	public function setApplicationLang($app_lang) 
+	{
 		$this->application_lang = $app_lang;
 	}
 
@@ -117,7 +121,8 @@ class Application_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationAgent($app_agent) {
+	public function setApplicationAgent($app_agent) 
+	{
 		$this->application_agent = $app_agent;
 	}
 
@@ -126,7 +131,8 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getID() {
+	public function getID() 
+	{
 		return $this->_id;
 	}
 
@@ -135,7 +141,8 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationName() {
+	public function getApplicationName() 
+	{
 		return $this->application_name;
 	}
 
@@ -144,7 +151,8 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationToken() {
+	public function getApplicationToken() 
+	{
 		return $this->application_token;
 	}
 
@@ -153,7 +161,8 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationLang() {
+	public function getApplicationLang() 
+	{
 		return $this->application_lang;
 	}
 
@@ -162,7 +171,8 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationAgent() {
+	public function getApplicationAgent() 
+	{
 		return $this->application_agent;
 	}
 
@@ -171,16 +181,25 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function add() {
-		try {
+	public function add() 
+	{
+		try 
+		{
 			// select mongoDB collection
 			$app_collection = $this->mongo_db->db->app;
 			// preparing data
-			$prepare_data = array('application_name' => $this->application_name, 'application_token' => $this->application_token, 'application_lang' => $this->application_lang, 'application_agent' => $this->application_agent);
+			$prepare_data 	= array(
+				'application_name' 		=> $this->application_name, 
+				'application_token' 	=> $this->application_token, 
+				'application_lang' 		=> $this->application_lang, 
+				'application_agent' 	=> $this->application_agent
+				);
 			// insert to database
 			$app_collection->insert($prepare_data);
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -190,22 +209,32 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	array
 	 */
-	public function get() {
+	public function get() 
+	{
 		// announce return variable
 		$return = array();
-		try {
+		try 
+		{
 			// select mongoDB collection
 			$app_collection = $this->mongo_db->db->app;
 			// find data from collection
-			$getdata = $app_collection->find();
-			while($getdata->hasNext()) {
+			$getdata 		= $app_collection->find();
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
 				$getdata2 = $getdata->getNext();
 				// Set data from collection to globol variable
-				$return[] = array("_id" => (string)$getdata2['_id'], "application_name" => $getdata2['application_name'], "application_token" => $getdata2['application_token'], "application_lang" => $getdata2['application_lang'], "application_agent" => $getdata2['application_agent']);
+				$return[] = array(
+					'_id' 				=> (string)$getdata2['_id'], 
+					'application_name' 	=> $getdata2['application_name'], 
+					'application_token' => $getdata2['application_token'], 
+					'application_lang' 	=> $getdata2['application_lang'], 
+					'application_agent' => $getdata2['application_agent']);
 			}	
 			return $return;	
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return $return;
 		}
 	}
@@ -215,21 +244,30 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function delete() {
-		try {
+	public function delete() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->app;
-			$func_collection = $this->mongo_db->db->func;
+			$app_collection 	= $this->mongo_db->db->app;
+			$func_collection 	= $this->mongo_db->db->func;
 			// preparing data
-			$prepare_data = array("_id" => new MongoId($this->_id));
-			if ($func_collection->count(array('application_id' => $this->_id)) == 0) {
+			$prepare_data 		= array(
+				'_id' => new MongoId($this->_id)
+				);
+			if ($func_collection->count(array('application_id' => $this->_id)) == 0) 
+			{
 				// remove to database
 				$app_collection->remove($prepare_data);
 				return true;
-			} else {
+			}
+			else 
+			{
 				return false;
 			}		
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -239,23 +277,31 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function getdetail() {
-		try {
+	public function getdetail() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->app;
+			$app_collection 	= $this->mongo_db->db->app;
 			// find data from collection
-			$getdata = $app_collection->find(array('_id' => new MongoId($this->_id)));
-			while($getdata->hasNext()) {
+			$getdata 			= $app_collection->find(array(
+				'_id' => new MongoId($this->_id)
+				)
+			);
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 					= $getdata->getNext();
 				// set data from collection to variable
-				$this->application_name = $getdata2['application_name'];
-				$this->application_lang = $getdata2['application_lang'];
-				$this->application_token = $getdata2['application_token'];
-				$this->application_agent = $getdata2['application_agent'];
+				$this->application_name 	= $getdata2['application_name'];
+				$this->application_lang 	= $getdata2['application_lang'];
+				$this->application_token 	= $getdata2['application_token'];
+				$this->application_agent 	= $getdata2['application_agent'];
 			}
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -265,16 +311,27 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function update() {
-		try {
+	public function update() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->app;
+			$app_collection 	= $this->mongo_db->db->app;
 			// preparing data
-			$prepare_data = array("application_name" => $this->application_name, "application_lang" => $this->application_lang, "application_token" => $this->application_token, "application_agent" => $this->application_agent);
+			$prepare_data 		= array(
+				'application_name' 	=> $this->application_name, 
+				'application_lang' 	=> $this->application_lang, 
+				'application_token' => $this->application_token, 
+				'application_agent' => $this->application_agent
+				);
 			// update to database
-			$app_collection->update(array('_id' => new MongoId($this->_id)),$prepare_data);
+			$app_collection->update(array(
+				'_id' => new MongoId($this->_id)
+				),$prepare_data);
 			return true;			
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -287,27 +344,43 @@ class Application_model extends CI_Model {
 	public function agent() {
 		try {
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->app;
+			$app_collection 		= $this->mongo_db->db->app;
 			// get value in database
-			$getdata = $app_collection->find(array('_id' => new MongoId($this->_id)));
-			while($getdata->hasNext()) {
+			$getdata 				= $app_collection->find(array('_id' => new MongoId($this->_id)));
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 				 = $getdata->getNext();
 				// set data from collection to variable
 				$this->application_agent = $getdata2['application_agent'];
 			}
 			// preparing data
-			if ($this->application_agent == 'enable') {
-				$prepare_data = array('$set' => array("application_agent" => 'disable'));
-				$this->application_agent = 'disable';
-			} else {
-				$prepare_data = array('$set' => array("application_agent" => 'enable'));
-				$this->application_agent = 'enable';
+			if ($this->application_agent == 'enable') 
+			{
+				$prepare_data 				= array(
+					'$set' => array(
+						'application_agent' => 'disable'
+						)
+					);
+				$this->application_agent 	= 'disable';
+			} 
+			else 
+			{
+				$prepare_data 				= array(
+					'$set' => array(
+						'application_agent' => 'enable'
+						)
+					);
+				$this->application_agent 	= 'enable';
 			}
 			// update to database
-			$app_collection->update(array('_id' => new MongoId($this->_id)),$prepare_data);
+			$app_collection->update(array(
+				'_id' => new MongoId($this->_id)
+				),$prepare_data);
 			return true;			
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -317,13 +390,17 @@ class Application_model extends CI_Model {
 	 *
 	 * @return	Integer
 	 */
-	public function countapp() {
-		try {
+	public function countapp() 
+	{
+		try 
+		{
 			// select mongoDB collection
 			$app_collection = $this->mongo_db->db->app;
 			// return counter
 			return $app_collection->count();
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return 0;
 		}
 	}
