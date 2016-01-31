@@ -1526,7 +1526,7 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
- 				
+
  				// $return[] 			= 	array(
  				// 	'time' 			=> 	$i, 
  				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
@@ -1535,6 +1535,23 @@
  				// 	);
  			}
  		}
+ 		
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'notice',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
