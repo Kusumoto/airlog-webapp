@@ -19,6 +19,7 @@
 	<link href="<?php echo base_url(); ?>assets/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
 	<!-- JS -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/highcharts.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/daterangepicker.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
@@ -31,7 +32,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/app.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/amcharts/pie.js" type="text/javascript"></script>
-
+	<script src="<?php echo base_url(); ?>assets/js/script.js" type="text/javascript"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
