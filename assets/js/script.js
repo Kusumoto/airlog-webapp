@@ -26,7 +26,7 @@ function graph_column_generate(category,text,data,dom,title,subtitle)
             text: subtitle
         },
         xAxis: {
-            categories: category
+            categories: category,
             crosshair: true
         },
         yAxis: {
