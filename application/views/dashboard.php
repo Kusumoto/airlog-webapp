@@ -336,7 +336,21 @@
                 dataType: 'json',
             })
             .done(function(response) {
-                //
+                category = [
+                'January',
+                'February',
+                'March',
+                'Apil',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ]
+            graph_column_generate(category,'Total',response,'summary_year','Total Log in year','Source : SAMF Dataset');
             })
             .fail(function() {
                 $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -345,6 +359,7 @@
                $('#graph1_load').hide();
            }, 2000);
         }
+
         function getusedgraph() {
             $('#graph2_load').show();
             $.ajax({
