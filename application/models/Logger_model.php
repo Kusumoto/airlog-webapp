@@ -1462,6 +1462,9 @@
 
  		// announce return variable
  		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
  		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -1488,12 +1491,16 @@
  					'log_type' 		=> 	'Notice'
  					);
  				// count and insert data to array
- 				$return[] 			= 	array(
- 					'time' 			=> 	'0'.$i, 
- 					'debug' 		=> 	$logger_data->count($querydata_debug), 
- 					'error' 		=> 	$logger_data->count($querydata_error), 
- 					'notice' 		=> 	$logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+
+ 				// $return[] 			= 	array(
+ 				// 	'time' 			=> 	'0'.$i, 
+ 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
+ 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
+ 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
+ 				// 	);
  			} 
  			else 
  			{
@@ -1516,12 +1523,16 @@
  					'log_type' 		=> 	'Notice'
  					);
  				// count and insert data to array
- 				$return[] 			= 	array(
- 					'time' 			=> 	$i, 
- 					'debug' 		=> 	$logger_data->count($querydata_debug), 
- 					'error' 		=> 	$logger_data->count($querydata_error), 
- 					'notice' 		=> 	$logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 				
+ 				// $return[] 			= 	array(
+ 				// 	'time' 			=> 	$i, 
+ 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
+ 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
+ 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
+ 				// 	);
  			}
  		}
  		return $return;	
