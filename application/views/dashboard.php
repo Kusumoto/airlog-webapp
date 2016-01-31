@@ -309,9 +309,10 @@
                 '20:00-20:59',
                 '21:00-21:59',
                 '22:00-22:59',
-                '23:00-23:59'
+                '23:00-23:59',
+                '24:00'
             ]
-                graph_column_generate(category,'Total',response,'appuse_day','Total Log in day','Source : SAMF Dataset');
+                graph_column_generate(category,'Total',response,'summary_day','Total Log in day','Source : SAMF Dataset');
             })
             .fail(function() {
                 $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
