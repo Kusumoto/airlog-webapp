@@ -330,10 +330,7 @@
             date_data.push(i);
         };
 
-        console.log(date_data);
-        console.log(response.data);
-
-        graph_column_generate(date_data,'Total',response.data,'summary_year','Total Log in Month','Source : SAMF Dataset');
+        graph_column_generate(date_data,'Total',response.data,'summary_month','Total Log in Month','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
