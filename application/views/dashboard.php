@@ -326,7 +326,7 @@
     .done(function(response) {
         var date_data = [];
 
-        for (var i = 0; i <= response.lastday-1; i++) {
+        for (var i = 1; i <= response.lastday; i++) {
             date_data.push(i);
         };
 
