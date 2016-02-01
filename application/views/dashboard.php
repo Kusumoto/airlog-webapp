@@ -331,6 +331,7 @@
         };
 
         console.log(date_data);
+        console.log(response.data);
 
         graph_column_generate(date_data,'Total',response.data,'summary_year','Total Log in Month','Source : SAMF Dataset');
     })
