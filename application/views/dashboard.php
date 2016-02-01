@@ -326,9 +326,11 @@
     .done(function(response) {
         var date_data = [];
 
-        for (var i = 1; i <= response.lastday; i++) {
+        for (var i = 0; i <= response.lastday-1; i++) {
             date_data.push(i);
         };
+
+        console.log(date_data);
 
         graph_column_generate(date_data,'Total',response.data,'summary_year','Total Log in Month','Source : SAMF Dataset');
     })
