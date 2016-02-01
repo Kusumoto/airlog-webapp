@@ -277,374 +277,380 @@
 </aside><!-- /.right-side -->
 <script type="text/javascript">
 
-           function getsummarygraph() {
-            $('#graph1_load').show();
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/summarydaygraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                category = [
-                '00:00-00:59',
-                '01:00-01:59',
-                '02:00-02:59',
-                '03:00-03:59',
-                '04:00-04:59',
-                '05:00-05:59',
-                '06:00-06:59',
-                '07:00-07:59',
-                '08:00-08:59',
-                '09:00-09:59',
-                '10:00-10:59',
-                '11:00-11:59',
-                '12:00-12:59',
-                '13:00-13:59',
-                '14:00-14:59',
-                '15:00-15:59',
-                '16:00-16:59',
-                '17:00-17:59',
-                '18:00-18:59',
-                '19:00-19:59',
-                '20:00-20:59',
-                '21:00-21:59',
-                '22:00-22:59',
-                '23:00-23:59',
-                '24:00'
-            ]
-                graph_column_generate(category,'Total',response,'summary_day','Total Log in day','Source : SAMF Dataset');
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
+   function getsummarygraph() {
+    $('#graph1_load').show();
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/summarydaygraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        category = [
+        '00:00-00:59',
+        '01:00-01:59',
+        '02:00-02:59',
+        '03:00-03:59',
+        '04:00-04:59',
+        '05:00-05:59',
+        '06:00-06:59',
+        '07:00-07:59',
+        '08:00-08:59',
+        '09:00-09:59',
+        '10:00-10:59',
+        '11:00-11:59',
+        '12:00-12:59',
+        '13:00-13:59',
+        '14:00-14:59',
+        '15:00-15:59',
+        '16:00-16:59',
+        '17:00-17:59',
+        '18:00-18:59',
+        '19:00-19:59',
+        '20:00-20:59',
+        '21:00-21:59',
+        '22:00-22:59',
+        '23:00-23:59',
+        '24:00'
+        ]
+        graph_column_generate(category,'Total',response,'summary_day','Total Log in Day','Source : SAMF Dataset');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
 
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/summarymonthgraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                //
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/summarymonthgraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        var date_data = [];
 
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/summaryyeargraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                category = [
-                'January',
-                'February',
-                'March',
-                'Apil',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-            ]
-            graph_column_generate(category,'Total',response,'summary_year','Total Log in year','Source : SAMF Dataset');
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
-            setTimeout(function(){
-               $('#graph1_load').hide();
-           }, 2000);
-        }
+        for (var i = 1; i <= response.lastday; i++) {
+            date_data.push(i);
+        };
 
-        function getusedgraph() {
-            $('#graph2_load').show();
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/useddaygraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                chart_4.dataProvider = response;
-                chart_4.validateData(); 
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/usedmonthgraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                chart_5.dataProvider = response;
-                chart_5.validateData(); 
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/usedyeargraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                chart_6.dataProvider = response;
-                chart_6.validateData(); 
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
-            setTimeout(function(){
-             $('#graph2_load').hide();
-         }, 2000);
+        graph_column_generate(date_data,'Total',response.data,'summary_year','Total Log in Month','Source : SAMF Dataset');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/summaryyeargraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        category = [
+        'January',
+        'February',
+        'March',
+        'Apil',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+        ]
+        graph_column_generate(category,'Total',response,'summary_year','Total Log in Year','Source : SAMF Dataset');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+    setTimeout(function(){
+       $('#graph1_load').hide();
+   }, 2000);
+}
+
+function getusedgraph() {
+    $('#graph2_load').show();
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/useddaygraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        chart_4.dataProvider = response;
+        chart_4.validateData(); 
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/usedmonthgraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        chart_5.dataProvider = response;
+        chart_5.validateData(); 
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/usedyeargraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        chart_6.dataProvider = response;
+        chart_6.validateData(); 
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+    setTimeout(function(){
+     $('#graph2_load').hide();
+ }, 2000);
+}
+function getratiograph() {
+    $('#graph3_load').show();
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/ratiofunctiongraph"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        chart_7.dataProvider = response;
+        chart_7.validateData(); 
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+    })
+    setTimeout(function(){
+     $('#graph3_load').hide();
+ }, 2000);
+}
+function getcpuload() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/getcpuload"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        $('#cpu_load').val(response.cpu)
+        $('#cpu_load').trigger('change');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get cpu loaded!</div>');
+    })
+}
+function getmemuse() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/getmemuse"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        $('#mem_use').val(response.memory)
+        $('#mem_use').trigger('change');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get memory use!</div>');
+    })
+}
+function getdiskuse() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/getdiskuse"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        $('#disk_use').val(response.disk)
+        $('#disk_use').trigger('change');
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get disk use!</div>');
+    })
+}
+function reloadserverload() {
+    $('#graph4_load').show();
+    getcpuload();
+    getmemuse();
+    getdiskuse();
+    setTimeout(function(){
+     $('#graph4_load').hide();
+ }, 2000);
+}
+function getwebservicestatus() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/chkwebservice"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        if (response.status == 200) {
+            $('#webservice_status').prop('class','box box-solid bg-green');
+        } else {
+            $('#webservice_status').prop('class','box box-solid bg-red');
         }
-        function getratiograph() {
-            $('#graph3_load').show();
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/ratiofunctiongraph"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                chart_7.dataProvider = response;
-                chart_7.validateData(); 
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })
-            setTimeout(function(){
-             $('#graph3_load').hide();
-         }, 2000);
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get web service status!</div>');
+    })
+}
+function getdbstatus() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/chkdb"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        $('#db_status').prop('class','box box-solid bg-green');
+    })
+    .fail(function() {
+        $('#db_status').prop('class','box box-solid bg-red');
+    })
+}
+function getwebstatus() {
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/chkweb"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {
+        if (response.status == 200) {
+            $('#web_status').prop('class','box box-solid bg-green');
+        } else {
+            $('#web_status').prop('class','box box-solid bg-red');
         }
-        function getcpuload() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/getcpuload"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                $('#cpu_load').val(response.cpu)
-                $('#cpu_load').trigger('change');
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get cpu loaded!</div>');
-            })
-        }
-        function getmemuse() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/getmemuse"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                $('#mem_use').val(response.memory)
-                $('#mem_use').trigger('change');
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get memory use!</div>');
-            })
-        }
-        function getdiskuse() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/getdiskuse"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                $('#disk_use').val(response.disk)
-                $('#disk_use').trigger('change');
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get disk use!</div>');
-            })
-        }
-        function reloadserverload() {
-            $('#graph4_load').show();
-            getcpuload();
-            getmemuse();
-            getdiskuse();
-            setTimeout(function(){
-             $('#graph4_load').hide();
-         }, 2000);
-        }
-        function getwebservicestatus() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/chkwebservice"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                if (response.status == 200) {
-                    $('#webservice_status').prop('class','box box-solid bg-green');
-                } else {
-                    $('#webservice_status').prop('class','box box-solid bg-red');
-                }
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get web service status!</div>');
-            })
-        }
-        function getdbstatus() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/chkdb"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                $('#db_status').prop('class','box box-solid bg-green');
-            })
-            .fail(function() {
-                $('#db_status').prop('class','box box-solid bg-red');
-            })
-        }
-        function getwebstatus() {
-            $.ajax({
-                url: '<?php echo site_url("/dashboard/chkweb"); ?>',
-                type: 'POST',
-                dataType: 'json',
-            })
-            .done(function(response) {
-                if (response.status == 200) {
-                    $('#web_status').prop('class','box box-solid bg-green');
-                } else {
-                    $('#web_status').prop('class','box box-solid bg-red');
-                }
-            })
-            .fail(function() {
-                $('#web_status').prop('class','box box-solid bg-red');
-            })
-        }
-        function reloadservice() {
-            $('#graph5_load').show();
-            getwebservicestatus();
-            getdbstatus();
-            getwebstatus();
-            setTimeout(function(){
-             $('#graph5_load').hide();
-         }, 2000);
-        }
-        function webservicerestart() {
-           $('#graph6_load').show();
-           $('#webservice_restart_btn').prop('disabled','disabled');
-           $.ajax({
-            url: '<?php echo site_url("/dashboard/webservicerestart"); ?>',
-            type: 'POST',
-            dataType: 'json',
-        })
-           .done(function(response) {
-            if (response.status == 200) {
-                alert('Web Service restart successful!');
-                $('#webservice_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            } else {
-                alert('Web Service restart failed!')
-                $('#webservice_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            }
-        })
-           .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart web service!</div>');
-            $('#webservice_restart_btn').prop('disabled','');
-            $('#graph6_load').hide();
-        })
-       }
-       function dbrestart() {
-        $('#graph6_load').show();
-        $('#db_restart_btn').prop('disabled','disabled');
-        $.ajax({
-            url: '<?php echo site_url("/dashboard/dbrestart"); ?>',
-            type: 'POST',
-            dataType: 'json',
-        })
-        .done(function(response) {              
-            if (response.status == 200) {
-                alert('Database restart successful!');
-                $('#db_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            } else {
-                alert('Database restart failed!')
-                $('#db_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            }
-        })
-        .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart database!</div>');
+    })
+    .fail(function() {
+        $('#web_status').prop('class','box box-solid bg-red');
+    })
+}
+function reloadservice() {
+    $('#graph5_load').show();
+    getwebservicestatus();
+    getdbstatus();
+    getwebstatus();
+    setTimeout(function(){
+     $('#graph5_load').hide();
+ }, 2000);
+}
+function webservicerestart() {
+   $('#graph6_load').show();
+   $('#webservice_restart_btn').prop('disabled','disabled');
+   $.ajax({
+    url: '<?php echo site_url("/dashboard/webservicerestart"); ?>',
+    type: 'POST',
+    dataType: 'json',
+})
+   .done(function(response) {
+    if (response.status == 200) {
+        alert('Web Service restart successful!');
+        $('#webservice_restart_btn').prop('disabled','');
+        $('#graph6_load').hide();
+    } else {
+        alert('Web Service restart failed!')
+        $('#webservice_restart_btn').prop('disabled','');
+        $('#graph6_load').hide();
+    }
+})
+   .fail(function() {
+    $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart web service!</div>');
+    $('#webservice_restart_btn').prop('disabled','');
+    $('#graph6_load').hide();
+})
+}
+function dbrestart() {
+    $('#graph6_load').show();
+    $('#db_restart_btn').prop('disabled','disabled');
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/dbrestart"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {              
+        if (response.status == 200) {
+            alert('Database restart successful!');
             $('#db_restart_btn').prop('disabled','');
             $('#graph6_load').hide();
-        })
-    }
-    function reboot() {
-        $('#graph6_load').show();
-        $('#reboot_restart_btn').prop('disabled','disabled');
-        $.ajax({
-            url: '<?php echo site_url("/dashboard/reboot"); ?>',
-            type: 'POST',
-            dataType: 'json',
-        })
-        .done(function(response) {              
-            if (response.status == 200) {
-                alert('Reboot successful!');
-                $('#reboot_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            } else {
-                alert('Reboot failed!')
-                $('#reboot_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            }
-        })
-        .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not reboot the system!</div>');
+        } else {
+            alert('Database restart failed!')
+            $('#db_restart_btn').prop('disabled','');
+            $('#graph6_load').hide();
+        }
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart database!</div>');
+        $('#db_restart_btn').prop('disabled','');
+        $('#graph6_load').hide();
+    })
+}
+function reboot() {
+    $('#graph6_load').show();
+    $('#reboot_restart_btn').prop('disabled','disabled');
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/reboot"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {              
+        if (response.status == 200) {
+            alert('Reboot successful!');
             $('#reboot_restart_btn').prop('disabled','');
             $('#graph6_load').hide();
-        })
-    }
-    function shutdown() {
-        $('#graph6_load').show();
-        $('#shutdown_restart_btn').prop('disabled','disabled');
-        $.ajax({
-            url: '<?php echo site_url("/dashboard/shutdown"); ?>',
-            type: 'POST',
-            dataType: 'json',
-        })
-        .done(function(response) {              
-            if (response.status == 200) {
-                alert('Shutdown successful!');
-                $('#shutdown_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            } else {
-                alert('Shutdown failed!')
-                $('#shutdown_restart_btn').prop('disabled','');
-                $('#graph6_load').hide();
-            }
-        })
-        .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not shutdown the system!</div>');
+        } else {
+            alert('Reboot failed!')
+            $('#reboot_restart_btn').prop('disabled','');
+            $('#graph6_load').hide();
+        }
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not reboot the system!</div>');
+        $('#reboot_restart_btn').prop('disabled','');
+        $('#graph6_load').hide();
+    })
+}
+function shutdown() {
+    $('#graph6_load').show();
+    $('#shutdown_restart_btn').prop('disabled','disabled');
+    $.ajax({
+        url: '<?php echo site_url("/dashboard/shutdown"); ?>',
+        type: 'POST',
+        dataType: 'json',
+    })
+    .done(function(response) {              
+        if (response.status == 200) {
+            alert('Shutdown successful!');
             $('#shutdown_restart_btn').prop('disabled','');
             $('#graph6_load').hide();
-        })
-    }
+        } else {
+            alert('Shutdown failed!')
+            $('#shutdown_restart_btn').prop('disabled','');
+            $('#graph6_load').hide();
+        }
+    })
+    .fail(function() {
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not shutdown the system!</div>');
+        $('#shutdown_restart_btn').prop('disabled','');
+        $('#graph6_load').hide();
+    })
+}
 
 
-    $(document).ready(function() {    
-     $(".knob").knob();
-     setInterval("getcpuload();",5000);
-     setInterval("getmemuse();",5000);
-     setInterval("getdiskuse();",5000);
-     setInterval("getwebservicestatus();",100000);
-     setInterval("getdbstatus();",100000);
-     setInterval("getwebstatus();",100000);
-     getsummarygraph();
-     getusedgraph();
-     getratiograph();
-     getcpuload();
-     getmemuse();
-     getdiskuse();
-     getwebservicestatus();
-     getdbstatus();
-     getwebstatus();
- });
+$(document).ready(function() {    
+ $(".knob").knob();
+ setInterval("getcpuload();",5000);
+ setInterval("getmemuse();",5000);
+ setInterval("getdiskuse();",5000);
+ setInterval("getwebservicestatus();",100000);
+ setInterval("getdbstatus();",100000);
+ setInterval("getwebstatus();",100000);
+ getsummarygraph();
+ getusedgraph();
+ getratiograph();
+ getcpuload();
+ getmemuse();
+ getdiskuse();
+ getwebservicestatus();
+ getdbstatus();
+ getwebstatus();
+});
 </script>

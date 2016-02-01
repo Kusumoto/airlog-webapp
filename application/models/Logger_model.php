@@ -1494,13 +1494,6 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
-
- 				// $return[] 			= 	array(
- 				// 	'time' 			=> 	'0'.$i, 
- 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
- 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
- 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			} 
  			else 
  			{
@@ -1526,13 +1519,6 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
-
- 				// $return[] 			= 	array(
- 				// 	'time' 			=> 	$i, 
- 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
- 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
- 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			}
  		}
  		
@@ -1594,13 +1580,6 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
-
- 				// $return[] 			= 	array(
- 				// 	'date' 			=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
- 				// 	"debug" 		=> 	$logger_data->count($querydata_debug), 
- 				// 	"error" 		=> 	$logger_data->count($querydata_error), 
- 				// 	"notice" 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			} 
  			else 
  			{
@@ -1621,32 +1600,26 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
- 				
- 				// $return[] 			= 	array(
- 				// 	'date' 			=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
- 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
- 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
- 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			}
  		}
 
  		$return	= array(
-
- 			array(
- 				'name'	=>	'error',
- 				'data'	=>	$error_data
- 				),
- 			array(
- 				'name'	=>	'notice',
- 				'data'	=>	$notice_data
- 				),
- 			array(
- 				'name'	=>	'debug',
- 				'data'	=>	$debug_data
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+ 				array(
+ 					'name'	=>	'error',
+ 					'data'	=>	$error_data
+ 					),
+ 				array(
+ 					'name'	=>	'notice',
+ 					'data'	=>	$notice_data
+ 					),
+ 				array(
+ 					'name'	=>	'debug',
+ 					'data'	=>	$debug_data
+ 					)
  				)
  			);
-
  		return $return;	
  	}
 
@@ -1689,12 +1662,6 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
- 				// $return[] 			= 	array(
- 				// 	'month' 		=> 	$splitday[0].'-0'.$i, 
- 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
- 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
- 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			} 
  			else
  			{
@@ -1717,13 +1684,6 @@
  				array_push($error_data, $logger_data->count($querydata_error));
  				array_push($notice_data, $logger_data->count($querydata_notice));
  				array_push($debug_data, $logger_data->count($querydata_debug));
-
- 				// $return[] 			= 	array(
- 				// 	'month' 		=> 	$splitday[0].'-'.$i, 
- 				// 	'debug' 		=> 	$logger_data->count($querydata_debug), 
- 				// 	'error' 		=> 	$logger_data->count($querydata_error), 
- 				// 	'notice' 		=> 	$logger_data->count($querydata_notice)
- 				// 	);
  			}
  		}
 
