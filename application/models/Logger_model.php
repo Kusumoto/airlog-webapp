@@ -1066,20 +1066,20 @@
  		{
  			$data 		= 	$getter_data->getNext();
  			$return[] 	= 	array(
- 				"_id" 				=> 	(string)$data['_id'],
- 				"log_type" 			=> $data['log_type'], 
- 				"log_data" 			=> $data['log_data'],
- 				"log_date" 			=> $data['log_date'],
- 				"log_time" 			=> $data['log_time'],
- 				"log_datetime" 		=> $data['log_datetime'],
- 				"log_ip" 			=> $data['log_ip'],
- 				"log_vagent" 		=> $data['log_vagent'],
- 				"log_appname" 		=> $data['log_appname'],
- 				"log_appid" 		=> $data['log_appid'],
- 				"log_funcname" 		=> $data['log_funcname'],
- 				"log_funcid" 		=> $data['log_funcid'],
- 				"log_classname" 	=> $data['log_classname'],
- 				"log_methodname" 	=> $data['log_methodname'],
+ 				'_id' 				=> 	(string)$data['_id'],
+ 				'log_type' 			=> $data['log_type'], 
+ 				'log_data' 			=> $data['log_data'],
+ 				'log_date' 			=> $data['log_date'],
+ 				'log_time' 			=> $data['log_time'],
+ 				'log_datetime' 		=> $data['log_datetime'],
+ 				'log_ip' 			=> $data['log_ip'],
+ 				'log_vagent' 		=> $data['log_vagent'],
+ 				'log_appname' 		=> $data['log_appname'],
+ 				'log_appid' 		=> $data['log_appid'],
+ 				'log_funcname' 		=> $data['log_funcname'],
+ 				'log_funcid' 		=> $data['log_funcid'],
+ 				'log_classname' 	=> $data['log_classname'],
+ 				'log_methodname' 	=> $data['log_methodname'],
  				);
  		}
  		return $return;

@@ -53,3 +53,32 @@ function graph_column_generate(category,text,data,dom,title,subtitle)
     });
 }
 
+function graph_line_generate(category,text,data,dom,title,subtitle)
+{
+    $('#' + dom).highcharts({
+        title: {
+            text: title
+        },
+        subtitle: {
+            text: subtitle
+        },
+        xAxis: {
+            categories: category,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: text
+            }
+        },
+         legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: data
+    });
+}
+
