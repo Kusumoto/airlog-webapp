@@ -414,7 +414,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_line_generate(date_data,'Total',response.data,'summary_month','Total all function use in month','Source : SAMF Dataset');
+            graph_line_generate(date_data,'Total',response.data,'appuse_month','Total all function use in month','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
