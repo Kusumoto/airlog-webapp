@@ -436,8 +436,8 @@ class Function_model extends CI_Model {
 					)
 				);
 				$return[] 	= 	array(
-					'title' => $getdata2['application_name'], 
-					'total' => $countdata
+					'data' 	=> $getdata2['application_name'], 
+					'y' 	=> $countdata
 					);
 			}
 			return $return;

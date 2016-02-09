@@ -93,3 +93,52 @@ function graph_line_generate(category,text,data,dom,title,subtitle)
     });
 }
 
+/*
+Function for generate pie3d chart for highchart
+
+category = Category xAxis
+text = Text in yAxis
+data = dataset
+dom = dom for render
+title = title for chart
+subtitle = subtitle for chart
+name = chart name
+*/
+function graph_pie_generate(data,dom,title,subtitle,name)
+{
+    $('#' + dom).highcharts({
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: text
+        },
+        subtitle: {
+            text: subtitle
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            name: name,
+            data: data
+        }]
+    });
+}
+
