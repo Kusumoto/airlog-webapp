@@ -655,6 +655,7 @@ class Used_model extends CI_Model {
  	{
  		// announce return variable
  		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
  		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
@@ -666,14 +667,12 @@ class Used_model extends CI_Model {
  				$regex_Date 	= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
  				$querydata 		= 	array(
- 					'use_time' 	=> 	$regex_Date, 
- 					'use_date' 	=> 	$this->use_date
+ 					'use_time' 	=> 	$regex_Date,
+ 					'use_date' 	=> 	$this->use_date, 
+ 					'use_appid' => $this->use_appid
  					);
  				// count and insert data to array
- 				$return[] 		= 	array(
- 					'time' 		=> 	'0'.$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			} 
  			else 
  			{
@@ -681,16 +680,20 @@ class Used_model extends CI_Model {
  				$regex_Date 	= 	new MongoRegex('/^'.$i.'/'); 
  				// build query data
  				$querydata 		= 	array(
- 					'use_time' => $regex_Date, 
- 					'use_date' => $this->use_date
+ 					'use_time' 	=> 	$regex_Date, 
+ 					'use_date' 	=> 	$this->use_date, 
+ 					'use_appid' => 	$this->use_appid
  					);
  				// count and insert data to array
- 				$return[] 		= 	array(
- 					'time' 		=> 	$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
