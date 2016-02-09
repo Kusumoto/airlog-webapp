@@ -116,7 +116,7 @@ function graph_pie_generate(data,dom,title,subtitle,name)
             }
         },
         title: {
-            text: text
+            text: title
         },
         subtitle: {
             text: subtitle

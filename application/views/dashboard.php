@@ -456,7 +456,7 @@
             dataType: 'json',
         })
         .done(function(response) {
-            graph_pie_generate(response,'','Ratio function in system','Source : SAMF Dataset','Function');
+            graph_pie_generate(response,'ratio','Ratio function in system','Source : SAMF Dataset','Function');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
