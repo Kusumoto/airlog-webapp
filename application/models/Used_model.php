@@ -668,8 +668,7 @@ class Used_model extends CI_Model {
  				// build query data
  				$querydata 		= 	array(
  					'use_time' 	=> 	$regex_Date,
- 					'use_date' 	=> 	$this->use_date, 
- 					'use_appid' => $this->use_appid
+ 					'use_date' 	=> 	$this->use_date
  					);
  				// count and insert data to array
  				array_push($count, $use_data->count($querydata));
@@ -681,8 +680,7 @@ class Used_model extends CI_Model {
  				// build query data
  				$querydata 		= 	array(
  					'use_time' 	=> 	$regex_Date, 
- 					'use_date' 	=> 	$this->use_date, 
- 					'use_appid' => 	$this->use_appid
+ 					'use_date' 	=> 	$this->use_date
  					);
  				// count and insert data to array
  				array_push($count, $use_data->count($querydata));
