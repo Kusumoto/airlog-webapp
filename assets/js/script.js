@@ -89,7 +89,7 @@ function graph_line_generate(category,text,data,dom,title,subtitle)
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: data
+        series: [data]
     });
 }
 
