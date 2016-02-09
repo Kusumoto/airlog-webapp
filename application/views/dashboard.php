@@ -312,7 +312,7 @@
             '23:00-23:59',
             '24:00'
             ]
-            graph_column_generate(category,'Total',response,'summary_day','Total Log in Day','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_day','Total log in day','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -328,7 +328,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_column_generate(date_data,'Total',response.data,'summary_month','Total Log in Month','Source : SAMF Dataset');
+            graph_column_generate(date_data,'Total',response.data,'summary_month','Total log in month','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -354,7 +354,7 @@
             'November',
             'December'
             ]
-            graph_column_generate(category,'Total',response,'summary_year','Total Log in Year','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_year','Total log in year','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -372,8 +372,34 @@
             dataType: 'json',
         })
         .done(function(response) {
-            chart_4.dataProvider = response;
-            chart_4.validateData(); 
+            category = [
+            '00:00-00:59',
+            '01:00-01:59',
+            '02:00-02:59',
+            '03:00-03:59',
+            '04:00-04:59',
+            '05:00-05:59',
+            '06:00-06:59',
+            '07:00-07:59',
+            '08:00-08:59',
+            '09:00-09:59',
+            '10:00-10:59',
+            '11:00-11:59',
+            '12:00-12:59',
+            '13:00-13:59',
+            '14:00-14:59',
+            '15:00-15:59',
+            '16:00-16:59',
+            '17:00-17:59',
+            '18:00-18:59',
+            '19:00-19:59',
+            '20:00-20:59',
+            '21:00-21:59',
+            '22:00-22:59',
+            '23:00-23:59',
+            '24:00'
+            ]
+            graph_line_generate(category,'Total',response,'appuse_day','Total all function use in day','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
