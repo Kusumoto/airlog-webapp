@@ -425,8 +425,21 @@
             dataType: 'json',
         })
         .done(function(response) {
-            chart_6.dataProvider = response;
-            chart_6.validateData(); 
+            category = [
+            'January',
+            'February',
+            'March',
+            'Apil',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+            ]
+            graph_line_generate(category,'Total',response,'appuse_year','Total all function use in year','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -672,6 +685,7 @@ $(document).ready(function() {
    setInterval("getwebstatus();",100000);
    $('ul.nav a').on('shown.bs.tab', function (e) {
         getsummarygraph();
+        getusedgraph();
    });
    getsummarygraph();
    getusedgraph();

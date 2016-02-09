@@ -753,6 +753,7 @@ class Used_model extends CI_Model {
  	{
  		// announce return variable
  		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
  		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
@@ -768,10 +769,7 @@ class Used_model extends CI_Model {
  					'use_date' 	=> $regex_Date
  					);
  				// count and insert data to array
- 				$return[] 	= 	array(
- 					'month' 	=> 	$splitday[0].'-0'.$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			} 
  			else 
  			{
@@ -782,12 +780,15 @@ class Used_model extends CI_Model {
  					'use_date' 	=> 	$regex_Date
  					);
  				// count and insert data to array
- 				$return[] 	= 	array(
- 					'month' 	=> 	$splitday[0].'-'.$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+ 		
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
