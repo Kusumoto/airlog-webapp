@@ -732,10 +732,13 @@ class Used_model extends CI_Model {
  				array_push($count, $use_data->count($querydata));
  			}
  		}
- 		
+
  		$return		=	array(
- 			'name'		=>		'User',
- 			'data'		=>		$count
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+				'name'		=>		'User',
+ 				'data'		=>		$count
+ 				)
  			);
 
  		return $return;	
