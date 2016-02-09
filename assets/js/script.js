@@ -49,10 +49,21 @@ function graph_column_generate(category,text,data,dom,title,subtitle)
                 borderWidth: 0
             }
         },
+        colors: ['#A2000F', '#00C8C6', '#008106'],
         series: data
     });
 }
 
+/*
+Function for generate line chart for highchart
+
+category = Category xAxis
+text = Text in yAxis
+data = dataset
+dom = dom for render
+title = title for chart
+subtitle = subtitle for chart
+*/
 function graph_line_generate(category,text,data,dom,title,subtitle)
 {
     $('#' + dom).highcharts({
