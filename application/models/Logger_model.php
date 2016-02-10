@@ -925,7 +925,7 @@
  	public function graphyearsummaryratio()
  	{
  		// announce return variable
- 		$return 			= array();
+ 		$return 			= 	array();
  		// select logger collection 
  		$logger_data 		= $this->mongo_db->db->logger;
  		// preparing query data
@@ -1094,7 +1094,7 @@
  	{
 
  		// announce return variable
- 		$return 		= array();
+ 		$return 		= 	array();
  		// select logger collection 
  		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
@@ -1174,7 +1174,7 @@
  	public function graphmonthsummaryfunc()
  	{
  		// announce return variable
- 		$return 		= array();
+ 		$return 		= 	array();
  		// select logger collection 
  		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
@@ -1248,6 +1248,9 @@
  	{
  		// announce return variable
  		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
  		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -1323,6 +1326,9 @@
  	{
  		// announce return variable
  		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -1367,6 +1373,9 @@
  	{
  		// announce return variable
  		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -1414,6 +1423,9 @@
  	{
  		// announce return variable
  		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data

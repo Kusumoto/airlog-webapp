@@ -372,15 +372,9 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd'
     });
     $('ul.nav a').on('shown.bs.tab', function (e) {
-        chart_1.invalidateSize();
-        chart_2.invalidateSize();
-        chart_3.invalidateSize();
-        chart_4.invalidateSize();
-        chart_5.invalidateSize();
-        chart_6.invalidateSize();
-        chart_7.invalidateSize();
-        chart_8.invalidateSize();
-        chart_9.invalidateSize();
+        getsummarygraph();
+        getusedgraph();
+        getratiograph();
     });
     $('#agent_control').click(function(event) {
         $('#quick_load').show();
