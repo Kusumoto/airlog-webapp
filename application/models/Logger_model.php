@@ -898,19 +898,23 @@
  			'log_type' 	=> 'Notice', 
  			'log_appid' => $this->log_appid
  			);
+
  		// count and insert data to array
- 		$return[] 			= array(
- 			'title' 	=> "Debug", 
- 			'total' 	=> $logger_data->count($querydata_debug)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Error", 
- 			'total' 	=> $logger_data->count($querydata_error)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Notice", 
- 			'total' 	=> $logger_data->count($querydata_notice)
- 			);
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Notice", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+
  		return $return;
  	}	
 
@@ -945,19 +949,23 @@
  			'log_type' 	=> 'Notice', 
  			'log_appid' => $this->log_appid
  			);
+ 		
  		// count and insert data to array
- 		$return[] 			= array(
- 			'title' 	=> "Debug", 
- 			'total' 	=> $logger_data->count($querydata_debug)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Error", 
- 			'total' 	=> $logger_data->count($querydata_error)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Notice", 
- 			'total' 	=> $logger_data->count($querydata_notice)
- 			);
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Notice", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+
  		return $return;	
  	}
 
@@ -992,19 +1000,23 @@
  			'log_type' 	=> 'Notice', 
  			'log_appid' => $this->log_appid
  			);
+
  		// count and insert data to array
- 		$return[] 			= array(
- 			'title' 	=> "Debug", 
- 			'total' 	=> $logger_data->count($querydata_debug)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Error", 
- 			'total' 	=> $logger_data->count($querydata_error)
- 			);
- 		$return[] 			= array(
- 			'title' 	=> "Notice", 
- 			'total' 	=> $logger_data->count($querydata_notice)
- 			);
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Notice", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+		
  		return $return;	
  	}
 
