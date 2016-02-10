@@ -607,7 +607,10 @@
  	{
 
  		// announce return variable
- 		$return 		= 	array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -637,12 +640,9 @@
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
- 				$return[]	 		= 	array(
- 					'time' 		=> 	'0'.$i, 
- 					"debug" 	=> 	$logger_data->count($querydata_debug), 
- 					"error" 	=> 	$logger_data->count($querydata_error), 
- 					"notice" 	=> 	$logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			} 
  			else 
  			{
@@ -668,14 +668,28 @@
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
- 				$return[] 		= array(
- 					'time' 		=> $i, 
- 					'debug' 	=> $logger_data->count($querydata_debug), 
- 					'error' 	=> $logger_data->count($querydata_error), 
- 					'notice' 	=> $logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'notice',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -687,7 +701,10 @@
  	public function graphmonthsummary()
  	{
  		// announce return variable
- 		$return 		=	array();
+ 		$return 			=	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
@@ -715,12 +732,9 @@
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
- 				$return[] 			= array(
- 					'date' 		=> $splitday[0].'-'.$splitday[1].'-0'.$i, 
- 					'debug' 	=> $logger_data->count($querydata_debug), 
- 					'error' 	=> $logger_data->count($querydata_error), 
- 					'notice'	=> $logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			} 
  			else 
  			{
@@ -740,14 +754,30 @@
  					'log_type' 	=> 'Notice', 
  					'log_appid' => $this->log_appid);
  				// count and insert data to array
- 				$return[] 			= array(
- 					'date'	 	=> $splitday[0].'-'.$splitday[1].'-'.$i, 
- 					'debug' 	=> $logger_data->count($querydata_debug), 
- 					'error' 	=> $logger_data->count($querydata_error), 
- 					'notice' 	=> $logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+ 				array(
+ 					'name'	=>	'error',
+ 					'data'	=>	$error_data
+ 					),
+ 				array(
+ 					'name'	=>	'notice',
+ 					'data'	=>	$notice_data
+ 					),
+ 				array(
+ 					'name'	=>	'debug',
+ 					'data'	=>	$debug_data
+ 					)
+ 				)
+ 			);
+ 		
  		return $return;	
  	}
 
@@ -759,7 +789,10 @@
  	public function graphyearsummary()
  	{
  		// announce return variable
- 		$return 		= array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
  		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
@@ -787,12 +820,9 @@
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
- 				$return[] 			= array(
- 					'month' 	=> $splitday[0].'-0'.$i, 
- 					'debug' 	=> $logger_data->count($querydata_debug), 
- 					'error' 	=> $logger_data->count($querydata_error), 
- 					'notice' 	=> $logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			} 
  			else 
  			{
@@ -815,14 +845,28 @@
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
- 				$return[] 			= array(
- 					'month' 	=> $splitday[0].'-'.$i, 
- 					"debug" 	=> $logger_data->count($querydata_debug), 
- 					"error" 	=> $logger_data->count($querydata_error), 
- 					"notice" 	=> $logger_data->count($querydata_notice)
- 					);
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'notice',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
