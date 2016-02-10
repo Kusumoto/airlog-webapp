@@ -38,7 +38,7 @@ function graph_column_generate(category,text,data,dom,title,subtitle)
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -64,7 +64,7 @@ dom = dom for render
 title = title for chart
 subtitle = subtitle for chart
 */
-function graph_line_generate(category,text,data,dom,title,subtitle)
+function graph_line_generate(category,text,data,dom,title,subtitle,color)
 {
     $('#' + dom).highcharts({
         title: {
@@ -83,14 +83,13 @@ function graph_line_generate(category,text,data,dom,title,subtitle)
                 text: text
             }
         },
-         legend: {
+        legend: {
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle',
             borderWidth: 0
         },
         colors: color,
-        
         series: [data]
     });
 }
@@ -108,40 +107,81 @@ name = chart name
 */
 function graph_pie_generate(data,dom,title,subtitle,name,color)
 {
-    $('#' + dom).highcharts({
-        chart: {
-            type: 'pie',
-            options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
-            }
-        },
-        title: {
-            text: title
-        },
-        subtitle: {
-            text: subtitle
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
+    if (color != null) 
+    {
+        $('#' + dom).highcharts({
+            chart: {
+                type: 'pie',
+                options3d: {
                     enabled: true,
-                    format: '{point.name}'
+                    alpha: 45,
+                    beta: 0
                 }
-            }
-        },
-        colors: color,
-        series: [{
-            name: name,
-            data: data
-        }]
-    });
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: subtitle
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            colors: color,
+            series: [{
+                name: name,
+                data: data
+            }]
+        });
+    }
+    else
+    {
+        $('#' + dom).highcharts({
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: subtitle
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            series: [{
+                name: name,
+                data: data
+            }]
+        });
+    }
+    
 }
 
