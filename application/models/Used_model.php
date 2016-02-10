@@ -463,6 +463,7 @@ class Used_model extends CI_Model {
  	{
  		// announce return variable
  		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
  		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
