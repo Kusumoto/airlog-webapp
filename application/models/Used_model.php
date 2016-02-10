@@ -412,6 +412,7 @@ class Used_model extends CI_Model {
  	{
  		// announce return variable
  		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
  		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
@@ -428,10 +429,7 @@ class Used_model extends CI_Model {
  					'use_appid' 	=> 		$this->use_appid
  					);
  				// count and insert data to array
- 				$return[] 	= 	array(
- 					'date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
- 					'total'		=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			} 
  			else 
  			{
@@ -441,15 +439,17 @@ class Used_model extends CI_Model {
  					'use_appid' => 	$this->use_appid
  					);
  				// count and insert data to array
- 				$return[]	 = 	array(
- 					'date' 	=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
- 					'total' => 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
 
- 		
- 		return $return;	
+ 		$return		=	array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+				'name'		=>		'User',
+ 				'data'		=>		$count
+ 				)
+ 			);
  	}
 
  	/**
@@ -477,10 +477,7 @@ class Used_model extends CI_Model {
  					'use_appid' => 	$this->use_appid
  					);
  				// count and insert data to array
- 				$return[] 		= 	array(
- 					'month' 	=> 	$splitday[0].'-0'.$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			} 
  			else 
  			{
@@ -492,13 +489,13 @@ class Used_model extends CI_Model {
  					'use_appid' => $this->use_appid
  					);
  				// count and insert data to array
- 				$return[] 		= 	array(
- 					'month' 	=> 	$splitday[0].'-'.$i, 
- 					'total' 	=> 	$use_data->count($querydata)
- 					);
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
- 		return $return;	
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
  	}
 
  	/**
