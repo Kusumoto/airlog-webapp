@@ -193,7 +193,6 @@
 <script type="text/javascript">
 
  function getsummarygraph() {
-    $('#graph1_load').show();
     $.ajax({
         url: '<?php echo site_url("/applications/summarydaygraph"); ?>',
         type: 'POST',
@@ -281,7 +280,6 @@
 }
 
 function getusedgraph() {
-    $('#graph2_load').show();
     $.ajax({
         url: '<?php echo site_url("/applications/useddaygraph"); ?>',
         type: 'POST',
@@ -369,7 +367,6 @@ function getusedgraph() {
 }
 
 function getratiograph() {
-    $('#graph3_load').show();
     $.ajax({
         url: '<?php echo site_url("/applications/summarydayratiograph"); ?>',
         type: 'POST',
