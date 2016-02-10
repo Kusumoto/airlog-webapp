@@ -143,7 +143,7 @@
 	function generate_pdf() {
         $('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
         $('#form_reportapp').target = "_BLANK";
-        $('#form_reportapp').submit()
+        $('#form_reportapp').submit();
       }
 	$(document).ready(function() {
 		success_creator = function(message) {
