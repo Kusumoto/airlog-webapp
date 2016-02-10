@@ -64,7 +64,7 @@ dom = dom for render
 title = title for chart
 subtitle = subtitle for chart
 */
-function graph_line_generate(category,text,data,dom,title,subtitle,color)
+function graph_line_generate(category,text,data,dom,title,subtitle)
 {
     $('#' + dom).highcharts({
         title: {
@@ -89,8 +89,7 @@ function graph_line_generate(category,text,data,dom,title,subtitle,color)
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        if (color != null)
-            colors: color,
+        colors: color,
         
         series: [data]
     });
@@ -107,7 +106,7 @@ title = title for chart
 subtitle = subtitle for chart
 name = chart name
 */
-function graph_pie_generate(data,dom,title,subtitle,name)
+function graph_pie_generate(data,dom,title,subtitle,name,color)
 {
     $('#' + dom).highcharts({
         chart: {
@@ -138,6 +137,7 @@ function graph_pie_generate(data,dom,title,subtitle,name)
                 }
             }
         },
+        colors: color,
         series: [{
             name: name,
             data: data
