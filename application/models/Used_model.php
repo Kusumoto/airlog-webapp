@@ -450,6 +450,8 @@ class Used_model extends CI_Model {
  				'data'		=>		$count
  				)
  			);
+
+ 		return $return;	
  	}
 
  	/**
@@ -496,6 +498,8 @@ class Used_model extends CI_Model {
  			'name'		=>		'User',
  			'data'		=>		$count
  			);
+
+ 		return $return;	
  	}
 
  	/**
