@@ -361,6 +361,7 @@ function getusedgraph() {
 }
 
 function getratiograph() {
+    var color = ['#008106','#A2000F', '#00C8C6'];
     $.ajax({
         url: '<?php echo site_url("/applications/summarydayratiograph"); ?>',
         type: 'POST',
@@ -368,7 +369,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_day','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total');
+        graph_pie_generate(response,'ratio_day','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -380,7 +381,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_month','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total');
+        graph_pie_generate(response,'ratio_month','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -392,7 +393,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_year','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total');
+        graph_pie_generate(response,'ratio_year','Ratio Log Type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');

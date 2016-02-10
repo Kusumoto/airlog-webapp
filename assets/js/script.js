@@ -64,7 +64,7 @@ dom = dom for render
 title = title for chart
 subtitle = subtitle for chart
 */
-function graph_line_generate(category,text,data,dom,title,subtitle)
+function graph_line_generate(category,text,data,dom,title,subtitle,color)
 {
     $('#' + dom).highcharts({
         title: {
@@ -89,6 +89,9 @@ function graph_line_generate(category,text,data,dom,title,subtitle)
             verticalAlign: 'middle',
             borderWidth: 0
         },
+        if (color != null)
+            colors: color,
+        
         series: [data]
     });
 }
