@@ -23,7 +23,7 @@
 							Report Setting
 						</h3>
 					</div>
-					<?php echo form_open("",array("id" => "form_reportapp")); ?>
+					<?php echo form_open("/pdf/appreport",array("id" => "form_reportapp", "target" => "_BLANK")); ?>
 					<div class="box-body">
 						<div class="row">
 							<div class="col-md-6">
@@ -68,10 +68,10 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-4">
 								<div class="form-group">
-									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-search"></i> Show</button>
+									<button class="btn btn-primary btn-block" id="btn_show_data"><i class="fa fa-search"></i> Show</button>
 								</div>
 								<div class="form-group">
-									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-external-link"></i> Generate Report</button>
+									<a class="btn btn-primary btn-block" id="btn_show_pdf" onclick="generate_pdf()"><i class="fa fa-external-link"></i> Generate Report</a>
 								</div>
 							</div>
 						</div>
@@ -140,6 +140,11 @@
 			});
 		}, 1000);
 	}
+	function generate_pdf() {
+        $('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
+        $('#form_reportapp').target = "_BLANK";
+        $('#form_reportapp').submit()
+      }
 	$(document).ready(function() {
 		success_creator = function(message) {
 			$('#place-alert').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>    <i class="icon fa fa-check"></i> Success!</h4>' + message + '</div>');
@@ -155,7 +160,7 @@
 		});
 		//Date range picker with time picker
 		$('#log_datetimepicker').daterangepicker({timePicker: true, timePickerIncrement: 1, format: 'YYYY/MM/DD H:mm'})
-		$('#form_reportapp').submit(function(event) {
+		$('#btn_show_data').click(function(event) {
 			$('#place-alert').html('');
 			event.preventDefault();
 			$('.spinner').show();
