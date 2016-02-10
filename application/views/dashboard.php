@@ -358,9 +358,6 @@
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
         })
-        setTimeout(function(){
-         $('#graph1_load').hide();
-     }, 2000);
     }
 
     function getusedgraph() {
@@ -402,6 +399,7 @@
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
         })
+
         $.ajax({
             url: '<?php echo site_url("/dashboard/usedmonthgraph"); ?>',
             type: 'POST',
@@ -417,6 +415,7 @@
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
         })
+        
         $.ajax({
             url: '<?php echo site_url("/dashboard/usedyeargraph"); ?>',
             type: 'POST',
@@ -442,9 +441,6 @@
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
         })
-        setTimeout(function(){
-           $('#graph2_load').hide();
-       }, 2000);
     }
     function getratiograph() {
         $.ajax({
@@ -458,9 +454,6 @@
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
         })
-        setTimeout(function(){
-           $('#graph3_load').hide();
-       }, 2000);
     }
     function getcpuload() {
         $.ajax({
