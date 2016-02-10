@@ -272,7 +272,7 @@ function getusedgraph() {
             '23:00-23:59',
             '24:00'
             ]
-            graph_line_generate(category,'Total',response,'appuse_day','Total applications use in day','Source : SAMF Dataset');
+            graph_line_generate(category,'Total',response,'appuse_day','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in day','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -288,7 +288,7 @@ function getusedgraph() {
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_line_generate(date_data,'Total',response.data,'appuse_month','Total applications use in month','Source : SAMF Dataset');
+            graph_line_generate(date_data,'Total',response.data,'appuse_month','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in month','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -314,7 +314,7 @@ function getusedgraph() {
             'November',
             'December'
             ]
-            graph_line_generate(category,'Total',response,'appuse_year','Total applications use in year','Source : SAMF Dataset');
+            graph_line_generate(category,'Total',response,'appuse_year','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in year','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
