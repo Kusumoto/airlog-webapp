@@ -130,7 +130,7 @@
 					// Do Antihack bypass installation
 				$this->session->unset_userdata('token_install');
 				$prepare_encrypt 	= 	$this->session->userdata('session_id').'|step1';
-				$ciphertext1 		= 	$this->encryption->encrypt($prepare_encrypt);
+				$ciphertext 		= 	$this->encryption->encrypt($prepare_encrypt);
 				$session_data 		= 	array(
 					'token_install' => $ciphertext,
 					);
