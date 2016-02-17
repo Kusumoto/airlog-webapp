@@ -5,11 +5,9 @@ COPY . /var/www/html
 
 WORKDIR /var/www/html
 
-RUN php /var/www/html/index.php installation docker_step1 "${MONGO_HOST}" "${MONGO_PORT}" "${MONGO_USER}" "${MONGO_PWD}" "${MONGO_DB}"
+COPY docker-entrypoint.sh /var/www/html/entrypoint.sh
 
-RUN php /var/www/html/index.php installation docker_step2 "${SAMF_USER}" "${SAMF_PWD}" "${SAMF_NAMEF}" "${SAMF_NAMEL}"
-
-RUN touch /var/www/html/install.lock
+ENTRYPOINT ["/var/www/html/entrypoint.sh"]
 
 EXPOSE 80
 
