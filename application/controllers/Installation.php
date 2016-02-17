@@ -48,123 +48,123 @@
 		$serversoftware_main 	= 	trim($_SERVER['SERVER_SOFTWARE']);
 		$serversoftware_strip1 	= 	explode('/', $serversoftware_main);
 		$serversoftware_final 	= 	explode('(', $serversoftware_strip1[1]);
-			if ((double)$serversoftware_final[0] >= 2.2) 
-			{
-				$webserverresult 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".$serversoftware_main;
-			} 
-			else 
-			{	
-				$webserverresult 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".$serversoftware_main;
-				$pass 				= 	false;
-			}
+		if ((double)$serversoftware_final[0] >= 2.2) 
+		{
+			$webserverresult 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".$serversoftware_main;
+		} 
+		else 
+		{	
+			$webserverresult 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".$serversoftware_main;
+			$pass 				= 	false;
+		}
 			// Grap Version of PHP
-			if (phpversion() >= 5.3) 
-			{
-				$phpresult 			= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".phpversion();
-			} 
-			else 
-			{
-				$phpresult 			= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".phpversion();
-				$pass 				= 	false;
-			}
+		if (phpversion() >= 5.3) 
+		{
+			$phpresult 			= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i> ".phpversion();
+		} 
+		else 
+		{
+			$phpresult 			= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i> ".phpversion();
+			$pass 				= 	false;
+		}
 			// Check Root Path Can Writable
-			if (is_writable(FCPATH)) 
-			{
-				$filewriter1result 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} 
-			else 
-			{
-				$filewriter1result 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
-				$pass = false;
-			}
+		if (is_writable(FCPATH)) 
+		{
+			$filewriter1result 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
+		} 
+		else 
+		{
+			$filewriter1result 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
+			$pass = false;
+		}
 			// Check Configure Path Can Writable
-			if (is_writable(APPPATH.'config/')) 
-			{
-				$filewriter2result 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} 
-			else 
-			{
-				$filewriter2result 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
-				$pass 				= 	false;
-			}
+		if (is_writable(APPPATH.'config/')) 
+		{
+			$filewriter2result 	= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
+		} 
+		else 
+		{
+			$filewriter2result 	= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
+			$pass 				= 	false;
+		}
 			// Check PHP JSON Module
-			if (extension_loaded('json')) 
-			{
-				$jsonmodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} 
-			else 
-			{
-				$jsonmodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
-				$pass 				= 	false;
-			}
+		if (extension_loaded('json')) 
+		{
+			$jsonmodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
+		} 
+		else 
+		{
+			$jsonmodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
+			$pass 				= 	false;
+		}
 			// Check PHP MongoDB Module
-			if (extension_loaded('mongo')) 
-			{
-				$mongomodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} 
-			else 
-			{
-				$mongomodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
-				$pass 				= 	false;
-			}
+		if (extension_loaded('mongo')) 
+		{
+			$mongomodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
+		} 
+		else 
+		{
+			$mongomodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
+			$pass 				= 	false;
+		}
 			// Check PHP Mcrypt Module
-			if (extension_loaded('mcrypt')) 
-			{
-				$mcryptmodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
-			} 
-			else 
-			{
-				$mcryptmodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
-				$pass 				= 	false;
-			}
+		if (extension_loaded('mcrypt')) 
+		{
+			$mcryptmodule 		= 	"<i class=\"fa fa-check icon_corrent fa-2x\"></i>";
+		} 
+		else 
+		{
+			$mcryptmodule 		= 	"<i class=\"fa fa-times icon_wrong fa-2x\"></i>";
+			$pass 				= 	false;
+		}
 			// If Do_POST Submition
-			if ($pass && $this->input->post()) 
-			{
+		if ($pass && $this->input->post()) 
+		{
 				// Check Access Token
-				if ($this->input->post('token',true) != $this->session->userdata('token_install')) 
-				{
-					show_error('Access Token Invalid.',500);					
-				} 
-				else 
-				{
-					// Do Antihack bypass installation
-					$this->session->unset_userdata('token_install');
-					$prepare_encrypt 	= 	$this->session->userdata('session_id').'|step1';
-					$ciphertext1 		= 	$this->encryption->encrypt($prepare_encrypt);
-					$session_data 		= 	array(
-						'token_install' => $ciphertext,
-						);
-					$this->session->set_userdata($session_data);
-					// redirect to step1
-					redirect('/installation/step1','refresh');
-				}
+			if ($this->input->post('token',true) != $this->session->userdata('token_install')) 
+			{
+				show_error('Access Token Invalid.',500);					
 			} 
 			else 
 			{
-				// Generate token key and save to session
-				$key 			= 	time();
-				$ciphertext 	= 	$this->encryption->encrypt($key);
-				$session_data 	= 	array(
+					// Do Antihack bypass installation
+				$this->session->unset_userdata('token_install');
+				$prepare_encrypt 	= 	$this->session->userdata('session_id').'|step1';
+				$ciphertext1 		= 	$this->encryption->encrypt($prepare_encrypt);
+				$session_data 		= 	array(
 					'token_install' => $ciphertext,
 					);
 				$this->session->set_userdata($session_data);
-				// Load View
-				$this->load->view('installation/header');
-				$this->load->view('installation/body_step0',array(
-					'webserverresult' 	=> 		$webserverresult, 
-					'phpresult' 		=> 		$phpresult, 
-					'filewriter1result' => 		$filewriter1result,
-					'filewriter2result' => 		$filewriter2result,
-					'jsonmodule' 		=> 		$jsonmodule,
-					'mongomodule' 		=> 		$mongomodule,
-					'mcryptmodule' 		=> 		$mcryptmodule,
-					'pass' 				=> 		$pass,
-					'token' 			=> 		$ciphertext,
-					)
-				);
-				$this->load->view('installation/footer');
+					// redirect to step1
+				redirect('/installation/step1','refresh');
 			}
+		} 
+		else 
+		{
+				// Generate token key and save to session
+			$key 			= 	time();
+			$ciphertext 	= 	$this->encryption->encrypt($key);
+			$session_data 	= 	array(
+				'token_install' => $ciphertext,
+				);
+			$this->session->set_userdata($session_data);
+				// Load View
+			$this->load->view('installation/header');
+			$this->load->view('installation/body_step0',array(
+				'webserverresult' 	=> 		$webserverresult, 
+				'phpresult' 		=> 		$phpresult, 
+				'filewriter1result' => 		$filewriter1result,
+				'filewriter2result' => 		$filewriter2result,
+				'jsonmodule' 		=> 		$jsonmodule,
+				'mongomodule' 		=> 		$mongomodule,
+				'mcryptmodule' 		=> 		$mcryptmodule,
+				'pass' 				=> 		$pass,
+				'token' 			=> 		$ciphertext,
+				)
+			);
+			$this->load->view('installation/footer');
 		}
+	}
 
 		/**
 	 	* Step1 Installer Loader
@@ -186,7 +186,7 @@
 	 		{
 				// Check POST Method Form
 	 			if ($this->input->post() && $this->input->post('token',true) &&
-	 			 	$this->input->post('token_dbchk',true) && $this->input->post('token_webservicechk',true)) 
+	 				$this->input->post('token_dbchk',true) && $this->input->post('token_webservicechk',true)) 
 	 			{
 					// Load Form Validation Library
 	 				$this->load->library('form_validation');
@@ -322,7 +322,7 @@
 				show_error('Access Token Invalid',500);
 			} 
 			else
-			 {
+			{
 				// Construct this module
 				$webservice = $this->input->post('webservice',true).'/getVersionService';
 
@@ -828,6 +828,76 @@
 					$this->load->view('installation/body_step3');
 					$this->load->view('installation/footer');
 				}
+			}
+		}
+
+		public function docker_step1($db_host,$db_port,$db_user,$db_pwd,$db_dbname)
+		{
+			// Load File Helper
+			$this->load->helper('file');
+			try 
+			{
+				// Get MongoDB Data to variable
+				$mongo_host 	= 	$db_host;
+				$mongo_port 	= 	$db_port;
+				$mongo_user 	= 	$db_user;
+				$mongo_pass 	= 	$db_pwd;
+				$mongo_db 		= 	$db_dbname;
+				// Write Configuration file
+				$config_data 	= 	'defined(\'BASEPATH\') OR exit(\'No direct script access allowed\');'."\n\n";
+				$config_data 	.= 	'/** File Auto Generate by SAMF Installation Wizard **/'."\n";
+				$config_data 	.= 	'$config[\'mongo_server\'] = "'.$mongo_host.'";'."\n";
+				$config_data 	.= 	'$config[\'mongo_port\'] = "'.$mongo_port.'";'."\n";
+				$config_data 	.= 	'$config[\'mongo_dbname\'] = "'.$mongo_db.'";'."\n";
+				$config_data 	.= 	'$config[\'mongo_username\'] = "'.$mongo_user.'";'."\n";
+				$config_data 	.= 	'$config[\'mongo_password\'] = "'.$mongo_pass.'";'."\n";
+
+				if (!write_file(APPPATH.'config/mongo.php', "<?php ".$config_data)) 
+				{
+					echo "Error!";
+				}
+
+			} 
+			catch (Exception $e) 
+			{
+				echo "Server Error";
+			}
+
+		}
+
+		public function docker_step2($username,$password,$name_f,$name_l)
+		{
+			// Load Library Mongo
+			$this->load->model('installation_model');
+			// Seter data to model
+			$this->installation_model->setUsername($username);
+			$this->installation_model->setPassword($password);
+			$this->installation_model->setEmail($name_f);
+			$this->installation_model->setApiUrl('');
+			$this->installation_model->setFirstname($name_f);
+			$this->installation_model->setLastname($name_l);
+			// Save Data
+			try 
+			{
+				if ($this->installation_model->createDefaultUser()) 
+				{
+					if ($this->installation_model->createConfigApiUrl()) 
+					{
+
+					} 
+					else 
+					{
+						echo "Error!"
+					}
+				} 
+				else 
+				{
+					echo "Exception!";
+				}
+			} 
+			catch (Exception $e) 
+			{
+				echo "Exception2!";
 			}
 		}
 	}
