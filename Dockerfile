@@ -7,6 +7,8 @@ WORKDIR /var/www/html
 
 COPY docker-entrypoint.sh /var/www/html/entrypoint.sh
 
+RUN chmod 777 /var/www/html/entrypoint.sh
+
 ENTRYPOINT ["/var/www/html/entrypoint.sh"]
 
 EXPOSE 80
