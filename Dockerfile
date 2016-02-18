@@ -9,6 +9,10 @@ COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN chmod 777 /entrypoint.sh
 
+RUN mkdir /ci_session
+
+RUN chmod 777 /ci_session
+
 EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]

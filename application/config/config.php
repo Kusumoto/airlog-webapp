@@ -351,7 +351,7 @@ $config['encryption_key'] = '3c5ace57ab6e67484d4fbcb3c4e061ec';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'SAMF_SESSION';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = '/ci_session';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 
