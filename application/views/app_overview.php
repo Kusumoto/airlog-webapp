@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application</li>
+            <li><?php $label("application"); ?></li>
             <li>Overview</li>
             <li class="active"><?php echo $application_detail->getApplicationName(); ?></li>
         </ol>
