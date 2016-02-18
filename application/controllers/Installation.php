@@ -831,7 +831,7 @@
 			}
 		}
 
-		public function docker_step1($db_host,$db_port,$db_user,$db_pwd,$db_dbname)
+		public function docker_step1($db_host,$db_port,$db_dbname,$db_user,$db_pwd)
 		{
 			// Load File Helper
 			$this->load->helper('file');
