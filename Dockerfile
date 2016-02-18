@@ -7,8 +7,8 @@ WORKDIR /var/www/html
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
-RUN sh /entrypoint.sh
-
 EXPOSE 80
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["apache2-foreground"]
