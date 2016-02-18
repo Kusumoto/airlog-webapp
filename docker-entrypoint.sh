@@ -2,12 +2,13 @@
 
 FILE="/var/www/html/install.lock"
 
-if [ -f "$FILE" ];
-then
+if [ -f "$FILE" ]; then
 	exec apache2-foreground
 else
 	php /var/www/html/index.php installation docker_step1 $MONGO_HOST $MONGO_PORT $MONGO_DB $MONGO_USER $MONGO_PWD
-	php /var/www/html/index.php installation docker_step2 $SAMF_USER $SAMF_PWD $SAMF_NAMEF $SAMF_NAMEL	
+	if [ "$NEWINSTALL" = "yes" ]; then
+		php /var/www/html/index.php installation docker_step2 $SAMF_USER $SAMF_PWD $SAMF_NAMEF $SAMF_NAMEL
+	fi	
 	touch $FILE
 	chmod 755 /var/www/html
 	chmod 755 /var/www/html/application/config
