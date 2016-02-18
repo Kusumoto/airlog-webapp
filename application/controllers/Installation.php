@@ -871,7 +871,7 @@
 			$this->load->model('installation_model');
 			// Seter data to model
 			$this->installation_model->setUsername($username);
-			$this->installation_model->setPassword($password);
+			$this->installation_model->setPassword(md5($password));
 			$this->installation_model->setEmail($name_f);
 			$this->installation_model->setApiUrl('');
 			$this->installation_model->setFirstname($name_f);
