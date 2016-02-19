@@ -22,6 +22,7 @@
  $lang['application'] = "Application";
  $lang['overview'] = "Overview";
  // app_peroverview
+ $lang['id'] = "ID";
  $lang['application_overview'] = "Application Overview";
  $lang['action'] = "Action";
  $lang[''] = "";

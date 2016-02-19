@@ -3,7 +3,7 @@
 <aside class="right-side">
     <section class="content-header">
         <h1>
-            Application Overview
+            <?php echo $this->lang->line("application_overview"); ?>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
@@ -33,7 +33,7 @@
                       <table class="table table-hover" id="table_applist">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
+                                <th width="10%"><?php echo $this->lang->line("id"); ?></th>
                                 <th width="70%"><?php echo $this->lang->line("application"); ?></th>
                                 <th width="20%"><?php echo $this->lang->line("action"); ?></th>
                             </tr>

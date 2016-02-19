@@ -22,6 +22,7 @@
  $lang['application'] = "แอพพลิเคชั่น";
  $lang['overview'] = "ภาพรวม";
  // app_peroverview
+ $lang['id'] = "ไอดี";
  $lang['application_overview'] = "ภาพรวมทั้งหมดของ แอพพลิเคชั่น";
  $lang['action'] = "การทำงาน";
 
