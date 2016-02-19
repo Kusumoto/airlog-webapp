@@ -636,7 +636,7 @@
  				$querydata_notice 	= 	array(
  					'log_time' 	=> $regex_Date, 
  					'log_date' 	=> $this->log_date, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
@@ -664,7 +664,7 @@
  				$querydata_notice = array(
  					'log_time' 	=> $regex_Date, 
  					'log_date' 	=> $this->log_date, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
@@ -677,15 +677,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);
@@ -728,7 +728,7 @@
  					);
  				$querydata_notice 	= array(
  					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-0'.$i, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
@@ -751,7 +751,7 @@
  					);
  				$querydata_notice 	= array(
  					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-'.$i, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -764,15 +764,15 @@
  			'lastday'	=>	$lastday,
  			'data'		=>	array(
  				array(
- 					'name'	=>	'error',
+ 					'name'	=>	'Error',
  					'data'	=>	$error_data
  					),
  				array(
- 					'name'	=>	'notice',
+ 					'name'	=>	'Info',
  					'data'	=>	$notice_data
  					),
  				array(
- 					'name'	=>	'debug',
+ 					'name'	=>	'Debug',
  					'data'	=>	$debug_data
  					)
  				)
@@ -816,7 +816,7 @@
  					);
  				$querydata_notice 	= array(
  					'log_date' 	=> $regex_Date, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
@@ -841,7 +841,7 @@
  					);
  				$querydata_notice 	= array(
  					'log_date' 	=> $regex_Date, 
- 					'log_type' 	=> 'Notice', 
+ 					'log_type' 	=> 'Info', 
  					'log_appid' => $this->log_appid
  					);
  				// count and insert data to array
@@ -854,15 +854,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);
@@ -895,7 +895,7 @@
  			);
  		$querydata_notice 	= array(
  			'log_date' 	=> $this->log_date, 
- 			'log_type' 	=> 'Notice', 
+ 			'log_type' 	=> 'Info', 
  			'log_appid' => $this->log_appid
  			);
 
@@ -911,7 +911,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
 
@@ -946,7 +946,7 @@
  			);
  		$querydata_notice	= array(
  			'log_date' 	=> $regex_Date, 
- 			'log_type' 	=> 'Notice', 
+ 			'log_type' 	=> 'Info', 
  			'log_appid' => $this->log_appid
  			);
  		
@@ -962,7 +962,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
 
@@ -997,7 +997,7 @@
  			);
  		$querydata_notice 	= array(
  			'log_date' 	=> $regex_Date, 
- 			'log_type' 	=> 'Notice', 
+ 			'log_type' 	=> 'Info', 
  			'log_appid' => $this->log_appid
  			);
 
@@ -1013,7 +1013,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
 
@@ -1179,7 +1179,7 @@
  				$querydata_notice 	= array(
  					'log_time' 		=> $regex_Date, 
  					'log_date' 		=> $this->log_date, 
- 					'log_type' 		=> 'Notice', 
+ 					'log_type' 		=> 'Info', 
  					'log_funcid' 	=> $this->log_funcid
  					);
  				// count and insert data to array
@@ -1207,7 +1207,7 @@
  				$querydata_notice 	= array(
  					'log_time' 		=> $regex_Date, 
  					'log_date' 		=> $this->log_date, 
- 					'log_type' 		=> 'Notice', 
+ 					'log_type' 		=> 'Info', 
  					'log_funcid' 	=> $this->log_funcid
  					);
  				// count and insert data to array
@@ -1220,15 +1220,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);
@@ -1271,7 +1271,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
- 					'log_type' 		=> 	'Notice', 
+ 					'log_type' 		=> 	'Info', 
  					'log_funcid' 	=> 	$this->log_funcid
  					);
  				// count and insert data to array
@@ -1294,7 +1294,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
- 					'log_type' 		=> 	'Notice', 
+ 					'log_type' 		=> 	'Info', 
  					'log_funcid' 	=> 	$this->log_funcid
  					);
  				// count and insert data to array
@@ -1308,15 +1308,15 @@
  			'lastday'	=>	$lastday,
  			'data'		=>	array(
  				array(
- 					'name'	=>	'error',
+ 					'name'	=>	'Error',
  					'data'	=>	$error_data
  					),
  				array(
- 					'name'	=>	'notice',
+ 					'name'	=>	'Info',
  					'data'	=>	$notice_data
  					),
  				array(
- 					'name'	=>	'debug',
+ 					'name'	=>	'Debug',
  					'data'	=>	$debug_data
  					)
  				)
@@ -1360,7 +1360,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$regex_Date, 
- 					'log_type' 		=> 	'Notice', 
+ 					'log_type' 		=> 	'Info', 
  					'log_funcid' 	=> 	$this->log_funcid
  					);
  				// count and insert data to array
@@ -1385,7 +1385,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$regex_Date, 
- 					'log_type' 		=> 	'Notice', 
+ 					'log_type' 		=> 	'Info', 
  					'log_funcid' 	=> 	$this->log_funcid
  					);
  				// count and insert data to array
@@ -1398,15 +1398,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);
@@ -1439,7 +1439,7 @@
  			);
  		$querydata_notice 	= 	array(
  			'log_date' 		=> 	$this->log_date, 
- 			'log_type' 		=> 	'Notice', 
+ 			'log_type' 		=> 	'Info', 
  			'log_funcid' 	=> 	$this->log_funcid
  			);
  		// count and insert data to array
@@ -1454,7 +1454,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
  		return $return;
@@ -1488,7 +1488,7 @@
  			);
  		$querydata_notice 	= 	array(
  			'log_date' 		=> 	$regex_Date, 
- 			'log_type' 		=> 	'Notice', 
+ 			'log_type' 		=> 	'Info', 
  			'log_funcid' 	=> 	$this->log_funcid
  			);
  		// count and insert data to array
@@ -1503,7 +1503,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
  		return $return;	
@@ -1537,7 +1537,7 @@
  			);
  		$querydata_notice	= 	array(
  			'log_date' 		=> 	$regex_Date, 
- 			'log_type' 		=> 	'Notice', 
+ 			'log_type' 		=> 	'Info', 
  			'log_funcid' 	=> 	$this->log_funcid
  			);
  		// count and insert data to array
@@ -1552,7 +1552,7 @@
 		);
 
 		$return[] 	= 	array(
-			'name' 	=> "Notice", 
+			'name' 	=> "Info", 
 			'y' 	=> $logger_data->count($querydata_notice)
 		);
  		return $return;	
@@ -1594,7 +1594,7 @@
  				$querydata_notice 	= 	array(
  					'log_time' 		=> 	$regex_Date, 
  					'log_date' 		=> 	$this->log_date, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1619,7 +1619,7 @@
  				$querydata_notice 	= 	array(
  					'log_time' 		=> 	$regex_Date, 
  					'log_date' 		=> 	$this->log_date, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1631,15 +1631,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);
@@ -1680,7 +1680,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1700,7 +1700,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1713,15 +1713,15 @@
  			'lastday'	=>	$lastday,
  			'data'		=>	array(
  				array(
- 					'name'	=>	'error',
+ 					'name'	=>	'Error',
  					'data'	=>	$error_data
  					),
  				array(
- 					'name'	=>	'notice',
+ 					'name'	=>	'Info',
  					'data'	=>	$notice_data
  					),
  				array(
- 					'name'	=>	'debug',
+ 					'name'	=>	'Debug',
  					'data'	=>	$debug_data
  					)
  				)
@@ -1762,7 +1762,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$regex_Date, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1784,7 +1784,7 @@
  					);
  				$querydata_notice 	= 	array(
  					'log_date' 		=> 	$regex_Date, 
- 					'log_type' 		=> 	'Notice'
+ 					'log_type' 		=> 	'Info'
  					);
  				// count and insert data to array
  				array_push($error_data, $logger_data->count($querydata_error));
@@ -1796,15 +1796,15 @@
  		$return	= array(
 
  			array(
- 				'name'	=>	'error',
+ 				'name'	=>	'Error',
  				'data'	=>	$error_data
  				),
  			array(
- 				'name'	=>	'notice',
+ 				'name'	=>	'Info',
  				'data'	=>	$notice_data
  				),
  			array(
- 				'name'	=>	'debug',
+ 				'name'	=>	'Debug',
  				'data'	=>	$debug_data
  				)
  			);

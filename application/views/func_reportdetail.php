@@ -54,7 +54,7 @@
 							<div class="col-md-5 col-md-offset-4">
 								<div class="form-group">
 									<label class="checkbox-inline">
-										<input type="checkbox" id="chkbox_1" value="Notice" name="typeselect[]" class="flat-green" checked> Notice
+										<input type="checkbox" id="chkbox_1" value="Info" name="typeselect[]" class="flat-green" checked> Info
 									</label>
 									<label class="checkbox-inline">
 										<input type="checkbox" id="chkbox_2" value="Debug" name="typeselect[]" class="flat-green" checked> Debug
