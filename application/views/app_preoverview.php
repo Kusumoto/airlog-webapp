@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application</li>
+            <li><?php echo $this->lang->line("application"); ?></li>
             <li class="active">Overview</li>
         </ol>
     </section>
