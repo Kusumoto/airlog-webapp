@@ -27,7 +27,7 @@
 		// Call instance of codeigniter
 		$ci =& get_instance();
 		// Set the lalel
-		$rs = $ci->line($label);
+		$rs = $ci->lang->line($label);
 		// Check language have data 
 		if($rs) {
 			return $rs;
