@@ -6,9 +6,9 @@
             Application Overview
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
             <li><?php echo $this->lang->line("application"); ?></li>
-            <li class="active">Overview</li>
+            <li class="active"><?php echo $this->lang->line("overview"); ?></li>
         </ol>
     </section>
 
@@ -20,7 +20,7 @@
                 <div class="box-header">
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Application
+                        <?php echo $this->lang->line("application"); ?>
                     </h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -34,8 +34,8 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="70%">Application</th>
-                                <th width="20%">Action</th>
+                                <th width="70%"><?php echo $this->lang->line("application"); ?></th>
+                                <th width="20%"><?php echo $this->lang->line("action"); ?></th>
                             </tr>
                         </thead>
                         <tbody>

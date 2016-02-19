@@ -18,9 +18,12 @@
  * @category	Multilanguage:Thai langage
  * @author		SAMF Dev Team
  */
-
+ $lang['home'] = "หน้าแรก";
  $lang['application'] = "แอพพลิเคชั่น";
  $lang['overview'] = "ภาพรวม";
+ // app_peroverview
+ $lang['application_overview'] = "ภาพรวมทั้งหมดของ แอพพลิเคชั่น";
+ $lang['action'] = "การทำงาน";
 
 
  ?>

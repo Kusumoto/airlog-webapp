@@ -18,9 +18,22 @@
  * @category	Multilanguage:English langage
  * @author		SAMF Dev Team
  */
-
+ $lang['home'] = "Home";
  $lang['application'] = "Application";
  $lang['overview'] = "Overview";
+ // app_peroverview
+ $lang['application_overview'] = "Application Overview";
+ $lang['action'] = "Action";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
 
 
  ?>
