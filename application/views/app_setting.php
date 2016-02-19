@@ -25,8 +25,8 @@
             <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Select languages
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">ไทย </a></li>
-              <li><a href="#">English</a></li>
+              <li><a href="setting/change_language/english">English</a></li>
+              <li><a href="setting/change_language/thai">ไทย</a></li>
             </ul>
           </div>
         </div>

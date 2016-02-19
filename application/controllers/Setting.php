@@ -54,8 +54,13 @@ class Setting extends CI_Controller {
  		$this->load->view('template/footer');
 	}
 
+	public function change_language()
+	{
+		
+		$this->session->set_userdata("lang".$type);
+		redirect('','refresh');
+	}
+
 }
 
-/* End of file setting.php */
-/* Location: ./application/controllers/setting.php */
  ?>

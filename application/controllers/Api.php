@@ -34,7 +34,8 @@
  		$this->load->helper('form');
  		$this->load->helper('sec_samf');
  		// Load language 
- 		$this->lang->load("english","english");
+ 		$lang = $this->session_userdata('lang')==null?"english".$this->session->userdata("lang");
+ 		$this->lang->load($lang.$lang);
 		// Check System not install
  		if (!file_exists(FCPATH.'install.lock')) 
  		{
