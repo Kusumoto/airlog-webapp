@@ -88,7 +88,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('multilang');
+$autoload['helper'] = array();
 // The multilange helper is helper for multi language
 
 /*

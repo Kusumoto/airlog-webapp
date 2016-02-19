@@ -8,8 +8,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-             <li><?php echo label('app_overview_application',$this); ?></li>
-            <li><?php echo label('app_overview_overview',$this); ?></li>
+             <li><?php echo $this->lang->line("application"); ?></li>
+            <li>Overview</li>
             <li class="active"><?php echo $application_detail->getApplicationName(); ?></li>
         </ol>
     </section>
