@@ -54,7 +54,7 @@ class Setting extends CI_Controller {
  		$this->load->view('template/footer');
 	}
 
-	public function change_language()
+	public function change_language($type)
 	{
 		
 		$this->session->set_userdata("lang".$type);
