@@ -19,7 +19,7 @@
  * @author		SAMF Dev Team
  */
 
- $lang['application'] = "aaaa";
+ $lang['application'] = "Application";
  $lang['overview'] = "Overview";
 
 
