@@ -26,6 +26,8 @@ class Pdf extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		// Memory Limitation 
+		ini_set('memory_limit', '-1');
 		// Load Essential Library
  		$this->load->library('session');
  		$this->load->library('createpdf');
