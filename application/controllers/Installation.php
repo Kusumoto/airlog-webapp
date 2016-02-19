@@ -865,7 +865,7 @@
 
 		}
 
-		public function docker_step2($username,$password,$name_f,$name_l)
+		public function docker_step2($username,$password,$name_f,$name_l,$api)
 		{
 			// Load Library Mongo
 			$this->load->model('installation_model');
@@ -873,7 +873,7 @@
 			$this->installation_model->setUsername($username);
 			$this->installation_model->setPassword(md5($password));
 			$this->installation_model->setEmail($name_f);
-			$this->installation_model->setApiUrl('');
+			$this->installation_model->setApiUrl($api);
 			$this->installation_model->setFirstname($name_f);
 			$this->installation_model->setLastname($name_l);
 			// Save Data
