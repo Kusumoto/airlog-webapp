@@ -18,6 +18,18 @@
  * @category	Multilanguage:English langage
  * @author		SAMF Dev Team
  */
+ //template menu 
+ $lang['hello'] = "Hello";
+ $lang['online'] = "Online";
+ $lang['dashboard'] = "Dashboard";
+ $lang['applications'] = "Applications";
+ $lang['log_report'] = "Log Report";
+ $lang['manage'] = "Manage";
+ $lang['application_functions'] = "Application Functions";
+ $lang['users_management'] = "Users Management";
+ $lang['api_management'] = "API Management";
+ $lang['setting'] = "Setting";
+ //default overview
  $lang['home'] = "Home";
  $lang['application'] = "Application";
  $lang['overview'] = "Overview";
@@ -31,10 +43,7 @@
  $lang[''] = "";
  $lang[''] = "";
  $lang[''] = "";
- $lang[''] = "";
- $lang[''] = "";
- $lang[''] = "";
- $lang[''] = "";
+
 
 
  ?>

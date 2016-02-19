@@ -18,6 +18,19 @@
  * @category	Multilanguage:Thai langage
  * @author		SAMF Dev Team
  */
+
+ //template menu 
+ $lang['hello'] = "สวัสดี";
+ $lang['online'] = "ออนไลน์";
+ $lang['dashboard'] = "แดชบอร์ด";
+ $lang['applications'] = "แอพพลิเคชั่น";
+ $lang['log_report'] = "รายงานล็อค";
+ $lang['manage'] = "การจัดการ";
+ $lang['application_functions'] = "แอพพลิเคชั่น ฟังก์ชัน";
+ $lang['users_management'] = "การจัดการส่วนผู้ใช้งาน";
+ $lang['api_management'] = "การจัดการส่วนเ API";
+ $lang['setting'] = "ตั้งค่าระบบ";
+ //default overview
  $lang['home'] = "หน้าแรก";
  $lang['application'] = "แอพพลิเคชั่น";
  $lang['overview'] = "ภาพรวม";
