@@ -7,8 +7,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><?php echo label('application',$this); ?></li>
-            <li class="active"><?php echo label('overview',$this); ?></li>
+            <li><?php echo label('application'); ?></li>
+            <li class="active"><?php echo label('overview'); ?></li>
         </ol>
     </section>
 
