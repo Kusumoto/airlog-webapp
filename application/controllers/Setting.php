@@ -56,7 +56,7 @@ class Setting extends CI_Controller {
 
 	public function change_language($type)
 	{
-		$this->session->set_userdata("lang".$type);
+		$this->session->set_userdata(array("lang".$type));
 		echo $type."<br>";
 		echo $this->session->userdata('lang');
 
