@@ -20,14 +20,14 @@
  */
 
  //template menu 
- $lang['hello'] = "สวัสดี";
+ $lang['hello'] = "สวัสดีคุณ ";
  $lang['online'] = "ออนไลน์";
  $lang['dashboard'] = "แดชบอร์ด";
  $lang['applications'] = "แอพพลิเคชั่น";
  $lang['log_report'] = "รายงานล็อค";
  $lang['manage'] = "การจัดการ";
  $lang['application_functions'] = "แอพพลิเคชั่น ฟังก์ชัน";
- $lang['users_management'] = "การจัดการส่วนผู้ใช้งาน";
+ $lang['users_management'] = "การจัดการส่วนของผู้ใช้งาน";
  $lang['api_management'] = "การจัดการส่วนเ API";
  $lang['setting'] = "ตั้งค่าระบบ";
  //default overview
