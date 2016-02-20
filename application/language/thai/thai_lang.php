@@ -20,16 +20,16 @@
  */
 
  //template menu 
- $lang['hello'] = "สวัสดีคุณ ";
- $lang['online'] = "ออนไลน์";
- $lang['dashboard'] = "แดชบอร์ด";
- $lang['applications'] = "แอพพลิเคชั่น";
- $lang['log_report'] = "รายงานล็อค";
- $lang['manage'] = "การจัดการ";
- $lang['application_functions'] = "แอพพลิเคชั่น ฟังก์ชัน";
- $lang['users_management'] = "การจัดการส่วนของผู้ใช้งาน";
- $lang['api_management'] = "การจัดการส่วนเ API";
- $lang['setting'] = "ตั้งค่าระบบ";
+ $lang['menu_hello'] = "สวัสดีคุณ ";
+ $lang['menu_online'] = "ออนไลน์";
+ $lang['menu_dashboard'] = "แดชบอร์ด";
+ $lang['menu_applications'] = "แอพพลิเคชั่น";
+ $lang['menu_log_report'] = "รายงานล็อค";
+ $lang['menu_manage'] = "การจัดการ";
+ $lang['menu_application_functions'] = "แอพพลิเคชั่นฟังก์ชัน";
+ $lang['menu_users_management'] = "การจัดการผู้ใช้งาน";
+ $lang['menu_api_management'] = "การจัดการ API";
+ $lang['menu_setting'] = "ตั้งค่าระบบ";
  //default overview
  $lang['home'] = "หน้าแรก";
  $lang['application'] = "แอพพลิเคชั่น";
