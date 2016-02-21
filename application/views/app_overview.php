@@ -9,7 +9,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
              <li><?php echo $this->lang->line("application"); ?></li>
-            <li>Overview</li>
+            <li><?php echo $this->lang->line("overview"); ?></li>
             <li class="active"><?php echo $application_detail->getApplicationName(); ?></li>
         </ol>
     </section>
