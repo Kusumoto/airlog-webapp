@@ -19,21 +19,27 @@
  * @author		SAMF Dev Team
  */
  //template menu 
- $lang['hello'] = "Hello";
- $lang['online'] = "Online";
- $lang['dashboard'] = "Dashboard";
- $lang['applications'] = "Applications";
- $lang['log_report'] = "Log Report";
- $lang['manage'] = "Manage";
- $lang['application_functions'] = "Application Functions";
- $lang['users_management'] = "Users Management";
- $lang['api_management'] = "API Management";
- $lang['setting'] = "Setting";
+ $lang['menu_hello'] = "Hello";
+ $lang['menu_online'] = "Online";
+ $lang['menu_dashboard'] = "Dashboard";
+ $lang['menu_applications'] = "Applications";
+ $lang['menu_log_report'] = "Log Report";
+ $lang['menu_manage'] = "Manage";
+ $lang['menu_application_functions'] = "Application Functions";
+ $lang['menu_users_management'] = "Users Management";
+ $lang['menu_api_management'] = "API Management";
+ $lang['menu_setting'] = "Setting";
  //default overview
  $lang['home'] = "Home";
  $lang['application'] = "Application";
  $lang['overview'] = "Overview";
- // app_peroverview
+ // app_overview
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ $lang[''] = "";
+ // app_preoverview
  $lang['id'] = "ID";
  $lang['application_overview'] = "Application Overview";
  $lang['action'] = "Action";
