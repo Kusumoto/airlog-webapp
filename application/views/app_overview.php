@@ -4,10 +4,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo $application_detail->getApplicationName(); ?>'s Overview
+            <?php echo $this->lang->line("app_ov_overview"); ?>"<?php echo $application_detail->getApplicationName(); ?>"
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
              <li><?php echo $this->lang->line("application"); ?></li>
             <li>Overview</li>
             <li class="active"><?php echo $application_detail->getApplicationName(); ?></li>
@@ -27,13 +27,13 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <!-- tools box -->
-                    <div class="box-title"><i class="fa fa-cog"></i> Display Setting</div>
+                    <div class="box-title"><i class="fa fa-cog"></i> <?php echo $this->lang->line("app_ov_disp_set"); ?></div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div class="text-center" id="loading" style="display:none"><h1><i class="ion ion-loading-a"></i></h1></div>
                     <!-- Date and time range -->
                     <div class="form-group">
-                        <label>Date:</label>
+                        <label><?php echo $this->lang->line("app_ov_date"); ?></label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
@@ -54,27 +54,27 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <!-- tools box -->
-                        <div class="box-title"><i class="fa fa-list"></i> Quick Menu</div>
+                        <div class="box-title"><i class="fa fa-list"></i> <?php echo $this->lang->line("app_ov_quick_menu"); ?></div>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <div class="text-center" id="loading" style="display:none"><h1><i class="ion ion-loading-a"></i></h1></div>
                         <a class="btn btn-app" href="<?php echo site_url('/functions/'); ?>">
-                            <i class="fa fa-terminal"></i> Function
+                            <i class="fa fa-terminal"></i> <?php echo $this->lang->line("app_ov_function"); ?>
                         </a>
                         <a class="btn btn-app" href="<?php echo site_url('/applications/report'); ?>">
-                            <i class="fa fa-exclamation-triangle"></i> Report
+                            <i class="fa fa-exclamation-triangle"></i> <?php echo $this->lang->line("app_ov_report"); ?>
                         </a>
                         <a class="btn btn-app" id="agent_control">
 
-                            <?php if ($application_detail->getApplicationAgent() == 'disable'): ?> <i class="fa fa-check"></i> Enable Agent <?php else: ?>
-                                <i class="fa fa-times"></i> Disable Agent
+                            <?php if ($application_detail->getApplicationAgent() == 'disable'): ?> <i class="fa fa-check"></i> <?php echo $this->lang->line("app_ov_enable_agent"); ?> <?php echo $this->lang->line("app_ov_report"); else: ?>
+                                <i class="fa fa-times"></i> <?php echo $this->lang->line("app_ov_disable_agent"); ?>
                             <?php endif; ?>    
                         </a>
                         <a class="btn btn-app" href="<?php echo site_url('/applications/manage'); ?>">
-                            <i class="fa fa-edit"></i> Edit App
+                            <i class="fa fa-edit"></i> <?php echo $this->lang->line("app_ov_edit_app"); ?>
                         </a>
                         <a class="btn btn-app" id="remove_app">
-                            <i class="fa fa-trash-o"></i> Remove App
+                            <i class="fa fa-trash-o"></i> <?php echo $this->lang->line("app_ov_remove_app"); ?>
                         </a>
                     </div>
                     <div class="overlay" style="display:none" id="quick_load">
@@ -95,15 +95,15 @@
 
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Application Summary Statical
+                        <?php echo $this->lang->line("app_ov_app_sum_stat"); ?>
                     </h3>
                 </div>
                 <div class="box-body chart-responsive">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#summary_day" data-toggle="tab">Day</a></li>
-                          <li><a href="#summary_month" data-toggle="tab">Month</a></li>
-                          <li><a href="#summary_year" data-toggle="tab">Year</a></li>
+                          <li class="active"><a href="#summary_day" data-toggle="tab"><?php echo $this->lang->line("app_ov_day"); ?></a></li>
+                          <li><a href="#summary_month" data-toggle="tab"><?php echo $this->lang->line("app_ov_month"); ?></a></li>
+                          <li><a href="#summary_year" data-toggle="tab"><?php echo $this->lang->line("app_ov_year"); ?></a></li>
                       </ul>
                       <div class="tab-content no-padding">
                         <div class="tab-pane active chart" id="summary_day" style="height: 400px;"></div>
@@ -131,15 +131,15 @@
 
                 <i class="fa fa-cube"></i>
                 <h3 class="box-title">
-                    Application Used Statical
+                    <?php echo $this->lang->line("app_ov_app_used_stat"); ?>
                 </h3>
             </div>
             <div class="box-body chart-responsive">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a href="#appuse_day" data-toggle="tab">Day</a></li>
-                      <li><a href="#appuse_month" data-toggle="tab">Month</a></li>
-                      <li><a href="#appuse_year" data-toggle="tab">Year</a></li>
+                      <li class="active"><a href="#appuse_day" data-toggle="tab"><?php echo $this->lang->line("app_ov_day"); ?></a></li>
+                      <li><a href="#appuse_month" data-toggle="tab"><?php echo $this->lang->line("app_ov_month"); ?></a></li>
+                      <li><a href="#appuse_year" data-toggle="tab"><?php echo $this->lang->line("app_ov_year"); ?></a></li>
                   </ul>
                   <div class="tab-content no-padding">
                     <div class="chart tab-pane active" id="appuse_day" style="height: 300px;"></div><!-- /.tab-pane -->
@@ -164,15 +164,15 @@
 
             <i class="fa fa-bullhorn"></i>
             <h3 class="box-title">
-                Application Summary Ratio
+                <?php echo $this->lang->line("app_ov_app_sum_rat"); ?>
             </h3>
         </div>
         <div class="box-body chart-responsive">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#ratio_day" data-toggle="tab">Day</a></li>
-                    <li><a href="#ratio_month" data-toggle="tab">Month</a></li>
-                    <li><a href="#ratio_year" data-toggle="tab">Year</a></li>
+                    <li class="active"><a href="#ratio_day" data-toggle="tab"><?php echo $this->lang->line("app_ov_day"); ?></a></li>
+                    <li><a href="#ratio_month" data-toggle="tab"><?php echo $this->lang->line("app_ov_month"); ?></a></li>
+                    <li><a href="#ratio_year" data-toggle="tab"><?php echo $this->lang->line("app_ov_year"); ?></a></li>
                 </ul>
                 <div class="tab-content no-padding">
                     <div class="chart tab-pane active" id="ratio_day" style="height: 300px;"></div><!-- /.tab-pane -->
@@ -227,7 +227,7 @@
             '23:00-23:59',
             '24:00'
             ]
-            graph_column_generate(category,'Total',response,'summary_day','Total application "<?php echo $application_detail->getApplicationName(); ?>" log in day','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_day','<?php echo $this->lang->line("app_ov_total_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_log_in_day"); ?>','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -243,7 +243,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_column_generate(date_data,'Total',response.data,'summary_month','Total application "<?php echo $application_detail->getApplicationName(); ?>" log in month','Source : SAMF Dataset');
+            graph_column_generate(date_data,'Total',response.data,'summary_month','<?php echo $this->lang->line("app_ov_total_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_log_in_month"); ?>','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -256,20 +256,20 @@
     })
     .done(function(response) {
         category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("app_ov_month_jan"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_feb"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_mar"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_apil"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_may"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_june"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_july"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_aug"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_sep"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_oct"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_nov"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_dec"); ?>'
             ]
-            graph_column_generate(category,'Total',response,'summary_year','Total appliication "<?php echo $application_detail->getApplicationName(); ?>" log in year','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_year','<?php echo $this->lang->line("app_ov_total_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_log_in_year"); ?>','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -312,7 +312,7 @@ function getusedgraph() {
             '23:00-23:59',
             '24:00'
             ]
-            graph_line_generate(category,'Total',response,'appuse_day','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in day','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'appuse_day','<?php echo $this->lang->line("app_ov_total_apps"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_use_in_day"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -328,7 +328,7 @@ function getusedgraph() {
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_line_generate(date_data,'Total',response.data,'appuse_month','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in month','Source : SAMF Dataset',line_color);
+            graph_line_generate(date_data,'Total',response.data,'appuse_month','<?php echo $this->lang->line("app_ov_total_apps"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_use_in_month"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -341,20 +341,20 @@ function getusedgraph() {
     })
     .done(function(response) {
         category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("app_ov_month_jan"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_feb"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_mar"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_apil"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_may"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_june"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_july"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_aug"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_sep"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_oct"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_nov"); ?>',
+            '<?php echo $this->lang->line("app_ov_month_dec"); ?>'
             ]
-            graph_line_generate(category,'Total',response,'appuse_year','Total applications "<?php echo $application_detail->getApplicationName(); ?>" use in year','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'appuse_year','<?php echo $this->lang->line("app_ov_total_apps"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_use_in_year"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -370,7 +370,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_day','Ratio log type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
+        graph_pie_generate(response,'ratio_day','<?php echo $this->lang->line("app_ov_ratio_log_type_in_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -382,7 +382,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_month','Ratio log type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
+        graph_pie_generate(response,'ratio_month','<?php echo $this->lang->line("app_ov_ratio_log_type_in_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -394,7 +394,7 @@ function getratiograph() {
         data: {_id: '<?php echo $application_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_year','Ratio log type in application "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
+        graph_pie_generate(response,'ratio_year','<?php echo $this->lang->line("app_ov_ratio_log_type_in_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -437,7 +437,7 @@ $(document).ready(function() {
        }, 1000);
     });
     $('#remove_app').click(function(event) {
-        if (confirm("Are your sure to delete this application?")) {
+        if (confirm("<?php echo $this->lang->line("app_ov_confirm_del_app"); ?>")) {
             $.ajax({
                 url: "<?php echo site_url('/applications/delapp'); ?>",
                 type: 'POST',
