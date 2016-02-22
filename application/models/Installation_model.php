@@ -219,6 +219,7 @@ class Installation_model extends CI_Model {
 			$this->mongo_db->db->createCollection('func');
 			$this->mongo_db->db->createCollection('setting');
 			$this->mongo_db->db->createCollection('api');
+			$this->mongo_db->db->createCollection('langs');
 			return true;
 		} 
 		catch (Exception $e) 
@@ -243,6 +244,7 @@ class Installation_model extends CI_Model {
 			$this->mongo_db->db->func->drop();
 			$this->mongo_db->db->setting->drop();
 			$this->mongo_db->db->api->drop();
+			$this->mongo_db->db->langs->drop();
 			return true;
 		} 
 		catch (Exception $e) 
