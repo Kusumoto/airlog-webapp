@@ -4,12 +4,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo $function_detail->getFunctionName(); ?>'s Overview
+            <?php echo $this->lang->line("func_over_over_of"); ?>"<?php echo $function_detail->getFunctionName(); ?>"
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application Function</li>
-            <li>Overview</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li><?php echo $this->lang->line("func_over_app_func"); ?></li>
+            <li><?php echo $this->lang->line("overview"); ?></li>
             <li class="active"><?php echo $function_detail->getFunctionName(); ?></li>
         </ol>
     </section>
@@ -27,13 +27,13 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <!-- tools box -->
-                    <div class="box-title"><i class="fa fa-cog"></i> Display Setting</div>
+                    <div class="box-title"><i class="fa fa-cog"></i> <?php echo $this->lang->line("func_over_dis_set"); ?></div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div class="text-center" id="loading" style="display:none"><h1><i class="ion ion-loading-a"></i></h1></div>
                     <!-- Date and time range -->
                     <div class="form-group">
-                        <label>Date:</label>
+                        <label><?php echo $this->lang->line("func_over_date"); ?></label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o"></i>
@@ -54,22 +54,22 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <!-- tools box -->
-                        <div class="box-title"><i class="fa fa-list"></i> Quick Menu</div>
+                        <div class="box-title"><i class="fa fa-list"></i> <?php echo $this->lang->line("func_over_quick_menu"); ?></div>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <div class="text-center" id="loading" style="display:none"><h1><i class="ion ion-loading-a"></i></h1></div>
                         <a class="btn btn-app" data-target="#showfuncdata" data-toggle="modal">
                             <span class="badge bg-green"></span>
-                            <i class="fa fa-cloud"></i> Agent Setting
+                            <i class="fa fa-cloud"></i> <?php echo $this->lang->line("func_over_agent_set"); ?>
                         </a>
                         <a class="btn btn-app" href="<?php echo site_url('/functions/report'); ?>">
-                            <i class="fa fa-exclamation-triangle"></i> Report
+                            <i class="fa fa-exclamation-triangle"></i> <?php echo $this->lang->line("func_over_report"); ?>
                         </a>
                         <a class="btn btn-app" href="<?php echo site_url('/functions/manage'); ?>">
-                            <i class="fa fa-edit"></i> Edit Func
+                            <i class="fa fa-edit"></i> <?php echo $this->lang->line("func_over_edit_func"); ?>
                         </a>
                         <a class="btn btn-app" id="remove_func">
-                            <i class="fa fa-trash-o"></i> Remove Func
+                            <i class="fa fa-trash-o"></i> <?php echo $this->lang->line("func_over_remove_func"); ?>
                         </a>
                     </div>
                     <div class="overlay" style="display:none" id="quick_load">
@@ -85,26 +85,26 @@
             <div class="modal-content">
                 <div class="modal-header bg-light-blue">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><i class="fa fa-cloud"></i> Agent Setting</h4>
+                    <h4 class="modal-title"><i class="fa fa-cloud"></i> <?php echo $this->lang->line("func_over_agent_set"); ?></h4>
                 </div>
                 <div class="modal-body">
                     <div id="place-alert-model"></div>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon">Application Token :</span>
+                            <span class="input-group-addon"><?php echo $this->lang->line("func_over_app_token"); ?></span>
                             <input name="func_name" id="app_token" type="text" class="form-control" value="<?php echo $application_detail->getApplicationToken(); ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon">Function Token :</span>
+                            <span class="input-group-addon"><?php echo $this->lang->line("func_over_func_token"); ?></span>
                             <input name="func_token" id="func_token" type="text" class="form-control" value="<?php echo $function_detail->getFunctionToken(); ?>" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer clearfix">
                     <input type="hidden" id="func_idedit" value="">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> <?php echo $this->lang->line("func_over_close"); ?></button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -120,15 +120,15 @@
 
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Function Summary Statical
+                        <?php echo $this->lang->line("func_over_func_sum_stat"); ?>
                     </h3>
                 </div>
                 <div class="box-body chart-responsive">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#summary_day" data-toggle="tab">Day</a></li>
-                          <li><a href="#summary_month" data-toggle="tab">Month</a></li>
-                          <li><a href="#summary_year" data-toggle="tab">Year</a></li>
+                          <li class="active"><a href="#summary_day" data-toggle="tab"><?php echo $this->lang->line("func_over_day"); ?></a></li>
+                          <li><a href="#summary_month" data-toggle="tab"><?php echo $this->lang->line("func_over_month"); ?></a></li>
+                          <li><a href="#summary_year" data-toggle="tab"><?php echo $this->lang->line("func_over_year"); ?></a></li>
                       </ul>
                       <div class="tab-content no-padding">
                         <div class="tab-pane active chart" id="summary_day" style="height: 400px;"></div>
@@ -156,15 +156,15 @@
 
                 <i class="fa fa-cube"></i>
                 <h3 class="box-title">
-                    Function Used Statical
+                    <?php echo $this->lang->line("func_over_func_used_stat"); ?>
                 </h3>
             </div>
             <div class="box-body chart-responsive">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a href="#funcuse_day" data-toggle="tab">Day</a></li>
-                      <li><a href="#funcuse_month" data-toggle="tab">Month</a></li>
-                      <li><a href="#funcuse_year" data-toggle="tab">Year</a></li>
+                      <li class="active"><a href="#funcuse_day" data-toggle="tab"><?php echo $this->lang->line("func_over_day"); ?></a></li>
+                      <li><a href="#funcuse_month" data-toggle="tab"><?php echo $this->lang->line("func_over_month"); ?></a></li>
+                      <li><a href="#funcuse_year" data-toggle="tab"><?php echo $this->lang->line("func_over_year"); ?></a></li>
                   </ul>
                   <div class="tab-content no-padding">
                     <div class="chart tab-pane active" id="funcuse_day" style="height: 300px;"></div><!-- /.tab-pane -->
@@ -189,15 +189,15 @@
 
             <i class="fa fa-bullhorn"></i>
             <h3 class="box-title">
-                Function Summary Ratio
+                <?php echo $this->lang->line("func_over_func_sum_ratio"); ?>
             </h3>
         </div>
         <div class="box-body chart-responsive">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#ratio_day" data-toggle="tab">Day</a></li>
-                    <li><a href="#ratio_month" data-toggle="tab">Month</a></li>
-                    <li><a href="#ratio_year" data-toggle="tab">Year</a></li>
+                    <li class="active"><a href="#ratio_day" data-toggle="tab"><?php echo $this->lang->line("func_over_day"); ?></a></li>
+                    <li><a href="#ratio_month" data-toggle="tab"><?php echo $this->lang->line("func_over_month"); ?></a></li>
+                    <li><a href="#ratio_year" data-toggle="tab"><?php echo $this->lang->line("func_over_year"); ?></a></li>
                 </ul>
                 <div class="tab-content no-padding">
                     <div class="chart tab-pane active" id="ratio_day" style="height: 300px;"></div><!-- /.tab-pane -->
@@ -252,7 +252,7 @@
             '23:00-23:59',
             '24:00'
             ]
-            graph_column_generate(category,'Total',response,'summary_day','Total function "<?php echo $function_detail->getFunctionName(); ?>" log in day','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_day','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_log_in_day"); ?>','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -268,7 +268,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_column_generate(date_data,'Total',response.data,'summary_month','Total function "<?php echo $function_detail->getFunctionName(); ?>" log in month','Source : SAMF Dataset');
+            graph_column_generate(date_data,'Total',response.data,'summary_month','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_log_in_month"); ?>','Source : SAMF Dataset');
      })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -281,20 +281,20 @@
     })
     .done(function(response) {
         category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
-            graph_column_generate(category,'Total',response,'summary_year','Total function "<?php echo $function_detail->getFunctionName(); ?>" log in year','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_year','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_log_in_year"); ?>','Source : SAMF Dataset');
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -337,7 +337,7 @@ function getusedgraph() {
             '23:00-23:59',
             '24:00'
             ]
-            graph_line_generate(category,'Total',response,'funcuse_day','Total function "<?php echo $function_detail->getFunctionName(); ?>" use in day','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'funcuse_day','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_use_in_day"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -353,7 +353,7 @@ function getusedgraph() {
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_line_generate(date_data,'Total',response.data,'funcuse_month','Total function "<?php echo $function_detail->getFunctionName(); ?>" use in month','Source : SAMF Dataset',line_color);
+            graph_line_generate(date_data,'Total',response.data,'funcuse_month','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_use_in_month"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -366,20 +366,20 @@ function getusedgraph() {
     })
     .done(function(response) {
         category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
-            graph_line_generate(category,'Total',response,'funcuse_year','Total function "<?php echo $function_detail->getFunctionName(); ?>" use in year','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'funcuse_year','<?php echo $this->lang->line("func_over_total_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>" <?php echo $this->lang->line("func_over_use_in_year"); ?>','Source : SAMF Dataset',line_color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -395,7 +395,7 @@ function getratiograph() {
         data: {_id: '<?php echo $function_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_day','Ratio log type in function "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
+        graph_pie_generate(response,'ratio_day','<?php echo $this->lang->line("func_over_ratio_log_type_in_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -407,7 +407,7 @@ function getratiograph() {
         data: {_id: '<?php echo $function_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-        graph_pie_generate(response,'ratio_month','Ratio log type in function "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
+        graph_pie_generate(response,'ratio_month','<?php echo $this->lang->line("func_over_ratio_log_type_in_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -419,7 +419,7 @@ function getratiograph() {
         data: {_id: '<?php echo $function_detail->getID(); ?>',day: $('#log_datepicker').val()},
     })
     .done(function(response) {
-         graph_pie_generate(response,'ratio_year','Ratio log type in function "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
+         graph_pie_generate(response,'ratio_year','<?php echo $this->lang->line("func_over_ratio_log_type_in_func"); ?> "<?php echo $function_detail->getFunctionName(); ?>"','Source : SAMF Dataset','Total',color);
     })
     .fail(function() {
         $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');

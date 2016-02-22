@@ -3,12 +3,12 @@
 <aside class="right-side">
     <section class="content-header">
         <h1>
-           Application Function Overview
+           <?php echo $this->lang->line("func_preover_app_func_over"); ?>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application Function</li>
-            <li class="active">Overview</li>
+            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li><?php echo $this->lang->line("func_preover_app_func"); ?></li>
+            <li class="active"><?php echo $this->lang->line("overview"); ?></li>
         </ol>
     </section>
 
@@ -20,7 +20,7 @@
                 <div class="box-header">
                     <i class="fa fa-cubes"></i>
                     <h3 class="box-title">
-                        Application Function
+                        <?php echo $this->lang->line("func_preover_app_func"); ?>
                     </h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -33,10 +33,10 @@
                       <table class="table table-hover" id="table_funclist">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="30%">Application</th>
-                                <th width="30%">Function</th>
-                                <th width="20%">Action</th>
+                                <th width="10%"><?php echo $this->lang->line("func_preover_id"); ?></th>
+                                <th width="30%"><?php echo $this->lang->line("application"); ?></th>
+                                <th width="30%"><?php echo $this->lang->line("func_preover_func"); ?></th>
+                                <th width="20%"><?php echo $this->lang->line("func_preover_action"); ?></th>
                             </tr>
                         </thead>
                         <tbody>

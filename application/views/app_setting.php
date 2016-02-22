@@ -1,11 +1,11 @@
 <aside class="right-side">
 	<section class="content-header">
 		<h1>
-			Setting 
+			<?php echo $this->lang->line("setting_set"); ?>  
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li>Setting</li>
+			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+			<li><?php echo $this->lang->line("setting_set"); ?></li>
 		</ol>
 	</section>
 	<!-- Main content -->
@@ -18,7 +18,7 @@
         <div class="box-header">
           <i class="fa fa-cog"></i>
           <h3 class="box-title">
-            Setting your system
+            <?php echo $this->lang->line("setting_set_your_sys"); ?>
           </h3>
         </div>
         <div class="box-body">

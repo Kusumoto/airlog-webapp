@@ -4,12 +4,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            <?php echo $this->lang->line("dash_dash"); ?>
+            <small><?php echo $this->lang->line("dash_con_panel"); ?></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li class="active"><?php echo $this->lang->line("dash_dash"); ?></li>
         </ol>
     </section>
     <!-- Main content -->
@@ -25,14 +25,14 @@
                             <?php echo $countApp; ?>
                         </h3>
                         <p>
-                            Applications
+                            <?php echo $this->lang->line("dash_apps"); ?>
                         </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-cube"></i>
                     </div>
                     <a href="<?php echo site_url('/applications'); ?>" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        <?php echo $this->lang->line("dash_more_info"); ?> <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -44,14 +44,14 @@
                             <?php echo $countFunc; ?>
                         </h3>
                         <p>
-                            Application Functions
+                            <?php echo $this->lang->line("dash_app_funce"); ?>
                         </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-cubes"></i>
                     </div>
                     <a href="<?php echo site_url('/functions'); ?>" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        <?php echo $this->lang->line("dash_more_info"); ?> <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -63,14 +63,14 @@
                             <?php echo $countUser; ?>
                         </h3>
                         <p>
-                            Users in System
+                            <?php echo $this->lang->line("dash_users_in_sys"); ?>
                         </p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person"></i>
                     </div>
                     <a href="<?php echo site_url('/authenticate/userlist'); ?>" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        <?php echo $this->lang->line("dash_more_info"); ?> <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -82,14 +82,14 @@
                             0
                         </h3>
                         <p>
-                            System Warning
+                            <?php echo $this->lang->line("dash_sys_warning"); ?>
                         </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-exclamation-triangle"></i>
                     </div>
                     <a href="#" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        <?php echo $this->lang->line("dash_more_info"); ?> <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -107,15 +107,15 @@
 
                         <i class="fa fa-cube"></i>
                         <h3 class="box-title">
-                            All Application Summary Statical
+                            <?php echo $this->lang->line("dash_all_app_summ_stat"); ?>
                         </h3>
                     </div>
                     <div class="box-body chart-responsive">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                              <li class="active"><a href="#summary_day" data-toggle="tab">Day</a></li>
-                              <li><a href="#summary_month" data-toggle="tab">Month</a></li>
-                              <li><a href="#summary_year" data-toggle="tab">Year</a></li>
+                              <li class="active"><a href="#summary_day" data-toggle="tab"><?php echo $this->lang->line("dash_day"); ?></a></li>
+                              <li><a href="#summary_month" data-toggle="tab"><?php echo $this->lang->line("dash_month"); ?></a></li>
+                              <li><a href="#summary_year" data-toggle="tab"><?php echo $this->lang->line("dash_year"); ?></a></li>
                           </ul>
                           <div class="tab-content no-padding">
                             <div class="tab-pane active chart" id="summary_day" style="height: 400px;"></div>
@@ -147,15 +147,15 @@
 
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        All Application Used Statical
+                        <?php echo $this->lang->line("dash_all_app_used_stat"); ?>
                     </h3>
                 </div>
                 <div class="box-body chart-responsive">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#appuse_day" data-toggle="tab">Day</a></li>
-                          <li><a href="#appuse_month" data-toggle="tab">Month</a></li>
-                          <li><a href="#appuse_year" data-toggle="tab">Year</a></li>
+                          <li class="active"><a href="#appuse_day" data-toggle="tab"><?php echo $this->lang->line("dash_day"); ?></a></li>
+                          <li><a href="#appuse_month" data-toggle="tab"><?php echo $this->lang->line("dash_month"); ?></a></li>
+                          <li><a href="#appuse_year" data-toggle="tab"><?php echo $this->lang->line("dash_year"); ?></a></li>
                       </ul>
                       <div class="tab-content no-padding">
                         <div class="chart tab-pane active" id="appuse_day" style="height: 300px;"></div><!-- /.tab-pane -->
@@ -178,7 +178,7 @@
 
                 <i class="fa fa-cube"></i>
                 <h3 class="box-title">
-                    Application Function Ratio
+                    <?php echo $this->lang->line("dash_app_func_ratio"); ?>
                 </h3>
             </div>
             <div class="box-body chart-responsive">
@@ -196,13 +196,13 @@
         <div class="box box-danger" id="loading-example3">
             <div class="box-header">
                 <i class="fa fa-life-ring"></i>
-                <h3 class="box-title">System Management</h3>
+                <h3 class="box-title"><?php echo $this->lang->line("dash_sys_manage"); ?></h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <button class="btn btn-danger btn-block" id="shutdown_restart_btn" onclick="shutdown()"><i class="fa fa-power-off"></i> Shutdown</button>
-                <button class="btn btn-warning btn-block" onclick="reboot()" id="reboot_restart_btn"><i class="fa fa-refresh"></i> Reboot</button>
-                <button class="btn bg-olive btn-block" id="webservice_restart_btn" onclick="webservicerestart()"><i class="ion ion-android-sync"></i> Restart Web Service</button>
-                <button class="btn bg-olive btn-block" id="db_restart_btn" onclick="dbrestart()"><i class="ion ion-android-sync"></i> Restart Database Service</button>
+                <button class="btn btn-danger btn-block" id="shutdown_restart_btn" onclick="shutdown()"><i class="fa fa-power-off"></i> <?php echo $this->lang->line("dash_shutdown"); ?></button>
+                <button class="btn btn-warning btn-block" onclick="reboot()" id="reboot_restart_btn"><i class="fa fa-refresh"></i> <?php echo $this->lang->line("dash_reboot"); ?></button>
+                <button class="btn bg-olive btn-block" id="webservice_restart_btn" onclick="webservicerestart()"><i class="ion ion-android-sync"></i> <?php echo $this->lang->line("dash_re_web_serv"); ?></button>
+                <button class="btn bg-olive btn-block" id="db_restart_btn" onclick="dbrestart()"><i class="ion ion-android-sync"></i> <?php echo $this->lang->line("dash_re_db_serv"); ?></button>
             </div><!-- /.box-body -->
             <div class="overlay" style="display:none" id="graph6_load">
                 <i class="fa fa-refresh fa-spin"></i>
@@ -217,7 +217,7 @@
                 </div><!-- /. tools -->
                 <i class="fa fa-cloud"></i>
 
-                <h3 class="box-title">Server Load</h3>
+                <h3 class="box-title"><?php echo $this->lang->line("dash_server_load"); ?></h3>
             </div><!-- /.box-header -->
             <div class="box-body no-padding">
                 <div class="row">
@@ -247,22 +247,22 @@
                     <button class="btn btn-danger btn-sm refresh-btn" data-toggle="tooltip" title="Reload" onclick="reloadservice()"><i class="fa fa-refresh"></i></button>
                 </div><!-- /. tools -->
                 <i class="fa fa-toggle-on"></i>
-                <h3 class="box-title">Service Status</h3>
+                <h3 class="box-title"><?php echo $this->lang->line("dash_serv_status"); ?></h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <div class="box box-solid bg-red" id="webservice_status">
                     <div class="box-header">
-                        <h3 class="box-title"><i class="fa fa-share-alt"></i> Web Service</h3>
+                        <h3 class="box-title"><i class="fa fa-share-alt"></i> <?php echo $this->lang->line("dash_web_serv"); ?></h3>
                     </div>
                 </div>
                 <div class="box box-solid bg-red" id="db_status">
                     <div class="box-header">
-                        <h3 class="box-title"><i class="fa fa-database"></i> Database</h3>
+                        <h3 class="box-title"><i class="fa fa-database"></i> <?php echo $this->lang->line("dash_db"); ?></h3>
                     </div>
                 </div>
                 <div class="box box-solid bg-red" id="web_status">
                     <div class="box-header">
-                        <h3 class="box-title"><i class="fa fa-cloud"></i> Web Application</h3>
+                        <h3 class="box-title"><i class="fa fa-cloud"></i> <?php echo $this->lang->line("dash_web_app"); ?></h3>
                     </div>
                 </div>
             </div><!-- /.box-body -->
@@ -311,7 +311,7 @@
             '23:00-23:59',
             '24:00'
             ]
-            graph_column_generate(category,'Total',response,'summary_day','Total log in day','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_day','<?php echo $this->lang->line("dash_total_log_in_day"); ?>','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -327,7 +327,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_column_generate(date_data,'Total',response.data,'summary_month','Total log in month','Source : SAMF Dataset');
+            graph_column_generate(date_data,'Total',response.data,'summary_month','<?php echo $this->lang->line("dash_total_log_in_month"); ?>','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -340,20 +340,20 @@
         })
         .done(function(response) {
             category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
-            graph_column_generate(category,'Total',response,'summary_year','Total log in year','Source : SAMF Dataset');
+            graph_column_generate(category,'Total',response,'summary_year','<?php echo $this->lang->line("dash_total_log_in_year"); ?>','Source : SAMF Dataset');
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -395,7 +395,7 @@
             '23:00-23:59',
             '24:00'
             ]
-            graph_line_generate(category,'Total',response,'appuse_day','Total all function use in day','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'appuse_day','<?php echo $this->lang->line("dash_total_all_func_use_in_day"); ?>','Source : SAMF Dataset',line_color);
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -411,7 +411,7 @@
             for (var i = 1; i <= response.lastday; i++) {
                 date_data.push(i);
             };
-            graph_line_generate(date_data,'Total',response.data,'appuse_month','Total all function use in month','Source : SAMF Dataset',line_color);
+            graph_line_generate(date_data,'Total',response.data,'appuse_month','<?php echo $this->lang->line("dash_total_all_func_use_in_month"); ?>','Source : SAMF Dataset',line_color);
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -424,20 +424,20 @@
         })
         .done(function(response) {
             category = [
-            'January',
-            'February',
-            'March',
-            'Apil',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
-            graph_line_generate(category,'Total',response,'appuse_year','Total all function use in year','Source : SAMF Dataset',line_color);
+            graph_line_generate(category,'Total',response,'appuse_year','<?php echo $this->lang->line("dash_total_all_func_use_in_year"); ?>','Source : SAMF Dataset',line_color);
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
@@ -450,7 +450,7 @@
             dataType: 'json',
         })
         .done(function(response) {
-            graph_pie_generate(response,'ratio','Ratio function in system','Source : SAMF Dataset','Function',null);
+            graph_pie_generate(response,'ratio','<?php echo $this->lang->line("dash_ratio_func_in_sys"); ?>','Source : SAMF Dataset','Function',null);
         })
         .fail(function() {
             $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');

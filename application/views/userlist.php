@@ -4,11 +4,11 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			User Management
+			<?php echo $this->lang->line("user_list_user_manage"); ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li>User Management</li>
+			<li><a href="#"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+			<li><?php echo $this->lang->line("user_list_user_manage"); ?></li>
 		</ol>
 	</section>
 
@@ -24,11 +24,11 @@
 					<div class="box-header">
 						<i class="ion ion-person"></i>
 						<h3 class="box-title">
-							User Management
+							<?php echo $this->lang->line("user_list_user_manage"); ?>
 						</h3>
 						<!-- tools box -->
 						<div class="pull-right box-tools">
-							<button class="btn btn-primary" id="showusermodel" data-target="#showuserdata" data-toggle="modal"><i class="fa fa-plus"></i> Add new user</button>
+							<button class="btn btn-primary" id="showusermodel" data-target="#showuserdata" data-toggle="modal"><i class="fa fa-plus"></i> <?php echo $this->lang->line("user_list_add_new_user"); ?></button>
 						</div><!-- /. tools -->
 					</div>
 					<div class="box-body table-responsive no-padding">
@@ -41,11 +41,11 @@
 							<table class="table table-hover" id="table_userlist">
 								<thead>
 									<tr>
-										<th width="10%">ID</th>
-										<th width="20%">Username</th>
-										<th width="20%">Firstname</th>
-										<th width="20%">Lastname</th>
-										<th width="20%">Action</th>
+										<th width="10%"><?php echo $this->lang->line("user_list_id"); ?></th>
+										<th width="20%"><?php echo $this->lang->line("user_list_user"); ?></th>
+										<th width="20%"><?php echo $this->lang->line("user_list_fname"); ?></th>
+										<th width="20%"><?php echo $this->lang->line("user_list_lname"); ?></th>
+										<th width="20%"><?php echo $this->lang->line("user_list_action"); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -62,52 +62,52 @@
 						<div class="modal-content">
 							<div class="modal-header bg-light-blue">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 class="modal-title"><i class="ion ion-person"></i> User Management</h4>
+								<h4 class="modal-title"><i class="ion ion-person"></i> <?php echo $this->lang->line("user_list_user_manage"); ?></h4>
 							</div>
 							<?php echo form_open("",array("id" => "form_user")); ?>
 							<div class="modal-body">
 								<div id="place-alert-model"></div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Username :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_username"); ?></span>
 										<input name="username" id="username" type="text" class="form-control" placeholder="Username">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Password :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_passwd"); ?></span>
 										<input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Confirm Passsword :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_con_passwd"); ?></span>
 										<input name="password2" id="password2" type="password" class="form-control" placeholder="Confirm Password">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Firstname :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_frist_name"); ?></span>
 										<input name="firstname" id="firstname" type="text" class="form-control" placeholder="Firstname">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Lastname :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_last_name"); ?></span>
 										<input name="lastname" id="lastname" type="text" class="form-control" placeholder="Lastname">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">E-Mail :</span>
+										<span class="input-group-addon"><?php echo $this->lang->line("user_list_email"); ?></span>
 										<input name="email" id="email" type="email" class="form-control" placeholder="E-Mail">
 									</div>
 								</div>
 							</div>
 							<div class="modal-footer clearfix">
 								<input type="hidden" id="user_editid" value="">
-								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-								<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> Save</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> <?php echo $this->lang->line("user_list_cancel"); ?></button>
+								<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> <?php echo $this->lang->line("user_list_save"); ?></button>
 							</div>
 							<?php form_close(); ?>
 						</div><!-- /.modal-content -->

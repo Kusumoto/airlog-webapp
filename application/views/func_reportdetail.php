@@ -3,12 +3,12 @@
 <aside class="right-side">
 	<section class="content-header">
 		<h1>
-			Application Function Log Report
+			<?php echo $this->lang->line("func_rep_app_func_log_rep"); ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li>Application Function</li>
-			<li class="active">Log Report</li>
+			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+			<li><?php echo $this->lang->line("func_rep_app_func"); ?></li>
+			<li class="active"><?php echo $this->lang->line("func_rep_log_rep"); ?></li>
 		</ol>
 	</section>
 	<!-- Main content -->
@@ -20,7 +20,7 @@
 					<div class="box-header">
 						<i class="fa fa fa-cog"></i>
 						<h3 class="box-title">
-							Report Setting
+							<?php echo $this->lang->line("func_rep_rep_set"); ?>
 						</h3>
 					</div>
 					<?php echo form_open("/pdf/funcreport",array("id" => "form_reportfunc", "target" => "_BLANK")); ?>
@@ -28,7 +28,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>Date and time range</label>
+									<label><?php echo $this->lang->line("func_rep_date_and_time_range"); ?></label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
@@ -39,9 +39,9 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>Function</label>
+									<label><?php echo $this->lang->line("func_rep_func"); ?></label>
 									<select class="form-control" id="app_selector" name="function_id">
-										<option value="">All functions</option>
+										<option value=""><?php echo $this->lang->line("func_rep_all_func"); ?></option>
 										<?php foreach ($function as $function) {
 											echo "<option value=\"" . $function['_id'] . "\">[" . $function['application_name'] . "] ".$function['function_name']."</option>";
 										}
@@ -68,10 +68,10 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-4">
 								<div class="form-group">
-									<button class="btn btn-primary btn-block" id="btn_show_data"><i class="fa fa-search"></i> Show</button>
+									<button class="btn btn-primary btn-block" id="btn_show_data"><i class="fa fa-search"></i> <?php echo $this->lang->line("func_rep_show"); ?></button>
 								</div>
 								<div class="form-group">
-									<a class="btn btn-primary btn-block" id="btn_show_pdf" onclick="generate_pdf()"><i class="fa fa-external-link"></i> Generate Report</a>
+									<a class="btn btn-primary btn-block" id="btn_show_pdf" onclick="generate_pdf()"><i class="fa fa-external-link"></i> <?php echo $this->lang->line("func_rep_gen_rep"); ?></a>
 								</div>
 							</div>
 						</div>
@@ -86,7 +86,7 @@
 					<div class="box-header">
 						<i class="fa fa-list-alt"></i>
 						<h3 class="box-title">
-							Report Data
+							<?php echo $this->lang->line("func_rep_rep_data"); ?>
 						</h3>
 					</div>
 					<div class="box-body">
@@ -99,12 +99,12 @@
 							<table class="table table-hover" id="log_container">
 								<thead>
 									<tr>
-										<th>Date</th>
-										<th>Time</th>
-										<th>Type</th>
-										<th>Application</th>
-										<th>Function</th>
-										<th>Message</th>
+										<th><?php echo $this->lang->line("func_rep_date"); ?></th>
+										<th><?php echo $this->lang->line("func_rep_time"); ?></th>
+										<th><?php echo $this->lang->line("func_rep_type"); ?></th>
+										<th><?php echo $this->lang->line("application"); ?></th>
+										<th><?php echo $this->lang->line("func_rep_func"); ?></th>
+										<th><?php echo $this->lang->line("func_rep_message"); ?></th>
 									</tr>
 								</thead>
 								<tbody>

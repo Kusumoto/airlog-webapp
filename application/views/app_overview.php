@@ -256,18 +256,18 @@
     })
     .done(function(response) {
         category = [
-            '<?php echo $this->lang->line("app_ov_month_jan"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_feb"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_mar"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_apil"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_may"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_june"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_july"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_aug"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_sep"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_oct"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_nov"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_dec"); ?>'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
             graph_column_generate(category,'Total',response,'summary_year','<?php echo $this->lang->line("app_ov_total_app"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_log_in_year"); ?>','Source : SAMF Dataset');
     })
@@ -341,18 +341,18 @@ function getusedgraph() {
     })
     .done(function(response) {
         category = [
-            '<?php echo $this->lang->line("app_ov_month_jan"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_feb"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_mar"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_apil"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_may"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_june"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_july"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_aug"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_sep"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_oct"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_nov"); ?>',
-            '<?php echo $this->lang->line("app_ov_month_dec"); ?>'
+            '<?php echo $this->lang->line("jan"); ?>',
+            '<?php echo $this->lang->line("feb"); ?>',
+            '<?php echo $this->lang->line("mar"); ?>',
+            '<?php echo $this->lang->line("apil"); ?>',
+            '<?php echo $this->lang->line("may"); ?>',
+            '<?php echo $this->lang->line("june"); ?>',
+            '<?php echo $this->lang->line("july"); ?>',
+            '<?php echo $this->lang->line("aug"); ?>',
+            '<?php echo $this->lang->line("sep"); ?>',
+            '<?php echo $this->lang->line("oct"); ?>',
+            '<?php echo $this->lang->line("nov"); ?>',
+            '<?php echo $this->lang->line("dec"); ?>'
             ]
             graph_line_generate(category,'Total',response,'appuse_year','<?php echo $this->lang->line("app_ov_total_apps"); ?> "<?php echo $application_detail->getApplicationName(); ?>" <?php echo $this->lang->line("app_ov_use_in_year"); ?>','Source : SAMF Dataset',line_color);
     })
