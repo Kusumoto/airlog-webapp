@@ -31,13 +31,13 @@
               </ul>
             </div>
             <div class="form-group">
-              <label for="api_link">Select languages</label>
+              <label for="api_link">Languages</label>
                <select class="form-control" id="app_agent" name="app_agent">
                 
               </select>
             </div>
             <div class="form-group">
-              <label for="api_link">API Link</label>
+              <label for="api_link">API</label>
               <input type="text" id="sys_user" name="sys_user" placeholder="API Link" class="form-control" value=""/>
             </div>
           </div>
