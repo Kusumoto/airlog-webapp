@@ -30,11 +30,23 @@
                 <li><a href="setting/change_language/thai">ไทย</a></li>
               </ul>
             </div>
-            <div class="form-group">
-              <label for="api_link">Languages</label>
-               <select class="form-control" id="app_agent" name="app_agent">
-                
-              </select>
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3 class="panel-title">Languages</h3></div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-hover" id="table_langlist">
+                    <thead>
+                      <tr>
+                        <th width="40%">Language</th>
+                        <th width="40%">Language Prefix</th>
+                        <th width="20%">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="api_link">API</label>
@@ -50,3 +62,31 @@
     </div>
   </section>
 </aside><!-- /.right-side -->
+
+<script type="text/javascript">
+
+  function showLangList() {
+    $('#table_langlist tbody tr').remove();
+    $('.spinner').show();
+    setTimeout(function(){
+      $.getJSON("<?php echo site_url('/setting/getlanglist') ?>", function(data) {
+        var output = '';
+        $.each(data, function(index, value){      
+          output += '<tr id=func_"' + value._id + '">';
+          output += '<td>' + value.lang_name + '</td>';
+          output += '<td>' + value.lang_prefix + '</td>';
+          output += '<td><div class="btn-group"><button class="btn btn-info" data-toggle="tooltip" title="Edit Language" onclick="getLangDetail(\''+ value._id +'\')"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger" data-toggle="tooltip" title="Remove Language" onclick="deleteLang(\'' + value._id + '\')"><i class="fa fa-trash-o"></i></button></div></td>'
+          output += '</tr>';
+        });
+        $('.spinner').hide();
+        $('#table_langlist').append(output);
+        $('#table_langlist').find('[data-toggle="tooltip"]').tooltip()
+      });
+    }, 1000);
+  }
+
+  $(document).ready(function() {
+    showLangList()
+  });
+
+</script>

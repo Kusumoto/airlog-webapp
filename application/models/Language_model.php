@@ -23,6 +23,13 @@
  class Language_model extends CI_Model {
 
 	/**
+	 * _id in MongoDB Primary Key
+	 *
+	 * @var	string
+	*/
+	private $_id;
+
+	/**
 	 * Language Name in database
 	 *
 	 * @var	string
@@ -37,6 +44,16 @@
 	private $lang_prefix;
 
 	/**
+	 * Set MongDB ID to variable
+	 *
+	 * @param 	string
+	 * @return	void
+	 */
+	public function setID($_id)
+	{
+		$this->_id = $_id;
+	}
+	/**
 	 * Set Language Name to variable
 	 *
 	 * @param 	string
@@ -46,6 +63,16 @@
 	{
 		$this->lang_name = $lang_name;
 	}
+
+	/**
+	 * Get _id from variable
+	 *
+	 * @return	string
+	 */
+ 	public function getID() 
+ 	{
+ 		return $this->_id;
+ 	}
 
 	/**
 	 * Get Language Name
@@ -99,7 +126,6 @@
 	public function get()
 	{
 		// intalizing variable
-		$data = array();
 		$return = array();
 		try 
 		{
