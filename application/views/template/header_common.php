@@ -16,6 +16,8 @@
 	<link href="<?php echo base_url(); ?>assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url(); ?>assets/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url(); ?>assets/css/codemirror/codemirror.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url(); ?>assets/css/codemirror/xq-dark.css" rel="stylesheet" type="text/css" />
 	<!-- JS -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/highcharts.min.js" type="text/javascript"></script>
@@ -28,6 +30,11 @@
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/app.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/script.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/codemirror.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/htmlmixed.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/javascript.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/php.js" type="text/javascript"></script>
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

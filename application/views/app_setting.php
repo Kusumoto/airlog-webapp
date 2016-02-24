@@ -33,7 +33,10 @@
             <div class="panel panel-default">
               <div class="panel-heading"><h3 class="panel-title">Languages</h3></div>
               <div class="panel-body">
-                <div class="table-responsive">
+                <div class="pull-right box-tools">
+                  <button class="btn btn-primary" id="addnewlang" type="button" data-target="#showlangdata" data-toggle="modal"><i class="fa fa-plus"></i> New Language</button>
+                </div>
+                <div class="table-responsive" style="margin-top: 50px;">
                   <table class="table table-hover" id="table_langlist">
                     <thead>
                       <tr>
@@ -63,6 +66,38 @@
   </section>
 </aside><!-- /.right-side -->
 
+<div class="modal fade" id="showlangdata" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-light-blue">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Language Editor</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">Language Name</span>
+            <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Language Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">Language Prefix</span>
+            <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Language Prefix">
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea rows="13" id="codeeditor"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script type="text/javascript">
 
   function showLangList() {
@@ -87,6 +122,11 @@
 
   $(document).ready(function() {
     showLangList()
+    var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
+      lineNumbers: true,
+      mode: "application/x-httpd-php",
+      indentWithTabs: true
+    });
   });
 
 </script>
