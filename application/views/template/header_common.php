@@ -18,6 +18,7 @@
 	<link href="<?php echo base_url(); ?>assets/css/_all-skins.min.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url(); ?>assets/css/codemirror/codemirror.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url(); ?>assets/css/codemirror/xq-dark.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url(); ?>assets/css/contro.css" rel="stylesheet" type="text/css" />
 	<!-- JS -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/highcharts.min.js" type="text/javascript"></script>

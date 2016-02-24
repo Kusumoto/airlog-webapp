@@ -2,7 +2,7 @@
 
        <header class="main-header">
             <a href="<?php echo site_url(); ?>" class="logo">
-                SAMF
+                <img src="<?php echo base_url(); ?>assets/img/samf-logo.png" class="img_samf" alt="No image samf logo" />
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
