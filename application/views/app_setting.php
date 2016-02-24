@@ -130,6 +130,12 @@
   }
 
   $(document).ready(function() {
+    success_creator = function(message) {
+      $('#place-alert').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>    <i class="icon fa fa-check"></i> Success!</h4>' + message + '</div>');
+    };
+    fail_creator = function(message){
+      $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
+    };
     showLangList()
     var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
       lineNumbers: true,
@@ -138,7 +144,22 @@
       htmlMode: true
     });
 
-
+    $('#addnewlang').click(function(event) {
+      $.ajax({
+        url: '<?php echo site_url('/setting/getDefaultLang'); ?>',
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        editor.setValue(data.data);
+        setTimeout(function() {
+         editor.refresh();
+       }, 100);
+      })
+      .fail(function() {
+       $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+     })
+    });
   });
 
 </script>
