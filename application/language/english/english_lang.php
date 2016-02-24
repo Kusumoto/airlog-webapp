@@ -258,14 +258,16 @@
  $lang['user_list_con_passwd'] = "Confirm Passsword :";
  $lang['user_list_frist_name'] = "Firstname :";
  $lang['user_list_last_name'] = "Lastname :";
+ $lang['user_list_email'] = "E-Mail :";
  $lang['user_list_username_placeholder'] = "Username";
  $lang['user_list_passwd_placeholder'] = "Password";
  $lang['user_list_con_passwd_placeholder'] = "Confirm Passsword";
  $lang['user_list_frist_name_placeholder'] = "Firstname";
  $lang['user_list_last_name_placeholder'] = "Lastname";
- $lang['user_list_email'] = "E-Mail :";
+ $lang['user_list_email_placeholder'] = "E-Mail";
  $lang['user_list_cancel'] = "Cancel";
  $lang['user_list_save'] = "Save";
+ $lang['user_list_confirm_del_this_user'] = "Are your sure to delete this user?";
 
  /**
   * PDF Template 
@@ -311,5 +313,19 @@
   */
  $lang['setting_set'] = "Setting";
  $lang['setting_set_your_sys'] = "Setting your system";
+ $lang['setting_select_lang'] = "Select languages";
+ $lang['setting_langs'] = "Languages";
+ $lang['setting_new_lang'] = "New Language";
+ $lang['setting_lang'] = "Language";
+ $lang['setting_lang_prefix'] = "Language Prefix";
+ $lang['setting_action'] = "Action";
+ $lang['setting_api'] = "API";
+ $lang['setting_save'] = "Save";
+ $lang['setting_lang_editor'] = "Language Editor";
+ $lang['setting_lang_name'] = "Language Name";
+ $lang['setting_warning'] = "Before add or modify language file, folder \"language\" be can writable only. If folder \"language\" not writable, you cannot save your language.";
+ $lang['setting_close'] = "Close";
+ $lang['setting_save_changes'] = "Save changes";
+ $lang['setting_api_link'] = "API Link";
 
  ?>

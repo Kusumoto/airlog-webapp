@@ -267,6 +267,7 @@
  $lang['user_list_email_placeholder'] = "อีเมล";
  $lang['user_list_cancel'] = "ยกเลิก";
  $lang['user_list_save'] = "บันทึก";
+ $lang['user_list_confirm_del_this_user'] = "คุณต้องการลบผู้ใช้นี้หรือไม่?";
 
  /**
   * PDF Template 
@@ -312,6 +313,19 @@
   */
  $lang['setting_set'] = "ตั้งค่า";
  $lang['setting_set_your_sys'] = "ตั้งค่าระบบของคุณ";
+ $lang['setting_select_lang'] = "เลือกภาษา";
+ $lang['setting_langs'] = "ภาษา";
+ $lang['setting_new_lang'] = "เพิ่มภาษาใหม่";
+ $lang['setting_lang'] = "ภาษา";
+ $lang['setting_lang_prefix'] = "คำนำหน้าภาษา";
+ $lang['setting_action'] = "การทำงาน";
+ $lang['setting_api'] = "API";
+ $lang['setting_save'] = "บันทึก";
+ $lang['setting_lang_editor'] = "แก้ไขภาษา";
+ $lang['setting_lang_name'] = "ชื่อภาษา";
+ $lang['setting_warning'] = "ก่อนที่คุณจะแก้ไขไฟล์ภาษาหรือโฟลเดอร์ \"language\" คุณสามารถเขียนได้ ถ้าหากโฟล์เดอร์ \"language\" ไม่สามารถเขียนได้คุณจะไม่สามารถบันทึกภาษาของคุณได้";
+ $lang['setting_close'] = "ปิด";
+ $lang['setting_save_changes'] = "บันทึกการเปลี่ยนแปลง";
+ $lang['setting_api_link'] = "ลิงค์ของ API";
 
- 
  ?>

@@ -164,7 +164,7 @@
     }
 
 	function deleteUser(_id) {
-		if (confirm("Are your sure to delete this user?")) {
+		if (confirm("<?php echo $this->lang->line("user_list_confirm_del_this_user"); ?>")) {
             $.ajax({
                 url: "<?php echo site_url('/authenticate/deluser'); ?>",
                 type: 'POST',
