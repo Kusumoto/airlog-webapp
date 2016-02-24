@@ -97,8 +97,6 @@ class Setting extends CI_Controller {
 		if (!empty($_id)) {
 			// Load language model
 			$this->load->model('language_model');
-			// Load File Helper
-			$this->load->helper('file');
 			// Set variable in language model
 			$this->language_model->setID($_id);
 			// Get language data detail from database
@@ -108,7 +106,7 @@ class Setting extends CI_Controller {
 					'lang_id' 			=> 		$_id, 
 					'lang_prefix' 		=> 		$this->language_model->getLangPrefix(), 
 					'lang_name' 		=> 		$this->language_model->getLangName(),
-					'lang_file'			=>		read_file(APPPATH.'language/'.$this->language_model->getLangPrefix().'/'.$this->language_model->getLangPrefix().'_lang.php')
+					'lang_file'			=>		file_get_contents(APPPATH.'language/'.$this->language_model->getLangPrefix().'/'.$this->language_model->getLangPrefix().'_lang.php')
 					);
 			else
 				$JSON = array(
@@ -125,13 +123,191 @@ class Setting extends CI_Controller {
 		);
 	}
 
+	public function addlang()
+	{
+		// Load Form Validation Library
+		$this->load->library('form_validation');
+		// Form Validation Rules
+		$this->form_validation->set_rules('lang_prefix', 'Language Prefix', 'required');
+		$this->form_validation->set_rules('lang_name', 'Language Name', 'required');
+		$this->form_validation->set_rules('lang_data', 'Language Data', 'required');
+		// Start Validation
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$JSON = array(
+				'status' 		=> 		403, 
+				'message' 		=> 		'Data input not corrent!'
+				);
+		} 
+		else 
+		{
+			$lang_data 		= $this->input->post('lang_data',false);
+			$lang_prefix 	= $this->input->post('lang_prefix',true);
+			$lang_name		= $this->input->post('lang_name',true);
+
+			// Load language model
+			$this->load->model('language_model');
+			$structure = APPPATH.'language/'.$lang_prefix;
+			if (!mkdir($structure, 0777)) 
+			{
+				$JSON = array(
+					'Status' 	=> 	'500', 
+					'Message' 	=> 	'Unable to create language folder.'
+					);
+			} 
+			else 
+			{
+				if (!write_file(APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php', $lang_data))
+				{
+					$JSON = array(
+						'Status' 	=> 	'500', 
+						'Message' 	=> 	'Unable to create language file.'
+						);
+				}
+				else
+				{
+					try 
+					{
+						$this->language_model->setLangName($lang_name);
+						$this->language_model->setLangPrefix($lang_prefix);
+						$this->language_model->add();
+						$JSON = array(
+							'Status' 	=> 	'200', 
+							'Message' 	=> 	'OK'
+							);
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 		'500', 
+							'Message' 	=> 		'Exception : '.$e->getMessage()
+							);
+					}
+					
+				}
+			}
+		}
+		$this->load->view('json',
+			array(
+				'JSON' 		  => 	$JSON
+				)
+			);
+	}
+
 	public function updatelang()
 	{
+		// Load Form Validation Library
+		$this->load->library('form_validation');
+		// Form Validation Rules
+		$this->form_validation->set_rules('_id', 'ID', 'required');
+		$this->form_validation->set_rules('lang_prefix', 'Language Prefix', 'required');
+		$this->form_validation->set_rules('lang_name', 'Language Name', 'required');
+		$this->form_validation->set_rules('lang_data', 'Language Data', 'required');
+		// Start Validation
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$JSON = array(
+				'status' 		=> 		403, 
+				'message' 		=> 		'Data input not corrent!'
+				);
+		} 
+		else 
+		{
+			$_id 			= $this->input->post('_id',true);
+			$lang_data 		= $this->input->post('lang_data',false);
+			$lang_prefix 	= $this->input->post('lang_prefix',true);
+			$lang_name		= $this->input->post('lang_name',true);
 
+			// Load language model
+			$this->load->model('language_model');
+			$file = APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php';
+
+			if (unlink($file))
+			{
+				if (!write_file(APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php', $lang_data))
+				{
+					$JSON = array(
+						'Status' 	=> 	'500', 
+						'Message' 	=> 	'Unable to create language file.'
+						);
+				}
+				else
+				{
+					try 
+					{
+						$this->language_model->setLangName($lang_name);
+						$this->language_model->setLangPrefix($lang_prefix);
+						$this->language_model->update();
+						$JSON = array(
+							'Status' 	=> 	'200', 
+							'Message' 	=> 	'OK'
+							);
+					} 
+					catch (Exception $e) 
+					{
+						$JSON = array(
+							'Status' 	=> 		'500', 
+							'Message' 	=> 		'Exception : '.$e->getMessage()
+							);
+					}
+				}
+			}
+			else
+			{
+				$JSON = array(
+					'Status' 	=> 	'500', 
+					'Message' 	=> 	'Unable to delete language file.'
+					);
+			}
+
+			$this->load->view('json',
+				array(
+					'JSON' 		  => 	$JSON
+					)
+				);
+		}
 	}
 
 	public function deletelang()
 	{
+		// Load Form Validation Library
+		$this->load->library('form_validation');
+		// Form Validation Rules
+		$this->form_validation->set_rules('_id', 'ID', 'required');
+		// Start Validation
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$JSON = array(
+				'status' 		=> 		403, 
+				'message' 		=> 		'Data input not corrent!'
+				);
+		} 
+		else 
+		{
+			// Load language model
+			$this->load->model('language_model');
+			// Set ID to Model
+			$_id 			= $this->input->post('_id',true);
+			$this->language_model->setID($_id);
+			// Get Data from DB
+			$data 			= $this->language_model->getdetail();
+			$file 			= APPPATH.'language/'.$this->language_model->getLangPrefix().'/'.$this->language_model->getLangPrefix().'_lang.php';
+			if (unlink($file))
+			{
+				$this->language_model->delete();
+				$JSON = array(
+					'Status' 	=> 	'200', 
+					'Message' 	=> 	'OK'
+					);
+			}
+			else
+			{
+				$JSON = array(
+					'Status' 	=> 	'500', 
+					'Message' 	=> 	'Unable to delete language file.'
+					);
+			}
+		}
 
 	}
 

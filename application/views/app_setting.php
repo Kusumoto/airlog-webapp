@@ -81,16 +81,17 @@
         <h4 class="modal-title"><?php echo $this->lang->line("setting_lang_editor"); ?></h4>
       </div>
       <div class="modal-body">
+      <div id="place-alert-model"></div>
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><?php echo $this->lang->line("setting_lang_name"); ?></span>
-            <input name="lang_name" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_name"); ?>">
+            <input name="lang_name" id="lang_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_name"); ?>">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><?php echo $this->lang->line("setting_lang_prefix"); ?></span>
-            <input name="lang_prefix" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_prefix"); ?>">
+            <input name="lang_prefix" id="lang_prefix" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_prefix"); ?>">
           </div>
         </div>
         <div class="form-group">
@@ -100,6 +101,7 @@
         <small><span style="color:#DA1C1C">*</span> <?php echo $this->lang->line("setting_warning"); ?></small>
       </div>
       <div class="modal-footer">
+        <input type="hidden" id="lang_id" value="">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->lang->line("setting_close"); ?></button>
         <button type="button" class="btn btn-primary" id="btn-savesetting"><?php echo $this->lang->line("setting_save_changes"); ?></button>
       </div>
@@ -119,7 +121,7 @@
           output += '<tr id=func_"' + value._id + '">';
           output += '<td>' + value.lang_name + '</td>';
           output += '<td>' + value.lang_prefix + '</td>';
-          output += '<td><div class="btn-group"><button class="btn btn-info" data-toggle="tooltip" title="Edit Language" onclick="getLangDetail(\''+ value._id +'\')"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger" data-toggle="tooltip" title="Remove Language" onclick="deleteLang(\'' + value._id + '\')"><i class="fa fa-trash-o"></i></button></div></td>'
+          output += '<td><div class="btn-group"><button class="btn btn-info" data-toggle="tooltip" title="Edit Language" type="button" onclick="getLangDetail(\''+ value._id +'\')"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger" data-toggle="tooltip" type="button" title="Remove Language" onclick="deleteLang(\'' + value._id + '\')"><i class="fa fa-trash-o"></i></button></div></td>'
           output += '</tr>';
         });
         $('.spinner').hide();
@@ -136,6 +138,10 @@
     fail_creator = function(message){
       $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
     };
+    fail_creator_model = function(message){
+        $('#place-alert-model').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
+    };
+
     showLangList()
     var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
       lineNumbers: true,
@@ -144,7 +150,85 @@
       htmlMode: true
     });
 
+    getLangDetail = function(id) {
+      $.ajax({
+        url: '<?php echo site_url('/setting/getlangdetail'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: {_id: id},
+      })
+      .done(function(data) {
+        $('#place-alert-model').html('');
+        $('#lang_prefix').prop('disabled','disabled');
+        $('#lang_name').prop('disabled','disabled');
+        $('#lang_prefix').val(data.lang_prefix);
+        $('#lang_name').val(data.lang_name);
+        $('#lang_id').val(data._id);
+        editor.setValue(data.lang_file);
+        setTimeout(function() {
+         editor.refresh();
+       }, 500);
+        $('#showlangdata').modal('show');
+      })
+      .fail(function() {
+        fail_creator('Internal Server Error!');
+      })   
+    } 
+
+    deleteLang = function(id) {
+      $.ajax({
+        url: '<?php echo site_url('/setting/deletelang'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: {_id: id},
+      })
+      .done(function(data) {
+        success_creator('Delete language file successful');
+      })
+      .fail(function() {
+        fail_creator('Internal Server Error!');
+      })
+    }
+
+    $('#btn-savesetting').click(function(event) {
+      if ($('#lang_id').val()) {
+        $.ajax({
+          url: '<?php echo site_url('/setting/update'); ?>',
+          type: 'POST',
+          dataType: 'json',
+          data: {_id: $('#lang_id').val(), lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val()},
+        })
+        .done(function() {
+          $('#showlangdata').modal('hide');
+          success_creator('Update language successful');
+        })
+        .fail(function() {
+          fail_creator_model('Internal Server Error!');
+        })
+      } else {
+        $.ajax({
+          url: '<?php echo site_url('/setting/addlang'); ?>',
+          type: 'POST',
+          dataType: 'json',
+          data: {lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val(), lang_data: editor.getValue()}
+        })
+        .done(function() {
+          $('#showlangdata').modal('hide');
+          success_creator('Add new language successful');
+        })
+        .fail(function() {
+          fail_creator_model('Internal Server Error!');
+        })
+      }
+    });   
+
     $('#addnewlang').click(function(event) {
+      $('#place-alert-model').html('');
+      $('#lang_prefix').val('');
+      $('#lang_name').val('');
+      $('#lang_id').val('');
+      $('#lang_prefix').removeAttr('disabled');
+      $('#lang_name').removeAttr('disabled');
       $.ajax({
         url: '<?php echo site_url('/setting/getDefaultLang'); ?>',
         type: 'POST',
