@@ -30,7 +30,7 @@
             <div class="bounce3"></div>
           </div>
           <div class="dropdown">
-            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Select languages
+            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $this->lang->line("setting_select_lang"); ?>
               <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li><a href="setting/change_language/english">English</a></li>
@@ -38,18 +38,18 @@
               </ul>
             </div>
             <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Languages</h3></div>
+              <div class="panel-heading"><h3 class="panel-title"><?php echo $this->lang->line("setting_langs"); ?></h3></div>
               <div class="panel-body">
                 <div class="pull-right box-tools">
-                  <button class="btn btn-primary" id="addnewlang" type="button" data-target="#showlangdata" data-toggle="modal"><i class="fa fa-plus"></i> New Language</button>
+                  <button class="btn btn-primary" id="addnewlang" type="button" data-target="#showlangdata" data-toggle="modal"><i class="fa fa-plus"></i> <?php echo $this->lang->line("setting_new_lang"); ?></button>
                 </div>
                 <div class="table-responsive" style="margin-top: 50px;">
                   <table class="table table-hover" id="table_langlist">
                     <thead>
                       <tr>
-                        <th width="40%">Language</th>
-                        <th width="40%">Language Prefix</th>
-                        <th width="20%">Action</th>
+                        <th width="40%"><?php echo $this->lang->line("setting_lang"); ?></th>
+                        <th width="40%"><?php echo $this->lang->line("setting_lang_prefix"); ?></th>
+                        <th width="20%"><?php echo $this->lang->line("setting_action"); ?></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,12 +59,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="api_link">API</label>
-              <input type="text" id="sys_user" name="sys_user" placeholder="API Link" class="form-control" value=""/>
+              <label for="api_link"><?php echo $this->lang->line("setting_api"); ?></label>
+              <input type="text" id="sys_user" name="sys_user" placeholder="<?php echo $this->lang->line("setting_api_link"); ?>" class="form-control" value=""/>
             </div>
           </div>
           <div class="modal-footer clearfix">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $this->lang->line("setting_save"); ?></button>
           </div>
         </div>
         <?php form_close(); ?>
@@ -78,30 +78,30 @@
     <div class="modal-content">
       <div class="modal-header bg-light-blue">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Language Editor</h4>
+        <h4 class="modal-title"><?php echo $this->lang->line("setting_lang_editor"); ?></h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon">Language Name</span>
-            <input name="lang_name" id="app_token" type="text" class="form-control" placeholder="Language Name">
+            <span class="input-group-addon"><?php echo $this->lang->line("setting_lang_name"); ?></span>
+            <input name="lang_name" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_name"); ?>">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon">Language Prefix</span>
-            <input name="lang_prefix" id="app_token" type="text" class="form-control" placeholder="Language Prefix">
+            <span class="input-group-addon"><?php echo $this->lang->line("setting_lang_prefix"); ?></span>
+            <input name="lang_prefix" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("setting_lang_prefix"); ?>">
           </div>
         </div>
         <div class="form-group">
           <textarea rows="13" id="codeeditor">
           </textarea>
         </div>
-        <small>* Before add or modify language file, folder "language" be can writable only. If folder "language" not writable, you cannot save your language.</small>
+        <small><span style="color:#DA1C1C">*</span> <?php echo $this->lang->line("setting_warning"); ?></small>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-savesetting">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->lang->line("setting_close"); ?></button>
+        <button type="button" class="btn btn-primary" id="btn-savesetting"><?php echo $this->lang->line("setting_save_changes"); ?></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
