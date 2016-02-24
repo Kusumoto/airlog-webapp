@@ -31,8 +31,12 @@
 	<script src="<?php echo base_url(); ?>assets/js/app.min.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/script.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/codemirror/codemirror.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/matchbrackets.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/codemirror/htmlmixed.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/xml.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/css.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/codemirror/javascript.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>assets/js/codemirror/clike.js" type="text/javascript"></script>
 	<script src="<?php echo base_url(); ?>assets/js/codemirror/php.js" type="text/javascript"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

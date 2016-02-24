@@ -22,6 +22,11 @@
           </h3>
         </div>
         <div class="box-body">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
           <div class="dropdown">
             <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Select languages
               <span class="caret"></span></button>
@@ -67,7 +72,7 @@
 </aside><!-- /.right-side -->
 
 <div class="modal fade" id="showlangdata" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header bg-light-blue">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -87,8 +92,10 @@
           </div>
         </div>
         <div class="form-group">
-          <textarea rows="13" id="codeeditor"></textarea>
+          <textarea rows="13" id="codeeditor">
+          </textarea>
         </div>
+        <small>* Before add or modify language file, folder "language" be can writable only. If folder "language" not writable, you cannot save your language.</small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -124,8 +131,9 @@
     showLangList()
     var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
       lineNumbers: true,
+      matchBrackets: true,
       mode: "application/x-httpd-php",
-      indentWithTabs: true
+      htmlMode: true
     });
   });
 
