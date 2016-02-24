@@ -168,6 +168,7 @@
  $lang['app_report_type'] = "ประเภท";
  $lang['app_report_func'] = "ฟังก์ชัน";
  $lang['app_report_message'] = "รายละเอียด";
+ $lang['app_report_choose_date'] = "เลือกวันที่";
 
  /**
   * Function
@@ -188,8 +189,8 @@
  $lang['func_over_report'] = "สร้างรายงาน";
  $lang['func_over_edit_func'] = "แก้ไขฟังก์ชัน";
  $lang['func_over_remove_func'] = "ลบฟังก์ชัน";
- $lang['func_over_app_token :'] = "แอพพลิเคชั่น Token :";
- $lang['func_over_func_token :'] = "ฟังก์ชัน Token :";
+ $lang['func_over_app_token'] = "แอพพลิเคชั่น Token :";
+ $lang['func_over_func_token'] = "ฟังก์ชัน Token :";
  $lang['func_over_close'] = "ปิด";
  $lang['func_over_func_sum_stat'] = "ข้อมูลสรุปของฟังก์ชันเชิงสถิติ";
  $lang['func_over_day'] = "วัน";
@@ -221,6 +222,7 @@
  $lang['func_rep_type'] = "ประเภท";
  $lang['func_rep_func'] = "ฟังก์ชัน";
  $lang['func_rep_message'] = "รายละเอียด";
+ $lang['func_rep_choose_date'] = "เลือกวันที่";
  //func_prema_nage
  $lang['func_prema_app_func_mana'] = "การจัดการแอพพลิเคชั่นส่วนของฟังก์ชัน";
  $lang['func_prema_app_func'] = "แอพพลิเคชั่น ฟังก์ชัน";
@@ -257,6 +259,12 @@
  $lang['user_list_frist_name'] = "ชื่อ :";
  $lang['user_list_last_name'] = "นามสกุล :";
  $lang['user_list_email'] = "อีเมล :";
+ $lang['user_list_username_placeholder'] = "ชื้อผู้ใช้งาน";
+ $lang['user_list_passwd_placeholder'] = "รหัสผ่าน";
+ $lang['user_list_con_passwd_placeholder'] = "ยืนยันรหัสผ่าน";
+ $lang['user_list_frist_name_placeholder'] = "ชื่อ";
+ $lang['user_list_last_name_placeholder'] = "นามสกุล";
+ $lang['user_list_email_placeholder'] = "อีเมล";
  $lang['user_list_cancel'] = "ยกเลิก";
  $lang['user_list_save'] = "บันทึก";
 
@@ -286,11 +294,18 @@
  $lang['api_app_name'] = "ชื่อแอพพลิเคชั่น :";
  $lang['api_api_key_token'] = "API Key Token :";
  $lang['api_gen_token'] = "สร้าง Token";
- $lang['api_api_enable :'] = "เปิดการทำงาน API :";
+ $lang['api_api_enable'] = "เปิดการทำงาน API :";
  $lang['api_enable'] = "เปิดการทำงาน";
  $lang['api_disable'] = "ปิดการทำงาน";
  $lang['api_cancel'] = "ยกเลิก";
  $lang['api_save'] = "บันทึก";
+ $lang['api_confirm_del_app'] = "คุณต้องการลบแอพพลิเคชั่นหรือไม่?";
+ $lang['api_add_api_succ'] = "เพิ่ม API ใหม่สำเร็จ";
+ $lang['api_api_key_db_regen_key'] = "API Key มีอยู่แล้วในฐานข้อมูลกรุณาสร้า API Key ใหม่";
+ $lang['api_remove_api_key'] = "ลบ API Key และข้อมูลสำเร็จ";
+ $lang['api_api_key_not_found_db'] = "API Key นี้ไม่พบในฐานข้อมูล";
+ $lang['api_update_api_succ'] = "ปรับปรุงข้อมูล API สำเร็จ";
+ $lang['api_yr_app_name'] = "ชื่อแอพพลิเคชั่นของคุณ";
 
  /**
   * Setting

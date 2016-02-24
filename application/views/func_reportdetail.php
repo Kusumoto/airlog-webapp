@@ -33,7 +33,7 @@
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<input type="text" class="form-control pull-right" id="log_datetimepicker" name="daterange" placeholder="Choose a Date"/>
+										<input type="text" class="form-control pull-right" id="log_datetimepicker" name="daterange" placeholder="<?php echo $this->lang->line("func_rep_choose_date"); ?>"/>
 									</div><!-- /.input group -->
 								</div><!-- /.form group -->
 							</div>

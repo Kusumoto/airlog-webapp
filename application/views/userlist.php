@@ -70,37 +70,37 @@
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_username"); ?></span>
-										<input name="username" id="username" type="text" class="form-control" placeholder="Username">
+										<input name="username" id="username" type="text" class="form-control" placeholder="<?php echo $this->lang->line("user_list_username_placeholder"); ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_passwd"); ?></span>
-										<input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
+										<input name="password1" id="password1" type="password" class="form-control" placeholder="<?php echo $this->lang->line("user_list_passwd_placeholder"); ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_con_passwd"); ?></span>
-										<input name="password2" id="password2" type="password" class="form-control" placeholder="Confirm Password">
+										<input name="password2" id="password2" type="password" class="form-control" placeholder="<?php echo $this->lang->line("user_list_con_passwd_placeholder"); ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_frist_name"); ?></span>
-										<input name="firstname" id="firstname" type="text" class="form-control" placeholder="Firstname">
+										<input name="firstname" id="firstname" type="text" class="form-control" placeholder="<?php echo $this->lang->line("user_list_frist_name_placeholder"); ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_last_name"); ?></span>
-										<input name="lastname" id="lastname" type="text" class="form-control" placeholder="Lastname">
+										<input name="lastname" id="lastname" type="text" class="form-control" placeholder="<?php echo $this->lang->line("user_list_last_name_placeholder"); ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="input-group">
 										<span class="input-group-addon"><?php echo $this->lang->line("user_list_email"); ?></span>
-										<input name="email" id="email" type="email" class="form-control" placeholder="E-Mail">
+										<input name="email" id="email" type="email" class="form-control" placeholder="<?php echo $this->lang->line("user_list_email_placeholder"); ?>">
 									</div>
 								</div>
 							</div>

@@ -62,7 +62,7 @@
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><?php echo $this->lang->line("api_app_name"); ?></span>
-                    <input name="api_name" id="api_name" type="text" class="form-control" placeholder="Your Application Name">
+                    <input name="api_name" id="api_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("api_yr_app_name"); ?>">
                   </div>
                 </div>
                 <div class="form-group">

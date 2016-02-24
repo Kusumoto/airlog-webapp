@@ -98,7 +98,6 @@
  $lang['dash_can_not_reboot_sys'] = "Can not reboot the system!";
  $lang['dash_can_not_shut_sys'] = "Can not shutdown the system!";
 
-
  /**
   * Application
   */
@@ -169,6 +168,7 @@
  $lang['app_report_type'] = "Type";
  $lang['app_report_func'] = "Function";
  $lang['app_report_message'] = "Message";
+ $lang['app_report_choose_date'] = "Choose a Date";
 
  /**
   * Function
@@ -189,8 +189,8 @@
  $lang['func_over_report'] = "Report";
  $lang['func_over_edit_func'] = "Edit Func";
  $lang['func_over_remove_func'] = "Remove Func";
- $lang['func_over_app_token :'] = "Application Token :";
- $lang['func_over_func_token :'] = "Function Token :";
+ $lang['func_over_app_token'] = "Application Token :";
+ $lang['func_over_func_token'] = "Function Token :";
  $lang['func_over_close'] = "Close";
  $lang['func_over_func_sum_stat'] = "Function Summary Statical";
  $lang['func_over_day'] = "Day";
@@ -222,6 +222,7 @@
  $lang['func_rep_type'] = "Type";
  $lang['func_rep_func'] = "Function";
  $lang['func_rep_message'] = "Message";
+ $lang['func_rep_choose_date'] = "Choose a Date";
  //func_premanage
  $lang['func_prema_app_func_mana'] = "Application Function Management";
  $lang['func_prema_app_func'] = "Application Function";
@@ -242,7 +243,6 @@
  $lang['func_prema_your_func_name'] = "Your Function Name";
  $lang['func_prema_your_func_token'] = "Function Token";
 
-
  /**
   * User list
   */
@@ -258,6 +258,11 @@
  $lang['user_list_con_passwd'] = "Confirm Passsword :";
  $lang['user_list_frist_name'] = "Firstname :";
  $lang['user_list_last_name'] = "Lastname :";
+ $lang['user_list_username_placeholder'] = "Username";
+ $lang['user_list_passwd_placeholder'] = "Password";
+ $lang['user_list_con_passwd_placeholder'] = "Confirm Passsword";
+ $lang['user_list_frist_name_placeholder'] = "Firstname";
+ $lang['user_list_last_name_placeholder'] = "Lastname";
  $lang['user_list_email'] = "E-Mail :";
  $lang['user_list_cancel'] = "Cancel";
  $lang['user_list_save'] = "Save";
@@ -288,17 +293,18 @@
  $lang['api_app_name'] = "Application Name :";
  $lang['api_api_key_token'] = "API Key Token :";
  $lang['api_gen_token'] = "Generate Token";
- $lang['api_api_enable :'] = "API Enable :";
+ $lang['api_api_enable'] = "API Enable :";
  $lang['api_enable'] = "Enable";
  $lang['api_disable'] = "Disable";
  $lang['api_cancel'] = "Cancel";
  $lang['api_save'] = "Save";
  $lang['api_confirm_del_app'] = "Are your sure to delete this application?";
- $lang['api_'] = "";
- $lang['api_'] = "";
- $lang['api_'] = "";
- $lang['api_'] = "";
- $lang['api_'] = "";
+ $lang['api_add_api_succ'] = "Add new API successful.";
+ $lang['api_api_key_db_regen_key'] = "API Key exist in database, please regenerate your key.";
+ $lang['api_remove_api_key'] = "Remove API Key and data successful.";
+ $lang['api_api_key_not_found_db'] = "The API Key not found in database.";
+ $lang['api_update_api_succ'] = "Update API data successful.";
+ $lang['api_yr_app_name'] = "Your Application Name";
 
  /**
   * Setting
