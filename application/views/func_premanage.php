@@ -64,13 +64,13 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><?php echo $this->lang->line("func_prema_func_name"); ?></span>
-                                    <input name="func_name" id="func_name" type="text" class="form-control" placeholder="Your Function Name">
+                                    <input name="func_name" id="func_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("func_prema_your_func_name"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><?php echo $this->lang->line("func_prema_func_token"); ?></span>
-                                        <input name="func_token" id="func_token" type="text" class="form-control" placeholder="Function Token">
+                                        <input name="func_token" id="func_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("func_prema_your_func_token"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">

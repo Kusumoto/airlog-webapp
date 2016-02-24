@@ -63,13 +63,13 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_name"); ?></span>
-                                    <input name="app_name" id="app_name" type="text" class="form-control" placeholder="Your Application Name">
+                                    <input name="app_name" id="app_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("app_prema_your_app_name"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_token"); ?></span>
-                                    <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Application Token" readonly>
+                                    <input name="app_token" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("app_prema_app_token_placeholder"); ?>" readonly>
                                     <div class="input-group-btn">
                                         <button class="btn btn-default" id="btn_gentoken"><?php echo $this->lang->line("app_prema_gen_token"); ?></button>
                                     </div>

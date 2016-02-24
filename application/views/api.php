@@ -119,7 +119,7 @@
     })
   }
   function deleteAPI(_id) {
-    if (confirm("Are your sure to delete this application?")) {
+    if (confirm("<?php echo $this->lang->line("api_confirm_del_app"); ?>")) {
       $.ajax({
         url: "<?php echo site_url('/api/delete'); ?>",
         type: 'POST',
@@ -196,10 +196,10 @@
       event.preventDefault();
       $('#place-alert-model').html('');
       if ($('#api_name').val() == '') {
-        fail_creator_model('Please enter your application name');
+        fail_creator_model('<?php echo $this->lang->line("api_pls_enter_app_name"); ?>');
         $('#api_name').focus();
       } else if ($('#api_key').val() == '') {
-        fail_creator_model('Please generate your API key');
+        fail_creator_model('<?php echo $this->lang->line("api_pls_gen_your_api"); ?>');
       } else if ($('#api_isenable').val() == '') {
         fail_creator_model('Service not available.');
       } else {

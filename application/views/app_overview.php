@@ -421,9 +421,9 @@ $(document).ready(function() {
         .done(function(data) {
             if (data.status == 200) {
                 if (data.agent == 'enable') {
-                    $('#agent_control').html('<i class="fa fa-times"></i> Disable Agent');
+                    $('#agent_control').html('<i class="fa fa-times"></i> <?php echo $this->lang->line("app_ov_disable_agent"); ?>');
                 } else {
-                    $('#agent_control').html('<i class="fa fa-check"></i> Enable Agent');
+                    $('#agent_control').html('<i class="fa fa-check"></i> <?php echo $this->lang->line("app_ov_enable_agent"); ?>');
                 }
             } else {
                 $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + data.message + '</div>');

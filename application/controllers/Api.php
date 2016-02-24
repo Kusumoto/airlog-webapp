@@ -94,11 +94,11 @@
  				if (!$this->API_model->check()) {
  					// add API key and detail to database
  					if ($this->API_model->add())
- 						$JSON = array('Status' => 200, 'Message' => 'Add new API successful.');
+ 						$JSON = array('Status' => 200, 'Message' => $this->lang->line("api_cancel"));
  					else
  						$JSON = array('Status' => 500, 'Message' => 'Service not available.');
  				} else {
- 					$JSON = array('Status' => 400, 'Message' => 'API Key exist in database, please regenerate your key.');
+ 					$JSON = array('Status' => 400, 'Message' => $this->lang->line("api_api_key_exit_in_db"));
  				}
  			}
  		} else {

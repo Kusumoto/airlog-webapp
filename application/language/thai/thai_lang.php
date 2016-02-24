@@ -88,14 +88,24 @@
  $lang['dash_total_all_func_use_in_month'] = "ฟังก์ชันทั้งหมดในรายเดือน";
  $lang['dash_total_all_func_use_in_year'] = "ฟังก์ชันทั้งหมดในรายปี";
  $lang['dash_ratio_func_in_sys'] = "อัตราส่วนของฟังก์ชั่นที่มีในระบบ";
+ $lang['dash_alert'] = "แจ้งเตือน!";
+ $lang['dash_can_not_get_cpu'] = "ไม่สามารถนำข้อมูล cpu load!";
+ $lang['dash_can_not_get_memory'] = "ไม่สามารถนำข้อมูล memory!";
+ $lang['dash_can_not_get_disk'] = "ไม่สามารถนำข้อมูลฮาร์ดดิส!";
+ $lang['dash_can_not_get_webser'] = "ไม่สามารถนำข้อมูลสถานะของเว็บเซอร์วิสได้!";
+ $lang['dash_can_not_re_webser'] = "ไม่สามารถเริ่มระบบใหม่ของเว็บเซอร์วิสได้!";
+ $lang['dash_can_not_re_db'] = "ไม่สามารถเริ่มระบบใหม่ของฐานข้อมูล!";
+ $lang['dash_can_not_reboot_sys'] = "ไม่สามารถเริ่มระบบใหม่ของ!";
+ $lang['dash_can_not_shut_sys'] = "ไม่สามารถปิดระบบได้!";
 
  /**
   * Application
   */
  // app_peroverview
- $lang['id'] = "ไอดี";
- $lang['application_overview'] = "ภาพรวมทั้งหมดของแอพพลิเคชั่น";
- $lang['action'] = "การทำงาน";
+ $lang['app_preover_id'] = "ไอดี";
+ $lang['app_preover_application_overview'] = "ภาพรวมทั้งหมดของแอพพลิเคชั่น";
+ $lang['app_preover_action'] = "การทำงาน";
+ $lang['app_preover_over_this_app'] = "ดูภาพรวมทั้งหมดของแอพฯนี้";
  // app_overview
  $lang['app_ov_overview'] = "ภาพรวมของ";
  $lang['app_ov_disp_set'] = "ตั้งค่าการแสดง";
@@ -142,6 +152,8 @@
  $lang['app_prema_pls_enter_app_name'] = "กรุณากรอกชื่อแอพพลิเคชั่นของคุณ";
  $lang['app_prema_pls_enter_app_token'] = "กุณากดปุ่มสร้าง application token ของคุณ";
  $lang['app_prema_pls_enter_app_lang'] = "กรุณากรอชนิดภาษาแอพพลิเคชั่นของคุณ";
+ $lang['app_prema_your_app_name'] = "ชื่อแอพพลิเคชั่นของคุณ";
+ $lang['app_prema_app_token_placeholder'] = "แอพพลิเคชั่น Token ของคุณ";
   // app_reportdetail
  $lang['app_report_app_log_report'] = "รายงานล็อคของแอพพลิเคชั่น";
  $lang['app_report_log_report'] = "รายงานล็อค";
@@ -226,6 +238,8 @@
  $lang['func_prema_no'] = "ไม่";
  $lang['func_prema_cancel'] = "ยกเลิก";
  $lang['func_prema_save'] = "บันทึก";
+ $lang['func_prema_your_func_name'] = "ชื่อฟังก์ชันของคุณ";
+ $lang['func_prema_your_func_token'] = "ฟังก์ชัน Token ของคุณ";
 
   /**
   * User list

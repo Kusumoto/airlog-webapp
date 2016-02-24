@@ -467,7 +467,7 @@
             $('#cpu_load').trigger('change');
         })
         .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get cpu loaded!</div>');
+            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4><?php echo $this->lang->line("dash_can_not_get_cpu"); ?></div>');
         })
     }
     function getmemuse() {
@@ -481,7 +481,7 @@
             $('#mem_use').trigger('change');
         })
         .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get memory use!</div>');
+            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4><?php echo $this->lang->line("dash_can_not_get_memory"); ?></div>');
         })
     }
     function getdiskuse() {
@@ -495,7 +495,7 @@
             $('#disk_use').trigger('change');
         })
         .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get disk use!</div>');
+            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4><?php echo $this->lang->line("dash_can_not_get_disk"); ?></div>');
         })
     }
     function reloadserverload() {
@@ -521,7 +521,7 @@
             }
         })
         .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not get web service status!</div>');
+            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4><?php echo $this->lang->line("dash_can_not_get_webser"); ?></div>');
         })
     }
     function getdbstatus() {
@@ -583,7 +583,7 @@
         }
     })
      .fail(function() {
-        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart web service!</div>');
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4></h4><?php echo $this->lang->line("dash_can_not_re_webser"); ?></div>');
         $('#webservice_restart_btn').prop('disabled','');
         $('#graph6_load').hide();
     })
@@ -608,7 +608,7 @@
         }
     })
     .fail(function() {
-        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not restart database!</div>');
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4></h4></h4><?php echo $this->lang->line("dash_can_not_re_db"); ?></div>');
         $('#db_restart_btn').prop('disabled','');
         $('#graph6_load').hide();
     })
@@ -633,7 +633,7 @@ function reboot() {
         }
     })
     .fail(function() {
-        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not reboot the system!</div>');
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?><?php echo $this->lang->line("dash_can_not_reboot_sys"); ?></div>');
         $('#reboot_restart_btn').prop('disabled','');
         $('#graph6_load').hide();
     })
@@ -658,7 +658,7 @@ function shutdown() {
         }
     })
     .fail(function() {
-        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Can not shutdown the system!</div>');
+        $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> <?php echo $this->lang->line("dash_alert"); ?></h4><?php echo $this->lang->line("dash_can_not_shut_sys"); ?></div>');
         $('#shutdown_restart_btn').prop('disabled','');
         $('#graph6_load').hide();
     })

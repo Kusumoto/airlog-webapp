@@ -88,14 +88,25 @@
  $lang['dash_total_all_func_use_in_month'] = "Total all function use in month";
  $lang['dash_total_all_func_use_in_year'] = "Total all function use in year";
  $lang['dash_ratio_func_in_sys'] = "Ratio function in system";
- 
+ $lang['dash_alert'] = "Alert!";
+ $lang['dash_can_not_get_cpu'] = "Can not get cpu loaded!";
+ $lang['dash_can_not_get_memory'] = "Can not get memory use!";
+ $lang['dash_can_not_get_disk'] = "Can not get disk use!";
+ $lang['dash_can_not_get_webser'] = "Can not get web service status!";
+ $lang['dash_can_not_re_webser'] = "Can not restart web service!";
+ $lang['dash_can_not_re_db'] = "Can not restart database!";
+ $lang['dash_can_not_reboot_sys'] = "Can not reboot the system!";
+ $lang['dash_can_not_shut_sys'] = "Can not shutdown the system!";
+
+
  /**
   * Application
   */
  // app_preoverview
- $lang['id'] = "ID";
- $lang['application_overview'] = "Application Overview";
- $lang['action'] = "Action";
+ $lang['app_preover_id'] = "ID";
+ $lang['app_preover_application_overview'] = "Application Overview";
+ $lang['app_preover_action'] = "Action";
+ $lang['app_preover_over_this_app'] = "Overview this application";
  // app_overview
  $lang['app_ov_overview'] = "Overview of ";
  $lang['app_ov_disp_set'] = "Display Setting";
@@ -142,6 +153,8 @@
  $lang['app_prema_pls_enter_app_name'] = "Please enter your application name";
  $lang['app_prema_pls_enter_app_token'] = "Please generate your application token";
  $lang['app_prema_pls_enter_app_lang'] = "Please enter your application language";
+ $lang['app_prema_your_app_name'] = "Your Application Name";
+ $lang['app_prema_app_token_placeholder'] = "Application Token";
  // app_reportdetail
  $lang['app_report_app_log_report'] = "Application Log Report";
  $lang['app_report_log_report'] = "Log Report";
@@ -209,7 +222,7 @@
  $lang['func_rep_type'] = "Type";
  $lang['func_rep_func'] = "Function";
  $lang['func_rep_message'] = "Message";
- //func_prema_nage
+ //func_premanage
  $lang['func_prema_app_func_mana'] = "Application Function Management";
  $lang['func_prema_app_func'] = "Application Function";
  $lang['func_prema_add_new_func'] = "Add new function";
@@ -226,6 +239,9 @@
  $lang['func_prema_no'] = "No";
  $lang['func_prema_cancel'] = "Cancel";
  $lang['func_prema_save'] = "Save";
+ $lang['func_prema_your_func_name'] = "Your Function Name";
+ $lang['func_prema_your_func_token'] = "Function Token";
+
 
  /**
   * User list
@@ -277,6 +293,12 @@
  $lang['api_disable'] = "Disable";
  $lang['api_cancel'] = "Cancel";
  $lang['api_save'] = "Save";
+ $lang['api_confirm_del_app'] = "Are your sure to delete this application?";
+ $lang['api_'] = "";
+ $lang['api_'] = "";
+ $lang['api_'] = "";
+ $lang['api_'] = "";
+ $lang['api_'] = "";
 
  /**
   * Setting

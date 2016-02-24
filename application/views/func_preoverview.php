@@ -63,7 +63,7 @@
                     output += '<td>' + (index+1) + '</td>';
                     output += '<td>' + value.application_name + '</td>';
                     output += '<td>' + value.function_name + '</td>';
-                    output += '<td><a href="<?php echo site_url('/functions/overview/'); ?>/'+ value._id +' " class="btn btn-info" data-toggle="tooltip" title="Overview this application"><i class="fa fa fa-search"></i></a></td>'
+                    output += '<td><a href="<?php echo site_url('/functions/overview/'); ?>/'+ value._id +' " class="btn btn-info" data-toggle="tooltip" title="<?php echo $this->lang->line("app_preover_over_this_app"); ?>"><i class="fa fa fa-search"></i></a></td>'
                     output += '</tr>';
                 });
                 $('.spinner').hide();
