@@ -81,7 +81,7 @@
         <h4 class="modal-title"><?php echo $this->lang->line("setting_lang_editor"); ?></h4>
       </div>
       <div class="modal-body">
-      <div id="place-alert-model"></div>
+        <div id="place-alert-model"></div>
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><?php echo $this->lang->line("setting_lang_name"); ?></span>
@@ -139,7 +139,7 @@
       $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
     };
     fail_creator_model = function(message){
-        $('#place-alert-model').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
+      $('#place-alert-model').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
     };
 
     showLangList()
@@ -183,7 +183,11 @@
         data: {_id: id},
       })
       .done(function(data) {
-        success_creator('Delete language file successful');
+        if (data.status == 403)
+          fail_creator_model(data.message);
+        else {
+          success_creator('Delete language file successful');
+        }
       })
       .fail(function() {
         fail_creator('Internal Server Error!');
@@ -198,9 +202,13 @@
           dataType: 'json',
           data: {_id: $('#lang_id').val(), lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val()},
         })
-        .done(function() {
-          $('#showlangdata').modal('hide');
-          success_creator('Update language successful');
+        .done(function(data) {
+          if (data.status == 403)
+            fail_creator_model(data.message);
+          else {
+            $('#showlangdata').modal('hide');
+            success_creator('Update language successful');
+          }
         })
         .fail(function() {
           fail_creator_model('Internal Server Error!');
@@ -212,9 +220,14 @@
           dataType: 'json',
           data: {lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val(), lang_data: editor.getValue()}
         })
-        .done(function() {
-          $('#showlangdata').modal('hide');
-          success_creator('Add new language successful');
+        .done(function(data) {
+          if (data.status == 403)
+            fail_creator_model(data.message);
+          else {
+            $('#showlangdata').modal('hide');
+            success_creator('Add new language successful');
+          }
+          
         })
         .fail(function() {
           fail_creator_model('Internal Server Error!');
