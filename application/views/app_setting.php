@@ -1,3 +1,5 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
 <aside class="right-side">
 	<section class="content-header">
 		<h1>
@@ -82,13 +84,13 @@
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon">Language Name</span>
-            <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Language Name">
+            <input name="lang_name" id="app_token" type="text" class="form-control" placeholder="Language Name">
           </div>
         </div>
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon">Language Prefix</span>
-            <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Language Prefix">
+            <input name="lang_prefix" id="app_token" type="text" class="form-control" placeholder="Language Prefix">
           </div>
         </div>
         <div class="form-group">
@@ -99,7 +101,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="btn-savesetting">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -135,6 +137,8 @@
       mode: "application/x-httpd-php",
       htmlMode: true
     });
+
+
   });
 
 </script>
