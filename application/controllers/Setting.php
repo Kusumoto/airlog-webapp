@@ -147,6 +147,7 @@ class Setting extends CI_Controller {
 
 			// Load language model
 			$this->load->model('language_model');
+			$this->load->helper('file');
 			$structure = APPPATH.'language/'.$lang_prefix;
 			if (!mkdir($structure, 0777)) 
 			{
@@ -220,6 +221,7 @@ class Setting extends CI_Controller {
 
 			// Load language model
 			$this->load->model('language_model');
+			$this->load->helper('file');
 			$file = APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php';
 
 			if (unlink($file))
@@ -287,6 +289,7 @@ class Setting extends CI_Controller {
 		{
 			// Load language model
 			$this->load->model('language_model');
+			$this->load->helper('file');
 			// Set ID to Model
 			$_id 			= $this->input->post('_id',true);
 			$this->language_model->setID($_id);
