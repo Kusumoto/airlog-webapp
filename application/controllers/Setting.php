@@ -298,6 +298,7 @@ class Setting extends CI_Controller {
 			$file 			= APPPATH.'language/'.$this->language_model->getLangPrefix().'/'.$this->language_model->getLangPrefix().'_lang.php';
 			if (unlink($file))
 			{
+				rmdir(APPPATH.'language/'.$this->language_model->getLangPrefix());
 				$this->language_model->delete();
 				$JSON = array(
 					'Status' 	=> 	'200', 

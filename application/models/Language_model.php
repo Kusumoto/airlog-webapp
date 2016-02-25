@@ -220,14 +220,14 @@
 		try 
 		{
 			// select mongoDB collection
-			$app_collection 	= $this->mongo_db->db->langs;
+			$lang_collection 	= $this->mongo_db->db->langs;
 			// preparing data
 			$prepare_data 		= array(
 				'lang_prefix' 	=> $this->lang_prefix, 
 				'lang_name' 	=> $this->lang_name
 				);
 			// update to database
-			$app_collection->update(array(
+			$lang_collection->update(array(
 				'_id' => new MongoId($this->_id)
 				),$prepare_data);
 			return true;			
@@ -255,7 +255,7 @@
 				);
 			
 				// remove to database
-			$app_collection->remove($prepare_data);
+			$lang_collection->remove($prepare_data);
 			return true;	
 		} 
 		catch (Exception $e) 

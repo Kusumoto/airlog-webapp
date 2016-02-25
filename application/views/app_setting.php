@@ -202,6 +202,7 @@
           fail_creator_model(data.message);
         else {
           success_creator('Delete language file successful');
+          showLangList()
         }
       })
       .fail(function() {
@@ -222,6 +223,7 @@
             fail_creator_model(data.message);
           else {
             $('#showlangdata').modal('hide');
+            showLangList()
             success_creator('Update language successful');
           }
         })
@@ -240,6 +242,7 @@
             fail_creator_model(data.Message);
           else {
             $('#showlangdata').modal('hide');
+            showLangList()
             success_creator('Add new language successful');
           }
           
