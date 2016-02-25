@@ -744,6 +744,13 @@
 					$this->installation_model->setApiUrl($ses_sysapi_de);
 					$this->installation_model->setFirstname($de_sysuser[3]);
 					$this->installation_model->setLastname($de_sysuser[4]);
+					// Add Default Language
+					$this->language_model->setLangPrefix('english');
+					$this->language_model->setLangName('English');
+					$this->language_model->add();
+					$this->language_model->setLangPrefix('thai');
+					$this->language_model->setLangName('ภาษาไทย');
+					$this->language_model->add();
 					// Save Data
 					try 
 					{
@@ -872,6 +879,7 @@
 		{
 			// Load Library Mongo
 			$this->load->model('installation_model');
+			$this->load->model('language_model');
 			// Seter data to model
 			$this->installation_model->setUsername($username);
 			$this->installation_model->setPassword(md5($password));
@@ -879,9 +887,18 @@
 			$this->installation_model->setApiUrl($api);
 			$this->installation_model->setFirstname($name_f);
 			$this->installation_model->setLastname($name_l);
+
+			// Add Default Language
+			$this->language_model->setLangPrefix('english');
+			$this->language_model->setLangName('English');
+			$this->language_model->add();
+			$this->language_model->setLangPrefix('thai');
+			$this->language_model->setLangName('ภาษาไทย');
+			$this->language_model->add();
 			// Save Data
 			try 
 			{
+
 				if ($this->installation_model->createDefaultUser()) 
 				{
 					if ($this->installation_model->createConfigApiUrl()) 

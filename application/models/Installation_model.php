@@ -269,6 +269,7 @@ class Installation_model extends CI_Model {
 				'firstname' => $this->firstname,
 				'lastname' 	=> $this->lastname,
 				'email'		=> $this->email,
+				'language'  => 'english'
 				)
 			);
 			return true;
