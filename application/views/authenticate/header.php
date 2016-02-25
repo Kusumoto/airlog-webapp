@@ -11,11 +11,12 @@
   <title>SAMF - Login</title>
   <style type="text/css">
   	body {
-  		background-image: url('<?php echo base_url(); ?>assets/img/restaurant.png');
+  		background-image: url('<?php echo base_url(); ?>assets/img/sky.png');
   	}
   </style>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/control_login.css">
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->

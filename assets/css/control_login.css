@@ -1,0 +1,46 @@
+body {
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.set-background {
+}
+.set-login {
+	background-color: #1C6A76;
+	opacity: 0.65;
+}
+.logo {
+	width: 100%;
+	height: 100%;
+}
+.user_login {
+	width: 40%;
+	height: 40%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.set_input {
+	width: 95%;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+.set-heading {
+	background-color: #2D21A7 !important;
+	text-align: center;
+	color: #F5F5F5 !important;
+	font-size: 16px;
+}
+.set-text {
+	color: #0C0303;
+	font-weight: bold;
+}
+.set-btn-login {
+	margin-right: 20%;
+}
+.btn-login {background: rgba(63, 204, 183, 1); border-color: rgba(255, 255, 255, 1); color: rgba(255, 255, 255, 1); font-size: 18px; border-radius: 5px; border-width: 2px;}
+.btn-login:hover {background: rgba(49, 222, 161, 1); border-color: rgba(15, 14, 14, 1); color: rgba(42, 65, 130, 1);}
+.btn-login:active, .btn-custom:focus {background: rgba(192, 244, 252, 1); border-color: rgba(1, 18, 74, 1); color: rgba(46, 46, 46, 1);}
+.btn-reset {background: rgba(237, 47, 47, 1); border-color: rgba(255, 255, 255, 1); color: rgba(255, 240, 240, 1); font-size: 18px; border-radius: 5px; border-width: 2px;}
+.btn-reset:hover {background: rgba(222, 17, 48, 1); border-color: rgba(18, 14, 14, 1); color: rgba(51, 51, 51, 1);}
+.btn-reset:active, .btn-custom:focus {background: rgba(255, 120, 120, 1); border-color: rgba(250, 225, 225, 1); color: rgba(250, 225, 225, 1);}
