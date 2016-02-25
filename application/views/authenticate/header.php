@@ -11,7 +11,7 @@
   <title>SAMF - Login</title>
   <style type="text/css">
   	body {
-  		background-image: url('<?php echo base_url(); ?>assets/img/sky.png');
+  		background-image: url('<?php echo base_url(); ?>assets/img/bg2.jpg');
   	}
   </style>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
