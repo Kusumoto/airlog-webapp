@@ -178,7 +178,7 @@
         $('#lang_name').prop('disabled','disabled');
         $('#lang_prefix').val(data.lang_prefix);
         $('#lang_name').val(data.lang_name);
-        $('#lang_id').val(data._id);
+        $('#lang_id').val(data.lang_id);
         editor.setValue(data.lang_file);
         setTimeout(function() {
          editor.refresh();
