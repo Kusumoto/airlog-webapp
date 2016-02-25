@@ -158,7 +158,7 @@ class Setting_model extends CI_Model {
 				array(
 					'variable'	=> 	$this->variable
 					)
-				)
+				) != 0
 				)
 			{
 				$prepare_data 		= 	array(
