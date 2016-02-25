@@ -216,7 +216,7 @@
           url: '<?php echo site_url('/setting/updatelang'); ?>',
           type: 'POST',
           dataType: 'json',
-          data: {_id: $('#lang_id').val(), lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val()},
+          data: {_id: $('#lang_id').val(), lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val(), lang_data: editor.getValue()},
         })
         .done(function(data) {
           if (data.status == 403)
