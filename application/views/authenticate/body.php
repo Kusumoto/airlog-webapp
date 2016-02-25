@@ -1,15 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <div class="container" style="margin-top:2%">
+<div class="col-md-offset-3 hidden-xs">
+  <div class="col-md-1">
+     <img src="<?php echo base_url(); ?>assets/img/samf-logo.png" class="img_samf" alt="No image samf logo" />
+  </div>
+  <div class="col-md-11">   
+     <div class="text_logo col-md-12">Software Analysis and </div>
+     <div class="text_logo col-md-12">Maintenance Framework</div>
+  </div> 
+</div> 
   <div class="row">
     <div class="col-xs-offset-1 col-xs-11 col-md-offset-3 col-md-6">
       <div class="panel panel-danger">
-        <div class="panel-heading set-heading">Software Analysis and Maintenance Framework - Login</div>
+        <div class="panel-heading set-heading">SAMF - Login</div>
         <div class="panel-body set-login">
           <div class="col-md-12" >
             <img src="<?php echo base_url(); ?>assets/img/user.png" class="user_login" alt="No image" />
           </div>
           <div class="row">
-            <?php if (isset($ErrorMessage)): ?><div class="col-md-offset-3 col-md-6 alert alert-danger"><?php echo $ErrorMessage; ?></div><?php endif; ?>
+            <?php if (isset($ErrorMessage)): ?><div class="col-md-offset-3 col-md-6 alert alert-danger set-error"><?php echo $ErrorMessage; ?></div><?php endif; ?>
           <?php echo form_open('',array('id' => 'form_login')); ?>
           </div>
           <div class="inner-addon right-addon set-user col-md-offset-1 col-md-10">
