@@ -162,7 +162,8 @@ class Setting_model extends CI_Model {
 				)
 			{
 				$prepare_data 		= 	array(
-						'value' 	=> 		$this->value
+						'variable' 	=> 	$this->variable
+						'value' 	=> 	$this->value
 					);
 				// update to database
 				$setting_collection->update(array(

@@ -888,6 +888,9 @@
 			$this->installation_model->setFirstname($name_f);
 			$this->installation_model->setLastname($name_l);
 
+			$this->installation_model->removeCollection();
+			$this->installation_model->createNewCollection();
+
 			// Add Default Language
 			$this->language_model->setLangPrefix('english');
 			$this->language_model->setLangName('English');
@@ -898,7 +901,6 @@
 			// Save Data
 			try 
 			{
-
 				if ($this->installation_model->createDefaultUser()) 
 				{
 					if ($this->installation_model->createConfigApiUrl()) 
