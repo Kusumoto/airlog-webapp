@@ -151,7 +151,7 @@ class Setting extends CI_Controller {
 			if (!mkdir($structure, 0777)) 
 			{
 				$JSON = array(
-					'Status' 	=> 	'500', 
+					'status' 	=> 	'500', 
 					'Message' 	=> 	'Unable to create language folder.'
 					);
 			} 
@@ -160,7 +160,7 @@ class Setting extends CI_Controller {
 				if (!write_file(APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php', $lang_data))
 				{
 					$JSON = array(
-						'Status' 	=> 	'500', 
+						'status' 	=> 	'500', 
 						'Message' 	=> 	'Unable to create language file.'
 						);
 				}
@@ -172,14 +172,14 @@ class Setting extends CI_Controller {
 						$this->language_model->setLangPrefix($lang_prefix);
 						$this->language_model->add();
 						$JSON = array(
-							'Status' 	=> 	'200', 
+							'status' 	=> 	'200', 
 							'Message' 	=> 	'OK'
 							);
 					} 
 					catch (Exception $e) 
 					{
 						$JSON = array(
-							'Status' 	=> 		'500', 
+							'status' 	=> 		'500', 
 							'Message' 	=> 		'Exception : '.$e->getMessage()
 							);
 					}
@@ -224,7 +224,7 @@ class Setting extends CI_Controller {
 
 			if (unlink($file))
 			{
-				if (!write_file(APPPATH.'language/'.$lang_prefix.'/'.$lang_prefix.'_lang.php', $lang_data))
+				if (!write_file($file))
 				{
 					$JSON = array(
 						'Status' 	=> 	'500', 
@@ -235,6 +235,7 @@ class Setting extends CI_Controller {
 				{
 					try 
 					{
+						$this->language_model->setID($_id);
 						$this->language_model->setLangName($lang_name);
 						$this->language_model->setLangPrefix($lang_prefix);
 						$this->language_model->update();
@@ -290,7 +291,7 @@ class Setting extends CI_Controller {
 			$_id 			= $this->input->post('_id',true);
 			$this->language_model->setID($_id);
 			// Get Data from DB
-			$data 			= $this->language_model->getdetail();
+			$this->language_model->getdetail();
 			$file 			= APPPATH.'language/'.$this->language_model->getLangPrefix().'/'.$this->language_model->getLangPrefix().'_lang.php';
 			if (unlink($file))
 			{
@@ -309,6 +310,12 @@ class Setting extends CI_Controller {
 			}
 		}
 
+		$this->load->view('json',
+			array(
+				'JSON' 		  => 	$JSON
+				)
+			);
+
 	}
 
 	public function getAPILink()
@@ -323,7 +330,7 @@ class Setting extends CI_Controller {
 			$urlapi 		   = 	$this->setting_model->getValue();
 			$JSON = array(
 				'Status' 	=> 	'200', 
-				'api' 		=> 	$apiurl
+				'api' 		=> 	$urlapi
 				);
 		}
 		else
@@ -333,6 +340,59 @@ class Setting extends CI_Controller {
 				'api' 		=> 	''
 				);
 		}
+
+		$this->load->view('json',
+			array(
+				'JSON' 		  => 	$JSON
+				)
+			);
+	}
+
+	public function updateAPILink()
+	{
+		// Load Form Validation Library
+		$this->load->library('form_validation');
+		// Form Validation Rules
+		$this->form_validation->set_rules('api_link', 'API Link', 'required');
+		// Start Validation
+		if ($this->form_validation->run() == FALSE) 
+		{
+			$JSON = array(
+				'Status' 		=> 		403, 
+				'Message' 		=> 		'Data input not corrent!'
+				);
+		} 
+		else 
+		{
+			// announce return variable
+			$JSON 	= 	array();
+			// Load setting_model model
+			$this->load->model('setting_model');
+			// Set Value in Setting model
+			$this->setting_model->setVariable('apiurl');
+			$this->setting_model->setValue($this->input->post('api_link'));
+			if ($this->setting_model->setData())
+			{
+				$JSON = array(
+					'Status' 	=> 	'200', 
+					'Message' 	=> 	'OK'
+					);
+			}
+			else
+			{
+				$JSON = array(
+					'Status' 	=> 	'500', 
+					'Message' 	=> 	'Unable save api link.'
+					);
+			}
+		}
+
+		$this->load->view('json',
+			array(
+				'JSON' 		  => 	$JSON
+				)
+			);
+
 	}
 
 	public function change_language($type)

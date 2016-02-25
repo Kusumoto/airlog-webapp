@@ -148,4 +148,40 @@ class Setting_model extends CI_Model {
 			return false;
 		}
 	}
+
+	public function setData()
+	{
+		try 
+		{
+			$setting_collection 	= 	$this->mongo_db->db->setting;
+			if ($setting_collection->count(
+				array(
+					'variable'	=> 	$this->variable
+					)
+				)
+				)
+			{
+				$prepare_data 		= 	array(
+						'value' 	=> 		$this->value
+					);
+				// update to database
+				$setting_collection->update(array(
+					'variable' 			=> 	$this->variable
+					),$prepare_data);
+			}
+			else
+			{
+				$setting_collection->insert(array(
+					'variable' 	=> 		$this->variable,
+					'value' 	=> 		$this->value
+					)
+				);
+			}
+			return true;
+		} 
+		catch (Exception $e) 
+		{
+			return false;
+		}
+	}
 }

@@ -29,14 +29,14 @@
             <div class="bounce2"></div>
             <div class="bounce3"></div>
           </div>
-          <div class="dropdown">
+          <!-- <div class="dropdown">
             <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $this->lang->line("setting_select_lang"); ?>
               <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li><a href="setting/change_language/english">English</a></li>
                 <li><a href="setting/change_language/thai">ไทย</a></li>
               </ul>
-            </div>
+            </div> -->
             <div class="panel panel-default">
               <div class="panel-heading"><h3 class="panel-title"><?php echo $this->lang->line("setting_langs"); ?></h3></div>
               <div class="panel-body">
@@ -141,8 +141,23 @@
     fail_creator_model = function(message){
       $('#place-alert-model').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + message + '</div>');
     };
+    apilinkdata = function() {
+      $.ajax({
+        url: '<?php echo site_url('/setting/getAPILink'); ?>',
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        $('#api_link').val(data.api);
+      })
+      .fail(function() {
+        fail_creator('Web Service in system has empty, please enter webservice url.');
+      })
+    }
 
     showLangList()
+    apilinkdata()
+
     var editor = CodeMirror.fromTextArea(document.getElementById("codeeditor"), {
       lineNumbers: true,
       matchBrackets: true,
@@ -194,21 +209,6 @@
       })
     }
 
-    apilinkdata = function() {
-      $.ajax({
-        url: '<?php echo site_url('/setting/getAPILink'); ?>',
-        type: 'POST',
-        dataType: 'json',
-      })
-      .done(function(data) {
-        $('#api_link').val(data.api);
-      })
-      .fail(function() {
-        fail_creator('Internal Server Error!');
-      })
-      
-    }
-
     $('#btn-savesetting').click(function(event) {
       if ($('#lang_id').val()) {
         $.ajax({
@@ -236,8 +236,8 @@
           data: {lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val(), lang_data: editor.getValue()}
         })
         .done(function(data) {
-          if (data.status == 403)
-            fail_creator_model(data.message);
+          if (data.status != 200)
+            fail_creator_model(data.Message);
           else {
             $('#showlangdata').modal('hide');
             success_creator('Add new language successful');
@@ -249,6 +249,25 @@
         })
       }
     });   
+
+    $('#form_setting').submit(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: '<?php echo site_url('/setting/updateAPILink'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: {api_link: $('#api_link').val()},
+      })
+      .done(function(data) {
+         if (data.Status != 200)
+            fail_creator(data.Message);
+          else 
+            success_creator('Add new service api successful');
+      })
+      .fail(function() {
+        fail_creator('Internal Server Error!');
+      })
+    });
 
     $('#addnewlang').click(function(event) {
       $('#place-alert-model').html('');
