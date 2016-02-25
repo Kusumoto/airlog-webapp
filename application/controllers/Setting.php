@@ -311,6 +311,30 @@ class Setting extends CI_Controller {
 
 	}
 
+	public function getAPILink()
+	{
+		// announce return variable
+		$JSON 	= 	array();
+		// Load setting_model model
+		$this->load->model('setting_model');
+		$this->setting_model->setVariable('apiurl');
+		if ($this->setting_model->getData()) 
+		{
+			$urlapi 		   = 	$this->setting_model->getValue();
+			$JSON = array(
+				'Status' 	=> 	'200', 
+				'api' 		=> 	$apiurl
+				);
+		}
+		else
+		{
+			$JSON = array(
+				'Status' 	=> 	'200', 
+				'api' 		=> 	''
+				);
+		}
+	}
+
 	public function change_language($type)
 	{
 		$this->session->set_userdata("lang",$type);

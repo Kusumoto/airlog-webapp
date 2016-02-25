@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
               <label for="api_link"><?php echo $this->lang->line("setting_api"); ?></label>
-              <input type="text" id="sys_user" name="sys_user" placeholder="<?php echo $this->lang->line("setting_api_link"); ?>" class="form-control" value=""/>
+              <input type="text" id="api_link" name="api_link" placeholder="<?php echo $this->lang->line("setting_api_link"); ?>" class="form-control" value=""/>
             </div>
           </div>
           <div class="modal-footer clearfix">
@@ -192,6 +192,21 @@
       .fail(function() {
         fail_creator('Internal Server Error!');
       })
+    }
+
+    apilinkdata = function() {
+      $.ajax({
+        url: '<?php echo site_url('/setting/getAPILink'); ?>',
+        type: 'POST',
+        dataType: 'json',
+      })
+      .done(function(data) {
+        $('#api_link').val(data.api);
+      })
+      .fail(function() {
+        fail_creator('Internal Server Error!');
+      })
+      
     }
 
     $('#btn-savesetting').click(function(event) {
