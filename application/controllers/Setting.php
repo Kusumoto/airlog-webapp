@@ -226,7 +226,7 @@ class Setting extends CI_Controller {
 
 			if (unlink($file))
 			{
-				if (!write_file($file))
+				if (!write_file($file,$lang_data))
 				{
 					$JSON = array(
 						'Status' 	=> 	'500', 
