@@ -262,13 +262,13 @@ class Setting extends CI_Controller {
 					'Message' 	=> 	'Unable to delete language file.'
 					);
 			}
+		}
 
-			$this->load->view('json',
+		$this->load->view('json',
 				array(
 					'JSON' 		  => 	$JSON
 					)
 				);
-		}
 	}
 
 	public function deletelang()
