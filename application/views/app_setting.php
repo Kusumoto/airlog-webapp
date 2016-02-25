@@ -213,7 +213,7 @@
     $('#btn-savesetting').click(function(event) {
       if ($('#lang_id').val() != '') {
         $.ajax({
-          url: '<?php echo site_url('/setting/update'); ?>',
+          url: '<?php echo site_url('/setting/updatelang'); ?>',
           type: 'POST',
           dataType: 'json',
           data: {_id: $('#lang_id').val(), lang_name: $('#lang_name').val(), lang_prefix: $('#lang_prefix').val()},
