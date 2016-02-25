@@ -210,7 +210,7 @@
     }
 
     $('#btn-savesetting').click(function(event) {
-      if ($('#lang_id').val()) {
+      if ($('#lang_id').val() != '') {
         $.ajax({
           url: '<?php echo site_url('/setting/update'); ?>',
           type: 'POST',
