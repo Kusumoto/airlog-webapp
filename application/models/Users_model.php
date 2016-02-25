@@ -63,6 +63,13 @@
 	*/
 	private $lastname;
 
+	/**
+	 * Language in database
+	 *
+	 * @var	string
+	*/
+	private $language;
+
 
 	/**
 	 * Constructor - Load MongoDB Library
@@ -144,6 +151,17 @@
 	}
 
 	/**
+	 * Set Language to variable
+	 *
+	 * @param 	string
+	 * @return	void
+	 */
+	public function setLanguage($language) 
+	{
+		$this->language = $language;
+	}
+
+	/**
 	 * Get MongDB ID from variable
 	 *
 	 * @return	string
@@ -204,6 +222,16 @@
 	}
 
 	/**
+	 * Get Language from variable
+	 *
+	 * @return	string
+	 */
+	public function getLanguage() 
+	{
+		return $this->language;
+	}
+
+	/**
 	 * Check Username and Password in collection
 	 *
 	 * @return	boolean
@@ -233,6 +261,7 @@
 					$this->username 	= 	$getdata2['username'];
 					$this->firstname 	= 	$getdata2['firstname'];
 					$this->lastname 	= 	$getdata2['lastname'];
+					$this->language		=	$getdata2['language'];
 					return true;
 				}		
 			} 
@@ -263,6 +292,7 @@
 				'firstname' => 		$this->firstname,
 				'lastname' 	=>	 	$this->lastname,
 				'email' 	=> 		$this->email,
+				'language'  =>		$this->language
 				)
 			);
 			return true;
@@ -293,7 +323,8 @@
 					'username' 	=> 		$getdata2['username'], 
 					'email'		=> 		$getdata2['email'], 
 					'firstname' => 		$getdata2['firstname'], 
-					'lastname' 	=> 		$getdata2['lastname']
+					'lastname' 	=> 		$getdata2['lastname'],
+					'language'  =>		$getdata2['language']
 					);
 			}	
 			return $return;	
@@ -351,6 +382,7 @@
 				$this->firstname 	= 	$getdata2['firstname'];
 				$this->lastname 	= 	$getdata2['lastname'];
 				$this->email 		= 	$getdata2['email'];
+				$this->language		=	$getdata2['language'];
 			}
 			return true;
 		} 
@@ -377,7 +409,8 @@
 				'password' 		=> 	$this->password,
 				'firstname' 	=> 	$this->firstname,
 				'lastname' 		=> 	$this->lastname,
-				'email' 		=> 	$this->email
+				'email' 		=> 	$this->email,
+				'language'  =>		$this->language
 				);
 			// update to database
 			$app_collection->update(array(

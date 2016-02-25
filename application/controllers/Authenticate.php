@@ -100,6 +100,7 @@
  							'Username' 	=> 	$this->users_model->getUsername(),
  							'Firstname' => 	$this->users_model->getFirstname(),
  							'Lastname' 	=> 	$this->users_model->getLastname(),
+ 							'lang'		=>	$this->users_model->getLanguage()
  							);
  						$this->session->set_userdata($sessiondata);
  						// redirect to dashboard
@@ -187,6 +188,8 @@
  		if (!$this->session->userdata('isLogin'))
  			redirect('/authenticate/login','refresh');
 
+ 		$this->load->model('language_model');
+
  		// load application overview list view
  		$this->load->view('template/header_common',array(
  			'setTitle' 		=> 		'User Management'
@@ -202,7 +205,10 @@
  			'Firstname' 	=> 		$this->session->userdata('Firstname')
  			)
  		);
- 		$this->load->view('userlist');
+ 		$this->load->view('userlist',array(
+ 			'lang_list'		=>		$this->language_model->get()
+ 			)
+ 		);
  		$this->load->view('template/footer');
  	}
 
@@ -222,6 +228,7 @@
  		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
  		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
  		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
+ 		$this->form_validation->set_rules('language', 'Language', 'trim|required');
 		// Start Validation
  		if ($this->form_validation->run() == FALSE) 
  		{
@@ -238,6 +245,7 @@
  			$email 		= 	$this->input->post('email', true);
  			$firstname 	= 	$this->input->post('firstname',true);
  			$lastname 	= 	$this->input->post('lastname', true);
+ 			$language   =   $this->input->post('language',true);
  			// Load users database model
  			$this->load->model('users_model');
  			// Set user and password
@@ -250,6 +258,7 @@
  				$this->users_model->setEmail($email);
  				$this->users_model->setFirstname($firstname);
  				$this->users_model->setLastname($lastname);
+ 				$this->users_model->setLanguage($language);
  				// save user to database
  				if ($this->users_model->add()) 
  				{
@@ -357,7 +366,8 @@
  					'username' 		=> 		$this->users_model->getUsername(), 
  					'firstname' 	=> 		$this->users_model->getFirstname(), 
  					'lastname' 		=> 		$this->users_model->getLastname(), 
- 					'email' 		=> 		$this->users_model->getEmail()
+ 					'email' 		=> 		$this->users_model->getEmail(),
+ 					'language'		=>		$this->users_model->getLanguage()
  				);
  			else
  				$JSON = array(
@@ -389,6 +399,7 @@
  		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
  		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
  		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
+ 		$this->form_validation->set_rules('language', 'Language', 'trim|required');
 		// Start Validation
  		if ($this->form_validation->run() == FALSE) 
  		{
@@ -403,6 +414,7 @@
  			$email 		= 	$this->input->post('email', true);
  			$firstname 	= 	$this->input->post('firstname',true);
  			$lastname 	= 	$this->input->post('lastname', true);
+ 			$language   =   $this->input->post('language',true);
  			// Load users database model
  			$this->load->model('users_model');
  			// Set user and password
@@ -413,6 +425,7 @@
  			$this->users_model->setEmail($email);
  			$this->users_model->setFirstname($firstname);
  			$this->users_model->setLastname($lastname);
+ 			$this->users_model->setLanguage($language);
  			// save user to database
  			if ($this->users_model->update()) 
  			{

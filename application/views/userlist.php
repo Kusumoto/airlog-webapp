@@ -103,6 +103,17 @@
 										<input name="email" id="email" type="email" class="form-control" placeholder="<?php echo $this->lang->line("user_list_email_placeholder"); ?>">
 									</div>
 								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">Language</span>
+										<select class="form-control" id="language" name="language">
+											<option value="">Select</option>
+											<?php foreach ($lang_list as $lang_list) {
+												echo "<option value=\"".$lang_list['lang_prefix']."\">".$lang_list['lang_name']."</option>";
+											} ?>
+										</select>
+									</div>
+								</div>
 							</div>
 							<div class="modal-footer clearfix">
 								<input type="hidden" id="user_editid" value="">
@@ -120,69 +131,70 @@
 <script type="text/javascript">
 	function listuser() {
 		$('#table_userlist tbody tr').remove();
-        $('.spinner').show();
-        setTimeout(function(){
-            $.getJSON("<?php echo site_url('/authenticate/getuserlist') ?>", function(data) {
-                var output = '';
-                $.each(data, function(index, value){      
-                    output += '<tr id=app_"' + value._id + '">';
-                    output += '<td>' + (index+1) + '</td>';
-                    output += '<td>' + value.username + '</td>';
-                    output += '<td>' + value.firstname + '</td>';
-                    output += '<td>' + value.lastname + '</td>';
-                    output += '<td><div class="btn-group"><button class="btn btn-info" data-toggle="tooltip" title="Edit this user" onclick="getUserdetail(\''+ value._id +'\')"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger" data-toggle="tooltip" title="Remove user" onclick="deleteUser(\'' + value._id + '\')"><i class="fa fa-trash-o"></i></button></div></td>'
-                    output += '</tr>';
-                });
-                $('.spinner').hide();
-                $('#table_userlist').append(output);
-                $('#table_userlist').find('[data-toggle="tooltip"]').tooltip()
-            });
-        }, 1000);
+		$('.spinner').show();
+		setTimeout(function(){
+			$.getJSON("<?php echo site_url('/authenticate/getuserlist') ?>", function(data) {
+				var output = '';
+				$.each(data, function(index, value){      
+					output += '<tr id=app_"' + value._id + '">';
+					output += '<td>' + (index+1) + '</td>';
+					output += '<td>' + value.username + '</td>';
+					output += '<td>' + value.firstname + '</td>';
+					output += '<td>' + value.lastname + '</td>';
+					output += '<td><div class="btn-group"><button class="btn btn-info" data-toggle="tooltip" title="Edit this user" onclick="getUserdetail(\''+ value._id +'\')"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger" data-toggle="tooltip" title="Remove user" onclick="deleteUser(\'' + value._id + '\')"><i class="fa fa-trash-o"></i></button></div></td>'
+					output += '</tr>';
+				});
+				$('.spinner').hide();
+				$('#table_userlist').append(output);
+				$('#table_userlist').find('[data-toggle="tooltip"]').tooltip()
+			});
+		}, 1000);
 	}
 
 	function getUserdetail(_id) {
-        $('#place-alert-model').html('');
-        $.ajax({
-            url: "<?php echo site_url('/authenticate/getuser'); ?>",
-            type: 'POST',
-            dataType: 'json',
-            data: {_id: _id},
-        })
-        .done(function(data) {
-            $('#user_editid').val(_id);
+		$('#place-alert-model').html('');
+		$.ajax({
+			url: "<?php echo site_url('/authenticate/getuser'); ?>",
+			type: 'POST',
+			dataType: 'json',
+			data: {_id: _id},
+		})
+		.done(function(data) {
+			$('#user_editid').val(_id);
 			$('#password1').val('');
 			$('#password2').val('');
 			$('#firstname').val(data.firstname);
 			$('#lastname').val(data.lastname);
 			$('#email').val(data.email);
 			$('#username').val(data.username);
-            $('#showuserdata').modal('show');
-        })
-        .fail(function() {
-            $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-        })
-    }
+			$('#language').val(data.language);
+			$('#showuserdata').modal('show');
+		})
+		.fail(function() {
+			$('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+		})
+	}
 
 	function deleteUser(_id) {
 		if (confirm("<?php echo $this->lang->line("user_list_confirm_del_this_user"); ?>")) {
-            $.ajax({
-                url: "<?php echo site_url('/authenticate/deluser'); ?>",
-                type: 'POST',
-                dataType: 'json',
-                data: {_id: _id},
-            })
-            .done(function(data) {
-                if (data.status == 200) {
-                    $('#place-alert').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>    <i class="icon fa fa-check"></i> Success!</h4>' + data.message + '</div>');
-                    listuser()
-                } else {
-                    $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + data.message + '</div>');
-                }
-            })
-            .fail(function() {
-                $('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
-            })    
-        }
+			$.ajax({
+				url: "<?php echo site_url('/authenticate/deluser'); ?>",
+				type: 'POST',
+				dataType: 'json',
+				data: {_id: _id},
+			})
+			.done(function(data) {
+				if (data.status == 200) {
+					$('#place-alert').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>    <i class="icon fa fa-check"></i> Success!</h4>' + data.message + '</div>');
+					listuser()
+				} else {
+					$('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>' + data.message + '</div>');
+				}
+			})
+			.fail(function() {
+				$('#place-alert').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-ban"></i> Alert!</h4>Internal Server Error!</div>');
+			})    
+		}
 	}
 
 	$(document).ready(function() {
@@ -206,6 +218,7 @@
 			$('#lastname').val('');
 			$('#email').val('');
 			$('#user_editid').val('');
+			$('#language').val('');
 		});
 		$('#form_user').submit(function(event) {
 			$('#place-alert').html('');
@@ -221,8 +234,8 @@
 				.done(function(data) {
 					if (data.status == 200) {
 						success_creator(data.message);
-                        $('#showuserdata').modal('hide');
-                        listuser()
+						$('#showuserdata').modal('hide');
+						listuser()
 					} else {
 						fail_creator_model(data.message);
 					}
@@ -235,13 +248,13 @@
 					url: "<?php echo site_url('/authenticate/updatedata'); ?>",
 					type: 'POST',
 					dataType: 'json',
-					data: {user_editid: $('#user_editid').val(), username: $('#username').val(), password1: $('#password1').val(), password2: $('#password2').val(), firstname: $('#firstname').val(), lastname: $('#lastname').val(), email: $('#email').val()},
+					data: {user_editid: $('#user_editid').val(), username: $('#username').val(), password1: $('#password1').val(), password2: $('#password2').val(), firstname: $('#firstname').val(), lastname: $('#lastname').val(), email: $('#email').val(), language: $('#language').val()},
 				})
 				.done(function(data) {
 					if (data.status == 200) {
 						success_creator(data.message);
-                        $('#showuserdata').modal('hide');
-                        listuser()
+						$('#showuserdata').modal('hide');
+						listuser()
 					} else {
 						fail_creator_model(data.message);
 					}
