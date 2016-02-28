@@ -1,5 +1,5 @@
 
-FROM kusumoto/docker-php5.6-dev-env:latest
+FROM kusumoto/docker-php-dev-env:php5.6
 
 COPY . /var/www/html
 
