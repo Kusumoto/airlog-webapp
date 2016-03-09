@@ -231,7 +231,7 @@
  $lang['func_prema_func'] = "Function";
  $lang['func_prema_action'] = "Action";
  $lang['func_prema_func_manage'] = "Function Manage";
- $lang['func_prema_func_name :'] = "Function Name :";
+ $lang['func_prema_func_name'] = "Function Name :";
  $lang['func_prema_func_token'] = "Function Token :";
  $lang['func_prema_app'] = "Application :";
  $lang['func_prema_select'] = "----- Select -----";

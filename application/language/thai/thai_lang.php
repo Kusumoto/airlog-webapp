@@ -231,7 +231,7 @@
  $lang['func_prema_func'] = "ฟังก์ชัน";
  $lang['func_prema_action'] = "การทำงาน";
  $lang['func_prema_func_manage'] = "จัดการฟังก์ชัน";
- $lang['func_prema_func_name :'] = "ชื่อฟังก์ชัน :";
+ $lang['func_prema_func_name'] = "ชื่อฟังก์ชัน :";
  $lang['func_prema_func_token'] = "ฟังก์ชัน Token :";
  $lang['func_prema_app'] = "แอพพลิเคชั่น :";
  $lang['func_prema_select'] = "----- เลือก -----";
