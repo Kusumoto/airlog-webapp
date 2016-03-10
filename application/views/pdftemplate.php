@@ -7,10 +7,10 @@
 <head>
 	<style type="text/css">
 		<!--
-		body {
+		/*body {
 			font-family: sarabun;
 			font-size: 16px;
-		}
+		}*/
 	-->
 </style>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
