@@ -16,6 +16,7 @@
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 </head>
 <body>
+	<center><img src="<?php echo base_url(); ?>assets/img/samf-logo.png" class="img_samf" alt="No image samf logo" /></center>
 	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="center" style="font-size:23pt; font-weight:bold;"><span lang="th"><?php echo $this->lang->line("pdf_tem_samf_monitor_rep"); ?></span></td>
