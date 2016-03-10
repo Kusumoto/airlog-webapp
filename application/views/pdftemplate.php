@@ -53,7 +53,7 @@
 <?php
 $html = ob_get_contents();
 ob_end_clean();
-$pdf = new CreatePDF('tha','A4','0','saraban');
+$pdf = new CreatePDF('tha','A4','0');
 $pdf->SetAutoFont(AUTOFONT_THAIVIET);
 $pdf->SetDisplayMode('fullpage');
 $pdf->WriteHTML($html, 2);
