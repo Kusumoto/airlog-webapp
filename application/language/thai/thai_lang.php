@@ -69,7 +69,7 @@
  $lang['dash_day'] = "วัน";
  $lang['dash_month'] = "เดือน";
  $lang['dash_year'] = "ปี";
- $lang['dash_all_app_used_stat'] = "แอพพลิเคชั่นทั้งหมดของที่ใช้ข้อมูลเชิงสถิติ";
+ $lang['dash_all_app_used_stat'] = "สถิติการใช้งานแอพพลิเคชั่นทั้งหมด";
  $lang['dash_app_func_ratio'] = "อัตราส่วนของแอพพลิเคชั่นฟังก์ชัน";
  $lang['dash_sys_manage'] = "การจัดการระบบ";
  $lang['dash_shutdown'] = "ปิดการทำงาน";
