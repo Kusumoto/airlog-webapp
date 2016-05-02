@@ -35,7 +35,7 @@
             <button class="btn btn-reset" type="reset"><span class="glyphicon glyphicon-repeat"> </span>Reset</button></div>
             <?php echo form_close(); ?>
           </div>
-          <div class="panel-footer">&copy; 2014-2016 SAMF Dev Team</div>
+          <div class="panel-footer">&copy; 2014-2016 AirLog Dev Team</div>
         </div>
       </div>
     </div>
