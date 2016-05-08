@@ -728,6 +728,7 @@
 				{
 					// Load Library Mongo
 					$this->load->model('installation_model');
+					$this->load->model('language_model');
 					// Get SysUser and API URL form session and decrypt
 					$ses_sysuser_en 	= 	$this->session->userdata('token_sysuser');
 					$ses_sysapi_en 		= 	$this->session->userdata('token_webservicechk');
