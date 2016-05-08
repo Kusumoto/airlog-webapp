@@ -118,8 +118,6 @@
 <script type="text/javascript">
 	var table;
 	function showLogList() {
-		$('#log_container tbody tr').remove();
-		$('.spinner').show();
 		setTimeout(function(){
 			table =	$('#log_container').DataTable({
 				"ajax": {
@@ -138,21 +136,6 @@
 
 				]
 			});
-			/*$.getJSON("<?php echo site_url('/applications/getlog') ?>", function(data) {
-				var output = '';
-				$.each(data, function(index, value){      
-					// output += '<tr id=log_"' + value._id + '">';
-					// output += '<td>' + value.log_date + '</td>';
-					// output += '<td>' + value.log_time + '</td>';
-					// output += '<td>' + value.log_type + '</td>';
-					// output += '<td>' + value.log_appname + '</td>';
-					// output += '<td>' + value.log_funcname + '</td>';
-					// output += '<td>' + value.log_data + '</td>';
-					// output += '</tr>';
-				});*/
-				$('.spinner').hide();
-				// $('#table_applist').append(output);
-			// });
 		}, 1000);
 	}
 	function generate_pdf() {
@@ -178,7 +161,6 @@
 		$('#btn_show_data').click(function(event) {
 			$('#place-alert').html('');
 			event.preventDefault();
-			$('.spinner').show();
 			table.destroy();
 			$('#log_container').DataTable({
 				"ajax": {
@@ -198,34 +180,6 @@
 
 				]
 			});
-			/*$.ajax({
-				url: "<?php echo site_url('/applications/getlog') ?>",
-				type: 'POST',
-				dataType: 'json',
-				data: $('#form_reportapp').serialize(),
-			})
-			.done(function(data) {
-				$('#log_container tbody tr').remove();
-				setTimeout(function(){
-					var output = '';
-					$.each(data, function(index, value){      
-						output += '<tr id=log_"' + value._id + '">';
-						output += '<td>' + value.log_date + '</td>';
-						output += '<td>' + value.log_time + '</td>';
-						output += '<td>' + value.log_type + '</td>';
-						output += '<td>' + value.log_appname + '</td>';
-						output += '<td>' + value.log_funcname + '</td>';
-						output += '<td>' + value.log_data + '</td>';
-						output += '</tr>';
-					});
-					$('.spinner').hide();
-					$('#log_container').append(output);
-				}, 1000);
-			})
-			.fail(function() {
-				fail_creator('Internal Server Error!')
-			})*/
-			$('.spinner').hide();
 		});
 	});
 </script>
