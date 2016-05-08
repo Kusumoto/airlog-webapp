@@ -432,6 +432,7 @@
 		{
 			$JSON 		= 	$this->logger_model->getif($daterange,$typeselect,$application_id);
 		}
+		$this->output->set_content_type('application/json');
 		$this->load->view('json', array(
 			'JSON' 		=> 		$JSON
 			)
