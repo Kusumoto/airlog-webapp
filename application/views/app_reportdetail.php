@@ -116,22 +116,30 @@
 	</section>
 </aside>
 <script type="text/javascript">
-var table;
+	var table;
 	function showLogList() {
 		$('#log_container tbody tr').remove();
 		$('.spinner').show();
 		setTimeout(function(){
-		 table =	$('#log_container').DataTable({
-				"ajax": "<?php echo site_url('/applications/getlog') ?>",
+			table =	$('#log_container').DataTable({
+				"ajax": {
+					"dataType": 'json',
+					"contentType": "application/json; charset=utf-8",
+					"type": "POST",
+					"url":"<?php echo site_url('/applications/getlog') ?>",
+					"dataSrc": function (json) {
+						return $.parseJSON(json);
+					}
+				},
 				"columns": [
-            		{ "": "log_date" },
-            		{ "": "log_time" },
-            		{ "": "log_type" },
-            		{ "": "log_appname" },
-            		{ "": "log_funcname" },
-            		{ "": "log_data" }
-            		
-        		]
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+
+				]
 			});
 			/*$.getJSON("<?php echo site_url('/applications/getlog') ?>", function(data) {
 				var output = '';
@@ -151,10 +159,10 @@ var table;
 		}, 1000);
 	}
 	function generate_pdf() {
-        $('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
-        $('#form_reportapp').target = "_BLANK";
-        $('#form_reportapp').submit();
-      }
+		$('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
+		$('#form_reportapp').target = "_BLANK";
+		$('#form_reportapp').submit();
+	}
 	$(document).ready(function() {
 		success_creator = function(message) {
 			$('#place-alert').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>    <i class="icon fa fa-check"></i> Success!</h4>' + message + '</div>');
@@ -176,20 +184,25 @@ var table;
 			$('.spinner').show();
 			table.destroy();
 			$('#log_container').DataTable({
-				"ajax" : {
-                "url" :  "<?php echo site_url('/applications/getlog') ?>",
-                "type" : "POST",
-                "data" : $('#form_reportapp').serialize()
-            },
+				"ajax": {
+					"dataType": 'json',
+					"contentType": "application/json; charset=utf-8",
+					"type": "POST",
+					"url":"<?php echo site_url('/applications/getlog') ?>",
+					"data" : $('#form_reportapp').serialize(),
+					"dataSrc": function (json) {
+						return $.parseJSON(json);
+					}
+				},
 				"columns": [
-            		{ "": "log_date" },
-            		{ "": "log_time" },
-            		{ "": "log_type" },
-            		{ "": "log_appname" },
-            		{ "": "log_funcname" },
-            		{ "": "log_data" }
-            		
-        		]
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+
+				]
 			});
 			/*$.ajax({
 				url: "<?php echo site_url('/applications/getlog') ?>",
