@@ -434,7 +434,7 @@
 		}
 		$this->output->set_content_type('application/json');
 		$this->load->view('json', array(
-			'JSON' 		=> 		$JSON
+			'JSON' 		=> 		array("data" => $JSON)
 			)
 		);
 	}

@@ -127,9 +127,6 @@
 					"contentType": "application/json; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/applications/getlog') ?>",
-					"dataSrc": function (json) {
-						return $.parseJSON(json);
-					}
 				},
 				"columns": [
 				{ "data": "log_date" },
@@ -190,9 +187,6 @@
 					"type": "POST",
 					"url":"<?php echo site_url('/applications/getlog') ?>",
 					"data" : $('#form_reportapp').serialize(),
-					"dataSrc": function (json) {
-						return $.parseJSON(json);
-					}
 				},
 				"columns": [
 				{ "data": "log_date" },
