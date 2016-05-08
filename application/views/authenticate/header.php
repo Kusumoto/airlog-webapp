@@ -11,7 +11,7 @@
   <title>SAMF - Login</title>
   <style type="text/css">
   	body {
-      background: url('<?php echo base_url(); ?>assets/img/AirLog_bg2.png') no-repeat center center fixed; 		
+      background: url('<?php echo base_url(); ?>assets/img/airlog_bg2.png') no-repeat center center fixed; 		
   	}
   </style>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
