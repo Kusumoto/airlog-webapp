@@ -80,6 +80,8 @@
                                     <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_lang"); ?></span>
                                     <select class="form-control" id="app_lang" name="app_lang">
                                         <option value="Java">Java</option>
+                                        <option value="Node.js">Node.js</option>
+                                        <option value="C#">C#</option>
                                     </select>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@
   <title>SAMF - Login</title>
   <style type="text/css">
   	body {
-  		background-image: url('<?php echo base_url(); ?>assets/img/bg2.jpg');
+      background: url('<?php echo base_url(); ?>assets/img/AirLog_bg2.png') no-repeat center center fixed; 		
   	}
   </style>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/control_login.css">
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+  <!-- google font -->
+  <link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>

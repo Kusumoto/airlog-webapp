@@ -96,7 +96,7 @@
 							<div class="bounce3"></div>
 						</div>
 						<div class="table-responsive">
-							<table class="table table-hover" id="log_container">
+							<table class="display" id="log_container">
 								<thead>
 									<tr>
 										<th><?php echo $this->lang->line("app_report_date"); ?></th>
@@ -107,9 +107,6 @@
 										<th><?php echo $this->lang->line("app_report_message"); ?></th>
 									</tr>
 								</thead>
-								<tbody>
-
-								</tbody>
 							</table>
 						</div>
 					</div>
@@ -119,25 +116,38 @@
 	</section>
 </aside>
 <script type="text/javascript">
+var table;
 	function showLogList() {
 		$('#log_container tbody tr').remove();
 		$('.spinner').show();
 		setTimeout(function(){
-			$.getJSON("<?php echo site_url('/applications/getlog') ?>", function(data) {
+		 table =	$('#log_container').DataTable({
+				"ajax": "<?php echo site_url('/applications/getlog') ?>",
+				"columns": [
+            		{ "": "log_date" },
+            		{ "": "log_time" },
+            		{ "": "log_type" },
+            		{ "": "log_appname" },
+            		{ "": "log_funcname" },
+            		{ "": "log_data" }
+            		
+        		]
+			});
+			/*$.getJSON("<?php echo site_url('/applications/getlog') ?>", function(data) {
 				var output = '';
 				$.each(data, function(index, value){      
-					output += '<tr id=log_"' + value._id + '">';
-					output += '<td>' + value.log_date + '</td>';
-					output += '<td>' + value.log_time + '</td>';
-					output += '<td>' + value.log_type + '</td>';
-					output += '<td>' + value.log_appname + '</td>';
-					output += '<td>' + value.log_funcname + '</td>';
-					output += '<td>' + value.log_data + '</td>';
-					output += '</tr>';
-				});
+					// output += '<tr id=log_"' + value._id + '">';
+					// output += '<td>' + value.log_date + '</td>';
+					// output += '<td>' + value.log_time + '</td>';
+					// output += '<td>' + value.log_type + '</td>';
+					// output += '<td>' + value.log_appname + '</td>';
+					// output += '<td>' + value.log_funcname + '</td>';
+					// output += '<td>' + value.log_data + '</td>';
+					// output += '</tr>';
+				});*/
 				$('.spinner').hide();
-				$('#table_applist').append(output);
-			});
+				// $('#table_applist').append(output);
+			// });
 		}, 1000);
 	}
 	function generate_pdf() {
@@ -164,7 +174,24 @@
 			$('#place-alert').html('');
 			event.preventDefault();
 			$('.spinner').show();
-			$.ajax({
+			table.destroy();
+			$('#log_container').DataTable({
+				"ajax" : {
+                "url" :  "<?php echo site_url('/applications/getlog') ?>",
+                "type" : "POST",
+                "data" : $('#form_reportapp').serialize()
+            },
+				"columns": [
+            		{ "": "log_date" },
+            		{ "": "log_time" },
+            		{ "": "log_type" },
+            		{ "": "log_appname" },
+            		{ "": "log_funcname" },
+            		{ "": "log_data" }
+            		
+        		]
+			});
+			/*$.ajax({
 				url: "<?php echo site_url('/applications/getlog') ?>",
 				type: 'POST',
 				dataType: 'json',
@@ -190,7 +217,8 @@
 			})
 			.fail(function() {
 				fail_creator('Internal Server Error!')
-			})
+			})*/
+			$('.spinner').hide();
 		});
 	});
 </script>

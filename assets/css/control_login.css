@@ -12,8 +12,33 @@ body {
 	color: rgba(226, 213, 39, 1);
 	margin-left: 30px;
 }
-.set-login {
-	background-color: #ECE9E9;
+.content_header {
+	color: #FFFFFF;
+	font-size: 2.5em;
+	margin-top: 1.5%;
+	position: absolute;
+	margin-left: 3%;
+	font-family: 'Metrophobic', Arial, serif; font-weight: 400; 
+}
+.img_samf {
+	width: 12%;
+	height: 12%;
+}
+
+@media only screen and (max-width: 370px) {
+	.control_login {
+	margin-top: 30%;
+	width: 100%;
+	}
+	.content_header {
+		font-size: 20px;
+	}
+}
+@media only screen and (min-width: 480px) {
+    .control_login {
+	margin-top: 8%;
+	margin-left: 38%;
+	width: 30%;
 }
 .logo {
 	width: 100%;
