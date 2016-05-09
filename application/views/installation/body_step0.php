@@ -34,7 +34,7 @@
 <div class="container">
 	<div class="col-md-12">
 		<div class="panel panel-primary">
-			<div class="panel-heading">SAMF - Installation Wizard</div>
+			<div class="panel-heading">Airlog - Installation Wizard</div>
 			<div class="panel-body">
 			 	<h2 class="text-center">Welcome to Software Analysis and Maintenance Framework Installation</h2>
 			 	<hr/>

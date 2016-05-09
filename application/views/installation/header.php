@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Software Analysis and Maintenance Framework Installation</title>
+	<title>Airlog Installation</title>
 	<style type="text/css">
 		.bs-wizard {margin-top: 40px;}
 		/*Form Wizard*/

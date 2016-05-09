@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SAMF - Login</title>
+  <title>Airlog - Login</title>
   <style type="text/css">
   	body {
       background: url('<?php echo base_url(); ?>assets/img/airlog_bg2.png') no-repeat center center fixed; 		

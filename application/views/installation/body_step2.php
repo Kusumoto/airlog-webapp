@@ -34,7 +34,7 @@
 <div class="container">
 	<div class="col-md-12">
 		<div class="panel panel-primary">
-			<div class="panel-heading">SAMF - Installation Wizard</div>
+			<div class="panel-heading">Airlog - Installation Wizard</div>
 			<div class="panel-body">
 			 	<h2 class="text-center"><i></i>Installing...</h2>
 			 	<div class="alert alert-danger" role="alert" style="display:none" id="alert"></div>
