@@ -130,10 +130,8 @@
 	};
 	function showLogList() {
 		table =	$('#log_container').DataTable({
-				"serverSide" : true,
 				"ajax": {
 					"dataType": 'json',
-					"contentType": "application/x-www-form-urlencoded; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/functions/getlog') ?>",
 				},
@@ -174,13 +172,11 @@
 			event.preventDefault();
 			table.destroy();
 			table = $('#log_container').DataTable({
-				"serverSide" : true,
 				"ajax": {
 					"dataType": 'json',
-					"contentType": "application/x-www-form-urlencoded; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/functions/getlog') ?>",
-					"data" : function () { $('#form_reportfunc').serializeObject() },
+					"data" : $('#form_reportfunc').serializeObject(),
 				},
 				"columns": [
 				{ "data": "log_date" },
