@@ -112,6 +112,22 @@
 </aside>
 <script type="text/javascript">
 	var table;
+	$.fn.serializeObject = function()
+	{
+   		var o = {};
+   		var a = this.serializeArray();
+   		$.each(a, function() {
+       		if (o[this.name]) {
+           		if (!o[this.name].push) {
+               		o[this.name] = [o[this.name]];
+           		}
+           		o[this.name].push(this.value || '');
+       		} else {
+           		o[this.name] = this.value || '';
+       		}
+   		});
+   		return o;
+	};
 	function showLogList() {
 			table =	$('#log_container').DataTable({
 				"ajax": {
@@ -163,7 +179,7 @@
 					"contentType": "application/json; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/applications/getlog') ?>",
-					"data" : $('#form_reportapp').serialize(),
+					"data" : $('#form_reportapp').serializeObject(),
 				},
 				"columns": [
 				{ "data": "log_date" },
