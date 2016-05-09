@@ -13,6 +13,8 @@ RUN mkdir /ci_session
 
 RUN chmod 777 /ci_session
 
+RUN a2enmod rewrite
+
 EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
