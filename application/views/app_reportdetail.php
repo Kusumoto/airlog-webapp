@@ -90,11 +90,6 @@
 						</h3>
 					</div>
 					<div class="box-body">
-						<div class="spinner">
-							<div class="bounce1"></div>
-							<div class="bounce2"></div>
-							<div class="bounce3"></div>
-						</div>
 						<div class="table-responsive">
 							<table class="display" id="log_container">
 								<thead>
@@ -162,7 +157,7 @@
 			$('#place-alert').html('');
 			event.preventDefault();
 			table.destroy();
-			$('#log_container').DataTable({
+			table = $('#log_container').DataTable({
 				"ajax": {
 					"dataType": 'json',
 					"contentType": "application/json; charset=utf-8",
