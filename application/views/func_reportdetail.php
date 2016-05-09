@@ -90,11 +90,6 @@
 						</h3>
 					</div>
 					<div class="box-body">
-						<div class="spinner">
-							<div class="bounce1"></div>
-							<div class="bounce2"></div>
-							<div class="bounce3"></div>
-						</div>
 						<div class="table-responsive">
 							<table class="table table-hover" id="log_container">
 								<thead>
@@ -107,9 +102,6 @@
 										<th><?php echo $this->lang->line("func_rep_message"); ?></th>
 									</tr>
 								</thead>
-								<tbody>
-
-								</tbody>
 							</table>
 						</div>
 					</div>
@@ -119,26 +111,24 @@
 	</section>
 </aside>
 <script type="text/javascript">
+	var table;
 	function showLogList() {
-		$('#log_container tbody tr').remove();
-		$('.spinner').show();
-		setTimeout(function(){
-			$.getJSON("<?php echo site_url('/functions/getlog') ?>", function(data) {
-				var output = '';
-				$.each(data, function(index, value){      
-					output += '<tr id=log_"' + value._id + '">';
-					output += '<td>' + value.log_date + '</td>';
-					output += '<td>' + value.log_time + '</td>';
-					output += '<td>' + value.log_type + '</td>';
-					output += '<td>' + value.log_appname + '</td>';
-					output += '<td>' + value.log_funcname + '</td>';
-					output += '<td>' + value.log_data + '</td>';
-					output += '</tr>';
-				});
-				$('.spinner').hide();
-				$('#table_applist').append(output);
-			});
-		}, 1000);
+		table =	$('#log_container').DataTable({
+				"ajax": {
+					"dataType": 'json',
+					"contentType": "application/json; charset=utf-8",
+					"type": "POST",
+					"url":"<?php echo site_url('/functions/getlog') ?>",
+				},
+				"columns": [
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+				]
+			});	
 	}
 	function generate_pdf() {
         $('#form_reportfunc').action = "<?php echo site_url('/pdf/funcreport') ?>";
@@ -163,34 +153,25 @@
 		$('#btn_show_data').click(function(event) {
 			$('#place-alert').html('');
 			event.preventDefault();
-			$('.spinner').show();
-			$.ajax({
-				url: "<?php echo site_url('/functions/getlog') ?>",
-				type: 'POST',
-				dataType: 'json',
-				data: $('#form_reportfunc').serialize(),
-			})
-			.done(function(data) {
-				$('#log_container tbody tr').remove();
-				setTimeout(function(){
-					var output = '';
-					$.each(data, function(index, value){      
-						output += '<tr id=log_"' + value._id + '">';
-						output += '<td>' + value.log_date + '</td>';
-						output += '<td>' + value.log_time + '</td>';
-						output += '<td>' + value.log_type + '</td>';
-						output += '<td>' + value.log_appname + '</td>';
-						output += '<td>' + value.log_funcname + '</td>';
-						output += '<td>' + value.log_data + '</td>';
-						output += '</tr>';
-					});
-					$('.spinner').hide();
-					$('#log_container').append(output);
-				}, 1000);
-			})
-			.fail(function() {
-				fail_creator('Internal Server Error!')
-			})
+			table.destroy();
+			table = $('#log_container').DataTable({
+				"ajax": {
+					"dataType": 'json',
+					"contentType": "application/json; charset=utf-8",
+					"type": "POST",
+					"url":"<?php echo site_url('/functions/getlog') ?>",
+					"data" : $('#form_reportfunc').serialize(),
+				},
+				"columns": [
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+
+				]
+			});
 		});
 	});
 </script>

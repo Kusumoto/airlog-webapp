@@ -436,7 +436,7 @@
 			$JSON 		= 	$this->logger_model->getif_func($daterange,$typeselect,$function_id);
 		}
 		$this->load->view('json', array(
-			'JSON' 		=> 		$JSON
+			'JSON' 		=> 		array('data' => $JSON)
 			)
 		);
 	}
