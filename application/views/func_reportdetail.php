@@ -133,7 +133,7 @@
 				"serverSide" : true,
 				"ajax": {
 					"dataType": 'json',
-					"contentType": "application/json; charset=utf-8",
+					"contentType": "application/x-www-form-urlencoded; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/functions/getlog') ?>",
 				},
@@ -177,7 +177,7 @@
 				"serverSide" : true,
 				"ajax": {
 					"dataType": 'json',
-					"contentType": "application/json; charset=utf-8",
+					"contentType": "application/x-www-form-urlencoded; charset=utf-8",
 					"type": "POST",
 					"url":"<?php echo site_url('/functions/getlog') ?>",
 					"data" : function () { $('#form_reportfunc').serializeObject() },
