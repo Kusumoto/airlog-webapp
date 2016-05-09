@@ -18,7 +18,7 @@
 <body>
 	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
-			<td align="center" style="font-size:23pt; font-weight:bold;"><img align="center" src="<?php echo base_url(); ?>assets/img/samf-logo.png" class="img_samf" alt="No image samf logo" /></td>
+			<td align="center" style="font-size:23pt; font-weight:bold;"><img align="center" src="<?php echo base_url(); ?>assets/img/airlog_logo.png" class="img_samf" alt="No image samf logo" height="120" width="200"/></td>
 		</tr>
 		<tr>
 			<td align="center" style="font-size:23pt; font-weight:bold;"><span lang="th"><?php echo $this->lang->line("pdf_tem_samf_monitor_rep"); ?></span></td>
