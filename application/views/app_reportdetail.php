@@ -113,7 +113,6 @@
 <script type="text/javascript">
 	var table;
 	function showLogList() {
-		setTimeout(function(){
 			table =	$('#log_container').DataTable({
 				"ajax": {
 					"dataType": 'json',
@@ -131,7 +130,6 @@
 
 				]
 			});
-		}, 1000);
 	}
 	function generate_pdf() {
 		$('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
