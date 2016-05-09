@@ -130,6 +130,8 @@
 
 				]
 			});
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
 	}
 	function generate_pdf() {
 		$('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
@@ -173,6 +175,8 @@
 
 				]
 			});
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
 		});
 	});
 </script>

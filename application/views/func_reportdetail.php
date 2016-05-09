@@ -129,6 +129,8 @@
 				{ "data": "log_data" }
 				]
 			});	
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
 	}
 	function generate_pdf() {
         $('#form_reportfunc').action = "<?php echo site_url('/pdf/funcreport') ?>";
@@ -172,6 +174,8 @@
 
 				]
 			});
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
 		});
 	});
 </script>
