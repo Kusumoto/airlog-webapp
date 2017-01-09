@@ -10,6 +10,8 @@ pipelines:
   default:
     - step:
         script:
+          - add-apt-repository ppa:webupd8team/java
           - apt-get update
-          - apt-get install -y openjdk-8-jdk
+          - apt-get install oracle-java8-installer
+          - chmod +x run-scanner.sh
           - ./run-scanner.sh
