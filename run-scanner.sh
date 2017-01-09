@@ -4,10 +4,10 @@ unzip ~/scanner.zip -d ~
 rm -rf node_modules
 
 cat << EOF > sonar-project.properties
-  sonar.host.url=https://sonar.kusumotolab.com
-  sonar.projectKey=com.kusumotolab.samfwebservice:master
-  sonar.projectName=AIRLOG-WebService
-  sonar.projectVersion=2.0.1
+  sonar.host.url=${SONAR_HOST_URL}
+  sonar.projectKey=${SONAR_PROJECT_KEY}
+  sonar.projectName=${SONAR_PROJECT_NAME}
+  sonar.projectVersion=${SONAR_PROJECT_VERSION}
   sonar.sources=.
 EOF
 
