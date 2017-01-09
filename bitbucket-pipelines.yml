@@ -12,7 +12,7 @@ pipelines:
         script:
           - apt-get update
           - apt-get install -y software-properties-common python-software-properties
-          - add-apt-repository ppa:webupd8team/java
+          - add-apt-repository -y ppa:webupd8team/java
           - apt-get install -y oracle-java8-installer
           - chmod +x run-scanner.sh
           - ./run-scanner.sh
