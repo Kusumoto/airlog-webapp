@@ -8,7 +8,7 @@ cat << EOF > sonar-project.properties
   sonar.projectKey=${SONAR_PROJECT_KEY}
   sonar.projectName=${SONAR_PROJECT_NAME}
   sonar.projectVersion=${SONAR_PROJECT_VERSION}
-  sonar.sources=.
+  sonar.sources=./application
 EOF
 
 ~/sonar-scanner-2.8/bin/sonar-scanner
