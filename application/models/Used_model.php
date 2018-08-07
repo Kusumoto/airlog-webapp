@@ -105,7 +105,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setID($_id) {
+ 	public function setID($_id) 
+ 	{
  		$this->_id = $_id;
  	}
 
@@ -115,7 +116,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseDate($use_date) {
+ 	public function setUseDate($use_date) 
+ 	{
  		$this->use_date = $use_date;
  	}
 
@@ -125,7 +127,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseTime($use_time) {
+ 	public function setUseTime($use_time) 
+ 	{
  		$this->use_time = $use_time;
  	}
 
@@ -135,7 +138,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseDateTime($use_datetime) {
+ 	public function setUseDateTime($use_datetime) 
+ 	{
  		$this->use_datetime = $use_datetime;
  	}
 
@@ -145,7 +149,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseIPAddress($use_ipaddr) {
+ 	public function setUseIPAddress($use_ipaddr) 
+ 	{
  		$this->use_ipaddr = $use_ipaddr;
  	}
 
@@ -155,7 +160,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseAppID($use_appid) {
+ 	public function setUseAppID($use_appid) 
+ 	{
  		$this->use_appid = $use_appid;
  	}
 
@@ -165,7 +171,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseAppName($use_appname) {
+ 	public function setUseAppName($use_appname) 
+ 	{
  		$this->use_appname = $use_appname;
  	}
 
@@ -175,7 +182,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseFuncID($use_funcid) {
+ 	public function setUseFuncID($use_funcid) 
+ 	{
  		$this->use_funcid = $use_funcid;
  	}
 
@@ -185,7 +193,8 @@ class Used_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setUseFuncName($use_funcname) {
+ 	public function setUseFuncName($use_funcname) 
+ 	{
  		$this->use_funcname = $use_funcname;
  	}
 
@@ -194,7 +203,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getID() {
+ 	public function getID() 
+ 	{
  		return $this->_id;
  	}
 
@@ -203,7 +213,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseDate() {
+ 	public function getUseDate() 
+ 	{
  		return $this->use_date;
  	}
 
@@ -212,7 +223,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseTime() {
+ 	public function getUseTime() 
+ 	{
  		return $this->use_time;
  	}
 
@@ -221,7 +233,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseDateTime() {
+ 	public function getUseDateTime() 
+ 	{
  		return $this->use_datetime;
  	}
 
@@ -230,7 +243,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseIPAddress() {
+ 	public function getUseIPAddress() 
+ 	{
  		return $this->use_ipaddr;
  	}
 
@@ -239,7 +253,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseAppID() {
+ 	public function getUseAppID() 
+ 	{
  		return $this->use_appid;
  	}
 
@@ -248,7 +263,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseAppName() {
+ 	public function getUseAppName() 
+ 	{
  		return $this->use_appname;
  	}
 
@@ -257,7 +273,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseFuncID() {
+ 	public function getUseFuncID() 
+ 	{
  		return $this->use_funcid;
  	}
 
@@ -266,7 +283,8 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
- 	public function getUseFuncName() {
+ 	public function getUseFuncName() 
+ 	{
  		return $this->use_funcname;
  	}
 
@@ -275,16 +293,30 @@ class Used_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
- 	public function updateappname() {
- 		try {
+ 	public function updateappname() 
+ 	{
+ 		try 
+ 		{
 			// select mongoDB collection
- 			$app_collection = $this->mongo_db->db->used;
+ 			$app_collection 	= 	$this->mongo_db->db->used;
 			// preparing data
- 			$prepare_data = array('$set' => array("use_appname" => $this->use_appname));
+ 			$prepare_data 		= 	array(
+ 				'$set' 			=> 		array(
+ 					'use_appname' 	=> 	$this->use_appname
+ 					)
+ 				);
 			// update to database
- 			$app_collection->update(array('use_appid' => $this->use_appid),$prepare_data, array("multiple" => true));
+ 			$app_collection->update(array(
+ 				'use_appid' 	=> 	$this->use_appid
+ 				),
+ 			$prepare_data, array(
+ 				'multiple' 		=> 	true
+ 				)
+ 			);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -299,11 +331,23 @@ class Used_model extends CI_Model {
 			// select mongoDB collection
  			$func_collection = $this->mongo_db->db->used;
 			// preparing data
- 			$prepare_data = array('$set' => array("use_funcname" => $this->use_funcname));
+ 			$prepare_data 	 = array(
+ 				'$set' 		=> 		array(
+ 					'use_funcname' => $this->use_funcname
+ 					)
+ 				);
 			// update to database
- 			$func_collection->update(array('use_funcid' => $this->use_funcid),$prepare_data, array("multiple" => true));
+ 			$func_collection->update(array(
+ 				'use_funcid' 	=> 	$this->use_funcid
+ 				),
+ 			$prepare_data, array(
+ 				'multiple' 	=> 	true
+ 				)
+ 			);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -316,27 +360,46 @@ class Used_model extends CI_Model {
  	public function graphdayused()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date, 'use_appid' => $this->use_appid);
+ 				$querydata 		= 	array(
+ 					'use_time' 	=> 	$regex_Date,
+ 					'use_date' 	=> 	$this->use_date, 
+ 					'use_appid' => $this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$i.'/'); 
+ 				$regex_Date 	= 	new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date, 'use_appid' => $this->use_appid);
+ 				$querydata 		= 	array(
+ 					'use_time' 	=> 	$regex_Date, 
+ 					'use_date' 	=> 	$this->use_date, 
+ 					'use_appid' => 	$this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
@@ -348,26 +411,46 @@ class Used_model extends CI_Model {
  	public function graphmonthused()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
+ 		$splitday 	= 	explode('-', $this->use_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 	= 	cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'use_appid' => $this->use_appid);
+ 				$querydata 	= 	array(
+ 					'use_date' 		=> 		$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'use_appid' 	=> 		$this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'use_appid' => $this->use_appid);
+ 				$querydata 		= 	array(
+ 					'use_date' 	=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'use_appid' => 	$this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+				'name'		=>		'User',
+ 				'data'		=>		$count
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -379,28 +462,44 @@ class Used_model extends CI_Model {
  	public function graphyearused()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 	= 	explode('-', $this->use_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date, 'use_appid' => $this->use_appid);
+ 				$querydata 		= 	array(
+ 					'use_date' 	=> 	$regex_Date, 
+ 					'use_appid' => 	$this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date, 'use_appid' => $this->use_appid);
+ 				$querydata 		= 	array(
+ 					'use_date' 	=> $regex_Date, 
+ 					'use_appid' => $this->use_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
@@ -412,27 +511,45 @@ class Used_model extends CI_Model {
  	public function graphdayusedfunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date, 'use_funcid' => $this->use_funcid);
+ 				$querydata 			= 	array(
+ 					'use_time' 		=> 	$regex_Date, 
+ 					'use_date' 		=> 	$this->use_date, 
+ 					'use_funcid' 	=>	$this->use_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$i.'/'); 
+ 				$regex_Date 	= 	new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date, 'use_funcid' => $this->use_funcid);
+ 				$querydata		= 	array(
+ 					'use_time' 		=> 	$regex_Date, 
+ 					'use_date' 		=> 	$this->use_date, 
+ 					'use_funcid' 	=> 	$this->use_funcid);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
@@ -444,26 +561,46 @@ class Used_model extends CI_Model {
  	public function graphmonthusedfunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$count 			=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 		= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
+ 		$splitday 		= 	explode('-', $this->use_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 		= 	cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'use_funcid' => $this->use_funcid);
+ 				$querydata 	= 	array(
+ 					'use_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'use_funcid' 	=> 	$this->use_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'use_funcid' => $this->use_funcid);
+ 				$querydata 	= 	array(
+ 					'use_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'use_funcid' 	=> 	$this->use_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+				'name'		=>		'User',
+ 				'data'		=>		$count
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -475,28 +612,45 @@ class Used_model extends CI_Model {
  	public function graphyearusedfunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$count 			=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 		= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 		= 	explode('-', $this->use_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date, 'use_funcid' => $this->use_funcid);
+ 				$querydata 		= 	array(
+ 					'use_date' 		=> 	$regex_Date, 
+ 					'use_funcid' 	=> 	$this->use_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date, 'use_funcid' => $this->use_funcid);
+ 				$querydata	 	= 	array(
+ 					'use_date' 		=> 	$regex_Date, 
+ 					'use_funcid' 	=> 	$this->use_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+ 		
  		return $return;	
  	}
 
@@ -508,27 +662,44 @@ class Used_model extends CI_Model {
  	public function graphdayused_dashboard()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 	= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date);
+ 				$querydata 		= 	array(
+ 					'use_time' 	=> 	$regex_Date,
+ 					'use_date' 	=> 	$this->use_date
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$i.'/'); 
+ 				$regex_Date 	= 	new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata = array('use_time' => $regex_Date, 'use_date' => $this->use_date);
+ 				$querydata 		= 	array(
+ 					'use_time' 	=> 	$regex_Date, 
+ 					'use_date' 	=> 	$this->use_date
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
@@ -540,26 +711,44 @@ class Used_model extends CI_Model {
  	public function graphmonthused_dashboard()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
+ 		$splitday 	= 	explode('-', $this->use_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 	= 	cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-0'.$i);
+ 				$querydata 	= 	array(
+ 					'use_date' 	=> 	$splitday[0].'-'.$splitday[1].'-0'.$i
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata = array('use_date' => $splitday[0].'-'.$splitday[1].'-'.$i);
+ 				$querydata 	= 	array(
+ 					'use_date' 	=> 	$splitday[0].'-'.$splitday[1].'-'.$i
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+
+ 		$return		=	array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+				'name'		=>		'User',
+ 				'data'		=>		$count
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -571,28 +760,43 @@ class Used_model extends CI_Model {
  	public function graphyearused_dashboard()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 	= 	array();
+ 		$count 		=	array();
  		// select logger collection 
- 		$use_data = $this->mongo_db->db->used;
+ 		$use_data 	= 	$this->mongo_db->db->used;
  		// preparing query data
- 		$splitday = explode('-', $this->use_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 	= 	explode('-', $this->use_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
  				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date);
+ 				$querydata 	= 	array(
+ 					'use_date' 	=> $regex_Date
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "total" => $use_data->count($querydata));
- 			} else {
+ 				array_push($count, $use_data->count($querydata));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
  				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata = array('use_date' => $regex_Date);
+ 				$querydata 	= 	array(
+ 					'use_date' 	=> 	$regex_Date
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "total" => $use_data->count($querydata));
+ 				array_push($count, $use_data->count($querydata));
  			}
  		}
+ 		
+ 		$return		=	array(
+ 			'name'		=>		'User',
+ 			'data'		=>		$count
+ 			);
+
  		return $return;	
  	}
 
@@ -602,15 +806,20 @@ class Used_model extends CI_Model {
 	 * @return	boolean
 	 */
  	public function dellogbyapp() {
- 		try {
+ 		try 
+ 		{
  			// select mongoDB collection
- 			$app_collection = $this->mongo_db->db->used;
+ 			$app_collection = 	$this->mongo_db->db->used;
 			// preparing data
- 			$prepare_data = array("use_appid" => $this->use_appid);
+ 			$prepare_data 	= 	array(
+ 				'use_appid' 	=> 	$this->use_appid
+ 				);
 			// delete to database
  			$app_collection->remove($prepare_data);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -623,13 +832,17 @@ class Used_model extends CI_Model {
  	public function dellogbyfunc() {
  		try {
  			// select mongoDB collection
- 			$func_collection = $this->mongo_db->db->used;
+ 			$func_collection 	= 	$this->mongo_db->db->used;
 			// preparing data
- 			$prepare_data = array("use_funcid" => $this->use_funcid);
+ 			$prepare_data 		= 	array(
+ 				'use_funcid' 	=> 	$this->use_funcid
+ 				);
 			// delete to database
  			$func_collection->remove($prepare_data);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}

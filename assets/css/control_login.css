@@ -1,0 +1,105 @@
+body {
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;3
+  font-size: 2em;
+  font-family: serif; 
+}
+.text_logo {
+	font-size: 2.5em;
+	color: rgba(226, 213, 39, 1);
+	margin-left: 30px;
+}
+.content_header {
+	color: #FFFFFF;
+	font-size: 2.5em;
+	margin-top: 1.5%;
+	position: absolute;
+	margin-left: 3%;
+	font-family: 'Metrophobic', Arial, serif; font-weight: 400; 
+}
+.img_samf {
+	width: 12%;
+	height: 12%;
+}
+
+@media only screen and (max-width: 370px) {
+	.control_login {
+	margin-top: 30%;
+	width: 100%;
+	}
+	.content_header {
+		font-size: 20px;
+	}
+}
+@media only screen and (min-width: 480px) {
+    .control_login {
+	margin-top: 8%;
+	margin-left: 38%;
+	width: 30%;
+}
+.logo {
+	width: 100%;
+	height: 100%;
+}
+.user_login {
+	width: 40%;
+	height: 40%;
+	opacity: 0.6;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.set-heading {
+	background-color: rgba(147, 127, 154, 1)!important;
+	text-align: center;
+	color: #F5F5F5 !important;
+	font-size: 16px;
+}
+.set-text {
+	color: #0C0303;
+	font-weight: bold;
+}
+.set-pass {
+	margin-bottom: 30px;
+}
+.set-user {
+	margin-top: 35px;
+	margin-bottom: 5px;
+}
+.set-btn-login {
+	margin-right: 8%;
+}
+.set-error {
+	margin-bottom: -20px;
+}
+/* login button */
+.btn-login {background: rgba(0, 209, 147, 1); border-color: rgba(255, 255, 255, 1); color: rgba(255, 255, 255, 1); font-size: 1em; border-radius: 5px; border-width: 2px;}
+.btn-login:hover {background: rgba(49, 222, 161, 1); border-color: rgba(15, 14, 14, 1); color: rgba(42, 65, 130, 1);}
+.btn-login:active, .btn-custom:focus {background: rgba(192, 244, 252, 1); border-color: rgba(1, 18, 74, 1); color: rgba(46, 46, 46, 1);}
+/* reset button */
+.btn-reset {background: rgba(237, 47, 47, 1); border-color: rgba(255, 255, 255, 1); color: rgba(255, 240, 240, 1); font-size: 1em; border-radius: 5px; border-width: 2px;}
+.btn-reset:hover {background: rgba(222, 17, 48, 1); border-color: rgba(18, 14, 14, 1); color: rgba(42, 65, 130, 1);}
+.btn-reset:active, .btn-custom:focus {background: rgba(255, 120, 120, 1); border-color: rgba(250, 225, 225, 1); color: rgba(250, 225, 225, 1);}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 20px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

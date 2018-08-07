@@ -34,15 +34,15 @@
 <div class="container">
 	<div class="col-md-12">
 		<div class="panel panel-primary">
-			<div class="panel-heading">SAMF - Installation Wizard</div>
+			<div class="panel-heading">Airlog - Installation Wizard</div>
 			<div class="panel-body">
 			 	<h2 class="text-center"><i></i>Done!</h2>
 			 	<div class="alert alert-danger" role="alert" style="display:none" id="alert"></div>
 				<hr/>
 			 		<h3>Conglaturations</h3>
-			 		<p>The wizard has be complete to install SAMF. You can access to main site in <a href="<?php echo site_url();?>"><?php echo site_url();?></a> url.</p>
+			 		<p>The wizard has be complete to install Airlog. You can access to main site in <a href="<?php echo site_url();?>"><?php echo site_url();?></a> url.</p>
 			 		<div class="alert alert-warning" role="alert">
-			 			<strong>Security Warning :</strong> Before use SAMF, you must to change permission path <span class="label label-danger"><?php echo APPPATH.'config/'; ?></span> and <span class="label label-danger"><?php echo FCPATH; ?></span> from 777 to 755 (read-only)
+			 			<strong>Security Warning :</strong> Before use Airlog, you must to change permission path <span class="label label-danger"><?php echo APPPATH.'config/'; ?></span> and <span class="label label-danger"><?php echo FCPATH; ?></span> from 777 to 755 (read-only)
 			 		</div>
 			 	<hr/>
 			</div>

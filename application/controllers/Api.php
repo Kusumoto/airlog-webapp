@@ -33,6 +33,9 @@
  		$this->load->helper('url');
  		$this->load->helper('form');
  		$this->load->helper('sec_samf');
+ 		// Load language 
+ 		$lang = $this->session->userdata('lang')==null?"english":$this->session->userdata("lang");
+ 		$this->lang->load($lang,$lang);
 		// Check System not install
  		if (!file_exists(FCPATH.'install.lock')) 
  		{
@@ -91,11 +94,11 @@
  				if (!$this->API_model->check()) {
  					// add API key and detail to database
  					if ($this->API_model->add())
- 						$JSON = array('Status' => 200, 'Message' => 'Add new API successful.');
+ 						$JSON = array('Status' => 200, 'Message' => $this->lang->line("api_add_api_succ"));
  					else
  						$JSON = array('Status' => 500, 'Message' => 'Service not available.');
  				} else {
- 					$JSON = array('Status' => 400, 'Message' => 'API Key exist in database, please regenerate your key.');
+ 					$JSON = array('Status' => 400, 'Message' => $this->lang->line("api_api_key_db_regen_key"));
  				}
  			}
  		} else {
@@ -127,9 +130,9 @@
  				$this->API_model->setID($_id);
  				// check API key exist and in database and remove from database
  				if ($this->API_model->delete())
- 					$JSON = array('Status' => 200, 'Message' => 'Remove API Key and data successful.');
+ 					$JSON = array('Status' => 200, 'Message' => $this->lang->line("api_remove_api_key"));
  				else
- 					$JSON = array('Status' => 400, 'Message' => 'The API Key not found in database.');
+ 					$JSON = array('Status' => 400, 'Message' => $this->lang->line("api_remove_api_key"));
  			}
  		} else {
  			$JSON = array('Status' => 405, 'Message' => 'Method not allowed.');
@@ -183,7 +186,7 @@
  				$this->API_model->setApiIsEnable($api_isenable);
  				// Update API key and detail to database
  				if ($this->API_model->update())
- 					$JSON = array('Status' => 200, 'Message' => 'Update API data successful.');
+ 					$JSON = array('Status' => 200, 'Message' => $this->lang->line("api_update_api_succ"));
  				else
  					$JSON = array('Status' => 500, 'Message' => 'Service not available.');
  			} 

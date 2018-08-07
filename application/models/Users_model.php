@@ -63,6 +63,13 @@
 	*/
 	private $lastname;
 
+	/**
+	 * Language in database
+	 *
+	 * @var	string
+	*/
+	private $language;
+
 
 	/**
 	 * Constructor - Load MongoDB Library
@@ -83,7 +90,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setID($_id) {
+	public function setID($_id) 
+	{
 		$this->_id = $_id;
 	}
 
@@ -93,7 +101,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setUsername($username) {
+	public function setUsername($username) 
+	{
 		$this->username = $username;
 	}
 
@@ -103,7 +112,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setPassword($password) {
+	public function setPassword($password) 
+	{
 		$this->password = $password;
 	}
 
@@ -113,7 +123,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setEmail($email) {
+	public function setEmail($email) 
+	{
 		$this->email = $email;
 	}
 
@@ -123,7 +134,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setFirstname($firstname) {
+	public function setFirstname($firstname)
+	{
 		$this->firstname = $firstname;
 	}
 
@@ -133,8 +145,20 @@
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setLastname($lastname) {
+	public function setLastname($lastname) 
+	{
 		$this->lastname = $lastname;
+	}
+
+	/**
+	 * Set Language to variable
+	 *
+	 * @param 	string
+	 * @return	void
+	 */
+	public function setLanguage($language) 
+	{
+		$this->language = $language;
 	}
 
 	/**
@@ -142,7 +166,8 @@
 	 *
 	 * @return	string
 	 */
-	public function getID() {
+	public function getID() 
+	{
 		return $this->_id;
 	}
 
@@ -151,7 +176,8 @@
 	 *
 	 * @return	string
 	 */
-	public function getUsername() {
+	public function getUsername() 
+	{
 		return $this->username;
 	}
 
@@ -160,7 +186,8 @@
 	 *
 	 * @return	string
 	 */
-	public function getPassword() {
+	public function getPassword() 
+	{
 		return $this->password;
 	}
 
@@ -169,7 +196,8 @@
 	 *
 	 * @return	string
 	 */
-	public function getEmail() {
+	public function getEmail() 
+	{
 		return $this->email;
 	}
 
@@ -178,7 +206,8 @@
 	 *
 	 * @return	string
 	 */
-	public function getFirstname() {
+	public function getFirstname() 
+	{
 		return $this->firstname;
 	}
 
@@ -187,8 +216,19 @@
 	 *
 	 * @return	string
 	 */
-	public function getLastname() {
+	public function getLastname() 
+	{
 		return $this->lastname;
+	}
+
+	/**
+	 * Get Language from variable
+	 *
+	 * @return	string
+	 */
+	public function getLanguage() 
+	{
+		return $this->language;
 	}
 
 	/**
@@ -199,27 +239,39 @@
 	public function checkLogin()
 	{
 		// Set Agrument send to MongoDB
-		$userdata = array('username' => $this->username,'password' => md5($this->password));
-		try {
+		$userdata = array(
+			'username' 		=> 		$this->username,
+			'password' 		=> 		md5($this->password)
+			);
+
+		try 
+		{
 			// Select MongoDB collection
-			$user = $this->mongo_db->db->users;
+			$user 	= 	$this->mongo_db->db->users;
 			
 			// Find data in collection
-			if ($user->count($userdata) >= 1) {
-				$getdata = $user->find($userdata)->limit(1);
-				while($getdata->hasNext() ) {
+			if ($user->count($userdata) >= 1) 
+			{
+				$getdata 	= 	$user->find($userdata)->limit(1);
+				while ($getdata->hasNext() ) 
+				{
 					// Get data from collection
-					$getdata2 = $getdata->getNext();
+					$getdata2 			= 	$getdata->getNext();
 					// Set data from collection to globol variable
-					$this->username = $getdata2['username'];
-					$this->firstname = $getdata2['firstname'];
-					$this->lastname = $getdata2['lastname'];
+					$this->username 	= 	$getdata2['username'];
+					$this->firstname 	= 	$getdata2['firstname'];
+					$this->lastname 	= 	$getdata2['lastname'];
+					$this->language		=	$getdata2['language'];
 					return true;
 				}		
-			} else {
+			} 
+			else 
+			{
 				return false;
 			}
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -231,17 +283,22 @@
 	 */
 	public function add()
 	{
-		try {
-			$user = $this->mongo_db->db->selectCollection('users');
+		try 
+		{
+			$user 			= 		$this->mongo_db->db->selectCollection('users');
 			$user->insert(array(
-				'username' => $this->username,
-				'password' => $this->password,
-				'firstname' => $this->firstname,
-				'lastname' => $this->lastname,
-				'email' => $this->email,
-				));
+				'username' 	=> 		$this->username,
+				'password' 	=> 		$this->password,
+				'firstname' => 		$this->firstname,
+				'lastname' 	=>	 	$this->lastname,
+				'email' 	=> 		$this->email,
+				'language'  =>		$this->language
+				)
+			);
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -250,19 +307,30 @@
 	{	
 		// announce return variable
 		$return = array();
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->users;
+			$app_collection 	= 	$this->mongo_db->db->users;
 			// find data from collection
-			$getdata = $app_collection->find();
-			while($getdata->hasNext()) {
+			$getdata 			= 	$app_collection->find();
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 		= 	$getdata->getNext();
 				// Set data from collection to globol variable
-				$return[] = array("_id" => (string)$getdata2['_id'], "username" => $getdata2['username'], "email" => $getdata2['email'], "firstname" => $getdata2['firstname'], "lastname" => $getdata2['lastname']);
+				$return[] 		= 	array(
+					'_id' 		=> 		(string)$getdata2['_id'], 
+					'username' 	=> 		$getdata2['username'], 
+					'email'		=> 		$getdata2['email'], 
+					'firstname' => 		$getdata2['firstname'], 
+					'lastname' 	=> 		$getdata2['lastname'],
+					'language'  =>		$getdata2['language']
+					);
 			}	
 			return $return;	
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return $return;
 		}
 	}
@@ -274,13 +342,19 @@
 	 */
 	public function checkdup()
 	{
-		try {
+		try 
+		{
 			$user = $this->mongo_db->db->selectCollection('users');
-			if ($user->count(array("username" => $this->username)))
+			if ($user->count(array(
+				'username' 	=> 	$this->username
+				)
+				))
 				return true;
 			else
 				return false;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -292,23 +366,28 @@
 	 */
 	public function getdetail()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->users;
+			$app_collection 	= 	$this->mongo_db->db->users;
 			// find data from collection
-			$getdata = $app_collection->find(array('_id' => new MongoId($this->_id)));
-			while($getdata->hasNext()) {
+			$getdata 			= 	$app_collection->find(array('_id' => new MongoId($this->_id)));
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 			=	$getdata->getNext();
 				// set data from collection to variable
-				$this->username = $getdata2['username'];
-				$this->password = $getdata2['password'];
-				$this->firstname = $getdata2['firstname'];
-				$this->lastname = $getdata2['lastname'];
-				$this->email = $getdata2['email'];
+				$this->username 	= 	$getdata2['username'];
+				$this->password 	= 	$getdata2['password'];
+				$this->firstname 	= 	$getdata2['firstname'];
+				$this->lastname 	= 	$getdata2['lastname'];
+				$this->email 		= 	$getdata2['email'];
+				$this->language		=	$getdata2['language'];
 			}
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -320,19 +399,27 @@
 	 */
 	public function update()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->users;
+			$app_collection 	= 	$this->mongo_db->db->users;
 			// preparing data
-			$prepare_data = array('username' => $this->username,
-				'password' => $this->password,
-				'firstname' => $this->firstname,
-				'lastname' => $this->lastname,
-				'email' => $this->email);
+			$prepare_data 		= 	array(
+				'username' 		=> 	$this->username,
+				'password' 		=> 	$this->password,
+				'firstname' 	=> 	$this->firstname,
+				'lastname' 		=> 	$this->lastname,
+				'email' 		=> 	$this->email,
+				'language'  =>		$this->language
+				);
 			// update to database
-			$app_collection->update(array('_id' => new MongoId($this->_id)),$prepare_data);
+			$app_collection->update(array(
+				'_id' 			=> 	new MongoId($this->_id)
+				),$prepare_data);
 			return true;			
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -344,19 +431,27 @@
 	 */
 	public function delete()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->users;
+			$app_collection 	= 	$this->mongo_db->db->users;
 			// preparing data
-			$prepare_data = array("_id" => new MongoId($this->_id));
-			if ($app_collection->count() != 1) {
+			$prepare_data 		= 	array(
+				'_id' 			=> 	new MongoId($this->_id)
+				);
+			if ($app_collection->count() != 1) 
+			{
 				// remove to database
 				$app_collection->remove($prepare_data);
 				return true;
-			} else {
+			} 
+			else 
+			{
 				return false;
 			}		
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -368,12 +463,15 @@
 	 */
 	public function countuser()
 	{
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->users;
+			$app_collection 	= 	$this->mongo_db->db->users;
 			// return counter
 			return $app_collection->count();	
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return 0;
 		}
 	}

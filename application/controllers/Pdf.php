@@ -26,12 +26,17 @@ class Pdf extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		// Memory Limitation 
+		ini_set('memory_limit', '-1');
 		// Load Essential Library
  		$this->load->library('session');
  		$this->load->library('createpdf');
  		$this->load->helper('url');
  		$this->load->helper('form');
  		$this->load->helper('sec_samf');
+ 		// Load language 
+ 		$lang = $this->session->userdata('lang')==null?"english":$this->session->userdata("lang");
+ 		$this->lang->load($lang,$lang);
 		// Check System not install
  		if (!file_exists(FCPATH.'install.lock')) 
  		{
@@ -54,39 +59,52 @@ class Pdf extends CI_Controller {
 	public function appreport()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 			= 	array();
 		// get data from form
-		$daterange = $this->input->post('daterange',true);
-		$typeselect = $this->input->post('typeselect',true);
-		$application_id = $this->input->post('application_id',true);
+		$daterange 		= 	$this->input->post('daterange',true);
+		$typeselect 	= 	$this->input->post('typeselect',true);
+		$application_id = 	$this->input->post('application_id',true);
 		// Load logger model
 		$this->load->model('logger_model');
 		// check data variable to get a model function
-		if (empty($daterange) && empty($typeselect) && empty($application_id)) {
-			$Data = $this->logger_model->get();
-		} else {
-			$Data = $this->logger_model->getif($daterange,$typeselect,$application_id);
+		if (empty($daterange) && empty($typeselect) && empty($application_id)) 
+		{
+			$Data 		= 	$this->logger_model->get();
+		} 
+		else 
+		{
+			$Data 		= 	$this->logger_model->getif($daterange,$typeselect,$application_id);
 		}
-		$this->load->view('pdftemplate', array("data" => $Data, "daterange" => $daterange));
+		$this->load->view('pdftemplate', array(
+			'data' 		=> 		$Data, 
+			'daterange' => 		$daterange
+			)
+		);
 	}
 
 	public function funcreport()
 	{
 		// announce return variable
-		$JSON = array();
+		$JSON 			= 	array();
 		// get data from form
-		$daterange = $this->input->post('daterange',true);
-		$typeselect = $this->input->post('typeselect',true);
-		$function_id = $this->input->post('function_id',true);
+		$daterange 		= 	$this->input->post('daterange',true);
+		$typeselect 	= 	$this->input->post('typeselect',true);
+		$function_id 	= 	$this->input->post('function_id',true);
 		// Load logger model
 		$this->load->model('logger_model');
 		// check data variable to get a model function
-		if (empty($daterange) && empty($typeselect) && empty($function_id)) {
-			$Data = $this->logger_model->get();
-		} else {
-			$Data = $this->logger_model->getif_func($daterange,$typeselect,$function_id);
+		if (empty($daterange) && empty($typeselect) && empty($function_id)) 
+		{
+			$Data 		= 	$this->logger_model->get();
 		}
-		$this->load->view('pdftemplate', array("data" => $Data, "daterange" => $daterange));
+		else 
+		{
+			$Data 		= 	$this->logger_model->getif_func($daterange,$typeselect,$function_id);
+		}
+		$this->load->view('pdftemplate', array(
+			'data' 			=> 	$Data, 
+			'daterange'	 	=> 	$daterange)
+		);
 	}
 
 }

@@ -82,7 +82,8 @@ class Function_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setID($_id) {
+	public function setID($_id) 
+	{
 		$this->_id = $_id;
 	}
 
@@ -92,7 +93,8 @@ class Function_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationName($app_name) {
+	public function setApplicationName($app_name) 
+	{
 		$this->application_name = $app_name;
 	}
 
@@ -102,7 +104,8 @@ class Function_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApplicationID($app_id) {
+	public function setApplicationID($app_id) 
+	{
 		$this->application_id = $app_id;
 	}
 
@@ -112,7 +115,8 @@ class Function_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setFunctionName($func_name) {
+	public function setFunctionName($func_name) 
+	{
 		$this->function_name = $func_name;
 	}
 
@@ -123,7 +127,8 @@ class Function_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setFunctionToken($func_token) {
+	public function setFunctionToken($func_token) 
+	{
 		$this->function_token = $func_token;
 	}
 
@@ -133,7 +138,8 @@ class Function_model extends CI_Model {
 	 * @param 	boolean
 	 * @return	void
 	 */
-	public function setFunctionPrimary($func_primary) {
+	public function setFunctionPrimary($func_primary) 
+	{
 		$this->function_primary = $func_primary;
 	}
 
@@ -142,7 +148,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getID() {
+	public function getID() 
+	{
 		return $this->_id;
 	}
 
@@ -151,7 +158,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationName() {
+	public function getApplicationName() 
+	{
 		return $this->application_name;
 	}
 
@@ -160,7 +168,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApplicationID() {
+	public function getApplicationID() 
+	{
 		return $this->application_id;
 	}
 
@@ -169,7 +178,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getFunctionName() {
+	public function getFunctionName() 
+	{
 		return $this->function_name;
 	}
 
@@ -178,7 +188,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getFunctionToken() {
+	public function getFunctionToken() 
+	{
 		return $this->function_token;
 	}
 
@@ -187,7 +198,8 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function getFunctionPrimary() {
+	public function getFunctionPrimary() 
+	{
 		return $this->function_primary;
 	}
 
@@ -196,22 +208,34 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	array
 	 */
-	public function get() {
+	public function get() 
+	{
 		// announce return variable
-		$return = array();
-		try {
+		$return 	= 	array();
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->func;
+			$app_collection 	= 	$this->mongo_db->db->func;
 			// find data from collection
-			$getdata = $app_collection->find();
-			while($getdata->hasNext()) {
+			$getdata 			= 	$app_collection->find();
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 	= 	$getdata->getNext();
 				// Set data from collection to globol variable
-				$return[] = array("_id" => (string)$getdata2['_id'], "function_name" => $getdata2['function_name'], "function_token" => $getdata2['function_token'], "application_id" => $getdata2['application_id'], "application_name" => $getdata2['application_name'], "function_primary" => $getdata2['function_primary']);
+				$return[] 	= 	array(
+					'_id' 				=> (string)$getdata2['_id'], 
+					'function_name' 	=> $getdata2['function_name'], 
+					'function_token' 	=> $getdata2['function_token'], 
+					'application_id' 	=> $getdata2['application_id'], 
+					'application_name' 	=> $getdata2['application_name'], 
+					'function_primary' 	=> $getdata2['function_primary']
+					);
 			}	
 			return $return;	
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return $return;
 		}
 	}
@@ -221,16 +245,27 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function add() {
-		try {
+	public function add() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->func;
+			$app_collection = 	$this->mongo_db->db->func;
 			// preparing data
-			$prepare_data = array('function_name' => $this->function_name, 'function_token' => $this->function_token, 'function_token' => $this->function_token, 'application_id' => $this->application_id, 'application_name' => $this->application_name , 'function_primary' => $this->function_primary);
+			$prepare_data 	= 	array(
+				'function_name' 	=> $this->function_name, 
+				'function_token' 	=> $this->function_token, 
+				'function_token' 	=> $this->function_token, 
+				'application_id' 	=> $this->application_id, 
+				'application_name' 	=> $this->application_name, 
+				'function_primary' 	=> $this->function_primary
+				);
 			// insert to database
 			$app_collection->insert($prepare_data);
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -240,16 +275,22 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function delete() {
-		try {
+	public function delete() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$func_collection = $this->mongo_db->db->func;
+			$func_collection 	= 	$this->mongo_db->db->func;
 			// preparing data
-			$prepare_data = array("_id" => new MongoId($this->_id));
+			$prepare_data 		= 	array(
+				'_id' 	=> 	new MongoId($this->_id)
+				);
 			// remove to database
 			$func_collection->remove($prepare_data);
 			return true;		
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -259,16 +300,26 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function updateappname() {
-		try {
+	public function updateappname() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$func_collection = $this->mongo_db->db->func;
+			$func_collection 	= 	$this->mongo_db->db->func;
 			// preparing data
-			$prepare_data = array('$set' => array("application_name" => $this->application_name));
+			$prepare_data 		= 	array(
+				'$set' 	=> array(
+					'application_name' => $this->application_name
+					)
+				);
 			// update to database
-			$func_collection->update(array('application_id' => $this->application_id),$prepare_data);
+			$func_collection->update(array(
+				'application_id' => $this->application_id
+				),$prepare_data);
 			return true;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -278,16 +329,29 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function update() {
-		try {
+	public function update() 
+	{
+		try 
+		{
 			// select mongoDB collection
 			$app_collection = $this->mongo_db->db->func;
 			// preparing data
-			$prepare_data = array('function_name' => $this->function_name, 'function_token' => $this->function_token, 'function_token' => $this->function_token, 'application_id' => $this->application_id, 'application_name' => $this->application_name , 'function_primary' => $this->function_primary);
+			$prepare_data 	= array(
+				'function_name' 	=> $this->function_name, 
+				'function_token' 	=> $this->function_token, 
+				'function_token' 	=> $this->function_token, 
+				'application_id' 	=> $this->application_id, 
+				'application_name' 	=> $this->application_name, 
+				'function_primary' 	=> $this->function_primary
+				);
 			// update to database
-			$app_collection->update(array('_id' => new MongoId($this->_id)),$prepare_data);
+			$app_collection->update(array(
+				'_id' => new MongoId($this->_id)
+				),$prepare_data);
 			return true;			
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -297,24 +361,32 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	boolean
 	 */
-	public function getdetail() {
-		try {
+	public function getdetail() 
+	{
+		try 
+		{
 			// select mongoDB collection
-			$app_collection = $this->mongo_db->db->func;
+			$app_collection = 	$this->mongo_db->db->func;
 			// find data from collection
-			$getdata = $app_collection->find(array('_id' => new MongoId($this->_id)));
-			while($getdata->hasNext()) {
+			$getdata 		= 	$app_collection->find(array(
+				'_id' => new MongoId($this->_id)
+				)
+			);
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
+				$getdata2 				= $getdata->getNext();
 				// set data from collection to variable
-				$this->function_name = $getdata2['function_name'];
-				$this->function_token = $getdata2['function_token'];
+				$this->function_name 	= $getdata2['function_name'];
+				$this->function_token 	= $getdata2['function_token'];
 				$this->application_name = $getdata2['application_name'];
-				$this->application_id = $getdata2['application_id'];
+				$this->application_id 	= $getdata2['application_id'];
 				$this->function_primary = $getdata2['function_primary'];
 			}
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -324,13 +396,17 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	Integer
 	 */
-	public function countfunction() {
-		try {
+	public function countfunction() 
+	{
+		try 
+		{
 			// select mongoDB collection
 			$app_collection = $this->mongo_db->db->func;
 			// return counter
 			return $app_collection->count();
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return 0;
 		}
 	}
@@ -340,23 +416,34 @@ class Function_model extends CI_Model {
 	 *
 	 * @return	array
 	 */
-	public function countfuncinapp() {
+	public function countfuncinapp() 
+	{
 		// announce return variable
 		$return = array();
-		try {
+		try 
+		{
 			// select mongoDB collection
-			$func_collection = $this->mongo_db->db->func;
-			$app_collection = $this->mongo_db->db->app;
+			$func_collection 	= 	$this->mongo_db->db->func;
+			$app_collection 	= 	$this->mongo_db->db->app;
 
-			$getdata = $app_collection->find();
-			while($getdata->hasNext()) {
+			$getdata 			= 	$app_collection->find();
+			while($getdata->hasNext()) 
+			{
 				// Get data from collection
-				$getdata2 = $getdata->getNext();
-				$countdata = $func_collection->count(array('application_id' => (string)$getdata2['_id']));
-				$return[] = array('title' => $getdata2['application_name'], 'total' => $countdata);
+				$getdata2 	= 	$getdata->getNext();
+				$countdata 	= 	$func_collection->count(array(
+					'application_id' => (string)$getdata2['_id']
+					)
+				);
+				$return[] 	= 	array(
+					'name' 	=> $getdata2['application_name'], 
+					'y' 	=> $countdata
+					);
 			}
 			return $return;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return $return;
 		}	
 	}

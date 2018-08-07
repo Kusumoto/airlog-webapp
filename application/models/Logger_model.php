@@ -142,7 +142,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setID($_id) {
+ 	public function setID($_id) 
+ 	{
  		$this->_id = $_id;
  	}
 
@@ -152,7 +153,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setLogType($log_type) {
+ 	public function setLogType($log_type) 
+ 	{
  		$this->log_type = $log_type;
  	}
 
@@ -162,7 +164,8 @@
 	 * @param 	date
 	 * @return	void
 	 */
- 	public function setLogDate($log_date) {
+ 	public function setLogDate($log_date) 
+ 	{
  		$this->log_date = $log_date;
  	}
 
@@ -172,7 +175,8 @@
 	 * @param 	time
 	 * @return	void
 	 */
- 	public function setLogTime($log_time) {
+ 	public function setLogTime($log_time) 
+ 	{
  		$this->log_time = $log_time;
  	}
 
@@ -182,7 +186,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setLogData($log_data) {
+ 	public function setLogData($log_data) 
+ 	{
  		$this->log_data = $log_data;
  	}
 
@@ -192,7 +197,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setLogIP($log_ip) {
+ 	public function setLogIP($log_ip) 
+ 	{
  		$this->log_ip = $log_ip;
  	}
 
@@ -202,7 +208,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setAppName($log_appname) {
+ 	public function setAppName($log_appname) 
+ 	{
  		$this->log_appname = $log_appname;
  	}
 
@@ -212,7 +219,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setAppID($log_appid) {
+ 	public function setAppID($log_appid) 
+ 	{
  		$this->log_appid = $log_appid;
  	}
 
@@ -222,7 +230,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setFuncName($log_funcname) {
+ 	public function setFuncName($log_funcname) 
+ 	{
  		$this->log_funcname = $log_funcname;
  	}
 
@@ -232,7 +241,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setFuncID($log_funcid) {
+ 	public function setFuncID($log_funcid) 
+ 	{
  		$this->log_funcid = $log_funcid;
  	}
 
@@ -242,7 +252,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setLogVAgent($log_vagent) {
+ 	public function setLogVAgent($log_vagent) 
+ 	{
  		$this->log_vagent = $log_vagent;
  	}
 
@@ -252,7 +263,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setDateTime($log_datetime) {
+ 	public function setDateTime($log_datetime) 
+ 	{
  		$this->log_datetime = $log_datetime;
  	}
 
@@ -262,7 +274,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setClassName($log_classname) {
+ 	public function setClassName($log_classname) 
+ 	{
  		$this->log_classname = $log_classname;
  	}
 
@@ -272,7 +285,8 @@
 	 * @param 	string
 	 * @return	void
 	 */
- 	public function setMethodName($log_methodname) {
+ 	public function setMethodName($log_methodname) 
+ 	{
  		$this->log_methodname = $log_methodname;
  	}
 
@@ -281,7 +295,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getID() {
+ 	public function getID() 
+ 	{
  		return $this->_id;
  	}
 
@@ -290,7 +305,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogType() {
+ 	public function getLogType() 
+ 	{
  		return $this->log_type;
  	}
 
@@ -299,7 +315,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogDate() {
+ 	public function getLogDate() 
+ 	{
  		return $this->log_date;
  	}
 
@@ -308,7 +325,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogTime() {
+ 	public function getLogTime() 
+ 	{
  		return $this->log_time;
  	}
 
@@ -317,7 +335,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogData() {
+ 	public function getLogData() 
+ 	{
  		return $this->log_data;
  	}
 
@@ -326,7 +345,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogIP() {
+ 	public function getLogIP() 
+ 	{
  		return $this->log_ip;
  	}
 
@@ -335,7 +355,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogAppName() {
+ 	public function getLogAppName() 
+ 	{
  		return $this->log_appname;
  	}
 
@@ -344,7 +365,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogAppID() {
+ 	public function getLogAppID() 
+ 	{
  		return $this->log_appid;
  	}
 
@@ -353,7 +375,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogFuncName() {
+ 	public function getLogFuncName() 
+ 	{
  		return $this->log_funcname;
  	}
 
@@ -362,7 +385,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogFuncID() {
+ 	public function getLogFuncID() 
+ 	{
  		return $this->log_funcid;
  	}
 
@@ -371,7 +395,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getLogVAgent() {
+ 	public function getLogVAgent() 
+ 	{
  		return $this->log_vagent;
  	}
 
@@ -380,7 +405,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getDateTime() {
+ 	public function getDateTime() 
+ 	{
  		return $this->log_datetime;
  	}
 
@@ -389,7 +415,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getClassName() {
+ 	public function getClassName() 
+ 	{
  		return $this->log_classname;
  	}
 
@@ -398,7 +425,8 @@
 	 *
 	 * @return	string
 	 */
- 	public function getMethodName() {
+ 	public function getMethodName() 
+ 	{
  		return $this->log_methodname;
  	}
 
@@ -407,37 +435,45 @@
 	 *
 	 * @return	array
 	 */
- 	public function get() {
+ 	public function get() 
+ 	{
  		// announce return variable
- 		$return = array();
- 		try {
+ 		$return 	= 	array();
+ 		try 
+ 		{
  			// select logger collection 
- 			$logger_data = $this->mongo_db->db->logger;
+ 			$logger_data 	= 	$this->mongo_db->db->logger;
  			// preparing query data
- 			$preparing_data = array('log_date' => date('Y-m-d'));
+ 			$preparing_data = 	array(
+ 				'log_date' 	=> 	date('Y-m-d')
+ 				);
  			// query data
- 			$getter_data = $logger_data->find($preparing_data);
+ 			$getter_data 	= 	$logger_data->find($preparing_data);
  			// loop for get a data from database
- 			while ($getter_data->hasNext()) {
- 				$data = $getter_data->getNext();
- 				$return[] = array("_id" => (string)$data['_id'],
- 					"log_type" => $data['log_type'], 
- 					"log_data" => $data['log_data'],
- 					"log_date" => $data['log_date'],
- 					"log_time" => $data['log_time'],
- 					"log_datetime" => $data['log_datetime'],
- 					"log_ip" => $data['log_ip'],
- 					"log_vagent" => $data['log_vagent'],
- 					"log_appname" => $data['log_appname'],
- 					"log_appid" => $data['log_appid'],
- 					"log_funcname" => $data['log_funcname'],
- 					"log_funcid" => $data['log_funcid'],
- 					"log_classname" => $data['log_classname'],
- 					"log_methodname" => $data['log_methodname'],
+ 			while ($getter_data->hasNext()) 
+ 			{
+ 				$data 		= 	$getter_data->getNext();
+ 				$return[] 	= 	array(
+ 					'_id' 			 => 	(string)$data['_id'],
+ 					'log_type' 		 => 	$data['log_type'], 
+ 					'log_data' 		 => 	$data['log_data'],
+ 					'log_date' 		 => 	$data['log_date'],
+ 					'log_time' 		 => 	$data['log_time'],
+ 					'log_datetime' 	 => 	$data['log_datetime'],
+ 					'log_ip' 		 => 	$data['log_ip'],
+ 					'log_vagent' 	 => 	$data['log_vagent'],
+ 					'log_appname' 	 => 	$data['log_appname'],
+ 					'log_appid' 	 => 	$data['log_appid'],
+ 					'log_funcname' 	 => 	$data['log_funcname'],
+ 					'log_funcid' 	 => 	$data['log_funcid'],
+ 					'log_classname'  => 	$data['log_classname'],
+ 					'log_methodname' => 	$data['log_methodname'],
  					);
  			}
  			return $return;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return $return;
  		}
  	}
@@ -447,63 +483,116 @@
 	 *
 	 * @return	array
 	 */
- 	public function getif($daterange,$type,$appid) {
+ 	public function getif($daterange,$type,$appid) 
+	{
 
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$datesimal = explode(' - ', $daterange);
+ 		$datesimal 		= 	explode(' - ', $daterange);
  		// check daterage
- 		if (count($datesimal) == 2) {
- 			$startdatetime = new MongoDate(strtotime($datesimal[0]));
- 			$enddatetime = new MongoDate(strtotime($datesimal[1]));
+ 		if (count($datesimal) == 2) 
+ 		{
+ 			$startdatetime 	= 	new MongoDate(strtotime($datesimal[0]));
+ 			$enddatetime 	= 	new MongoDate(strtotime($datesimal[1]));
  			// if have type and appid
- 			if (!empty($type) && !empty($appid)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), 
- 					"log_appid" => $appid, "log_type" => array('$in' => $type));
+ 			if (!empty($type) && !empty($appid)) 
+ 			{
+ 				$preparing_data 	= 	array(
+ 					'log_datetime' => array(
+ 						'$gt' 	=> 	$startdatetime, 
+ 						'$lte' 	=> 	$enddatetime
+ 						), 
+ 					'log_appid' => $appid, 
+ 					'log_type' 	=> array(
+ 							'$in' 	=> 	$type
+ 						)
+ 					);
  			// have appid only
- 			} else if (empty($type)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), 
- 					"log_appid" => $appid);
+ 			} 
+ 			else if (empty($type)) 
+ 			{
+ 				$preparing_data 	= 	array(
+ 					'log_datetime' 	=> 	array(
+ 						'$gt' 			=> 		$startdatetime, 
+ 						'$lte'			=> 		$enddatetime
+ 						), 
+ 					'log_appid'    => 	$appid
+ 					);
  			// have type only
- 			} else if (empty($appid)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), "log_type" => array('$in' => $type));
+ 			} 
+ 			else if (empty($appid)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_datetime' => array(
+ 						'$gt' 			=> 		$startdatetime, 
+ 						'$lte' 			=> 		$enddatetime
+ 						), 
+ 					'log_type' 	    => array(
+ 						'$in' 			=> 		$type
+ 						)
+ 					);
  			// not have anyting
- 			} else {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime));
+ 			} 
+ 			else 
+ 			{
+ 				$preparing_data = array(
+ 					'log_datetime' => array(
+ 						'$gt' 	=> $startdatetime, 
+ 						'$lte' 	=> $enddatetime)
+ 					);
  			}
- 		} else {
+ 		} 
+ 		else 
+ 		{
  			// if have  type and appid
- 			if (!empty($type) && !empty($appid)) {
- 				$preparing_data = array("log_appid" => $appid, "log_type" => array('$in' => $type));
+ 			if (!empty($type) && !empty($appid)) 
+ 			{
+ 				$preparing_data = array(
+ 					'log_appid' 	=> 	$appid, 
+ 					'log_type' 		=> 	array(
+ 						'$in' => $type
+ 						)
+ 					);
  			// have type only
- 			} else if (empty($type)) {
- 				$preparing_data = array("log_appid" => $appid);
+ 			} 
+ 			else if (empty($type)) 
+ 			{
+ 				$preparing_data = array(
+ 					'log_appid' => $appid
+ 					);
  			// not have anyting
- 			} else if (empty($appid)) {
- 				$preparing_data = array("log_type" => array('$in' => $type));
+ 			} 
+ 			else if (empty($appid)) 
+ 			{
+ 				$preparing_data = array(
+ 					'log_type' => array(
+ 						'$in' => $type
+ 						)
+ 					);
  			}
  		}
- 		$getter_data = $logger_data->find($preparing_data);
+ 		$getter_data 	= 	$logger_data->find($preparing_data);
  		// loop for get a data from database
  		while ($getter_data->hasNext()) {
- 			$data = $getter_data->getNext();
- 			$return[] = array("_id" => (string)$data['_id'],
- 				"log_type" => $data['log_type'], 
- 				"log_data" => $data['log_data'],
- 				"log_date" => $data['log_date'],
- 				"log_time" => $data['log_time'],
- 				"log_datetime" => $data['log_datetime'],
- 				"log_ip" => $data['log_ip'],
- 				"log_vagent" => $data['log_vagent'],
- 				"log_appname" => $data['log_appname'],
- 				"log_appid" => $data['log_appid'],
- 				"log_funcname" => $data['log_funcname'],
- 				"log_funcid" => $data['log_funcid'],
- 				"log_classname" => $data['log_classname'],
- 				"log_methodname" => $data['log_methodname'],
+ 			$data 		= 	$getter_data->getNext();
+ 			$return[] 	= 	array(
+ 				'_id' 			=> 	(string)$data['_id'],
+ 				'log_type' 		=> 	$data['log_type'], 
+ 				'log_data' 		=> 	$data['log_data'],
+ 				'log_date' 		=> 	$data['log_date'],
+ 				'log_time' 		=> 	$data['log_time'],
+ 				'log_datetime' 	=> 	$data['log_datetime'],
+ 				'log_ip' 		=> 	$data['log_ip'],
+ 				'log_vagent' 	=> 	$data['log_vagent'],
+ 				'log_appname' 	=> 	$data['log_appname'],
+ 				'log_appid' 	=> 	$data['log_appid'],
+ 				'log_funcname' 	=> 	$data['log_funcname'],
+ 				'log_funcid' 	=> 	$data['log_funcid'],
+ 				'log_classname' => 	$data['log_classname'],
+ 				'log_methodname'=> 	$data['log_methodname'],
  				);
  		}
  		return $return;
@@ -518,31 +607,89 @@
  	{
 
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug 	= 	array(
+ 					'log_time' 	=> $regex_Date, 
+ 					'log_date' 	=> $this->log_date, 
+ 					'log_type' 	=> 'Debug', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_time' 	=> $regex_Date, 
+ 					'log_date' 	=> $this->log_date, 
+ 					'log_type' 	=> 'Error', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_time' 	=> $regex_Date, 
+ 					'log_date' 	=> $this->log_date, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
  				$regex_Date = new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug = array(
+ 					'log_time' 	=> 	$regex_Date, 
+ 					'log_date' 	=> 	$this->log_date, 
+ 					'log_type'	=> 	'Debug', 
+ 					'log_appid' => 	$this->log_appid
+ 					);
+ 				$querydata_error = array(
+ 					'log_time' 	=> 	$regex_Date, 
+ 					'log_date' 	=> 	$this->log_date, 
+ 					'log_type' 	=> 	'Error', 
+ 					'log_appid' => 	$this->log_appid
+ 					);
+ 				$querydata_notice = array(
+ 					'log_time' 	=> $regex_Date, 
+ 					'log_date' 	=> $this->log_date, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -554,30 +701,83 @@
  	public function graphmonthsummary()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			=	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
+ 		$splitday 		= 	explode('-', $this->log_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 		= 	cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug 	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 	=> 'Debug', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_error 	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 	=> 'Error', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug 	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 	=> 'Debug', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_error	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 	=> 'Error', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_date' 	=> $splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+ 				array(
+ 					'name'	=>	'Error',
+ 					'data'	=>	$error_data
+ 					),
+ 				array(
+ 					'name'	=>	'Info',
+ 					'data'	=>	$notice_data
+ 					),
+ 				array(
+ 					'name'	=>	'Debug',
+ 					'data'	=>	$debug_data
+ 					)
+ 				)
+ 			);
+ 		
  		return $return;	
  	}
 
@@ -589,32 +789,84 @@
  	public function graphyearsummary()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 		= explode('-', $this->log_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
+ 				$regex_Date 		= new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Debug', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_error 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Error', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
+ 				$regex_Date 		= new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 				$querydata_debug 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Debug', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_error 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Error', 
+ 					'log_appid' => $this->log_appid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_date' 	=> $regex_Date, 
+ 					'log_type' 	=> 'Info', 
+ 					'log_appid' => $this->log_appid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -626,18 +878,43 @@
  	public function graphdaysummaryratio()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= $this->mongo_db->db->logger;
  		// preparing query data
  		// build query data
- 		$querydata_debug = array('log_date' => $this->log_date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 		$querydata_error = array('log_date' => $this->log_date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 		$querydata_notice = array('log_date' => $this->log_date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
+ 		$querydata_debug 	= array(
+ 			'log_date' 	=> $this->log_date, 
+ 			'log_type' 	=> 'Debug', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_error 	= array(
+ 			'log_date' 	=> $this->log_date, 
+ 			'log_type' 	=> 'Error', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_notice 	= array(
+ 			'log_date' 	=> $this->log_date, 
+ 			'log_type' 	=> 'Info', 
+ 			'log_appid' => $this->log_appid
+ 			);
+
  		// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+
  		return $return;
  	}	
 
@@ -649,21 +926,46 @@
  	public function graphmonthsummaryratio()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= $this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 				// use mongoRegex (while like in sql)
- 		$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$splitday[1].'/');
- 				// build query data
- 		$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 		$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 		$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
- 				// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$splitday 			= explode('-', $this->log_date);
+ 		// use mongoRegex (while like in sql)
+ 		$regex_Date 		= new MongoRegex('/^'.$splitday[0].'-'.$splitday[1].'/');
+ 		// build query data
+ 		$querydata_debug 	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Debug', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_error 	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Error', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_notice	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Info', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		
+ 		// count and insert data to array
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+
  		return $return;	
  	}
 
@@ -675,21 +977,46 @@
  	public function graphyearsummaryratio()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= $this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 				// use mongoRegex (while like in sql)
- 		$regex_Date = new MongoRegex('/^'.$splitday[0].'/');
- 				// build query data
- 		$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_appid' => $this->log_appid);
- 		$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_appid' => $this->log_appid);
- 		$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_appid' => $this->log_appid);
- 				// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$splitday 			= explode('-', $this->log_date);
+ 		// use mongoRegex (while like in sql)
+ 		$regex_Date 		= new MongoRegex('/^'.$splitday[0].'/');
+ 		// build query data
+ 		$querydata_debug 	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Debug', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_error 	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Error', 
+ 			'log_appid' => $this->log_appid
+ 			);
+ 		$querydata_notice 	= array(
+ 			'log_date' 	=> $regex_Date, 
+ 			'log_type' 	=> 'Info', 
+ 			'log_appid' => $this->log_appid
+ 			);
+
+ 		// count and insert data to array
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
+
  		return $return;	
  	}
 
@@ -698,63 +1025,117 @@
 	 *
 	 * @return	array
 	 */
- 	public function getif_func($daterange,$type,$funcid) {
-
+ 	public function getif_func($daterange,$type,$funcid) 
+ 	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
- 		$datesimal = explode(' - ', $daterange);
+ 		$datesimal 		= explode(' - ', $daterange);
  		// check daterage
- 		if (count($datesimal) == 2) {
- 			$startdatetime = new MongoDate(strtotime($datesimal[0]));
- 			$enddatetime = new MongoDate(strtotime($datesimal[1]));
+ 		if (count($datesimal) == 2) 
+ 		{
+ 			$startdatetime 	= new MongoDate(strtotime($datesimal[0]));
+ 			$enddatetime 	= new MongoDate(strtotime($datesimal[1]));
  			// if have type and appid
- 			if (!empty($type) && !empty($funcid)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), 
- 					"log_funcid" => $funcid, "log_type" => array('$in' => $type));
+ 			if (!empty($type) && !empty($funcid)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_datetime' => array(
+ 						'$gt' 	=> $startdatetime, 
+ 						'$lte' 	=> $enddatetime
+ 						), 
+ 					'log_funcid'   	=> $funcid, 
+ 					'log_type' 		=> array(
+ 						'$in' 	=> $type
+ 						)
+ 					);
  			// have appid only
- 			} else if (empty($type)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), 
- 					"log_funcid" => $funcid);
+ 			} 
+ 			else if (empty($type)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_datetime' 	=> array(
+ 						'$gt' 	=> $startdatetime, 
+ 						'$lte' 	=> $enddatetime
+ 						), 
+ 					'log_funcid' 	=> $funcid
+ 					);
  			// have type only
- 			} else if (empty($funcid)) {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime), "log_type" => array('$in' => $type));
+ 			} 
+ 			else if (empty($funcid)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_datetime' 	=> array(
+ 						'$gt' 	=> $startdatetime, 
+ 						'$lte' 	=> $enddatetime
+ 						), 
+ 					'log_type' 		=> array(
+ 						'$in' 	=> $type
+ 						)
+ 					);
  			// not have anyting
- 			} else {
- 				$preparing_data = array('log_datetime' => array('$gt' => $startdatetime, '$lte' => $enddatetime));
+ 			} 
+ 			else 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_datetime' => array(
+ 						'$gt' 	=> $startdatetime, 
+ 						'$lte' 	=> $enddatetime
+ 						)
+ 					);
  			}
- 		} else {
+ 		} 
+ 		else 
+ 		{
  			// if have  type and appid
- 			if (!empty($type) && !empty($funcid)) {
- 				$preparing_data = array("log_funcid" => $funcid, "log_type" => array('$in' => $type));
+ 			if (!empty($type) && !empty($funcid)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_funcid' 	=> $funcid, 
+ 					'log_type' 		=> array(
+ 						'$in' 	=> $type
+ 						)
+ 					);
  			// have type only
- 			} else if (empty($type)) {
- 				$preparing_data = array("log_funcid" => $funcid);
+ 			} 
+ 			else if (empty($type)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_funcid' 	=> $funcid
+ 					);
  			// not have anyting
- 			} else if (empty($funcid)) {
- 				$preparing_data = array("log_type" => array('$in' => $type));
+ 			} 
+ 			else if (empty($funcid)) 
+ 			{
+ 				$preparing_data 	= array(
+ 					'log_type' 		=> array(
+ 						'$in' 	=> $type
+ 						)
+ 					);
  			}
  		}
- 		$getter_data = $logger_data->find($preparing_data);
+ 		$getter_data 	= 	$logger_data->find($preparing_data);
  		// loop for get a data from database
- 		while ($getter_data->hasNext()) {
- 			$data = $getter_data->getNext();
- 			$return[] = array("_id" => (string)$data['_id'],
- 				"log_type" => $data['log_type'], 
- 				"log_data" => $data['log_data'],
- 				"log_date" => $data['log_date'],
- 				"log_time" => $data['log_time'],
- 				"log_datetime" => $data['log_datetime'],
- 				"log_ip" => $data['log_ip'],
- 				"log_vagent" => $data['log_vagent'],
- 				"log_appname" => $data['log_appname'],
- 				"log_appid" => $data['log_appid'],
- 				"log_funcname" => $data['log_funcname'],
- 				"log_funcid" => $data['log_funcid'],
- 				"log_classname" => $data['log_classname'],
- 				"log_methodname" => $data['log_methodname'],
+ 		while ($getter_data->hasNext()) 
+ 		{
+ 			$data 		= 	$getter_data->getNext();
+ 			$return[] 	= 	array(
+ 				'_id' 				=> 	(string)$data['_id'],
+ 				'log_type' 			=> $data['log_type'], 
+ 				'log_data' 			=> $data['log_data'],
+ 				'log_date' 			=> $data['log_date'],
+ 				'log_time' 			=> $data['log_time'],
+ 				'log_datetime' 		=> $data['log_datetime'],
+ 				'log_ip' 			=> $data['log_ip'],
+ 				'log_vagent' 		=> $data['log_vagent'],
+ 				'log_appname' 		=> $data['log_appname'],
+ 				'log_appid' 		=> $data['log_appid'],
+ 				'log_funcname' 		=> $data['log_funcname'],
+ 				'log_funcid' 		=> $data['log_funcid'],
+ 				'log_classname' 	=> $data['log_classname'],
+ 				'log_methodname' 	=> $data['log_methodname'],
  				);
  		}
  		return $return;
@@ -769,31 +1150,89 @@
  	{
 
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 		= new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Debug', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
+ 				$querydata_error 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Error', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Info', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$i.'/'); 
+ 				$regex_Date 		= new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Debug', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
+ 				$querydata_error 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Error', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
+ 				$querydata_notice 	= array(
+ 					'log_time' 		=> $regex_Date, 
+ 					'log_date' 		=> $this->log_date, 
+ 					'log_type' 		=> 'Info', 
+ 					'log_funcid' 	=> $this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -805,30 +1244,84 @@
  	public function graphmonthsummaryfunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
+ 		$error_data			=	array();
+ 		$notice_data		=	array();
+ 		$debug_data			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= $this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
+ 		$splitday 		= explode('-', $this->log_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 		= cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Debug', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Error', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Info', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Debug', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Error', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Info', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+ 				array(
+ 					'name'	=>	'Error',
+ 					'data'	=>	$error_data
+ 					),
+ 				array(
+ 					'name'	=>	'Info',
+ 					'data'	=>	$notice_data
+ 					),
+ 				array(
+ 					'name'	=>	'Debug',
+ 					'data'	=>	$debug_data
+ 					)
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -840,32 +1333,84 @@
  	public function graphyearsummaryfunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 		= 	explode('-', $this->log_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Debug', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Error', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Info', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Debug', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Error', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Info', 
+ 					'log_funcid' 	=> 	$this->log_funcid
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -877,18 +1422,41 @@
  	public function graphdaysummaryratiofunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data
  		// build query data
- 		$querydata_debug = array('log_date' => $this->log_date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 		$querydata_error = array('log_date' => $this->log_date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 		$querydata_notice = array('log_date' => $this->log_date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
+ 		$querydata_debug 	= 	array(
+ 			'log_date' 		=> 	$this->log_date, 
+ 			'log_type' 		=> 	'Debug', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_error 	= 	array(
+ 			'log_date' 		=> 	$this->log_date, 
+ 			'log_type' 		=> 	'Error', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_notice 	= 	array(
+ 			'log_date' 		=> 	$this->log_date, 
+ 			'log_type' 		=> 	'Info', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
  		// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
  		return $return;
  	}	
 
@@ -900,21 +1468,44 @@
  	public function graphmonthsummaryratiofunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 				// use mongoRegex (while like in sql)
- 		$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$splitday[1].'/');
- 				// build query data
- 		$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 		$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 		$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
- 				// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$splitday 			= 	explode('-', $this->log_date);
+ 		// use mongoRegex (while like in sql)
+ 		$regex_Date 		=	new MongoRegex('/^'.$splitday[0].'-'.$splitday[1].'/');
+ 		// build query data
+ 		$querydata_debug 	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Debug', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_error 	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Error', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_notice 	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Info', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		// count and insert data to array
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
  		return $return;	
  	}
 
@@ -926,21 +1517,44 @@
  	public function graphyearsummaryratiofunc()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 			= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 		= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 				// use mongoRegex (while like in sql)
- 		$regex_Date = new MongoRegex('/^'.$splitday[0].'/');
- 				// build query data
- 		$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug', 'log_funcid' => $this->log_funcid);
- 		$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error', 'log_funcid' => $this->log_funcid);
- 		$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice', 'log_funcid' => $this->log_funcid);
- 				// count and insert data to array
- 		$return[] = array("title" => "Debug", "total" => $logger_data->count($querydata_debug));
- 		$return[] = array("title" => "Error", "total" => $logger_data->count($querydata_error));
- 		$return[] = array("title" => "Notice", "total" => $logger_data->count($querydata_notice));
+ 		$splitday 			= 	explode('-', $this->log_date);
+ 		// use mongoRegex (while like in sql)
+ 		$regex_Date 		= 	new MongoRegex('/^'.$splitday[0].'/');
+ 		// build query data
+ 		$querydata_debug 	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Debug', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_error 	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Error', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		$querydata_notice	= 	array(
+ 			'log_date' 		=> 	$regex_Date, 
+ 			'log_type' 		=> 	'Info', 
+ 			'log_funcid' 	=> 	$this->log_funcid
+ 			);
+ 		// count and insert data to array
+ 		$return[] 	= 	array(
+			'name' 	=> "Debug", 
+			'y' 	=> $logger_data->count($querydata_debug)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Error", 
+			'y' 	=> $logger_data->count($querydata_error)
+		);
+
+		$return[] 	= 	array(
+			'name' 	=> "Info", 
+			'y' 	=> $logger_data->count($querydata_notice)
+		);
  		return $return;	
  	}
 
@@ -953,31 +1567,83 @@
  	{
 
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		for($i = 0; $i <= 24; $i++) {
- 			if (strlen($i) == 1) {
+ 		for($i = 0; $i <= 24; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^0'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug');
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error');
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => '0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$i.'/'); 
+ 				$regex_Date 		= 	new MongoRegex('/^'.$i.'/'); 
  				// build query data
- 				$querydata_debug = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Debug');
- 				$querydata_error = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Error');
- 				$querydata_notice = array('log_time' => $regex_Date, 'log_date' => $this->log_date, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_time' 		=> 	$regex_Date, 
+ 					'log_date' 		=> 	$this->log_date, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('time' => $i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+ 		
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -989,30 +1655,77 @@
  	public function graphmonthsummary_dashboard()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
+ 		$splitday 		= 	explode('-', $this->log_date);
  		// check day in month
- 		$lastday = cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
- 		for ($i = 1; $i <= $lastday; $i++) {
- 			if (strlen($i) == 1) {
+ 		$lastday 		= 	cal_days_in_month(CAL_GREGORIAN,$splitday[1],$splitday[0]);
+ 		for ($i = 1; $i <= $lastday; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Debug');
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Error');
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-0'.$i, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-0'.$i, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else 
+ 			{
  				// build query data
- 				$querydata_debug = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Debug');
- 				$querydata_error = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Error');
- 				$querydata_notice = array('log_date' => $splitday[0].'-'.$splitday[1].'-'.$i, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$splitday[0].'-'.$splitday[1].'-'.$i, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('date' => $splitday[0].'-'.$splitday[1].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+ 			'lastday'	=>	$lastday,
+ 			'data'		=>	array(
+ 				array(
+ 					'name'	=>	'Error',
+ 					'data'	=>	$error_data
+ 					),
+ 				array(
+ 					'name'	=>	'Info',
+ 					'data'	=>	$notice_data
+ 					),
+ 				array(
+ 					'name'	=>	'Debug',
+ 					'data'	=>	$debug_data
+ 					)
+ 				)
+ 			);
  		return $return;	
  	}
 
@@ -1024,32 +1737,78 @@
  	public function graphyearsummary_dashboard()
  	{
  		// announce return variable
- 		$return = array();
+ 		$return 		= 	array();
+ 		$error_data		=	array();
+ 		$notice_data	=	array();
+ 		$debug_data		= 	array();
  		// select logger collection 
- 		$logger_data = $this->mongo_db->db->logger;
+ 		$logger_data 	= 	$this->mongo_db->db->logger;
  		// preparing query data
- 		$splitday = explode('-', $this->log_date);
- 		for ($i = 1; $i <= 12; $i++) {
- 			if (strlen($i) == 1) {
+ 		$splitday 		= 	explode('-', $this->log_date);
+ 		for ($i = 1; $i <= 12; $i++) 
+ 		{
+ 			if (strlen($i) == 1) 
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^'.$splitday[0].'-0'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug');
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error');
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-0'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
- 			} else {
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
+ 			} 
+ 			else
+ 			{
  				// use mongoRegex (while like in sql)
- 				$regex_Date = new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
+ 				$regex_Date 		= 	new MongoRegex('/^'.$splitday[0].'-'.$i.'/');
  				// build query data
- 				$querydata_debug = array('log_date' => $regex_Date, 'log_type' => 'Debug');
- 				$querydata_error = array('log_date' => $regex_Date, 'log_type' => 'Error');
- 				$querydata_notice = array('log_date' => $regex_Date, 'log_type' => 'Notice');
+ 				$querydata_debug 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Debug'
+ 					);
+ 				$querydata_error 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Error'
+ 					);
+ 				$querydata_notice 	= 	array(
+ 					'log_date' 		=> 	$regex_Date, 
+ 					'log_type' 		=> 	'Info'
+ 					);
  				// count and insert data to array
- 				$return[] = array('month' => $splitday[0].'-'.$i, "debug" => $logger_data->count($querydata_debug), "error" => $logger_data->count($querydata_error), "notice" => $logger_data->count($querydata_notice));
+ 				array_push($error_data, $logger_data->count($querydata_error));
+ 				array_push($notice_data, $logger_data->count($querydata_notice));
+ 				array_push($debug_data, $logger_data->count($querydata_debug));
  			}
  		}
+
+ 		$return	= array(
+
+ 			array(
+ 				'name'	=>	'Error',
+ 				'data'	=>	$error_data
+ 				),
+ 			array(
+ 				'name'	=>	'Info',
+ 				'data'	=>	$notice_data
+ 				),
+ 			array(
+ 				'name'	=>	'Debug',
+ 				'data'	=>	$debug_data
+ 				)
+ 			);
+
  		return $return;	
  	}
 
@@ -1059,15 +1818,27 @@
 	 * @return	boolean
 	 */
  	public function updateappname() {
- 		try {
+ 		try 
+ 		{
 			// select mongoDB collection
  			$app_collection = $this->mongo_db->db->logger;
 			// preparing data
- 			$prepare_data = array('$set' => array("log_appname" => $this->log_appname));
+ 			$prepare_data 	= array(
+ 				'$set' => array(
+ 					'log_appname' => $this->log_appname
+ 					)
+ 				);
 			// update to database
- 			$app_collection->update(array('log_appid' => $this->log_appid),$prepare_data, array("multiple" => true));
+ 			$app_collection->update(array(
+ 				'log_appid' => $this->log_appid
+ 				),$prepare_data, array(
+ 				'multiple' 	=> true
+ 				)
+ 			);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -1078,15 +1849,27 @@
 	 * @return	boolean
 	 */
  	public function updatefuncname() {
- 		try {
+ 		try 
+ 		{
 			// select mongoDB collection
- 			$func_collection = $this->mongo_db->db->logger;
+ 			$func_collection 	= 	$this->mongo_db->db->logger;
 			// preparing data
- 			$prepare_data = array('$set' => array("log_funcname" => $this->log_funcname));
+ 			$prepare_data 		= 	array(
+ 				'$set' => array(
+ 					'log_funcname' => $this->log_funcname
+ 					)
+ 				);
 			// update to database
- 			$func_collection->update(array('log_funcid' => $this->log_funcid),$prepare_data, array("multiple" => true));
+ 			$func_collection->update(array(
+ 				'log_funcid'=> $this->log_funcid
+ 				),$prepare_data, array(
+ 				'multiple' 	=> true
+ 				)
+ 			);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -1097,15 +1880,20 @@
 	 * @return	boolean
 	 */
  	public function dellogbyapp() {
- 		try {
+ 		try 
+ 		{
  			// select mongoDB collection
- 			$app_collection = $this->mongo_db->db->logger;
+ 			$app_collection 	= 	$this->mongo_db->db->logger;
 			// preparing data
- 			$prepare_data = array("log_appid" => $this->log_appid);
+ 			$prepare_data 		= 	array(
+ 				'log_appid' => $this->log_appid
+ 				);
 			// delete to database
  			$app_collection->remove($prepare_data);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}
@@ -1116,15 +1904,20 @@
 	 * @return	boolean
 	 */
  	public function dellogbyfunc() {
- 		try {
+ 		try 
+ 		{
  			// select mongoDB collection
- 			$func_collection = $this->mongo_db->db->logger;
+ 			$func_collection 	= 	$this->mongo_db->db->logger;
 			// preparing data
- 			$prepare_data = array("log_funcid" => $this->log_funcid);
+ 			$prepare_data 		= 	array(
+ 				'log_funcid' => $this->log_funcid
+ 				);
 			// delete to database
  			$func_collection->remove($prepare_data);
  			return true;
- 		} catch (Exception $e) {
+ 		} 
+ 		catch (Exception $e) 
+ 		{
  			return false;
  		}
  	}

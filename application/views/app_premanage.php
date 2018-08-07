@@ -3,12 +3,12 @@
 <aside class="right-side">
     <section class="content-header">
         <h1>
-            Application Management
+            <?php echo $this->lang->line("app_prema_app_management"); ?>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application</li>
-            <li class="active">Manage</li>
+            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li><?php echo $this->lang->line("application"); ?></li>
+            <li class="active"><?php echo $this->lang->line("manage"); ?></li>
         </ol>
     </section>
 
@@ -21,12 +21,12 @@
                 <div class="box-header">
                     <!-- tools box -->
                     <div class="pull-right box-tools">
-                        <button class="btn btn-primary" id="addnewapp" data-target="#showappdata" data-toggle="modal"><i class="fa fa-plus"></i> Add new application</button>
+                        <button class="btn btn-primary" id="addnewapp" data-target="#showappdata" data-toggle="modal"><i class="fa fa-plus"></i> <?php echo $this->lang->line("app_prema_add_new_app"); ?></button>
                     </div><!-- /. tools -->
 
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Application
+                        <?php echo $this->lang->line("application"); ?>
                     </h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -39,9 +39,9 @@
                       <table class="table table-hover" id="table_applist">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="70%">Application</th>
-                                <th width="20%">Action</th>
+                                <th width="10%"><?php echo $this->lang->line("app_prema_id"); ?></th>
+                                <th width="70%"><?php echo $this->lang->line("application"); ?></th>
+                                <th width="20%"><?php echo $this->lang->line("app_prema_action"); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,48 +55,50 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light-blue">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title"><i class="fa fa-cube"></i> Application Manage</h4>
+                            <h4 class="modal-title"><i class="fa fa-cube"></i> <?php echo $this->lang->line("app_prema_app_manage"); ?></h4>
                         </div>
                         <?php echo form_open("",array("id" => "form_app")); ?>
                         <div class="modal-body">
                             <div id="place-alert-model"></div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Application Name :</span>
-                                    <input name="app_name" id="app_name" type="text" class="form-control" placeholder="Your Application Name">
+                                    <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_name"); ?></span>
+                                    <input name="app_name" id="app_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("app_prema_your_app_name"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Application Token :</span>
-                                    <input name="app_token" id="app_token" type="text" class="form-control" placeholder="Application Token" readonly>
+                                    <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_token"); ?></span>
+                                    <input name="app_token" id="app_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("app_prema_app_token_placeholder"); ?>" readonly>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default" id="btn_gentoken">Generate Token</button>
+                                        <button class="btn btn-default" id="btn_gentoken"><?php echo $this->lang->line("app_prema_gen_token"); ?></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Application Language :</span>
+                                    <span class="input-group-addon"><?php echo $this->lang->line("app_prema_app_lang"); ?></span>
                                     <select class="form-control" id="app_lang" name="app_lang">
                                         <option value="Java">Java</option>
+                                        <option value="Node.js">Node.js</option>
+                                        <option value="C#">C#</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                   <span class="input-group-addon">Agent Controller :</span>
+                                   <span class="input-group-addon"><?php echo $this->lang->line("app_prema_agent_contro"); ?></span>
                                     <select class="form-control" id="app_agent" name="app_agent">
-                                        <option value="enable">Enable</option>
-                                        <option value="disable">Disable</option>
+                                        <option value="enable"><?php echo $this->lang->line("app_prema_enable"); ?></option>
+                                        <option value="disable"><?php echo $this->lang->line("app_prema_disable"); ?></option>
                                     </select>
                               </div>
                           </div>
                       </div>
                       <div class="modal-footer clearfix">
                         <input type="hidden" id="app_idedit" value="">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                        <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> <?php echo $this->lang->line("app_prema_cancel"); ?></button>
+                        <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> <?php echo $this->lang->line("app_prema_save"); ?></button>
                     </div>
                     <?php form_close(); ?>
                 </div><!-- /.modal-content -->
@@ -130,7 +132,7 @@
         })
     }
     function deleteApp(_id) {
-        if (confirm("Are your sure to delete this application?")) {
+        if (confirm("<?php echo $this->lang->line("app_prema_are_you_sure_del_app"); ?>")) {
             $.ajax({
                 url: "<?php echo site_url('/applications/delapp'); ?>",
                 type: 'POST',
@@ -208,12 +210,12 @@ $(document).ready(function() {
         event.preventDefault();
         $('#place-alert-model').html('');
         if ($('#app_name').val() == '') {
-            fail_creator_model('Please enter your application name');
+            fail_creator_model('<?php echo $this->lang->line("app_prema_pls_enter_app_name"); ?>');
             $('#app_name').focus();
         } else if ($('#app_token').val() == '') {
-            fail_creator_model('Please generate your application token');
+            fail_creator_model('<?php echo $this->lang->line("app_prema_pls_enter_app_token"); ?>');
         } else if ($('#app_lang').val() == '') {
-            fail_creator_model('Please enter your application language');
+            fail_creator_model('<?php echo $this->lang->line("app_prema_pls_enter_app_lang"); ?>');
         } else {
             if ($('#app_idedit').val() == '') {
                 $.ajax({

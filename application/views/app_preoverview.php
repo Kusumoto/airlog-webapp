@@ -3,12 +3,12 @@
 <aside class="right-side">
     <section class="content-header">
         <h1>
-            Application Overview
+            <?php echo $this->lang->line("app_preover_application_overview"); ?>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application</li>
-            <li class="active">Overview</li>
+            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li><?php echo $this->lang->line("application"); ?></li>
+            <li class="active"><?php echo $this->lang->line("overview"); ?></li>
         </ol>
     </section>
 
@@ -20,7 +20,7 @@
                 <div class="box-header">
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Application
+                        <?php echo $this->lang->line("application"); ?>
                     </h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -33,9 +33,9 @@
                       <table class="table table-hover" id="table_applist">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="70%">Application</th>
-                                <th width="20%">Action</th>
+                                <th width="10%"><?php echo $this->lang->line("app_preover_id"); ?></th>
+                                <th width="70%"><?php echo $this->lang->line("application"); ?></th>
+                                <th width="20%"><?php echo $this->lang->line("app_preover_action"); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,7 +61,7 @@
                     output += '<tr id=app_"' + value._id + '">';
                     output += '<td>' + (index+1) + '</td>';
                     output += '<td>' + value.application_name + '</td>';
-                    output += '<td><a href="<?php echo site_url('/applications/overview/'); ?>/'+ value._id +' " class="btn btn-info" data-toggle="tooltip" title="Overview this application"><i class="fa fa fa-search"></i></a></td>'
+                    output += '<td><a href="<?php echo site_url('/applications/overview/'); ?>/'+ value._id +' " class="btn btn-info" data-toggle="tooltip" title="<?php echo $this->lang->line("app_preover_over_this_app"); ?>"><i class="fa fa fa-search"></i></a></td>'
                     output += '</tr>';
                 });
                 $('.spinner').hide();

@@ -3,12 +3,12 @@
 <aside class="right-side">
     <section class="content-header">
         <h1>
-            Application Function Management
+            <?php echo $this->lang->line("func_prema_app_func_mana"); ?>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Application Function</li>
-            <li class="active">Manage</li>
+            <li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+            <li><?php echo $this->lang->line("func_prema_app_func"); ?></li>
+            <li class="active"><?php echo $this->lang->line("manage"); ?></li>
         </ol>
     </section>
 
@@ -21,12 +21,12 @@
                 <div class="box-header">
                     <!-- tools box -->
                     <div class="pull-right box-tools">
-                        <button class="btn btn-primary" id="addnewapp" data-target="#showfuncdata" data-toggle="modal"><i class="fa fa-plus"></i> Add new function</button>
+                        <button class="btn btn-primary" id="addnewapp" data-target="#showfuncdata" data-toggle="modal"><i class="fa fa-plus"></i> <?php echo $this->lang->line("func_prema_add_new_func"); ?></button>
                     </div><!-- /. tools -->
 
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">
-                        Application Function
+                        <?php echo $this->lang->line("func_prema_app_func"); ?>
                     </h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
@@ -39,10 +39,10 @@
                       <table class="table table-hover" id="table_funclist">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="30%">Application</th>
-                                <th width="30%">Function</th>
-                                <th width="20%">Action</th>
+                                <th width="10%"><?php echo $this->lang->line("func_prema_id"); ?></th>
+                                <th width="30%"><?php echo $this->lang->line("application"); ?></th>
+                                <th width="30%"><?php echo $this->lang->line("func_prema_func"); ?></th>
+                                <th width="20%"><?php echo $this->lang->line("func_prema_action"); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,28 +56,28 @@
                     <div class="modal-content">
                         <div class="modal-header bg-light-blue">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title"><i class="fa fa-cube"></i> Function Manage</h4>
+                            <h4 class="modal-title"><i class="fa fa-cube"></i> <?php echo $this->lang->line("func_prema_func_manage"); ?></h4>
                         </div>
                         <?php echo form_open("",array("id" => "form_func")); ?>
                         <div class="modal-body">
                             <div id="place-alert-model"></div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Function Name :</span>
-                                    <input name="func_name" id="func_name" type="text" class="form-control" placeholder="Your Function Name">
+                                    <span class="input-group-addon"><?php echo $this->lang->line("func_prema_func_name"); ?></span>
+                                    <input name="func_name" id="func_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("func_prema_your_func_name"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Function Token :</span>
-                                        <input name="func_token" id="func_token" type="text" class="form-control" placeholder="Function Token">
+                                    <span class="input-group-addon"><?php echo $this->lang->line("func_prema_func_token"); ?></span>
+                                        <input name="func_token" id="func_token" type="text" class="form-control" placeholder="<?php echo $this->lang->line("func_prema_your_func_token"); ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Application :</span>
+                                    <span class="input-group-addon"><?php echo $this->lang->line("func_prema_app"); ?></span>
                                     <select class="form-control" id="func_appid" name="func_appid">
-                                    <option value="">----- Select -----</option>
+                                    <option value=""><?php echo $this->lang->line("func_prema_select"); ?></option>
                                     <?php foreach ($app_list as $app_list) {
                                         echo "<option value=\"".$app_list['_id']."\">".$app_list['application_name']."</option>";
                                     } ?>
@@ -86,19 +86,19 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                   <span class="input-group-addon">Primary Function :</span>
+                                   <span class="input-group-addon"><?php echo $this->lang->line("func_prema_pri_func"); ?></span>
                                     <select class="form-control" id="func_primary" name="func_primary">
-                                        <option value="">--- Select ---</option>
-                                        <option value="true">Yes</option>
-                                        <option value="false">No</option>
+                                        <option value=""><?php echo $this->lang->line("func_prema_select"); ?></option>
+                                        <option value="true"><?php echo $this->lang->line("func_prema_yes"); ?></option>
+                                        <option value="false"><?php echo $this->lang->line("func_prema_no"); ?></option>
                                     </select>
                               </div>
                           </div>
                       </div>
                       <div class="modal-footer clearfix">
                         <input type="hidden" id="func_idedit" value="">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                        <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> <?php echo $this->lang->line("func_prema_cancel"); ?></button>
+                        <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> <?php echo $this->lang->line("func_prema_save"); ?></button>
                     </div>
                     <?php form_close(); ?>
                 </div><!-- /.modal-content -->

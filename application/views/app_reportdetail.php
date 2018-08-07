@@ -3,12 +3,12 @@
 <aside class="right-side">
 	<section class="content-header">
 		<h1>
-			Application Log Report
+			<?php echo $this->lang->line("app_report_app_log_report"); ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li>Application</li>
-			<li class="active">Log Report</li>
+			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
+			<li><?php echo $this->lang->line("application"); ?></li>
+			<li class="active"><?php echo $this->lang->line("app_report_log_report"); ?></li>
 		</ol>
 	</section>
 	<!-- Main content -->
@@ -20,28 +20,28 @@
 					<div class="box-header">
 						<i class="fa fa fa-cog"></i>
 						<h3 class="box-title">
-							Report Setting
+							<?php echo $this->lang->line("app_report_report_setting"); ?>
 						</h3>
 					</div>
-					<?php echo form_open("",array("id" => "form_reportapp")); ?>
+					<?php echo form_open("/pdf/appreport",array("id" => "form_reportapp", "target" => "_BLANK")); ?>
 					<div class="box-body">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>Date and time range</label>
+									<label><?php echo $this->lang->line("app_report_date_time_range"); ?></label>
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-clock-o"></i>
 										</div>
-										<input type="text" class="form-control pull-right" id="log_datetimepicker" name="daterange" placeholder="Choose a Date"/>
+										<input type="text" class="form-control pull-right" id="log_datetimepicker" name="daterange" placeholder="<?php echo $this->lang->line("app_report_choose_date"); ?>"/>
 									</div><!-- /.input group -->
 								</div><!-- /.form group -->
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>Application</label>
+									<label><?php echo $this->lang->line("application"); ?></label>
 									<select class="form-control" id="app_selector" name="application_id">
-										<option value="">All applications</option>
+										<option value=""><?php echo $this->lang->line("app_report_all_app"); ?></option>
 										<?php foreach ($application as $application) {
 											echo "<option value=\"" . $application['_id'] . "\">" . $application['application_name'] . "</option>";
 										}
@@ -54,7 +54,7 @@
 							<div class="col-md-5 col-md-offset-4">
 								<div class="form-group">
 									<label class="checkbox-inline">
-										<input type="checkbox" id="chkbox_1" value="Notice" name="typeselect[]" class="flat-green" checked> Notice
+										<input type="checkbox" id="chkbox_1" value="Info" name="typeselect[]" class="flat-green" checked> Info
 									</label>
 									<label class="checkbox-inline">
 										<input type="checkbox" id="chkbox_2" value="Debug" name="typeselect[]" class="flat-green" checked> Debug
@@ -68,10 +68,10 @@
 						<div class="row">
 							<div class="col-md-4 col-md-offset-4">
 								<div class="form-group">
-									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-search"></i> Show</button>
+									<button class="btn btn-primary btn-block" id="btn_show_data"><i class="fa fa-search"></i> <?php echo $this->lang->line("app_report_show"); ?></button>
 								</div>
 								<div class="form-group">
-									<button class="btn btn-primary btn-block" id="btn_show"><i class="fa fa-external-link"></i> Generate Report</button>
+									<a class="btn btn-primary btn-block" id="btn_show_pdf" onclick="generate_pdf()"><i class="fa fa-external-link"></i> <?php echo $this->lang->line("app_report_gen_report"); ?></a>
 								</div>
 							</div>
 						</div>
@@ -86,30 +86,22 @@
 					<div class="box-header">
 						<i class="fa fa-list-alt"></i>
 						<h3 class="box-title">
-							Report Data
+							<?php echo $this->lang->line("app_report_report_data"); ?>
 						</h3>
 					</div>
 					<div class="box-body">
-						<div class="spinner">
-							<div class="bounce1"></div>
-							<div class="bounce2"></div>
-							<div class="bounce3"></div>
-						</div>
 						<div class="table-responsive">
-							<table class="table table-hover" id="log_container">
+							<table class="display" id="log_container">
 								<thead>
 									<tr>
-										<th>Date</th>
-										<th>Time</th>
-										<th>Type</th>
-										<th>Application</th>
-										<th>Function</th>
-										<th>Message</th>
+										<th><?php echo $this->lang->line("app_report_date"); ?></th>
+										<th><?php echo $this->lang->line("app_report_time"); ?></th>
+										<th><?php echo $this->lang->line("app_report_type"); ?></th>
+										<th><?php echo $this->lang->line("application"); ?></th>
+										<th><?php echo $this->lang->line("app_report_func"); ?></th>
+										<th><?php echo $this->lang->line("app_report_message"); ?></th>
 									</tr>
 								</thead>
-								<tbody>
-
-								</tbody>
 							</table>
 						</div>
 					</div>
@@ -119,26 +111,47 @@
 	</section>
 </aside>
 <script type="text/javascript">
+	var table;
+	$.fn.serializeObject = function()
+	{
+   		var o = {};
+   		var a = this.serializeArray();
+   		$.each(a, function() {
+       		if (o[this.name]) {
+           		if (!o[this.name].push) {
+               		o[this.name] = [o[this.name]];
+           		}
+           		o[this.name].push(this.value || '');
+       		} else {
+           		o[this.name] = this.value || '';
+       		}
+   		});
+   		return o;
+	};
 	function showLogList() {
-		$('#log_container tbody tr').remove();
-		$('.spinner').show();
-		setTimeout(function(){
-			$.getJSON("<?php echo site_url('/applications/getlog') ?>", function(data) {
-				var output = '';
-				$.each(data, function(index, value){      
-					output += '<tr id=log_"' + value._id + '">';
-					output += '<td>' + value.log_date + '</td>';
-					output += '<td>' + value.log_time + '</td>';
-					output += '<td>' + value.log_type + '</td>';
-					output += '<td>' + value.log_appname + '</td>';
-					output += '<td>' + value.log_funcname + '</td>';
-					output += '<td>' + value.log_data + '</td>';
-					output += '</tr>';
-				});
-				$('.spinner').hide();
-				$('#table_applist').append(output);
+			table =	$('#log_container').DataTable({
+				"ajax": {
+					"dataType": 'json',
+					"type": "POST",
+					"url":"<?php echo site_url('/applications/getlog') ?>",
+				},
+				"columns": [
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+
+				]
 			});
-		}, 1000);
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
+	}
+	function generate_pdf() {
+		$('#form_reportapp').action = "<?php echo site_url('/pdf/appreport') ?>";
+		$('#form_reportapp').target = "_BLANK";
+		$('#form_reportapp').submit();
 	}
 	$(document).ready(function() {
 		success_creator = function(message) {
@@ -155,37 +168,29 @@
 		});
 		//Date range picker with time picker
 		$('#log_datetimepicker').daterangepicker({timePicker: true, timePickerIncrement: 1, format: 'YYYY/MM/DD H:mm'})
-		$('#form_reportapp').submit(function(event) {
+		$('#btn_show_data').click(function(event) {
 			$('#place-alert').html('');
 			event.preventDefault();
-			$('.spinner').show();
-			$.ajax({
-				url: "<?php echo site_url('/applications/getlog') ?>",
-				type: 'POST',
-				dataType: 'json',
-				data: $('#form_reportapp').serialize(),
-			})
-			.done(function(data) {
-				$('#log_container tbody tr').remove();
-				setTimeout(function(){
-					var output = '';
-					$.each(data, function(index, value){      
-						output += '<tr id=log_"' + value._id + '">';
-						output += '<td>' + value.log_date + '</td>';
-						output += '<td>' + value.log_time + '</td>';
-						output += '<td>' + value.log_type + '</td>';
-						output += '<td>' + value.log_appname + '</td>';
-						output += '<td>' + value.log_funcname + '</td>';
-						output += '<td>' + value.log_data + '</td>';
-						output += '</tr>';
-					});
-					$('.spinner').hide();
-					$('#log_container').append(output);
-				}, 1000);
-			})
-			.fail(function() {
-				fail_creator('Internal Server Error!')
-			})
+			table.destroy();
+			table = $('#log_container').DataTable({
+				"ajax": {
+					"dataType": 'json',
+					"type": "POST",
+					"url":"<?php echo site_url('/applications/getlog') ?>",
+					"data" :  $('#form_reportapp').serializeObject() ,
+				},
+				"columns": [
+				{ "data": "log_date" },
+				{ "data": "log_time" },
+				{ "data": "log_type" },
+				{ "data": "log_appname" },
+				{ "data": "log_funcname" },
+				{ "data": "log_data" }
+
+				]
+			});
+			$('#log_container').removeClass( 'display' )
+			$('#log_container').addClass('table table-striped table-bordered');
 		});
 	});
 </script>

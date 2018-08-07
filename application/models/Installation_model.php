@@ -83,7 +83,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setUsername($username) {
+	public function setUsername($username) 
+	{
 		$this->username = $username;
 	}
 
@@ -93,7 +94,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setPassword($password) {
+	public function setPassword($password) 
+	{
 		$this->password = $password;
 	}
 
@@ -103,7 +105,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setEmail($email) {
+	public function setEmail($email) 
+	{
 		$this->email = $email;
 	}
 
@@ -113,7 +116,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setFirstname($firstname) {
+	public function setFirstname($firstname) 
+	{
 		$this->firstname = $firstname;
 	}
 
@@ -123,7 +127,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setLastname($lastname) {
+	public function setLastname($lastname) 
+	{
 		$this->lastname = $lastname;
 	}
 
@@ -133,7 +138,8 @@ class Installation_model extends CI_Model {
 	 * @param 	string
 	 * @return	void
 	 */
-	public function setApiUrl($apiurl) {
+	public function setApiUrl($apiurl) 
+	{
 		$this->apiurl = $apiurl;
 	}
 
@@ -142,7 +148,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getUsername() {
+	public function getUsername() 
+	{
 		return $this->username;
 	}
 
@@ -151,7 +158,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getPassword() {
+	public function getPassword() 
+	{
 		return $this->password;
 	}
 
@@ -160,7 +168,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getFirstname() {
+	public function getFirstname() 
+	{
 		return $this->firstname;
 	}
 
@@ -169,7 +178,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getLastname() {
+	public function getLastname() 
+	{
 		return $this->lastname;
 	}
 
@@ -178,7 +188,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getEmail() {
+	public function getEmail() 
+	{
 		return $this->email;
 	}
 
@@ -187,7 +198,8 @@ class Installation_model extends CI_Model {
 	 *
 	 * @return	string
 	 */
-	public function getApiUrl() {
+	public function getApiUrl() 
+	{
 		return $this->$this->apiurl;
 	}
 
@@ -198,7 +210,8 @@ class Installation_model extends CI_Model {
 	 */
 	public function createNewCollection()
 	{
-		try {
+		try 
+		{
 			$this->mongo_db->db->createCollection('users');
 			$this->mongo_db->db->createCollection('logger');
 			$this->mongo_db->db->createCollection('used');
@@ -206,8 +219,11 @@ class Installation_model extends CI_Model {
 			$this->mongo_db->db->createCollection('func');
 			$this->mongo_db->db->createCollection('setting');
 			$this->mongo_db->db->createCollection('api');
+			$this->mongo_db->db->createCollection('langs');
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -219,7 +235,8 @@ class Installation_model extends CI_Model {
 	 */
 	public function removeCollection()
 	{
-		try {
+		try 
+		{
 			$this->mongo_db->db->users->drop();
 			$this->mongo_db->db->logger->drop();
 			$this->mongo_db->db->used->drop();
@@ -227,8 +244,11 @@ class Installation_model extends CI_Model {
 			$this->mongo_db->db->func->drop();
 			$this->mongo_db->db->setting->drop();
 			$this->mongo_db->db->api->drop();
+			$this->mongo_db->db->langs->drop();
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
 		}
 	}
@@ -240,19 +260,23 @@ class Installation_model extends CI_Model {
 	 */
 	public function createDefaultUser()
 	{
-		try {
+		try 
+		{
 			$user = $this->mongo_db->db->selectCollection('users');
 			$user->insert(array(
-				'username' => $this->username,
-				'password' => $this->password,
+				'username' 	=> $this->username,
+				'password' 	=> $this->password,
 				'firstname' => $this->firstname,
-				'lastname' => $this->lastname,
-				'email' => $this->email,
-				));
+				'lastname' 	=> $this->lastname,
+				'email'		=> $this->email,
+				'language'  => 'english'
+				)
+			);
 			return true;
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) 
+		{
 			return false;
-			
 		}
 	}
 
@@ -266,9 +290,10 @@ class Installation_model extends CI_Model {
 		try {
 			$user = $this->mongo_db->db->selectCollection('setting');
 			$user->insert(array(
-				'variable' => 'apiurl',
-				'value' => $this->apiurl,
-				));
+				'variable' 	=> 'apiurl',
+				'value' 	=> $this->apiurl,
+				)
+			);
 			return true;
 		} catch (Exception $e) {
 			return false;

@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 1.0
+          <b>Version</b> 2.0.1
         </div>
-        <strong>Copyright &copy; 2015 SAMF Dev Team.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2016 AirLog Dev Team.</strong> All rights reserved.
       </footer>
 
     </div><!-- ./wrapper -->

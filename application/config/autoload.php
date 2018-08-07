@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 */
 
 $autoload['helper'] = array();
-
+// The multilange helper is helper for multi language
 
 /*
 | -------------------------------------------------------------------

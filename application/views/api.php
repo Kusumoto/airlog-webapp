@@ -3,12 +3,12 @@
 <aside class="right-side">
 	<section class="content-header">
 		<h1>
-			API Management
+			<?php echo $this->lang->line("api_api_management"); ?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="<?php echo site_url('/dashboard'); ?>"><i class="fa fa-dashboard"></i> <?php echo $this->lang->line("home"); ?></a></li>
 			<li>API</li>
-			<li class="active">Management</li>
+			<li class="active"><?php echo $this->lang->line("api_manage"); ?></li>
 		</ol>
 	</section>
 	<!-- Main content -->
@@ -20,12 +20,12 @@
         <div class="box-header">
           <!-- tools box -->
           <div class="pull-right box-tools">
-            <button class="btn btn-primary" id="addnewapi" data-target="#showapidata" data-toggle="modal"><i class="fa fa-plus"></i> Add new API Key</button>
+            <button class="btn btn-primary" id="addnewapi" data-target="#showapidata" data-toggle="modal"><i class="fa fa-plus"></i> <?php echo $this->lang->line("api_add_new_api_key"); ?></button>
           </div><!-- /. tools -->
 
           <i class="ion ion-code"></i>
           <h3 class="box-title">
-            API key for 3rd party application
+            <?php echo $this->lang->line("api_api_key_for_3rd"); ?>
           </h3>
         </div>
         <div class="box-body table-responsive no-padding">
@@ -38,9 +38,9 @@
             <table class="table table-hover" id="table_apilist">
               <thead>
                 <tr>
-                  <th width="10%">ID</th>
-                  <th width="70%">Application Name (API Key Name)</th>
-                  <th width="20%">Action</th>
+                  <th width="10%"><?php echo $this->lang->line("api_id"); ?></th>
+                  <th width="70%"><?php echo $this->lang->line("api_app_name"); ?></th>
+                  <th width="20%"><?php echo $this->lang->line("api_action"); ?></th>
                 </tr>
               </thead>
               <tbody>
@@ -54,40 +54,40 @@
             <div class="modal-content">
               <div class="modal-header bg-light-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><i class="fa fa-cube"></i> API Manage</h4>
+                <h4 class="modal-title"><i class="fa fa-cube"></i> <?php echo $this->lang->line("api_api_manage"); ?></h4>
               </div>
               <?php echo form_open("",array("id" => "form_api")); ?>
               <div class="modal-body">
                 <div id="place-alert-model"></div>
                 <div class="form-group">
                   <div class="input-group">
-                    <span class="input-group-addon">Application Name :</span>
-                    <input name="api_name" id="api_name" type="text" class="form-control" placeholder="Your Application Name">
+                    <span class="input-group-addon"><?php echo $this->lang->line("api_app_name"); ?></span>
+                    <input name="api_name" id="api_name" type="text" class="form-control" placeholder="<?php echo $this->lang->line("api_yr_app_name"); ?>">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <span class="input-group-addon">API Key Token :</span>
+                    <span class="input-group-addon"><?php echo $this->lang->line("api_api_key_token"); ?></span>
                     <input name="api_key" id="api_key" type="text" class="form-control" placeholder="API Key Token" readonly>
                     <div class="input-group-btn">
-                      <button class="btn btn-default" id="btn_gentoken">Generate Token</button>
+                      <button class="btn btn-default" id="btn_gentoken"><?php echo $this->lang->line("api_gen_token"); ?></button>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                   <span class="input-group-addon">API Enable :</span>
+                   <span class="input-group-addon"><?php echo $this->lang->line("api_api_enable"); ?></span>
                    <select class="form-control" id="api_isenable" name="api_isenable">
-                    <option value="true">Enable</option>
-                    <option value="false">Disable</option>
+                    <option value="true"><?php echo $this->lang->line("api_enable"); ?></option>
+                    <option value="false"><?php echo $this->lang->line("api_disable"); ?></option>
                   </select>
                 </div>
               </div>
             </div>
             <div class="modal-footer clearfix">
               <input type="hidden" id="_id" value="">
-              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-              <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> Save</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> <?php echo $this->lang->line("api_cancel"); ?></button>
+              <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-save"></i> <?php echo $this->lang->line("api_save"); ?></button>
             </div>
             <?php form_close(); ?>
           </div><!-- /.modal-content -->
@@ -119,7 +119,7 @@
     })
   }
   function deleteAPI(_id) {
-    if (confirm("Are your sure to delete this application?")) {
+    if (confirm("<?php echo $this->lang->line("api_confirm_del_app"); ?>")) {
       $.ajax({
         url: "<?php echo site_url('/api/delete'); ?>",
         type: 'POST',
@@ -196,10 +196,10 @@
       event.preventDefault();
       $('#place-alert-model').html('');
       if ($('#api_name').val() == '') {
-        fail_creator_model('Please enter your application name');
+        fail_creator_model('<?php echo $this->lang->line("api_pls_enter_app_name"); ?>');
         $('#api_name').focus();
       } else if ($('#api_key').val() == '') {
-        fail_creator_model('Please generate your API key');
+        fail_creator_model('<?php echo $this->lang->line("api_pls_gen_your_api"); ?>');
       } else if ($('#api_isenable').val() == '') {
         fail_creator_model('Service not available.');
       } else {

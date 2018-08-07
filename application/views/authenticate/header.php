@@ -8,16 +8,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SAMF - Login</title>
+  <title>Airlog - Login</title>
   <style type="text/css">
   	body {
-  		background-image: url('<?php echo base_url(); ?>assets/img/restaurant.png');
+      background: url('<?php echo base_url(); ?>assets/img/airlog_bg2.png') no-repeat center center fixed; 		
   	}
   </style>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/control_login.css">
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+  <!-- google font -->
+  <link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
